@@ -1,2 +1,0 @@
-# Great-inventor-CuiYao
-ok
