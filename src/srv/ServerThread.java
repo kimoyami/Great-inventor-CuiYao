@@ -5,6 +5,8 @@ Arthor: kimoyami
 
 package srv;
 
+import dao.DataBase;
+
 import java.io.*;
 import java.net.Socket;
 import java.util.HashMap;
@@ -30,7 +32,7 @@ public class ServerThread extends Thread{
             Scanner scanner = new Scanner(System.in);
 
 
-
+            DataBase.start();
             while(true){
                 line = "登陆/注册（0/1）";
                 cout.writeUTF(line);
@@ -43,7 +45,7 @@ public class ServerThread extends Thread{
                     cout.flush();
                     line = cin.readUTF();
                     String password = cin.readUTF();
-                    if(mp.containsKey(line) && mp.get(line).equals(password)) {
+                    if(DataBase.query(line, password)) {
                         cout.writeUTF("YES");
                         cout.flush();
                     }
@@ -58,7 +60,7 @@ public class ServerThread extends Thread{
                     cout.flush();
                     line = cin.readUTF();
                     String password = cin.readUTF();
-                    if(mp.containsKey(line)){
+                    if(!DataBase.insert(line, password)){
                         cout.writeUTF("exist");
                         cout.flush();
                     }
