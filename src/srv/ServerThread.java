@@ -33,7 +33,7 @@ public class ServerThread extends Thread{
 
 
             DataBase.start();
-            while(true){
+            /*while(true){
                 line = "登陆/注册（0/1）";
                 cout.writeUTF(line);
                 cout.flush();
@@ -70,7 +70,7 @@ public class ServerThread extends Thread{
                         mp.put(line, password);
                     }
                 }
-            }
+            }*/
             cin.close();
             cout.close();
             scanner.close();
