@@ -1,12 +1,14 @@
 package srv;
 
+import java.io.Serializable;
+
 /*
 账户余额balance
 密码password
 转账对象transferTo
 转账金额transferAmount
 转账时间transferTime
-银行个人信息类BankInfo(String, double, int, String, double, long)
+银行个人信息类BankInfo(String, double, int, double, long)
  */
 public class BankInfo {
     private String ID;
