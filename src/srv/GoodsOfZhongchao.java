@@ -2,6 +2,10 @@ package srv;
 
 import java.io.Serializable;
 
+/*
+* 中超信息
+* */
+
 public class GoodsOfZhongchao implements Serializable {
     private static final long serialVersionUID= 5006441955722175923L;
     private String ID;

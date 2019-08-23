@@ -5,6 +5,7 @@ import java.util.Date;
 
 public class StudentInfo implements Serializable {
     /**
+    * 学生信息
     * academy学院
     * dormitory宿舍
     * */

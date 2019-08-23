@@ -3,6 +3,10 @@ package srv;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * 一卡通交♂易记录
+ */
+
 public class EcardRecord implements Serializable {
     private static final long serialVersionUID= 4235216323116948706L;
     private Date date;
