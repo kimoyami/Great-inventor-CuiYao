@@ -3,7 +3,7 @@ package srv;
 import java.io.Serializable;
 import java.util.Date;
 
-public class StudentInfo implements Serializable {
+public class Person implements Serializable {
     /**
     * 学生信息
     * academy学院
@@ -20,8 +20,9 @@ public class StudentInfo implements Serializable {
     private String dormitory;
     private String EcardNumber;
     private String password;
+    private int state;
 
-    StudentInfo(){
+    Person(){
         setName(null);
         setID(null);
         setAge(0);
@@ -30,6 +31,7 @@ public class StudentInfo implements Serializable {
         setBirthplace(null);
         setAcademy(null);
         setDormitory(null);
+        setState(0);
     }
 
 
@@ -56,6 +58,7 @@ public class StudentInfo implements Serializable {
     }
     public String getEcardNumber(){return this.EcardNumber;}
     public String getPassword(){return this.password;}
+    public int getState(){return this.state;}
 
     public void setName(String name) {
         this.name = name;
@@ -83,5 +86,6 @@ public class StudentInfo implements Serializable {
     }
     public void setEcardNumber(String EcardNumber){this.EcardNumber=EcardNumber;}
     public void setPassword(String password){this.password=password;}
+    public void setState(int state){this.state=state;}
 }
 

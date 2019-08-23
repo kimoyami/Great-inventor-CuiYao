@@ -1,25 +1,22 @@
 package srv;
 
-import java.io.Serializable;
-
-/*
-* 中超信息
-* */
-
-public class GoodsOfZhongchao implements Serializable {
+public class Goods {
     private static final long serialVersionUID= 5006441955722175923L;
     private String ID;
     private int number;
-    private double price;
+    private double priceInZhongchao;
+    private double priceInTianPing;
+
     private String name;
     private String picturePath;
 
-    public GoodsOfZhongchao() {
+    public Goods() {
         setID(null);
         setName(null);
         setNumber(1);
         setPicturePath(null);
-        setPrice(0);
+        setPriceInTianPing(0);
+        setPriceInZhongchao(0);
     }
 
     public String getID() {
@@ -28,9 +25,8 @@ public class GoodsOfZhongchao implements Serializable {
     public int getNumber() {
         return this.number;
     }
-    public double getPrice() {
-        return this.price;
-    }
+    public double getPriceInZhongchao() { return this.priceInZhongchao; }
+    public double getPriceInTianPing() { return this.priceInTianPing; }
     public String getName() {
         return this.name;
     }
@@ -44,8 +40,11 @@ public class GoodsOfZhongchao implements Serializable {
     public void setNumber(int number) {
         this.number = number;
     }
-    public void setPrice(double price) {
-        this.price = price;
+    public void setPriceInZhongchao(double price) {
+        this.priceInZhongchao = price;
+    }
+    public void setPriceInTianPing(double price) {
+        this.priceInTianPing = price;
     }
     public void setName(String name) {
         this.name = name;
@@ -53,5 +52,7 @@ public class GoodsOfZhongchao implements Serializable {
     public void setPicturePath(String picturePath) {
         this.picturePath = picturePath;
     }
-
+    public double ComparePrice(){
+        return  priceInZhongchao-priceInTianPing;
+    }
 }
