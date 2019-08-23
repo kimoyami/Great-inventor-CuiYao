@@ -17,6 +17,7 @@ udpate() 更新信息 -1异常 0不存在 1更新成功 2未通过审核
 package dao;
 
 import java.sql.*;
+import java.util.Properties;
 import java.util.Scanner;
 
 public class DataBase {
@@ -28,7 +29,11 @@ public class DataBase {
     public static void start(){
         try{
             Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
-            c = DriverManager.getConnection(dbUrl, user, password);
+            Properties p = new Properties();
+            p.setProperty("charSet", "gb2312");
+            p.setProperty("user", user);
+            p.setProperty("password", password);
+            c = DriverManager.getConnection(dbUrl, p);
             c.setAutoCommit(false);
             s = c.createStatement();
             System.out.println("success");
@@ -49,10 +54,10 @@ public class DataBase {
 
     public static int query(String eCardNumber, String password){
         try {
-            String sql = "select password from upsolved where username like '"+eCardNumber+"'";
+            String sql = "select password from upsolved where ecardnumber like '"+eCardNumber+"'";
             ResultSet rs = s.executeQuery(sql);
             if(rs.next()) return 2;
-            sql = "select password from login where username like '"+eCardNumber+"'";
+            sql = "select password from login where ecardnumber like '"+eCardNumber+"'";
             rs = s.executeQuery(sql);
             if(!rs.next()) return 3;
             if(password.equals(rs.getString(1))) return 1;
@@ -82,6 +87,7 @@ public class DataBase {
         try{
             s.executeUpdate("insert into upsolved(username, password, ecardnumber, sex, age, status) values ('"+userName+"', '"+password+"', '"+eCardNumber+"', '"+sex+"', "+age+", '"+status+"')");
             c.commit();
+
             return 0;
         }catch (SQLException e){
             return -2;
