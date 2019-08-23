@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="fb981f92-03a7-4053-af6b-180ebdcd1d05" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/dao/DataBase.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/dao/DataBase.class" afterDir="false" />
@@ -14,12 +15,17 @@
       <change beforePath="$PROJECT_DIR$/src/srv/ServerThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/srv/ServerThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/JFrameDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/JFrameDemo.java" afterDir="false" />
     </list>
+=======
+    <list default="true" id="a7aea9ab-5bba-4324-b884-616001392386" name="Default Changelist" comment="" />
+    <ignored path="$PROJECT_DIR$/out/" />
+>>>>>>> ee7b8a4ea8cf9643ac1edd35dba7405a2e8a0e67
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+<<<<<<< HEAD
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
     <option name="GROUP_DATA_SOURCES" value="true" />
@@ -124,12 +130,18 @@
       </list>
     </option>
   </component>
+=======
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+>>>>>>> ee7b8a4ea8cf9643ac1edd35dba7405a2e8a0e67
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="85" />
     <option name="y" value="25" />
     <option name="width" value="1750" />
     <option name="height" value="980" />
   </component>
+<<<<<<< HEAD
   <component name="ProjectId" id="1PjgNp3gCFZ8xDNhiZrckZtdrQe" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -177,10 +189,13 @@
       <pane id="PackagesPane" />
     </panes>
   </component>
+=======
+>>>>>>> ee7b8a4ea8cf9643ac1edd35dba7405a2e8a0e67
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+<<<<<<< HEAD
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -188,6 +203,8 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="File.Encoding" />
+=======
+>>>>>>> ee7b8a4ea8cf9643ac1edd35dba7405a2e8a0e67
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -201,6 +218,7 @@
       </list>
     </option>
   </component>
+<<<<<<< HEAD
   <component name="RunManager" selected="Application.Client">
     <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="srv.Client" />
@@ -263,15 +281,18 @@
       </list>
     </recent_temporary>
   </component>
+=======
+>>>>>>> ee7b8a4ea8cf9643ac1edd35dba7405a2e8a0e67
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="fb981f92-03a7-4053-af6b-180ebdcd1d05" name="Default Changelist" comment="" />
-      <created>1566346374329</created>
+      <changelist id="a7aea9ab-5bba-4324-b884-616001392386" name="Default Changelist" comment="" />
+      <created>1566519608091</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
+<<<<<<< HEAD
       <updated>1566346374329</updated>
       <workItem from="1566346378650" duration="572000" />
       <workItem from="1566347321744" duration="9865000" />
@@ -282,10 +303,15 @@
       <workItem from="1566458761636" duration="5614000" />
       <workItem from="1566472525103" duration="1240000" />
       <workItem from="1566518703065" duration="10744000" />
+=======
+      <updated>1566519608091</updated>
+      <workItem from="1566519613654" duration="615000" />
+>>>>>>> ee7b8a4ea8cf9643ac1edd35dba7405a2e8a0e67
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="22293000" />
   </component>
   <component name="ToolWindowManager">
@@ -293,39 +319,60 @@
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26107383" />
+=======
+    <option name="totallyTimeSpent" value="615000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <layout>
+      <window_info id="Image Layers" />
+      <window_info id="Designer" />
+      <window_info id="UI Designer" />
+      <window_info id="Capture Tool" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.25" />
+>>>>>>> ee7b8a4ea8cf9643ac1edd35dba7405a2e8a0e67
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
+<<<<<<< HEAD
       <window_info anchor="bottom" id="Run" order="2" weight="0.32719547" />
+=======
+      <window_info anchor="bottom" id="Run" order="2" />
+>>>>>>> ee7b8a4ea8cf9643ac1edd35dba7405a2e8a0e67
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
+<<<<<<< HEAD
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.3286119" />
+=======
+      <window_info anchor="right" id="Palette" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="right" id="Maven" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info anchor="right" id="Database" />
+>>>>>>> ee7b8a4ea8cf9643ac1edd35dba7405a2e8a0e67
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Theme Preview" order="4" />
-      <window_info anchor="right" id="Maven" order="5" />
-      <window_info anchor="right" id="Capture Analysis" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
-      <window_info anchor="right" id="Database" order="8" weight="0.32995737" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+<<<<<<< HEAD
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
@@ -489,4 +536,6 @@
       </state>
     </states>
   </component>
+=======
+>>>>>>> ee7b8a4ea8cf9643ac1edd35dba7405a2e8a0e67
 </project>
