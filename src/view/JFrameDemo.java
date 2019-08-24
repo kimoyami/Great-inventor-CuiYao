@@ -21,6 +21,7 @@ public class JFrameDemo extends JFrame {
     private JPasswordField password = new JPasswordField();
     private JButton okbtn = new JButton("登陆");
     private JButton cancelbtn = new JButton("取消");
+    private  JButton logbtn = new JButton("注册");
 
     public JFrameDemo() {
 
@@ -62,6 +63,7 @@ public class JFrameDemo extends JFrame {
         buttonPanel.setLayout(new FlowLayout());
         buttonPanel.add(okbtn);
         buttonPanel.add(cancelbtn);
+        buttonPanel.add(logbtn);
         c.add(buttonPanel, "South");
 
     }
@@ -77,6 +79,8 @@ public class JFrameDemo extends JFrame {
                 if(Client.query(uname, pwd) == 1) res = "zbynb";
                 else res = "zbysb";
                 JOptionPane.showMessageDialog(null, res, null, JOptionPane.QUESTION_MESSAGE);
+                //如果账号密码正确，则进入主界面，给爷自己加逻辑
+                new mainFrameView();
             }
         });
         //取消按下去清空
@@ -85,6 +89,12 @@ public class JFrameDemo extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 username.setText("");
                 password.setText("");
+            }
+        });
+        logbtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new logview();
             }
         });
     }
