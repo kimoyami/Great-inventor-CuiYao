@@ -75,12 +75,16 @@ public class JFrameDemo extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 String uname = username.getText();
                 String pwd = String.valueOf(password.getPassword());
-                String res;
-                if(Client.query(uname, pwd) == 1) res = "zbynb";
-                else res = "zbysb";
-                JOptionPane.showMessageDialog(null, res, null, JOptionPane.QUESTION_MESSAGE);
-                //如果账号密码正确，则进入主界面，给爷自己加逻辑
-                new mainFrameView();
+                String res = null;
+                int ans = Client.query(uname, pwd);
+                if (ans == 1) new mainFrameView();
+                else {
+                    if (ans == 0) res = "密码错误！";
+                    else if (ans == 2) res = "用户信息待管理员审核！";
+                    else if (ans == 3) res = "一卡通不存在！";
+                    else res = "错误！";
+                    JOptionPane.showMessageDialog(null, res, null, JOptionPane.QUESTION_MESSAGE);
+                }
             }
         });
         //取消按下去清空

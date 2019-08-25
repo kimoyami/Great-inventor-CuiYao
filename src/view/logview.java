@@ -1,5 +1,7 @@
 package view;
 
+import srv.Client;
+
 import javax.swing.*;
 import  java.awt.*;
 import java.awt.event.*;
@@ -123,17 +125,24 @@ public void listener(){
 logbtn.addActionListener(new ActionListener() {
     @Override
     public void actionPerformed(ActionEvent e) {
-        getID();
-        getName();
-        getpwd();
-        getRepwd();
-        getSex();
-        getItem();
-        if(getRepwd()!=getpwd()){
-            JOptionPane.showMessageDialog(null,"两次输入密码不相等","提示",JOptionPane.WARNING_MESSAGE);
-
+        System.out.println(getpwd() + "   " + getRepwd());
+        if(!getRepwd().equals(getpwd())){
+            JOptionPane.showMessageDialog(null,"两次输入密码不相等！","提示",JOptionPane.WARNING_MESSAGE);
         }
-
+        else if(getID().equals("")) JOptionPane.showMessageDialog(null,"一卡通不能为空！","提示",JOptionPane.WARNING_MESSAGE);
+        else if(getName().equals(""))  JOptionPane.showMessageDialog(null,"姓名不能为空！","提示",JOptionPane.WARNING_MESSAGE);
+        else if(getpwd().equals("") || getRepwd().equals(""))  JOptionPane.showMessageDialog(null,"密码不能为空！","提示",JOptionPane.WARNING_MESSAGE);
+        else if(getSex().equals(""))  JOptionPane.showMessageDialog(null,"性别必须明确！","提示",JOptionPane.WARNING_MESSAGE);
+        else if(getItem().equals(""))  JOptionPane.showMessageDialog(null,"身份必须明确！","提示",JOptionPane.WARNING_MESSAGE);
+        else{
+            int ans = Client.insert(getName(), getpwd(), getID(), getSex(), 0, getItem());
+            String res = "";
+            if(ans == 0)res = "提交注册成功！";
+            else if(ans == 2) res = "该一卡通已注册，正待审核！";
+            else if(ans == 1) res = "该一卡通已存在";
+            JOptionPane.showMessageDialog(null,res,"提示",JOptionPane.WARNING_MESSAGE);
+            if(ans == 0) System.exit(0);
+        }
         System.out.println(getID());
         System.out.println(getName());
         System.out.println(getpwd());
@@ -152,7 +161,7 @@ public String getID(){
     return ID;
 }
 public String getpwd(){
-    pwd = JTa2.getText();
+    pwd = JTa3.getText();
     return pwd;
 }
 public String getRepwd(){
@@ -163,7 +172,7 @@ public String getSex(){
     return Sex;
 }
 public String getName(){
-    Name = JTa3.getText();
+    Name = JTa2.getText();
     return Name;
 }
 public String getItem(){
