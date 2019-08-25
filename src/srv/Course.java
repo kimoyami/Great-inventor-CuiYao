@@ -25,7 +25,7 @@ public class Course {
         this.numberOfClass = numberOfClass;
         this.numberOfSelected = numberOfSelected;
         this.studentList = new String[numberOfClass];
-        for(int i = 0;i < numberOfClass;i--){
+        for(int i = 0;i < numberOfClass;i++){
             this.studentList[i] = null;
         }
     }
