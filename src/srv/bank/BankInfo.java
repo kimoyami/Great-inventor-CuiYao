@@ -1,5 +1,6 @@
 package srv.bank;
 
+import java.io.Serializable;
 /*
 账户余额balance
 密码password
@@ -9,6 +10,8 @@ package srv.bank;
 银行个人信息类BankInfo(String, double, int, String, double, long)
  */
 public class BankInfo {
+    private static final long serialVersionUID = -1925809561781496530L;
+
     private String ID;
     private double balance;
     private int password;

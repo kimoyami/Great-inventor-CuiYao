@@ -1,5 +1,6 @@
 package srv.course;
 
+import java.io.Serializable;
 /*
 课程名称courseName
 上课时间courseTime
@@ -11,6 +12,8 @@ package srv.course;
  */
 
 public class Course {
+    private static final long serialVersionUID = 6445069540877410708L;
+
     private String courseName;
     private String courseTime;
     private String instructor;
