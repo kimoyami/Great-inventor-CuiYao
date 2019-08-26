@@ -3,7 +3,7 @@ Arthor: kimoyami
 服务端的多线程
  */
 
-package srv.server;
+package srv.Server;
 
 import dao.DataBase;
 

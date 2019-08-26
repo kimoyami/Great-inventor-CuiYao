@@ -2,24 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="762fc4e1-f3d7-4d14-8e08-e3b46b4fdb42" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Great-inventor-CuiYao.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Great-inventor-CuiYao.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/srv/Bank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/srv/Bank/Bank.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/srv/BankInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/srv/Bank/BankInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/srv/BookInfo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/srv/Clinic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/srv/Clinic/Clinic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/srv/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/srv/Course/Course.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/srv/EcardInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/srv/Ecard/EcardInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/srv/EcardRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/srv/Ecard/EcardRecord.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/srv/Goods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/srv/Goods/Goods.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/srv/Grade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/srv/Course/Grade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/srv/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/srv/Person/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/srv/PersonalBook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/srv/Book/PersonalBook.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/srv/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/srv/server/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/srv/ServerThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/srv/server/ServerThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/srv/ShopBasket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/srv/Shop/ShopBasket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/srv/ShopRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/srv/Shop/ShopRecord.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/srv/StudentInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/srv/Person/StudentInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/srv/psg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/srv/Book/psg.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/srv/Server/ServerThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/srv/Server/ServerThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/srv/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/srv/server/Server.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,7 +16,29 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/srv/Server/Server.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="28">
+              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/srv/Server/ServerThread.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="28">
+              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -58,7 +64,6 @@
         <option value="$PROJECT_DIR$/src/srv/EcardRecord.java" />
         <option value="$PROJECT_DIR$/src/srv/EcardInfo.java" />
         <option value="$PROJECT_DIR$/src/srv/Clinic.java" />
-        <option value="$PROJECT_DIR$/src/srv/server/Server.java" />
         <option value="$PROJECT_DIR$/src/srv/Bank/Bank.java" />
         <option value="$PROJECT_DIR$/src/srv/BookInfo.java" />
         <option value="$PROJECT_DIR$/src/srv/Book.java" />
@@ -66,6 +71,8 @@
         <option value="$PROJECT_DIR$/src/srv/Book/Book.java" />
         <option value="$PROJECT_DIR$/src/srv/Book/psg.java" />
         <option value="$PROJECT_DIR$/src/srv/Person/StudentInfo.java" />
+        <option value="$PROJECT_DIR$/src/srv/server/Server.java" />
+        <option value="$PROJECT_DIR$/src/srv/server/ServerThread.java" />
       </list>
     </option>
   </component>
@@ -108,7 +115,8 @@
               <item name="Great-inventor-CuiYao" type="b2602c69:ProjectViewProjectNode" />
               <item name="Great-inventor-CuiYao" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="srv" type="462c0819:PsiDirectoryNode" />
+              <item name="Server" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -198,15 +206,16 @@
       <updated>1566695409562</updated>
       <workItem from="1566695412929" duration="2202000" />
       <workItem from="1566782381385" duration="1046000" />
-      <workItem from="1566785676582" duration="733000" />
+      <workItem from="1566785676582" duration="986000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3981000" />
+    <option name="totallyTimeSpent" value="4234000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23154363" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -217,7 +226,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32936078" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3286119" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -227,7 +236,7 @@
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.32936078" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -325,23 +334,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/srv/server/Server.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/srv/server/ServerThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/srv/Person/Person.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="104">
@@ -409,6 +401,23 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="48">
           <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/srv/Server/Server.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="28">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/srv/Server/ServerThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="28">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
         </state>
       </provider>
     </entry>
