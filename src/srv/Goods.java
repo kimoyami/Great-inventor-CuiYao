@@ -1,21 +1,22 @@
 package srv;
 
-import java.io.Serializable;
-
-public class GoodsOfZhongchao implements Serializable {
+public class Goods {
     private static final long serialVersionUID= 5006441955722175923L;
     private String ID;
     private int number;
     private double price;
     private String name;
     private String picturePath;
+    private int tag;//0=tianping,1=zhongchao
 
-    public GoodsOfZhongchao() {
-        setID(null);
-        setName(null);
-        setNumber(1);
-        setPicturePath(null);
-        setPrice(0);
+
+    public Goods(String ID,int number, double price,String name,String picturePath,int tag) {
+            this.tag=tag;
+            this.ID=ID;
+            this.name=name;
+            this.number=number;
+            this.picturePath=picturePath;
+            this.price=price;
     }
 
     public String getID() {
@@ -24,14 +25,15 @@ public class GoodsOfZhongchao implements Serializable {
     public int getNumber() {
         return this.number;
     }
-    public double getPrice() {
-        return this.price;
-    }
+    public double getPrice() { return this.price; }
     public String getName() {
         return this.name;
     }
     public String getPicturePath() {
         return this.picturePath;
+    }
+    public int getTag() {
+        return this.tag;
     }
 
     public void setID(String ID) {
@@ -49,5 +51,6 @@ public class GoodsOfZhongchao implements Serializable {
     public void setPicturePath(String picturePath) {
         this.picturePath = picturePath;
     }
+    public void setTag(int tag){this.tag=tag;};
 
 }

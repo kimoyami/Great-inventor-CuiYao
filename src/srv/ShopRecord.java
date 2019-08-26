@@ -7,15 +7,15 @@ public class ShopRecord implements Serializable {
     private static final long serialVersionUID= 1257524929679219531L;
 
     private String EcardNumber;
-    private int GoodsID;
+    private String GoodsID;
     private int purchaseAmount;
     private Date purchaseTime;
 
-    public ShopRecord() {
-        setEcardNumber(null);
-        setGoodsID(0);
-        setPurchaseAmount(0);
-        setPurchaseTime(new Date());
+    public ShopRecord(String EcardNumber,String GoodsID,int purchaseAmount,Date purchaseTime) {
+        this.EcardNumber=EcardNumber;
+        this.GoodsID=GoodsID;
+        this.purchaseAmount=purchaseAmount;
+        this.purchaseTime=purchaseTime;
     }
 
 
@@ -23,7 +23,7 @@ public class ShopRecord implements Serializable {
         return this.EcardNumber;
     }
 
-    public int getGoodsID() {
+    public String getGoodsID() {
         return this.GoodsID;
     }
 
@@ -39,7 +39,7 @@ public class ShopRecord implements Serializable {
         this.EcardNumber = EcardNumber;
     }
 
-    public void setGoodsID(int GoodsID) {
+    public void setGoodsID(String GoodsID) {
         this.GoodsID = GoodsID;
     }
 

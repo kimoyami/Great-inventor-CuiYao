@@ -5,12 +5,12 @@ import java.util.Date;
 
 public class EcardInfo implements Serializable {
     private static final long serialVersionUID= 7768054716259077555L;
-    private int state;
+    private int state;//0欠费，1正常，2停用
     private double balance;
 
-    public EcardInfo() {
-        setBalance(0);
-        setState(1);
+    public EcardInfo(int state,int balance) {
+        this.balance=balance;
+        this.state=state;
     }
 
     public int getState() {

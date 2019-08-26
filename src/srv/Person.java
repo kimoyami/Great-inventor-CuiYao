@@ -22,16 +22,18 @@ public class Person implements Serializable {
     private String password;
     private int state;
 
-    Person(){
-        setName(null);
-        setID(null);
-        setAge(0);
-        setGender(null);
-        setBirthday(new Date());
-        setBirthplace(null);
-        setAcademy(null);
-        setDormitory(null);
-        setState(0);
+    Person(String name,String ID,int age,String gender,Date birthday,
+           String birthplace,String academy,String dormitory,String EcardNumber,String password,int state){
+        this.password=password;
+        this.EcardNumber=EcardNumber;
+        this.name=name;
+        this.ID=ID;
+        this.age=age;
+        this.gender=gender;
+        this.birthday=birthday;
+        this.birthplace=birthplace;
+        this.EcardNumber=EcardNumber;
+        this.state=state;
     }
 
 
