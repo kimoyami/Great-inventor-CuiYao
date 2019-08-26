@@ -46,7 +46,7 @@ public class Client {
         }
     }
 
-    public static int insert(String userName, String password, String eCardNumber, String sex, int age, String status){
+    public static int insert(String userName, String password, String eCardNumber, String sex, String status){
         run();
         try{
             cout.writeInt(2);
@@ -54,7 +54,6 @@ public class Client {
             cout.writeUTF(password);
             cout.writeUTF(eCardNumber);
             cout.writeUTF(sex);
-            cout.writeInt(age);
             cout.writeUTF(status);
             cout.flush();
             int res = cin.readInt();
@@ -126,7 +125,7 @@ public class Client {
         }
     }
 
-    public static int update(String userName, String password, String eCardNumber, String sex, int age, String status){
+    public static int update(String userName, String password, String eCardNumber, String sex, String status){
         run();
         try{
             cout.writeInt(7);
@@ -134,7 +133,6 @@ public class Client {
             cout.writeUTF(password);
             cout.writeUTF(eCardNumber);
             cout.writeUTF(sex);
-            cout.writeInt(age);
             cout.writeUTF(status);
             cout.flush();
             int res = cin.readInt();

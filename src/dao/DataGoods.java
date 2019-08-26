@@ -6,12 +6,23 @@ import java.sql.ResultSet;
 import java.util.Vector;
 
 public class DataGoods {
-    public synchronized int insert(Goods goods) {
+    public static int exist(String goodsName, String sta){
+        try {
+            String sql = "select * from goods where goodsname = '"+goodsName+"' and tag = '"+sta+"'";
+            ResultSet rs = DataBase.s.executeQuery(sql);
+            if(!rs.next()) return 0;
+            return 1;
+        }catch (Exception e){
+            return -1;
+        }
+    }
+
+    public static int insert(Goods goods) {
         try {
             String sta;
             if(goods.getTag() == 0) sta = "Yes";
             else sta = "No";
-            System.out.println("pass");
+            if(exist(goods.getName(), sta) == 1) return 0;
             String sql = "insert into goods(idx, cnt, goodsname, price, url, tag) values ('" + goods.getID() + "', "+ goods.getNumber() +", '"+goods.getName()+"', "+goods.getPrice()+", '"+goods.getPicturePath()+"', "+sta+")";
             DataBase.s.executeUpdate(sql);
             DataBase.c.commit();
@@ -21,7 +32,7 @@ public class DataGoods {
         }
     }
 
-    public static synchronized int delete(Goods goods){
+    public static int delete(Goods goods){
         try {
             String sta;
             if (goods.getTag() == 0) sta = "Yes";
@@ -35,7 +46,7 @@ public class DataGoods {
         }
     }
 
-    public synchronized Vector<Goods> query(String name, int tag){
+    public static Vector<Goods> query(String name, int tag){
         Vector<Goods> res = new Vector<>();
         try{
             String sta;

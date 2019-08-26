@@ -18,7 +18,6 @@ package dao;
 
 import java.sql.*;
 import java.util.Properties;
-import java.util.Scanner;
 
 public class DataBase {
     static private String dbUrl = "jdbc:odbc:account";
@@ -81,11 +80,11 @@ public class DataBase {
         }
     }
 
-    public static int insert(String userName, String password, String eCardNumber, String sex, int age, String status){
+    public static int insert(String userName, String password, String eCardNumber, String sex, String status){
         int res = exist(eCardNumber);
         if(res != 0) return res;
         try{
-            s.executeUpdate("insert into upsolved(username, password, ecardnumber, sex, age, status) values ('"+userName+"', '"+password+"', '"+eCardNumber+"', '"+sex+"', "+age+", '"+status+"')");
+            s.executeUpdate("insert into upsolved(username, password, ecardnumber, sex, status) values ('"+userName+"', '"+password+"', '"+eCardNumber+"', '"+sex+"', '"+status+"')");
             c.commit();
 
             return 0;
@@ -156,11 +155,11 @@ public class DataBase {
         }
     }
 
-    public static int update(String userName, String password, String eCardNumber, String sex, int age, String status){
+    public static int update(String userName, String password, String eCardNumber, String sex, String status){
         int res = exist(eCardNumber);
         if(res != 1) return res;
         try{
-            String sql = "update login set username = '"+userName+"', password = '"+password+"', sex = '"+sex+"', age = "+age+", status = '"+status+"' where ecardnumber = '"+eCardNumber+"'";
+            String sql = "update login set username = '"+userName+"', password = '"+password+"', sex = '"+sex+"', status = '"+status+"' where ecardnumber = '"+eCardNumber+"'";
             s.executeUpdate(sql);
             c.commit();
             return 0;

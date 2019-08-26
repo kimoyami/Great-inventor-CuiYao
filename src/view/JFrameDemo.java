@@ -15,7 +15,7 @@ import java.awt.*;
 public class JFrameDemo extends JFrame {
     private JFrame jFrame = new JFrame("登录");
     private Container c = jFrame.getContentPane();
-    private JLabel a1 = new JLabel("用户名");
+    private JLabel a1 = new JLabel("一卡通");
     private JTextField username = new JTextField();
     private JLabel a2 = new JLabel("密   码");
     private JPasswordField password = new JPasswordField();
@@ -103,7 +103,7 @@ public class JFrameDemo extends JFrame {
         });
     }
 
-    public static void main(String[] args) {
+    public static void main(String args[]) {
         new JFrameDemo();
     }
 }

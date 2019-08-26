@@ -44,27 +44,25 @@ public class Login {
         return DataBase.query(eCardNumber, password);
     }
 
-    public static int insert(){
+    public static synchronized int insert(){
         String userName;
         String password;
         String eCardNumber;
         String sex;
-        int age;
         String status;
         try {
             userName = ServerThread.cin.readUTF();
             password = ServerThread.cin.readUTF();
             eCardNumber = ServerThread.cin.readUTF();
             sex = ServerThread.cin.readUTF();
-            age = ServerThread.cin.readInt();
             status = ServerThread.cin.readUTF();
         }catch (Exception e){
             return -3;
         }
-        return DataBase.insert(userName, password, eCardNumber, sex, age, status);
+        return DataBase.insert(userName, password, eCardNumber, sex, status);
     }
 
-    public static int delete(){
+    public static synchronized int delete(){
         String eCardNumber;
         try {
             eCardNumber = ServerThread.cin.readUTF();
@@ -74,7 +72,7 @@ public class Login {
         return DataBase.delete(eCardNumber);
     }
 
-    public static int solve(){
+    public static synchronized int solve(){
         String eCardNumber;
         try {
             eCardNumber = ServerThread.cin.readUTF();
@@ -84,7 +82,7 @@ public class Login {
         return DataBase.solve(eCardNumber);
     }
 
-    public static int addAdmin(){
+    public static synchronized int addAdmin(){
         String eCardNumber;
         try {
             eCardNumber = ServerThread.cin.readUTF();
@@ -94,7 +92,7 @@ public class Login {
         return DataBase.addAdmin(eCardNumber);
     }
 
-    public static int cancelAdmin(){
+    public static synchronized int cancelAdmin(){
         String eCardNumber;
         try {
             eCardNumber = ServerThread.cin.readUTF();
@@ -104,23 +102,21 @@ public class Login {
         return DataBase.cancelAdmin(eCardNumber);
     }
 
-    public static int update() {
+    public static synchronized int update() {
         String userName;
         String password;
         String eCardNumber;
         String sex;
-        int age;
         String status;
         try {
             userName = ServerThread.cin.readUTF();
             password = ServerThread.cin.readUTF();
             eCardNumber = ServerThread.cin.readUTF();
             sex = ServerThread.cin.readUTF();
-            age = ServerThread.cin.readInt();
             status = ServerThread.cin.readUTF();
         }catch (Exception e){
             return -3;
         }
-        return DataBase.update(userName, password, eCardNumber, sex, age, status);
+        return DataBase.update(userName, password, eCardNumber, sex, status);
     }
 }
