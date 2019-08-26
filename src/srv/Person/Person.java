@@ -18,22 +18,21 @@ public class Person implements Serializable {
     private String birthplace;
     private String academy;
     private String dormitory;
-    private String EcardNumber;
     private String password;
     private int state;
 
     Person(String name,String ID,int age,String gender,Date birthday,
-           String birthplace,String academy,String dormitory,String EcardNumber,String password,int state){
+           String birthplace,String academy,String dormitory,String password,int state){
         this.password=password;
-        this.EcardNumber=EcardNumber;
         this.name=name;
         this.ID=ID;
         this.age=age;
         this.gender=gender;
         this.birthday=birthday;
         this.birthplace=birthplace;
-        this.EcardNumber=EcardNumber;
         this.state=state;
+        this.academy=academy;
+        this.dormitory=dormitory;
     }
 
 
@@ -52,13 +51,15 @@ public class Person implements Serializable {
     public Date getBirthday() {
         return birthday;
     }
+    public String getBirthplace() {
+        return birthplace;
+    }
     public String getAcademy() {
         return this.academy;
     }
     public String getDormitory() {
         return this.dormitory;
     }
-    public String getEcardNumber(){return this.EcardNumber;}
     public String getPassword(){return this.password;}
     public int getState(){return this.state;}
 
@@ -86,7 +87,6 @@ public class Person implements Serializable {
     public void setDormitory(String dormitory) {
         this.dormitory = dormitory;
     }
-    public void setEcardNumber(String EcardNumber){this.EcardNumber=EcardNumber;}
     public void setPassword(String password){this.password=password;}
     public void setState(int state){this.state=state;}
 }
