@@ -1,4 +1,4 @@
-package srv.Bank;
+package srv.bank;
 
 /*
 查询余额函数public double queryBalance(BankInfo)

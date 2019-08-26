@@ -1,4 +1,4 @@
-package srv.Book;
+package srv.book;
 //*图书信息类*
 
 class Book {

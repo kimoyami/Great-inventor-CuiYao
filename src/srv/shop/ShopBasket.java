@@ -1,4 +1,4 @@
-package srv.Shop;
+package srv.shop;
 
 public class ShopBasket {
     private static final long serialVersionUID= 3313447742974944632L;

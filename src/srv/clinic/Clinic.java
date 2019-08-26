@@ -1,4 +1,4 @@
-package srv.Clinic;
+package srv.clinic;
 
 import java.io.Serializable;
 import java.util.Date;

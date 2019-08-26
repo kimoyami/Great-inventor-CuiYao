@@ -1,7 +1,7 @@
-package srv.Book;
+package srv.book;
 //陈列 借还 查询 筛选 函数
 
-import srv.Person.Person;
+import srv.person.Person;
 
 public class psg {
 

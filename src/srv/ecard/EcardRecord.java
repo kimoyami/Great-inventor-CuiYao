@@ -1,4 +1,4 @@
-package srv.Ecard;
+package srv.ecard;
 
 import java.io.Serializable;
 import java.util.Date;

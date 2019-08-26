@@ -1,7 +1,6 @@
-package srv.Ecard;
+package srv.ecard;
 
 import java.io.Serializable;
-import java.util.Date;
 
 public class EcardInfo implements Serializable {
     private static final long serialVersionUID= 7768054716259077555L;

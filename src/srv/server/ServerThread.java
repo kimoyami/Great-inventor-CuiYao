@@ -3,16 +3,12 @@ Arthor: kimoyami
 服务端的多线程
  */
 
-package srv.Server;
+package srv.server;
 
 import dao.DataBase;
 
-import javax.xml.crypto.Data;
 import java.io.*;
 import java.net.Socket;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
 
 public class ServerThread extends Thread{
     private Socket socket;

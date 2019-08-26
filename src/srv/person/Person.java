@@ -1,4 +1,4 @@
-package srv.Person;
+package srv.person;
 
 import java.io.Serializable;
 import java.util.Date;

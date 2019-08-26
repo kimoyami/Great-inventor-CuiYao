@@ -1,4 +1,4 @@
-package srv.Bank;
+package srv.bank;
 
 /*
 账户余额balance

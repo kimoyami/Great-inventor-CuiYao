@@ -1,4 +1,4 @@
-package srv.Course;
+package srv.course;
 
 import java.io.Serializable;
 /*

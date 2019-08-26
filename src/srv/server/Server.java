@@ -3,7 +3,7 @@ Arthor: kimoyami
 服务端
  */
 
-package srv.Server;
+package srv.server;
 
 import java.io.IOException;
 import java.net.ServerSocket;

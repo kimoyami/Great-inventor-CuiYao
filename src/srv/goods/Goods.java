@@ -1,4 +1,4 @@
-package srv.Goods;
+package srv.goods;
 
 public class Goods {
     private static final long serialVersionUID= 5006441955722175923L;
@@ -10,7 +10,7 @@ public class Goods {
     private int tag;//0=tianping,1=zhongchao
 
 
-    public Goods(String ID,int number, double price,String name,String picturePath,int tag) {
+    public Goods(String ID,int number,String name,double price, String picturePath,int tag) {
             this.tag=tag;
             this.ID=ID;
             this.name=name;

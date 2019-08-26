@@ -1,4 +1,4 @@
-package srv.Shop;
+package srv.shop;
 
 import java.io.Serializable;
 import java.util.Date;

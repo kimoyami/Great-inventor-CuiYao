@@ -1,4 +1,4 @@
-package srv.Book;
+package srv.book;
 //私有的借书信息
  class PersonalBook {
     private String BOOK_ID;

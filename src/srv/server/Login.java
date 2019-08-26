@@ -1,4 +1,4 @@
-package srv.Server;
+package srv.server;
 
 import dao.DataBase;
 

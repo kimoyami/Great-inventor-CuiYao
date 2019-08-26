@@ -1,4 +1,4 @@
-package srv.Course;
+package srv.course;
 
 /*
 课程名称courseName
