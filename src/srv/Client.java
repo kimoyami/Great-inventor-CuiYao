@@ -9,10 +9,11 @@ public class Client {
     private static Socket socket;
     private static DataInputStream cin;
     private static DataOutputStream cout;
+    public static String eCardNumber = "";
 
     public static void run(){
         try{
-            socket = new Socket("localhost", 8888);
+            socket = new Socket("101.37.79.28", 8888);
             cin = new DataInputStream(socket.getInputStream());
             cout = new DataOutputStream(socket.getOutputStream());
         }catch (IOException e){

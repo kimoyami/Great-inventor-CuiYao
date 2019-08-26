@@ -1,5 +1,6 @@
 package view;
 import org.jdesktop.swingx.JXDatePicker;
+import srv.Client;
 
 import javax.swing.*;
 import javax.swing.event.AncestorEvent;
