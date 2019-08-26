@@ -9,8 +9,11 @@ public class EcardRecord implements Serializable {
     private double money;
     private double balance;
 
-    public EcardRecord() {
-        setDate(new Date());
+    public EcardRecord(Date date,double money,double balance) {
+        this.balance=balance;
+        this.money=money;
+        this.date=date;
+
     }
 
 
