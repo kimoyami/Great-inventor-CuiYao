@@ -75,7 +75,7 @@ public class JFrameDemo extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 String uname = username.getText();
                 String pwd = String.valueOf(password.getPassword());
-              /*  String res = null;
+                String res = null;
                 int ans = Client.query(uname, pwd);
                 if (ans == 1) new mainFrameView();
                 else {
@@ -84,8 +84,11 @@ public class JFrameDemo extends JFrame {
                     else if (ans == 3) res = "一卡通不存在！";
                     else res = "错误！";
                     JOptionPane.showMessageDialog(null, res, null, JOptionPane.QUESTION_MESSAGE);
-                }*/
-              new mainViewTest();//测试
+                }
+              /*new mainViewTest();//测试
+                new addMessage();
+                jFrame.dispose();*/
+
             }
         });
         //取消按下去清空
