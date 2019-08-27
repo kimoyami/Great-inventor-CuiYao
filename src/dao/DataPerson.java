@@ -9,6 +9,7 @@ import java.util.Date;
 
 
 public class DataPerson {
+    private static SimpleDateFormat trans = new SimpleDateFormat("yyyy-MM-dd");
     public static int exist(String eCardNumber){
         try {
             String sql = "select * from personinfo where ecardnumber = '"+eCardNumber+"'";
@@ -23,7 +24,6 @@ public class DataPerson {
     public static int insert(Person person){
         try {
             if(exist(person.geteCardNumber()) == 1) return 0;
-            SimpleDateFormat trans = new SimpleDateFormat("yyyy-MM-dd");
             String date = trans.format(person.getBirthday());
             System.out.println(date);
             String sql = "insert into personinfo(username, ecardnumber, age, sex, birthday, birthplace, academy, dormitory, state) values('"+person.getName()+"', '"+person.geteCardNumber()+"', "+person.getAge()+", '"+person.getGender()+"', #"+date+"#, '"+person.getBirthplace()+"', '"+person.getAcademy()+"', '"+person.getDormitory()+"', '"+person.getState()+"')";

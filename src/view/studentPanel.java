@@ -15,13 +15,13 @@ public class studentPanel {
     private JLabel a2 = new JLabel("姓 名");
     private JLabel a8 = new JLabel("出生日期");
     private JLabel a3 = new JLabel("密 码");
-    private JLabel a5 = new JLabel ("身 份");
+    private JLabel a5 = new JLabel("身 份");
     private JLabel a6 = new JLabel("密码确认");
     private JLabel a4 = new JLabel("性 别");
     private JLabel a7 = new JLabel("年龄");
-    private String  ID ;
-    private String Name ;
-    private String pwd ;
+    private String ID;
+    private String Name;
+    private String pwd;
     private String Repwd;
     private String Sex;
     private String item;//身份
@@ -29,17 +29,18 @@ public class studentPanel {
     private int bornYear;
     private int bornMonth;
     private int bornDay;
-    private JButton logbtn= new JButton("编辑");
-    private JTextField JTa1 =new JTextField();
-    private JTextField JTa2 =new JTextField();
-    private JPasswordField JTa3 =new JPasswordField();
+    private JButton logbtn = new JButton("编辑");
+    private JTextField JTa1 = new JTextField();
+    private JTextField JTa2 = new JTextField();
+    private JPasswordField JTa3 = new JPasswordField();
     private JPasswordField ReJTa3 = new JPasswordField();
     private JTextField JTa7 = new JTextField();
     private JComboBox comboBox = new JComboBox();
-    private JComboBox comboBox2 =new JComboBox();
+    private JComboBox comboBox2 = new JComboBox();
     final JXDatePicker datepick = new JXDatePicker();
-    public studentPanel(mainViewTest mainViewTest)
-    {   mainViewTest.cardPanel.setLayout(new BorderLayout());
+
+    public studentPanel(mainViewTest mainViewTest) {
+        mainViewTest.cardPanel.setLayout(new BorderLayout());
         mainViewTest.studentPanel.setLayout(null);
         mainViewTest.studentPanel.add(a1);
         mainViewTest.studentPanel.add(JTa1);
@@ -58,25 +59,25 @@ public class studentPanel {
         mainViewTest.studentPanel.add(a5);
         mainViewTest.studentPanel.add(comboBox);
         a1.setBounds(50, 20, 50, 20);
-        JTa1.setBounds(120,20,120,20);
+        JTa1.setBounds(120, 20, 120, 20);
         a2.setBounds(50, 60, 50, 20);
-        JTa2.setBounds(120,60,120,20);
-        a7.setBounds(50,100,50,20);
-        JTa7.setBounds(120,100,120,20);
-        a8.setBounds(50,140,60,20);
-        a3.setBounds(50,180,50,20);
-        JTa3.setBounds(120,180,120,20);
-        a6.setBounds(50,220,60,20);
-        ReJTa3.setBounds(120,220,120,20);
-        a4.setBounds(50,260,50,20);
-        comboBox2.setBounds(120,260,100,20);
-        a5.setBounds(50,300,50,20);
-        comboBox.setBounds(120,300,100,20);
+        JTa2.setBounds(120, 60, 120, 20);
+        a7.setBounds(50, 100, 50, 20);
+        JTa7.setBounds(120, 100, 120, 20);
+        a8.setBounds(50, 140, 60, 20);
+        a3.setBounds(50, 180, 50, 20);
+        JTa3.setBounds(120, 180, 120, 20);
+        a6.setBounds(50, 220, 60, 20);
+        ReJTa3.setBounds(120, 220, 120, 20);
+        a4.setBounds(50, 260, 50, 20);
+        comboBox2.setBounds(120, 260, 100, 20);
+        a5.setBounds(50, 300, 50, 20);
+        comboBox.setBounds(120, 300, 100, 20);
         //日期部分
         Calendar calendar = Calendar.getInstance();
         Date date = calendar.getTime();
         datepick.setDate(date);
-        datepick.setBounds(120,140,120,20);
+        datepick.setBounds(120, 140, 120, 20);
         mainViewTest.cardPanel.add(mainViewTest.studentPanel);
 
         comboBox.addItem("无");
@@ -89,8 +90,8 @@ public class studentPanel {
         //按钮
 
         mainViewTest.studentPanel.add(logbtn);
-        logbtn.setBounds(350,600,50,60);
-        logbtn.setMargin(new Insets(0,0,0,0));
+        logbtn.setBounds(350, 600, 50, 60);
+        logbtn.setMargin(new Insets(0, 0, 0, 0));
 
         comboBox2.addItemListener(new ItemListener() {
             @Override
@@ -124,45 +125,54 @@ public class studentPanel {
         });
 
 
-
     }
-    public String getID(){
-        ID= JTa1.getText();
+
+    public String getID() {
+        ID = JTa1.getText();
         return ID;
     }
-    public String getpwd(){
+
+    public String getpwd() {
         pwd = JTa3.getText();
         return pwd;
     }
-    public String getRepwd(){
-        Repwd =ReJTa3.getText();
+
+    public String getRepwd() {
+        Repwd = ReJTa3.getText();
         return Repwd;
     }
-    public String getSex(){
+
+    public String getSex() {
         return Sex;
     }
-    public String getName(){
+
+    public String getName() {
         Name = JTa2.getText();
         return Name;
     }
-    public String getItem(){
+
+    public String getItem() {
         return item;
     }
-    public int getAge(){
-        age = Integer.parseInt((JTa7.getText().equals("")||JTa7.getText()==null)?"0":JTa7.getText());
+
+    public int getAge() {
+        age = Integer.parseInt((JTa7.getText().equals("") || JTa7.getText() == null) ? "0" : JTa7.getText());
         return age;
     }
-    public int getBornYear(){
-        bornYear = datepick.getDate().getYear()+1900;
+
+    public int getBornYear() {
+        bornYear = datepick.getDate().getYear() + 1900;
         return bornYear;
 
     }
-    public int getBornMonth(){
-        bornMonth = datepick.getDate().getMonth()+1;
+
+    public int getBornMonth() {
+        bornMonth = datepick.getDate().getMonth() + 1;
         return bornMonth;
     }
-    public int getBornDay(){
-        bornDay=datepick.getDate().getDate();
+
+    public int getBornDay() {
+        bornDay = datepick.getDate().getDate();
         return bornDay;
 
     }

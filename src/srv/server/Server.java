@@ -23,12 +23,12 @@ public class Server {
                 count++;
                 System.out.println(count + " client" + (count > 1 ? "s" : "") + " now, success, address is: " + socket.getInetAddress().getHostAddress());
                 serverThread.start();
+                count--;
             }
 
         }catch(IOException e){
             e.printStackTrace();
         }
-
     }
 
     public static void main(String args[]){
