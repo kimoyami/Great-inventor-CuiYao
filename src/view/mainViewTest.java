@@ -1,7 +1,7 @@
 package view;
+import srv.client.Client;
+
 import javax.swing.*;
-import javax.swing.event.AncestorEvent;
-import javax.swing.event.AncestorListener;
 import  java.awt.*;
 import java.awt.event.*;
 public class mainViewTest  extends JFrame {
@@ -15,6 +15,7 @@ public class mainViewTest  extends JFrame {
     public JPanel classPanel = new JPanel();
     public JPanel shopPanel = new JPanel();
     public JPanel chatPanel = new JPanel();
+    public JPanel solvePanel = new JPanel();
 
     private JButton bookbtn = new JButton("图书管理");
     private JButton bankbtn = new JButton("钱包管理");
@@ -22,6 +23,7 @@ public class mainViewTest  extends JFrame {
     private JButton classbtn = new JButton("选课系统");
     private JButton shopbtn = new JButton("商店系统");
     private JButton chatbtn = new JButton("聊天系统");
+    private JButton solvebtn = new JButton("审核信息");
     private JSplitPane sp = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, controlPanel, cardPanel);
 
     public mainViewTest() {
@@ -32,7 +34,7 @@ public class mainViewTest  extends JFrame {
         jFrame.setVisible(true);
         student();
         book();
-
+        solve();
     }
 
     public void init() {
@@ -44,6 +46,7 @@ public class mainViewTest  extends JFrame {
         controlPanel.add(classbtn);
         controlPanel.add(shopbtn);
         controlPanel.add(chatbtn);
+        controlPanel.add(solvebtn);
         //初始化界面显示，首先显示bookpanel
         bookPanel.setVisible(true);
         bankPanel.setVisible(false);
@@ -51,13 +54,9 @@ public class mainViewTest  extends JFrame {
         classPanel.setVisible(false);
         shopPanel.setVisible(false);
         chatPanel.setVisible(false);
-
+        solvePanel.setVisible(false);
         bankPanel.add(new JButton("nmsl"));
-
-
         c.add(sp);
-
-
     }
 
     public void listener() {
@@ -71,7 +70,7 @@ public class mainViewTest  extends JFrame {
                 classPanel.setVisible(false);
                 shopPanel.setVisible(false);
                 chatPanel.setVisible(false);
-
+                solvePanel.setVisible(false);
 
             }
         });
@@ -85,7 +84,7 @@ public class mainViewTest  extends JFrame {
                 classPanel.setVisible(false);
                 shopPanel.setVisible(false);
                 chatPanel.setVisible(false);
-
+                solvePanel.setVisible(false);
             }
         });
         studentbtn.addActionListener(new ActionListener() {
@@ -98,7 +97,7 @@ public class mainViewTest  extends JFrame {
                 classPanel.setVisible(false);
                 shopPanel.setVisible(false);
                 chatPanel.setVisible(false);
-
+                solvePanel.setVisible(false);
             }
         });
         classbtn.addActionListener(new ActionListener() {
@@ -111,7 +110,7 @@ public class mainViewTest  extends JFrame {
                 classPanel.setVisible(true);
                 shopPanel.setVisible(false);
                 chatPanel.setVisible(false);
-
+                solvePanel.setVisible(false);
             }
         });
         shopbtn.addActionListener(new ActionListener() {
@@ -124,7 +123,7 @@ public class mainViewTest  extends JFrame {
                 classPanel.setVisible(false);
                 shopPanel.setVisible(true);
                 chatPanel.setVisible(false);
-
+                solvePanel.setVisible(false);
             }
         });
         chatbtn.addActionListener(new ActionListener() {
@@ -137,7 +136,20 @@ public class mainViewTest  extends JFrame {
                 classPanel.setVisible(false);
                 shopPanel.setVisible(false);
                 chatPanel.setVisible(true);
-
+                solvePanel.setVisible(false);
+            }
+        });
+        solvebtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cardPanel.add(solvePanel);
+                bookPanel.setVisible(false);
+                bankPanel.setVisible(false);
+                studentPanel.setVisible(false);
+                classPanel.setVisible(false);
+                shopPanel.setVisible(false);
+                chatPanel.setVisible(false);
+                solvePanel.setVisible(true);
             }
         });
     }
@@ -150,4 +162,13 @@ public class mainViewTest  extends JFrame {
         new bookPanel(this);
     }
 
+    public void solve(){
+        new solvePanel(this);
+    }
+
+    public static void main(String args[]){
+        Client.run();
+        new mainViewTest();
+        Client.stop();
+    }
 }

@@ -1,6 +1,7 @@
 package view;
 
-import srv.Client;
+import srv.client.Client;
+import srv.client.Login;
 
 import javax.swing.*;
 import  java.awt.*;
@@ -150,7 +151,7 @@ logbtn.addActionListener(new ActionListener() {
         else if(getSex().equals(""))  JOptionPane.showMessageDialog(null,"性别必须明确！","提示",JOptionPane.WARNING_MESSAGE);
         else if(getItem().equals(""))  JOptionPane.showMessageDialog(null,"身份必须明确！","提示",JOptionPane.WARNING_MESSAGE);
         else{
-            int ans = Client.insert(getName(),getpwd(),getID(),getSex(),getItem());
+            int ans = Login.insert(getName(),getpwd(),getID(),getSex(),getItem());
             String res = "";
             if(ans == 0)res = "提交注册成功！";
             else if(ans == 2) res = "该一卡通已注册，正待审核！";

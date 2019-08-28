@@ -6,6 +6,10 @@ import java.util.Date;
 import java.util.Calendar;
 import java.util.Locale;
 import org.jdesktop.swingx.JXDatePicker;
+import srv.client.Client;
+import srv.client.PersonInfo;
+import srv.person.Person;
+
 public class addMessage  extends JFrame{
     private JFrame jFrame = new JFrame("请补充信息");
     private Container c = jFrame.getContentPane();
@@ -24,9 +28,7 @@ public class addMessage  extends JFrame{
     private String Identity;
     private String dor;//宿舍
     private String birthplace;
-    private int bornYear;
-    private int bornMonth;
-    private int bornDay;
+
     public  addMessage(){
         jFrame.setBounds(600,200,300,440);
         c.setLayout(new BorderLayout());
@@ -99,8 +101,21 @@ public class addMessage  extends JFrame{
             logbtn.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    System.out.println(getBirthplace()+getIdentity()+getAca()+getDor()+getBornYear()+getBornMonth()+getBornDay());
-
+                    String res = "";
+                    if(getBirthplace().equals("")) res = "请输入出生地！";
+                    else if(getAca().equals("")) res = "请输入学院！";
+                    else if(getDor().equals("")) res = "请输入宿舍！";
+                    else {
+                        Person person = PersonInfo.query(Client.eCardNumber);
+                        person.setBirthday(getDate());
+                        person.setBirthplace(getBirthplace());
+                        person.setAcademy(getAca());
+                        person.setDormitory(getDor());
+                        PersonInfo.update(person);
+                        new mainViewTest();
+                        jFrame.dispose();
+                    }
+                    if(!res.equals(""))JOptionPane.showMessageDialog(null, res, null, JOptionPane.QUESTION_MESSAGE);
                 }
             });//完成按钮监听事件
 
@@ -109,37 +124,26 @@ public class addMessage  extends JFrame{
     public String getBirthplace(){
         birthplace = birthPlaceText.getText();
         return birthplace;
-
-
     }
+
     public String getIdentity(){
         return Identity ;
-
     }
+
     public  String getAca(){
         aca = academyText.getText();
         return  aca;
-
     }
+
     public  String getDor(){
         dor = dormitoryText.getText();
         return  dor;
+    }
 
+    public Date getDate(){
+        return datepick.getDate();
     }
-    public int getBornYear(){
-        bornYear = datepick.getDate().getYear()+1900;
-        return bornYear;
 
-    }
-    public int getBornMonth(){
-        bornMonth = datepick.getDate().getMonth()+1;
-        return bornMonth;
-    }
-    public int getBornDay(){
-        bornDay=datepick.getDate().getDate();
-        return bornDay;
-
-    }
 
 }
 

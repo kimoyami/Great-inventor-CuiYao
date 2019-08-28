@@ -1,10 +1,7 @@
 package view;
 import org.jdesktop.swingx.JXDatePicker;
-import srv.Client;
 
 import javax.swing.*;
-import javax.swing.event.AncestorEvent;
-import javax.swing.event.AncestorListener;
 import  java.awt.*;
 import java.awt.event.*;
 import java.util.Calendar;

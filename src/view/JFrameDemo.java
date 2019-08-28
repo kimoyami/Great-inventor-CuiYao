@@ -1,7 +1,8 @@
 /* 登陆界面ui
      miaosenTnT */
 package view;
-import srv.Client;
+import srv.client.Client;
+import srv.client.Login;
 
 import javax.swing.*;
 import java.awt.BorderLayout;
@@ -73,19 +74,22 @@ public class JFrameDemo extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 String uname = username.getText();
                 String pwd = String.valueOf(password.getPassword());
-                String res = null;
-                int ans = Client.query(uname, pwd);
-                if (ans == 1) {
-                    new mainViewTest();//测试
-                    Client.eCardNumber = uname;
-                    // new addMessage();
-                }
+                String res = "";
+                if(uname.equals("") || pwd.equals(""))JOptionPane.showMessageDialog(null, "一卡通或密码不能为空！", null, JOptionPane.QUESTION_MESSAGE);
                 else {
-                    if (ans == 0) res = "密码错误！";
-                    else if (ans == 2) res = "用户信息待管理员审核！";
-                    else if (ans == 3) res = "一卡通不存在！";
-                    else res = "错误！";
-                    JOptionPane.showMessageDialog(null, res, null, JOptionPane.QUESTION_MESSAGE);
+                    int ans = Login.query(uname, pwd);
+                    if (ans == 1) {
+                        Client.eCardNumber = uname;
+                        if (Login.isNew(uname) == 0) new mainViewTest();//测试
+                        else new addMessage();
+                        jFrame.dispose();
+                    } else {
+                        if (ans == 0) res = "密码错误！";
+                        else if (ans == 2) res = "用户信息待管理员审核！";
+                        else if (ans == 3) res = "一卡通不存在！";
+                        else res = "错误！";
+                        JOptionPane.showMessageDialog(null, res, null, JOptionPane.QUESTION_MESSAGE);
+                    }
                 }
             }
         });

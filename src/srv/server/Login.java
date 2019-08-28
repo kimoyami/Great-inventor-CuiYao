@@ -1,6 +1,12 @@
+/*
+Arthor: kimoyami
+ */
 package srv.server;
 
 import dao.DataBase;
+import dao.DataPerson;
+
+import java.util.Vector;
 
 public class Login {
     
@@ -26,6 +32,21 @@ public class Login {
                 ServerThread.cout.flush();
             } else if (op == 7) {
                 ServerThread.cout.writeInt(update());
+                ServerThread.cout.flush();
+            }
+            else if(op == 8){
+                ServerThread.cout.writeInt(isNew());
+                ServerThread.cout.flush();
+            }
+            else if(op == 9){
+                Vector<Vector<Object>> res = getAll();
+                ServerThread.cout.writeInt(res.size());
+                for(int i = 0; i < res.size(); i++){
+                    ServerThread.cout.writeInt(res.elementAt(i).size());
+                    for(int j = 0; j < res.elementAt(i).size(); j++){
+                        ServerThread.cout.writeObject(res.elementAt(i).elementAt(j));
+                    }
+                }
                 ServerThread.cout.flush();
             }
         }catch (Exception e){
@@ -118,5 +139,19 @@ public class Login {
             return -3;
         }
         return DataBase.update(userName, password, eCardNumber, sex, status);
+    }
+
+    public static int isNew(){
+        String eCardNumber;
+        try {
+            eCardNumber = ServerThread.cin.readUTF();
+        }catch (Exception e){
+            return -3;
+        }
+        return DataPerson.isNew(eCardNumber);
+    }
+
+    public static Vector<Vector<Object>> getAll(){
+        return DataBase.getAll();
     }
 }

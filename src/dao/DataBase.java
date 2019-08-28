@@ -8,7 +8,7 @@ query() 查询账号密码是否正确  -1异常 0错误 1正确 2待审核 3不
 insert() 注册新账号(当且仅当用户名不存在) -2异常 -1异常 0成功 1已存在且审核 2已存在待审核
 exist() 查询用户名是否存在 -1异常 0不存在 1存在且审核 2存在待审核
 delete() 删除用户 -1异常 0不存在 1存在且审核过 2存在且待审核
-solve() 审核用户 -1异常 0不存在 1审核成功
+solvePanel() 审核用户 -1异常 0不存在 1审核成功
 addAdmin() 增加管理员 -1异常 0不存在 1成功 2未通过审核
 cancelAdmin() 取消管理员 -1异常 0不存在 1成功 2未通过审核
 udpate() 更新信息 -1异常 0不存在 1更新成功 2未通过审核
@@ -18,6 +18,7 @@ package dao;
 
 import java.sql.*;
 import java.util.Properties;
+import java.util.Vector;
 
 public class DataBase {
     static private String dbUrl = "jdbc:odbc:account";
@@ -118,8 +119,15 @@ public class DataBase {
             String sql = "select * from upsolved where ecardnumber = '"+eCardNumber+"'";
             ResultSet rs = s.executeQuery(sql);
             if(!rs.next()) return 0;
-            sql = "insert into login(username, password, ecardnumber, sex, age, status) values ('"+rs.getString(2)+"', '"+rs.getString(3)+"', '"+rs.getString(4)+"', '"+rs.getString(5)+"', "+rs.getInt(6)+", '"+rs.getString(7)+"')";
+            sql = "insert into login(username, password, ecardnumber, sex, status) values ('"+rs.getString(2)+"', '"+rs.getString(3)+"', '"+rs.getString(4)+"', '"+rs.getString(5)+"', '"+rs.getString(6)+"')";
             s.executeUpdate(sql);
+
+            sql = "select * from upsolved where ecardnumber = '"+eCardNumber+"'";
+            rs = s.executeQuery(sql);
+            rs.next();
+            sql = "insert into personinfo(username, ecardnumber, sex, state) values ('"+rs.getString(2)+"', '"+rs.getString(4)+"', '"+rs.getString(5)+"', '"+rs.getString(6)+"')";
+            s.executeUpdate(sql);
+
             sql = "delete from upsolved where ecardnumber = '"+eCardNumber+"'";
             s.executeUpdate(sql);
             c.commit();
@@ -168,8 +176,29 @@ public class DataBase {
         }
     }
 
+    public static Vector<Vector<Object>> getAll(){
+        Vector<Vector<Object>> res = new Vector<>();
+        try {
+            String sql = "select * from upsolved";
+            ResultSet rs = DataBase.s.executeQuery(sql);
+            while(rs.next()){
+                Vector<Object> tmp = new Vector<>();
+                tmp.add(rs.getString(2));
+                tmp.add(rs.getString(4));
+                tmp.add(rs.getString(5));
+                tmp.add(rs.getString(6));
+                res.add(tmp);
+            }
+        }catch (Exception e){
+
+        }
+        return res;
+    }
+
     public static void main(String args[]){
         start();
+        //insert("xxx", "yyy", "21314", "男", "学生");
+        solve("21314");
         stop();
     }
 }

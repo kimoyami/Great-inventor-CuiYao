@@ -1,3 +1,6 @@
+/*
+Arthor: kimoyami
+ */
 package dao;
 
 import srv.message.Message;

@@ -12,8 +12,8 @@ import java.net.Socket;
 
 public class ServerThread extends Thread{
     private Socket socket;
-    public static DataInputStream cin = null;
-    public static DataOutputStream cout = null;
+    public static ObjectInputStream cin = null;
+    public static ObjectOutputStream cout = null;
 
     public ServerThread(Socket socket){
         this.socket = socket;
@@ -21,8 +21,8 @@ public class ServerThread extends Thread{
 
     public void run(){
         try{
-            cin = new DataInputStream(socket.getInputStream());
-            cout = new DataOutputStream(socket.getOutputStream());
+            cout = new ObjectOutputStream(socket.getOutputStream());
+            cin = new ObjectInputStream(socket.getInputStream());
 
             DataBase.start();
 
@@ -30,7 +30,9 @@ public class ServerThread extends Thread{
                 int op = cin.readInt();
                 System.out.println(op);
                 if(op == -1) break;
-                if(op >= 1 && op <= 7) Login.run(op);
+                if(op >= 1 && op <= 9) Login.run(op);
+                op -= 9;
+                if(op >= 1) PersonInfo.run(op);
             }
 
             cin.close();

@@ -20,17 +20,21 @@ public class Person implements Serializable {
     private String dormitory;
     private String state;
 
-    public Person(String name, String eCardNumber, int age, String gender, Date birthday,
+    public Person(){
+
+    }
+
+    public Person(String name, String eCardNumber, String gender, Date birthday,
            String birthplace, String academy, String dormitory, String state) {
         this.name = name;
         this.eCardNumber = eCardNumber;
-        this.age = age;
         this.gender = gender;
         this.birthday = birthday;
         this.birthplace = birthplace;
         this.state = state;
         this.academy = academy;
         this.dormitory = dormitory;
+        this.age = new Date().getYear() - this.birthday.getYear();
     }
 
 
@@ -78,16 +82,13 @@ public class Person implements Serializable {
         this.eCardNumber = eCardNumber;
     }
 
-    public void setAge(int age) {
-        this.age = age;
-    }
-
     public void setGender(String gender) {
         this.gender = gender;
     }
 
     public void setBirthday(Date birthday) {
         this.birthday = birthday;
+        this.age = new Date().getYear() - birthday.getYear();
     }
 
     public void setBirthplace(String birthplace) {
