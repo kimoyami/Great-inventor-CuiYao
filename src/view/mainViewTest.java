@@ -32,6 +32,7 @@ public class mainViewTest  extends JFrame {
         jFrame.setVisible(true);
         student();
         book();
+        chat();
 
     }
 
@@ -149,5 +150,7 @@ public class mainViewTest  extends JFrame {
     public void book() {
         new bookPanel(this);
     }
+
+    public void chat() { new chatPanel(this); }
 
 }
