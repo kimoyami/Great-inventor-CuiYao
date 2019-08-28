@@ -78,6 +78,7 @@ public class JFrameDemo extends JFrame {
                 if (ans == 1) {
                     new mainViewTest();//测试
                     Client.eCardNumber = uname;
+                    // new addMessage();
                 }
                 else {
                     if (ans == 0) res = "密码错误！";
