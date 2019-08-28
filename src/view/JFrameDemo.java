@@ -91,6 +91,7 @@ public class JFrameDemo extends JFrame {
                         JOptionPane.showMessageDialog(null, res, null, JOptionPane.QUESTION_MESSAGE);
                     }
                 }
+                new mainViewTest();
             }
         });
         //取消按下去清空

@@ -34,7 +34,8 @@ public class mainViewTest  extends JFrame {
         jFrame.setVisible(true);
         student();
         book();
-        solve();
+        chat();
+
     }
 
     public void init() {
@@ -171,4 +172,6 @@ public class mainViewTest  extends JFrame {
         new mainViewTest();
         Client.stop();
     }
+    public void chat() { new chatPanel(this); }
+
 }
