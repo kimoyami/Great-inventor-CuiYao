@@ -16,7 +16,7 @@ public class chatPanel {
         mainViewTest.chatPanel.setLayout(new BorderLayout());//括号里应该是null还是borderlayout？
 
 
-        //按钮部分//
+        //按钮部分
         okbtn.setBounds(250,600,50,60);
         cancelbtn.setBounds(400,600,50,60);
         okbtn.setMargin(new Insets(0,0,0,0));
@@ -60,6 +60,7 @@ public class chatPanel {
                     else res = "错误！";
                     JOptionPane.showMessageDialog(null, res, null, JOptionPane.QUESTION_MESSAGE);
                 }*/
+                new chatbox();
             }
         });
         //取消按下去清空

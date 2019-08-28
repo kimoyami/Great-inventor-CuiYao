@@ -87,11 +87,7 @@ public class JFrameDemo extends JFrame {
                     else res = "错误！";
                     JOptionPane.showMessageDialog(null, res, null, JOptionPane.QUESTION_MESSAGE);
                 }
-<<<<<<< Updated upstream
                 new mainViewTest();
-=======
-                new  mainViewTest();
->>>>>>> Stashed changes
             }
         });
         //取消按下去清空
