@@ -1,3 +1,5 @@
+//autoor：@miaosenTnT
+
 package view;
 import srv.client.Client;
 
@@ -35,7 +37,7 @@ public class mainViewTest  extends JFrame {
         student();
         book();
         chat();
-
+        solve();
     }
 
     public void init() {
