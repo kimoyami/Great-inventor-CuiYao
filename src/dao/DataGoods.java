@@ -11,7 +11,7 @@ import java.util.Vector;
 public class DataGoods {
     public static int exist(String goodsName, String sta){
         try {
-            String sql = "select * from goods where goodsname = '"+goodsName+"' and tag = '"+sta+"'";
+            String sql = "select * from goods where goodsname = '"+goodsName+"' and tag = "+sta+"";
             ResultSet rs = DataBase.s.executeQuery(sql);
             if(!rs.next()) return 0;
             return 1;
