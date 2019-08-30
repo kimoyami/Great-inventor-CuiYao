@@ -19,31 +19,32 @@
                 </div>
                 <form action="">
                     <div id='email' class="input"  placeholder='Email'><input type="text"></div>
-                    <div class="input" placeholder='Username'><input type="text"></div>
-                    <div class="input" placeholder='Password'><input type="password"></div>
+                    <div class="input" placeholder='Username'><input type="text" id = "uname"></div>
+                    <div class="input" placeholder='Password'><input type="password" id = "pwd"></div>
                     <div id='repeat' class="input" placeholder='Repeat'><input type="password"></div>
                     <span id='forget'>Forget?</span>
-                    <button>LOGIN</button>
+                    <button onclick = "loginClick()">LOGIN</button>
                 </form>
             </div>
         </div>
     </div>
-	<script>
-	</script>
+<script>
+    function loginClick() {
+        var x = document.getElementById('uname').value;
+        var y = document.getElementById('pwd').value;
+        var res = login.query(x, y);
+        if(res == 0) alert("密码错误！");
+        if(res == 1) alert("正确！");
+        if(res == 2) alert("用户待审核！");
+        if(res == 3) alert("用户不存在");
+    }
+</script>
 </body>
 
 
 
 <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
 <script>
-function get(){
-	var x = login.getAll();
-	for(var i = 0; i < x.size(); i++){
-		for(var j = 0; j < x.elementAt(i).size(); j++){
-			alert(x.elementAt(i).elementAt(j));
-		} 
-	}
-}
 
     $('#login').click(function(){
         $('.switch span').removeClass('active');

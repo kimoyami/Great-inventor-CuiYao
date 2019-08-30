@@ -4,30 +4,52 @@
     <list default="true" id="762fc4e1-f3d7-4d14-8e08-e3b46b4fdb42" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Great-inventor-CuiYao.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Great-inventor-CuiYao.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/dao/DataGoods.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/dao/DataGoods.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/login/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/dao/account.accdb" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/dao/account.accdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/dao/account.laccdb" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/dao/account.laccdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/JFrameDemo$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/JFrameDemo$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/JFrameDemo$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/JFrameDemo$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/JFrameDemo$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/JFrameDemo$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/JFrameDemo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/JFrameDemo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/mainViewTest$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/mainViewTest$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/mainViewTest$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/mainViewTest$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/mainViewTest$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/mainViewTest$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/mainViewTest$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/mainViewTest$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/mainViewTest$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/mainViewTest$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/mainViewTest$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/mainViewTest$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/mainViewTest$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/mainViewTest$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/mainViewTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/mainViewTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/solvePanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/solvePanel$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/solvePanel$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/solvePanel$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/solvePanel$MyTableRenderer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/solvePanel$MyTableRenderer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/solvePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/solvePanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/DataGoods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/DataGoods.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/srv/client/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/srv/client/Login.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/JFrameDemo$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/JFrameDemo$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/JFrameDemo$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/JFrameDemo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/addMessage$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/addMessage$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/addMessage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/bookPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/chatPanel$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/chatPanel$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/chatPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/chatbox.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/logview$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/logview$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/logview$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/logview.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/mainViewTest$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/mainViewTest$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/mainViewTest$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/mainViewTest$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/mainViewTest$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/mainViewTest$6.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/mainViewTest$7.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/mainViewTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/readme.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/solvePanel$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/solvePanel$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/solvePanel$MyTableRenderer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/solvePanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/studentPanel$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/studentPanel$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/studentPanel$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/studentPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/swingx-core-1.6.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/test$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/test$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/test.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Great-inventor-CuiYao/view/test.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dao/account.accdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/account.accdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/chatPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/chatPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/chatbox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/chatbox.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/srv/client/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/srv/client/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/srv/client/PersonInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/srv/client/PersonInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/srv/server/PersonInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/srv/server/PersonInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/test.java" afterDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,36 +72,6 @@
   </component>
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/view/test.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="51" column="44" lean-forward="true" selection-start-line="51" selection-start-column="44" selection-end-line="51" selection-end-column="44" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1840#2211#0" expanded="true" />
-                <element signature="e#2210#2211#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/srv/client/Login.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="401">
-              <caret line="160" selection-start-line="160" selection-end-line="160" />
-              <folding>
-                <element signature="e#0#4652#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -108,63 +100,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/src/srv/Grade.java" />
-        <option value="$PROJECT_DIR$/src/srv/EcardRecord.java" />
-        <option value="$PROJECT_DIR$/src/srv/EcardInfo.java" />
-        <option value="$PROJECT_DIR$/src/srv/Clinic.java" />
-        <option value="$PROJECT_DIR$/src/srv/Bank/Bank.java" />
-        <option value="$PROJECT_DIR$/src/srv/BookInfo.java" />
-        <option value="$PROJECT_DIR$/src/srv/Book.java" />
-        <option value="$PROJECT_DIR$/src/srv/psg.java" />
-        <option value="$PROJECT_DIR$/src/srv/Book/Book.java" />
-        <option value="$PROJECT_DIR$/src/srv/Book/psg.java" />
-        <option value="$PROJECT_DIR$/src/srv/Person/StudentInfo.java" />
-        <option value="$PROJECT_DIR$/src/srv/Server/Login.java" />
-        <option value="$PROJECT_DIR$/src/srv/Server/ServerThread.java" />
-        <option value="$PROJECT_DIR$/src/srv/Serverxx/Login.java" />
-        <option value="$PROJECT_DIR$/src/srv/Serverxx/ServerThread.java" />
-        <option value="$PROJECT_DIR$/src/srv/Serverxx/Server.java" />
-        <option value="$PROJECT_DIR$/src/srv/goods/Goods.java" />
-        <option value="$PROJECT_DIR$/src/srv/person/StudentInfo.java" />
-        <option value="$PROJECT_DIR$/src/view/mainFrameView.java" />
-        <option value="$PROJECT_DIR$/src/srv/Client.java" />
-        <option value="$PROJECT_DIR$/src/view/studentPanel.java" />
-        <option value="$PROJECT_DIR$/src/srv/server/Server.java" />
-        <option value="$PROJECT_DIR$/src/srv/message/Message.java" />
-        <option value="$PROJECT_DIR$/src/srv/clinic/Clinic.java" />
-        <option value="$PROJECT_DIR$/src/view/logview.java" />
-        <option value="$PROJECT_DIR$/src/srv/person/Person.java" />
-        <option value="$PROJECT_DIR$/src/dao/DataGoods.java" />
-        <option value="$PROJECT_DIR$/src/dao/DataMessage.java" />
-        <option value="$PROJECT_DIR$/src/srv/client/Client.java" />
-        <option value="$PROJECT_DIR$/src/view/addMessage.java" />
-        <option value="$PROJECT_DIR$/src/view/JFrameDemo.java" />
-        <option value="$PROJECT_DIR$/src/dao/DataPerson.java" />
-        <option value="$PROJECT_DIR$/src/dao/DataBase.java" />
-        <option value="$PROJECT_DIR$/src/srv/server/ServerThread.java" />
-        <option value="$PROJECT_DIR$/src/srv/server/PersonInfo.java" />
-        <option value="$PROJECT_DIR$/src/srv/server/Login.java" />
-        <option value="$PROJECT_DIR$/src/srv/client/PersonInfo.java" />
-        <option value="$PROJECT_DIR$/src/srv/client/Login.java" />
-        <option value="$PROJECT_DIR$/src/view/solve.java" />
-        <option value="$PROJECT_DIR$/src/view/myTool.java" />
-        <option value="$PROJECT_DIR$/src/view/bookPanel.java" />
-        <option value="$PROJECT_DIR$/src/view/mytool/RadioButtonEditor.java" />
-        <option value="$PROJECT_DIR$/src/view/mytool/MyByttonRender.java" />
-        <option value="$PROJECT_DIR$/src/view/mytool/MyButtonRender.java" />
-        <option value="$PROJECT_DIR$/src/view/mytool/myTableRenderer.java" />
-        <option value="$PROJECT_DIR$/src/view/mytool/MyTableRenderer.java" />
-        <option value="$PROJECT_DIR$/src/view/solvePanel.java" />
-        <option value="$PROJECT_DIR$/src/view/mainViewTest.java" />
-        <option value="$PROJECT_DIR$/src/view/chatbox.java" />
-        <option value="$PROJECT_DIR$/src/view/chatPanel.java" />
-        <option value="$PROJECT_DIR$/src/view/test.java" />
-      </list>
-    </option>
-  </component>
   <component name="MavenProjectNavigator">
     <treeState>
       <expand />
@@ -176,46 +111,9 @@
     <option name="width" value="1750" />
     <option name="height" value="1048" />
   </component>
+  <component name="ProjectId" id="1Q8TfBy83TrKFpCwQ3PrRX5DtGt" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
-  </component>
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Great-inventor-CuiYao" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Great-inventor-CuiYao" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Great-inventor-CuiYao" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Great-inventor-CuiYao" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Great-inventor-CuiYao" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Great-inventor-CuiYao" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="srv" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Great-inventor-CuiYao" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Great-inventor-CuiYao" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="srv" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -225,7 +123,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.pathVariables" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -239,26 +137,12 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.test">
-    <configuration name="DataBase" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="dao.DataBase" />
-      <module name="Great-inventor-CuiYao" />
+  <component name="RunManager" selected="JavaScript Debug.index.html">
+    <configuration name="Server (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="srv.server.Server" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="dao.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Login" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="srv.client.Login" />
-      <module name="Great-inventor-CuiYao" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="srv.client.*" />
+          <option name="PATTERN" value="srv.server.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -279,9 +163,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="mainViewTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="view.mainViewTest" />
-      <module name="Great-inventor-CuiYao" />
+    <configuration name="test (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="view.test" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="view.*" />
@@ -305,13 +188,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63343/Great-inventor-CuiYao/login/index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.test" />
-        <item itemvalue="Application.Server" />
-        <item itemvalue="Application.mainViewTest" />
-        <item itemvalue="Application.DataBase" />
-        <item itemvalue="Application.Login" />
+        <item itemvalue="JavaScript Debug.index.html" />
       </list>
     </recent_temporary>
   </component>
@@ -341,11 +223,12 @@
       <workItem from="1567065444774" duration="4409000" />
       <workItem from="1567082938866" duration="809000" />
       <workItem from="1567129303360" duration="7553000" />
+      <workItem from="1567140450647" duration="2103000" />
+      <workItem from="1567151329434" duration="374000" />
+      <workItem from="1567151725555" duration="232000" />
+      <workItem from="1567151976824" duration="2129000" />
     </task>
     <servers />
-  </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="80073000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -356,393 +239,45 @@
       <is-autoscroll-to-source value="true" />
     </todo-panel>
   </component>
-  <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
-    <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4978903" visible="true" weight="0.2671141" />
-      <window_info id="Structure" order="1" sideWeight="0.5021097" side_tool="true" weight="0.23154363" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32719547" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3997833" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32936078" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32936078" />
-      <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32936078" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.32827735" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Database" order="4" weight="0.32995737" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="right" id="Maven" order="6" weight="0.32995737" />
-      <window_info anchor="right" id="Capture Analysis" order="7" />
-      <window_info anchor="right" id="Palette&#9;" order="8" />
-    </layout>
-    <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4978903" visible="true" weight="0.26066098" />
-      <window_info id="Structure" order="1" sideWeight="0.5021097" side_tool="true" weight="0.23154363" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32827735" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3997833" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32936078" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32936078" />
-      <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32936078" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.32827735" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Database" order="4" weight="0.32995737" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="right" id="Maven" order="6" weight="0.32995737" />
-      <window_info anchor="right" id="Capture Analysis" order="7" />
-      <window_info anchor="right" id="Palette&#9;" order="8" />
-    </layout-to-restore>
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-13223">
-          <caret line="16" column="9" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/srv/BookInfo.java" />
-    <entry file="file://$PROJECT_DIR$/src/srv/bank/BankInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/srv/ecard/EcardRecord.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/srv/ecard/EcardInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="31" lean-forward="true" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/srv/shop/ShopBasket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/srv/shop/ShopRecord.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/srv/course/Grade.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/srv/bank/Bank.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="397">
-          <caret line="36" column="29" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/srv/person/StudentInfo.java" />
-    <entry file="file://$PROJECT_DIR$/src/srv/goods/Goods.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/mainFrameView.java" />
-    <entry file="file://$PROJECT_DIR$/src/srv/book/PersonalBook.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/srv/book/psg.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1898">
-          <caret line="73" selection-start-line="73" selection-end-line="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/srv/course/Course.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/srv/clinic/Clinic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="988">
-          <caret line="55" selection-start-line="55" selection-end-line="55" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/srv/book/Book.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/srv/message/Message.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/addMessage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2756">
-          <caret line="115" column="41" selection-start-line="115" selection-start-column="41" selection-end-line="115" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/srv/person/Person.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1135">
-          <caret line="90" column="61" selection-start-line="90" selection-start-column="61" selection-end-line="90" selection-end-column="61" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://JAVA/view.mainViewTest" />
-    <entry file="file://$PROJECT_DIR$/src/view/a.form" />
-    <entry file="file://$PROJECT_DIR$/src/view/a.java" />
-    <entry file="file://$PROJECT_DIR$/src/dao/DataGoods.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#2344#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/readme.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dao/DataMessage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/srv/server/PersonInfo.java" />
-    <entry file="file://$PROJECT_DIR$/src/dao/DataPerson.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-          <folding>
-            <element signature="e#0#3882#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/srv/server/ServerThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="33" column="24" lean-forward="true" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/srv/client/PersonInfo.java" />
-    <entry file="file://$PROJECT_DIR$/src/srv/server/Server.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="22" column="23" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#918#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/logview.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="154" column="27" selection-start-line="154" selection-start-column="27" selection-end-line="154" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/srv/client/Client.java" />
-    <entry file="file://$PROJECT_DIR$/src/dao/DataBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="101">
-          <caret line="165" column="99" selection-start-line="165" selection-start-column="99" selection-end-line="165" selection-end-column="99" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/studentPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="35" column="47" selection-start-line="35" selection-start-column="47" selection-end-line="35" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/myTool.java" />
-    <entry file="file://$PROJECT_DIR$/src/view/mytool/MyButtonRender.java" />
-    <entry file="file://$PROJECT_DIR$/src/view/mytool/MyTableRenderer.java" />
-    <entry file="file://$PROJECT_DIR$/src/view/solvePanel.java" />
-    <entry file="file://$PROJECT_DIR$/src/view/JFrameDemo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2236">
-          <caret line="95" column="11" selection-start-line="95" selection-start-column="11" selection-end-line="95" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/mainViewTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="667">
-          <caret line="165" selection-start-line="165" selection-end-line="165" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/bookPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/image/search.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/META-INF/teamdev.licenses">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/chatPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/chatbox.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="15" column="19" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/srv/server/Login.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="53" column="3" selection-start-line="53" selection-start-column="3" selection-end-line="53" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#4695#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/srv/client/Login.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="160" selection-start-line="160" selection-end-line="160" />
-          <folding>
-            <element signature="e#0#4652#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="51" column="44" lean-forward="true" selection-start-line="51" selection-start-column="44" selection-end-line="51" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1840#2211#0" expanded="true" />
-            <element signature="e#2210#2211#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
   </component>
   <component name="masterDetails">
     <states>
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="Copyright.UI">
-        <settings>
-          <last-edited>kimoyami</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -792,6 +327,7 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>

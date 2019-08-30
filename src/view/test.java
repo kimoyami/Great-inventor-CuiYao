@@ -42,7 +42,8 @@ public class test {
         JFrame frame = new JFrame("JxBrowser");
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.add(view, BorderLayout.CENTER);
-        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        frame.setLocation(50, 50);
+        frame.setSize(1200, 800);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         browser.loadURL("F:\\GitHub\\Great-inventor-CuiYao\\login\\index.html");

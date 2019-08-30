@@ -19,7 +19,7 @@ public class Login {
             return res;
         }catch (Exception e){
             Client.stop();
-            return -3;
+            return -4;
         }
     }
 
@@ -38,7 +38,7 @@ public class Login {
             return res;
         }catch (Exception e){
             Client.stop();
-            return -3;
+            return -4;
         }
     }
 
@@ -53,7 +53,7 @@ public class Login {
             return res;
         }catch (Exception e){
             Client.stop();
-            return -3;
+            return -4;
         }
     }
 
@@ -68,7 +68,7 @@ public class Login {
             return res;
         }catch (Exception e){
             Client.stop();
-            return -3;
+            return -4;
         }
     }
 
@@ -83,7 +83,7 @@ public class Login {
             return res;
         }catch (Exception e){
             Client.stop();
-            return -3;
+            return -4;
         }
     }
 
@@ -98,7 +98,7 @@ public class Login {
             return res;
         }catch (Exception e){
             Client.stop();
-            return -3;
+            return -4;
         }
     }
 
@@ -117,7 +117,7 @@ public class Login {
             return res;
         }catch (Exception e){
             Client.stop();
-            return -3;
+            return -4;
         }
     }
 
@@ -132,7 +132,7 @@ public class Login {
             return res;
         }catch (Exception e){
             Client.stop();
-            return -3;
+            return -4;
         }
     }
 
