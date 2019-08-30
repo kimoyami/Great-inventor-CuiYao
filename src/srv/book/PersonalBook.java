@@ -5,12 +5,12 @@ package srv.book;
     private String BOOK_NAME;
     private long borrowDate;
     private long returnDate;
-    private String Borrower;
+    private String ID;
 
-     PersonalBook(String BOOK_ID, String BOOK_NAME, String Borrower, long borrowDate, long returnDate) {
+     PersonalBook(String BOOK_ID, String BOOK_NAME, String ID, long borrowDate, long returnDate) {
         this.BOOK_ID = BOOK_ID;
         this.BOOK_NAME = BOOK_NAME;
-        this.Borrower = Borrower;
+        this.ID = ID;
         this.borrowDate = borrowDate;
         this.returnDate = returnDate;
     }
@@ -26,11 +26,11 @@ package srv.book;
      public void setBookID(String BOOK_ID) {
          this.BOOK_ID = BOOK_ID;
      }
-     public String getBorrower() {
-         return Borrower;
+     public String getID() {
+         return ID;
      }
-     public void setBorrower(String Borrower) {
-         this.BOOK_ID = Borrower;
+     public void setID(String ID) {
+         this.ID = ID;
      }
      public long getborrowDate() {
          return borrowDate;

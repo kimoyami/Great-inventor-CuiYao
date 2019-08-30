@@ -20,7 +20,7 @@ public class psg {
                                 if (books[i].getBookName().equals(n.BOOK_NAME)) {
                                         books[i].setState(false);
                                         System.out.println("借阅成功！");
-                                        PersonalBook.setBorrower(Person.getName());
+                                        PersonalBook.setID(Person.geteCardNumber());
                                         break;
                                 } else {
                                         System.out.println("没有此书！");
@@ -37,7 +37,7 @@ public class psg {
                                 if (books[j].getBookName().equals(n.BOOK_NAME)) {
                                         books[j].setState(true);
                                         System.out.println("还书成功！");
-                                        PersonalBook.setBorrower(null);
+                                        PersonalBook.setID(null);
                                         break;
                                 }
                 }
@@ -55,12 +55,12 @@ public class psg {
         public void status(PersonalBook personalBook, Person Person) {
                 System.out.println("个人借书信息如下：（书名-ID-借书时间-还书时间）");
                 for (int i = 0; i < books.length; i++) {
-                        if (Person.getName() == personalBook.getBorrower())
+                        if (Person.getName() == personalBook.getID())
                                 System.out.println(personalBook.getBookID() + "   " +
                                         personalBook.getBookName() + "   " +
                                         personalBook.getborrowDate() + "   " +
                                         personalBook.getreturnDate() + "   " +
-                                        personalBook.getBorrower());
+                                        personalBook.getID());
                 }
         }
 
