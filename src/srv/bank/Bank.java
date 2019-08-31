@@ -19,9 +19,9 @@ public class Bank {
         }
     }
 
-    public boolean transfer(BankInfo info, String to, double amount, int pwd) {
+    public boolean transfer(BankInfo info, String to, double amount, String pwd) {
         try {
-            if(pwd == info.getPassword()) {
+            if(pwd.equals(info.getPassword())) {
                 info.setTransferTo(to);
                 info.setTransferAmount(amount);
                 info.setBalance(info.getBalance() - info.getTransferAmount());//修改转账方的余额
@@ -47,11 +47,11 @@ public class Bank {
         }
     }
 
-    public boolean modifyPassword(BankInfo info, int oldpwd, int npwd, int npwdagain) {
+    public boolean modifyPassword(BankInfo info, int oldpwd, String npwd, String npwdagain) {
         try {
-            if (info.getPassword() == oldpwd)//输入密码以确认身份
+            if (info.getPassword().equals(oldpwd))//输入密码以确认身份
             {
-                if (npwd == npwdagain) {
+                if (npwd.equals(npwdagain)) {
                     info.setPassword(npwd);
                     System.out.println("修改密码成功！");
                     return true;

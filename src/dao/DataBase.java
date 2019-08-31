@@ -35,7 +35,7 @@ public class DataBase {
             p.setProperty("password", password);
             c = DriverManager.getConnection(dbUrl, p);
             c.setAutoCommit(false);
-            s = c.createStatement();
+            s = c.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
             System.out.println("success");
         }
         catch(Exception e) {

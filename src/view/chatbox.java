@@ -1,5 +1,5 @@
 package view;
-import srv.Client;
+import srv.client.Client;
 
 import javax.swing.*;
 import java.awt.BorderLayout;

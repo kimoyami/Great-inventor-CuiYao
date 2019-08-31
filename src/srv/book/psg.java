@@ -15,9 +15,9 @@ public class psg {
         Book n = new Book();
 
         public void delete(Book[] books, PersonalBook PersonalBook, Person Person) {
-                if (n.BOOK_NAME != null) {
+                if (n.getBookName() != null) {
                         for (int i = 0; i < books.length - 1; i++) {
-                                if (books[i].getBookName().equals(n.BOOK_NAME)) {
+                                if (books[i].getBookName().equals(n.getBookName())) {
                                         books[i].setState(false);
                                         System.out.println("借阅成功！");
                                         PersonalBook.setBorrower(Person.getName());
@@ -32,9 +32,9 @@ public class psg {
 
 
         public void add(Book[] books, PersonalBook PersonalBook) {
-                if (n.BOOK_NAME != null) {
+                if (n.getBookName() != null) {
                         for (int j = 0; j < books.length - 1; j++)
-                                if (books[j].getBookName().equals(n.BOOK_NAME)) {
+                                if (books[j].getBookName().equals(n.getBookName())) {
                                         books[j].setState(true);
                                         System.out.println("还书成功！");
                                         PersonalBook.setBorrower(null);
@@ -67,7 +67,7 @@ public class psg {
 
         void search(Book[] books, String aim) {
                 for (int i = 0; i < books.length; i++) {
-                        if (n.BOOK_NAME == aim)
+                        if (n.getBookName() == aim)
                                 System.out.println(books[i].getBookName() + "   " + books[i].getBookEdit() + "   " + books[i].getBOOK_PUB() + "   " + books[i].getBookID() + "   " + books[i].getCategory() + "   " + books[i].isState());
                 }
         }

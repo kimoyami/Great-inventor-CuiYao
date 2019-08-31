@@ -13,9 +13,9 @@ public class Clinic implements Serializable {
     private String doctorName;
     private String clinicName;
     private String clinicPlace;
-    private Date clinicTime;
+    private String clinicTime;
 
-    public Clinic(String doctorName, String clinicName, String clinicPlace, Date clinicTime) {
+    public Clinic( String clinicTime,String clinicName,String doctorName, String clinicPlace) {
         this.clinicName = clinicName;
         this.clinicPlace = clinicPlace;
         this.clinicTime = clinicTime;
@@ -34,7 +34,7 @@ public class Clinic implements Serializable {
         return clinicPlace;
     }
 
-    public Date getClinicTime() {
+    public String getClinicTime() {
         return clinicTime;
     }
 
@@ -50,7 +50,7 @@ public class Clinic implements Serializable {
         this.clinicPlace = clinicPlace;
     }
 
-    public void setClinicTime(Date clinicTime) {
+    public void setClinicTime(String clinicTime) {
         this.clinicTime = clinicTime;
     }
 }
