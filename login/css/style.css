@@ -1,0 +1,115 @@
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(45deg,rgb(224, 207, 254), rgb(255, 239, 255) ) fixed;
+}
+
+.container{
+    position: relative;
+    width: 70rem;
+}
+
+.container img{
+    width: 70rem;
+}
+
+.switch span{
+    color:#ccc;
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
+.switch span.active{
+    color:rgb(181, 154, 254);
+}
+
+.panel{
+    width: 30%;
+    margin: 10rem 0 0;
+    position: absolute;
+    right:0;
+    top:0;  
+
+    display: flex;
+    justify-content: center;
+}
+
+form{
+    width: 12rem;
+    margin: 3rem 0 0;
+}
+
+form .input{
+    position: relative;
+    opacity: 1;
+    height: 2rem;
+    width: 100%;
+    margin: 2rem 0;
+    transition: .4s;
+}
+
+.input input{
+    outline: none;
+    width: 100%;
+    border: none;
+    border-bottom: .1rem solid rgb(181, 154, 254);
+}
+
+.input::after{
+    content:attr(placeholder);
+    position: absolute;
+    left: 0;
+    top: -10%;
+    font-size: 1.2rem;
+    color: rgb(129, 101, 207);
+    transition: .3s;
+    pointer-events: none;
+}
+
+.input.focus::after{
+    top:-50%;
+    font-size: .9rem;
+}
+
+.login .input#email,
+.login .input#repeat{
+    margin: 0;
+    height: 0;
+    opacity: 0;
+}
+
+.signup #forget{
+    opacity: 0;
+}
+
+.login #forget{
+    top:30%；
+}
+
+form span{
+    display: block;
+    color:rgb(110, 89, 167);
+    font-size: .8rem;
+    cursor: pointer;
+}
+
+form button{
+    border:none;
+    outline: none;
+    margin: 2.5rem 0 0;
+    width: 100%;
+    height: 3rem;
+    border-radius: 3rem;
+    background: linear-gradient(90deg,rgb(181, 154, 254),rgb(245, 189, 253) );
+    box-shadow: 0 0 8px rgb(181, 154, 254);
+    cursor: pointer;
+    color:white;
+}

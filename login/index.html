@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="css\style.css">
+</head>
+<body>
+    <div class="container">
+        <img src="img/bc.jpg" alt="">
+        <div class="panel">
+            <div class="content login">
+                <div class="switch">
+                    <span id='login' class='active'>Login</span><span>/</span><span id='signup'>Sign Up</span>
+                </div>
+                <form action="">
+                    <div id='email' class="input"  placeholder='Email'><input type="text"></div>
+                    <div class="input" placeholder='Username'><input type="text" id = "uname"></div>
+                    <div class="input" placeholder='Password'><input type="password" id = "pwd"></div>
+                    <div id='repeat' class="input" placeholder='Repeat'><input type="password"></div>
+                    <span id='forget'>Forget?</span>
+                    <button onclick = "loginClick()">LOGIN</button>
+                </form>
+            </div>
+        </div>
+    </div>
+<script>
+    function loginClick() {
+        var x = document.getElementById('uname').value;
+        var y = document.getElementById('pwd').value;
+        var res = login.query(x, y);
+        if(res == 0) alert("密码错误！");
+        if(res == 1) alert("正确！");
+        if(res == 2) alert("用户待审核！");
+        if(res == 3) alert("用户不存在");
+    }
+</script>
+</body>
+
+
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script>
+
+    $('#login').click(function(){
+        $('.switch span').removeClass('active');
+        $(this).addClass('active');
+        $(this).parents('.content').removeClass('signup');
+        $(this).parents('.content').addClass('login');
+        $('form button').text('LOGIN');
+		get();
+    })
+
+    $('#signup').click(function(){
+        $('.switch span').removeClass('active');
+        $(this).addClass('active');
+        $(this).parents('.content').removeClass('login');
+        $(this).parents('.content').addClass('signup');
+        $('form button').text('SIGNUP');
+    })
+
+    $('.input input').on('focus',function(){
+        $(this).parent().addClass('focus');
+    })
+
+    $('.input input').on('blur',function(){
+        if($(this).val() === '')
+            $(this).parent().removeClass('focus');
+    })
+</script>
+</html>
