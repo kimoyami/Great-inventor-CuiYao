@@ -1,5 +1,7 @@
 /out
 
+/lib
+
 *.xml
 
 *.idea
