@@ -2,6 +2,7 @@
 
 /lib
 
+/.idea
+
 *.xml
 
-*.idea

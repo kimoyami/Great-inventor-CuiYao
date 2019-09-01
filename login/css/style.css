@@ -1,4 +1,6 @@
 
+@import "http://cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css";
+
 *{
     margin: 0;
     padding: 0;
@@ -14,11 +16,11 @@ body{
 
 .container{
     position: relative;
-    width: 70rem;
+    width: 75rem;
 }
 
 .container img{
-    width: 70rem;
+    width: 75rem;
 }
 
 .switch span{
@@ -33,7 +35,7 @@ body{
 
 .panel{
     width: 30%;
-    margin: 10rem 0 0;
+    margin: 8rem 0 0;
     position: absolute;
     right:0;
     top:0;  
@@ -79,19 +81,23 @@ form .input{
     font-size: .9rem;
 }
 
-.login .input#email,
-.login .input#repeat{
+.login .input#username,
+.login .input#repeat,
+.login .select{
+    margin: 0;
+    height: 0;
+    opacity: 0;
+    width: 0;
+}
+
+.signup #forget{
     margin: 0;
     height: 0;
     opacity: 0;
 }
 
-.signup #forget{
-    opacity: 0;
-}
-
 .login #forget{
-    top:30%；
+    top:35%；
 }
 
 form span{
@@ -104,7 +110,7 @@ form span{
 form button{
     border:none;
     outline: none;
-    margin: 2.5rem 0 0;
+    margin: 1rem 0 0;
     width: 100%;
     height: 3rem;
     border-radius: 3rem;
@@ -112,4 +118,89 @@ form button{
     box-shadow: 0 0 8px rgb(181, 154, 254);
     cursor: pointer;
     color:white;
+}
+
+
+
+form .select {
+    position: relative;
+    opacity: 1;
+    height: 2rem;
+    width: 100%;
+    margin: 2rem 0;
+    transition: .4s;
+}
+
+.select input {
+    outline: none;
+    width: 100%;
+    border: none;
+    border-bottom: .1rem solid rgb(181, 154, 254);
+}
+
+.select::after{
+    content:attr(placeholder);
+    position: absolute;
+    left: 0;
+    top: -10%;
+    font-size: 1.2rem;
+    color: rgb(129, 101, 207);
+    transition: .3s;
+    pointer-events: none;
+}
+
+.select.focus::after{
+    top:-50%;
+    font-size: .9rem;
+}
+
+.select .placeholder:hover {
+    background: #ffffff;
+}
+.select .placeholder:after {
+    position: absolute;
+    right: 0.5em;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: 'FontAwesome';
+    content: '\f078';
+    z-index: 10;
+}
+.select.is-open .placeholder:after {
+    content: '\f077';
+}
+.select.is-open ul {
+    display: block;
+}
+.select.select--white .placeholder {
+    background: #fff;
+    color: rgb(255, 255, 255);
+}
+.select.select--white .placeholder:hover {
+    background: #fafafa;
+}
+.select ul {
+    display: none;
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    background: #fff;
+    border-radius: 2px;
+    top: 100%;
+    left: 0;
+    list-style: none;
+    margin: 5px 0 0 0;
+    padding: 0;
+    z-index: 100;
+}
+.select ul li {
+    display: block;
+    text-align: left;
+    padding: 0.8em 1em 0.8em 1em;
+    color: rgb(129, 101, 207);
+    cursor: pointer;
+}
+.select ul li:hover {
+    background: linear-gradient(90deg,rgb(181, 154, 254),rgb(245, 189, 253) );
+    color: #fff;
 }

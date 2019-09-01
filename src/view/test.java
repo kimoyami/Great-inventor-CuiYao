@@ -46,7 +46,7 @@ public class test {
         frame.setSize(1200, 800);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
-        browser.loadURL("F:\\GitHub\\Great-inventor-CuiYao\\login\\index.html");
+        browser.loadURL("C:\\Users\\崔峣\\Desktop\\test\\Great-inventor-CuiYao\\login\\index.html");
         browser.addLoadListener(new LoadAdapter() {
             @Override
             public void onFinishLoadingFrame(FinishLoadingEvent event) {
