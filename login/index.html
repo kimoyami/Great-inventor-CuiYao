@@ -33,7 +33,7 @@
                     </div>
                     
                     <div class="select" id="status" placeholder="Status">
-                            <input class="placeholder" id="Status"readonly>
+                            <input class="placeholder" id="Status" readonly>
                             <ul>
                                 <li>Student</li>
                                 <li>Teacher</li>
@@ -133,14 +133,29 @@
             $(this).parent().addClass('focus');
             $('.select.is-open').not(parent).removeClass('is-open');
         } else {
+			if($(this).val() === '')
+				$(this).parent().removeClass('focus');
             parent.removeClass('is-open');
         }
-        e.stopPropagation();
-    }).on('click', 'ul>li', function() {
+    })
+	
+	$('.select').on('click', 'ul>li', function() {
         var parent = $(this).closest('.select');
         parent.removeClass('is-open').find('.placeholder').val($(this).text());
+        e.stopPropagation();
     });
- 
-
+	
+	$('.select').on('blur','.placeholder',function(){
+		var parent = $(this).closest('.select');
+        if(true)
+        {
+		    if (parent.hasClass('is-open')){
+			        if($(this).val() === '')
+				$(this).parent().removeClass('focus');
+			    parent.removeClass('is-open');
+			}
+        }
+	})
+	
 </script>
 </html>

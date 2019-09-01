@@ -172,13 +172,6 @@ form .select {
 .select.is-open ul {
     display: block;
 }
-.select.select--white .placeholder {
-    background: #fff;
-    color: rgb(255, 255, 255);
-}
-.select.select--white .placeholder:hover {
-    background: #fafafa;
-}
 .select ul {
     display: none;
     position: absolute;
