@@ -44,6 +44,7 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
+<<<<<<< HEAD
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
@@ -112,6 +113,8 @@
       </file>
     </leaf>
   </component>
+=======
+>>>>>>> 0c86d8f7d56fd1842f820bd03812b87691dbed0f
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -122,16 +125,20 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+<<<<<<< HEAD
   <component name="MavenProjectNavigator">
     <treeState>
       <expand />
       <select />
     </treeState>
   </component>
+=======
+>>>>>>> 0c86d8f7d56fd1842f820bd03812b87691dbed0f
   <component name="ProjectId" id="1Q8TfBy83TrKFpCwQ3PrRX5DtGt" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
+<<<<<<< HEAD
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -184,6 +191,8 @@
       <pane id="Scope" />
     </panes>
   </component>
+=======
+>>>>>>> 0c86d8f7d56fd1842f820bd03812b87691dbed0f
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -233,6 +242,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+<<<<<<< HEAD
+=======
+    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63343/Great-inventor-CuiYao/login/index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.test" />
+      <item itemvalue="Application.Login" />
+      <item itemvalue="Application.Server" />
+      <item itemvalue="JavaScript Debug.index.html" />
+    </list>
+>>>>>>> 0c86d8f7d56fd1842f820bd03812b87691dbed0f
     <recent_temporary>
       <list>
         <item itemvalue="Application.test" />
@@ -298,6 +319,7 @@
       <is-autoscroll-to-source value="true" />
     </todo-panel>
   </component>
+<<<<<<< HEAD
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
@@ -364,6 +386,8 @@
       <window_info anchor="right" id="Database" order="8" />
     </layout-to-restore>
   </component>
+=======
+>>>>>>> 0c86d8f7d56fd1842f820bd03812b87691dbed0f
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
@@ -373,12 +397,6 @@
         <entry key="MAIN">
           <value>
             <State>
-              <option name="RECENTLY_FILTERED_USER_GROUPS">
-                <collection />
-              </option>
-              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
-                <collection />
-              </option>
               <option name="COLUMN_ORDER" />
             </State>
           </value>
@@ -404,6 +422,7 @@
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
     <option name="FILTER_TARGETS" value="false" />
   </component>
+<<<<<<< HEAD
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/srv/client/Login.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -434,6 +453,8 @@
       </provider>
     </entry>
   </component>
+=======
+>>>>>>> 0c86d8f7d56fd1842f820bd03812b87691dbed0f
   <component name="masterDetails">
     <states>
       <state key="ArtifactsStructureConfigurable.UI">
