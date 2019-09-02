@@ -85,37 +85,24 @@ $(document).ready(function () {
           }
           Client.run();
 
-       let t = $("#birth").val();
-        let year = t.split("-")[0];
-        let month= t.split("-")[1];
-        let day = t.split("-")[2];
-        alert("123")
-
-
-        per.setName($("#uname").val());
-
-        per.seteCardNumber($("#uid").val());
-
-        birthday.setYear(year-1900);
-        birthday.setMonth(month-1);
-        birthday.setDate(day-1+1);
-        per.setBirthplace($("#birthplace").val());
-        per.setDormitory($("#dormitory").val());
-        per.setGender($("#sex").val());
-        per.setAcademy($("#Academy").val());
-        per.setState($("#identity").val());
-
-        per.setBirthday(birthd);
-
-        alert(getBirthday());
-       person.update(per);
-        Client.stop();
-
-
-
-
-
-
+        let t = $("#birth").val();
+        var q = personinfo.query("213171645");
+        alert("123");
+        var x = personinfo.query('213171645');
+        alert(x);
+        x = personinfo.queryStr("213171645");
+        let y = JSON.parse(x);
+        y['birthday'] = t;
+        y['birthplace'] = $("#birthplace").val();
+        y['dormitory'] = $("#dormitory").val();
+        y['gender'] = $("#sex").val();
+        y['academy'] = $("#Academy").val()
+        y['state'] = $("#identity").val();
+        x = JSON.stringify(y);
+        for(var i in y){
+            alert(i + ' ' + y[i]);
+        }
+        personinfo.update(x);
 
     })
 
@@ -129,34 +116,34 @@ $(document).ready(function () {
 
 
 
-    var id =person.query("213171645").geteCardNumber();
-    $("#uid").val(id)
-    var name = person.query("213171645").getName();
+    var id = personinfo.query("213171645").geteCardNumber();
+    $("#uid").val(id);
+    var name = personinfo.query("213171645").getName();
     $("#uname").val(name);
-    var  age = person.query("213171645").getAge();
+    var  age = personinfo.query("213171645").getAge();
     $("#age").val(age);
-    var academy = person.query("213171645").getAcademy();
+    var academy = personinfo.query("213171645").getAcademy();
     $("#Academy").val(academy);
-    var birthplace = person.query("213171645").getBirthplace();
+    var birthplace = personinfo.query("213171645").getBirthplace();
     $("#birthplace").val(birthplace);
-    var sex = person.query("213171645").getGender();
+    var sex = personinfo.query("213171645").getGender();
     $("#sex").val(sex);
-    var status = person.query("213171645").getState();
+    var status = personinfo.query("213171645").getState();
     $("#identity").val(status);
-    var dor = person.query("213171645").getDormitory();
+    var dor = personinfo.query("213171645").getDormitory();
     $("#dormitory").val(dor);
-    if((person.query("213171645").getBirthday().getMonth()+1)<=9&&person.query("213171645").getBirthday().getDate()<=9){
-    var birth = (person.query("213171645").getBirthday().getYear()+1900)+"-"+"0"+(person.query("213171645").getBirthday().getMonth()+10-9)+"-"+"0"+(person.query("213171645").getBirthday().getDate());
+    if((personinfo.query("213171645").getBirthday().getMonth()+1)<=9&&personinfo.query("213171645").getBirthday().getDate()<=9){
+    var birth = (personinfo.query("213171645").getBirthday().getYear()+1900)+"-"+"0"+(personinfo.query("213171645").getBirthday().getMonth()+10-9)+"-"+"0"+(personinfo.query("213171645").getBirthday().getDate());
     $("#birth").val(birth);}
-    else  if((person.query("213171645").getBirthday().getMonth()+1)>=10&&person.query("213171645").getBirthday().getDate()<=9){
-        var birth = (person.query("213171645").getBirthday().getYear()+1900)+"-"+(person.query("213171645").getBirthday().getMonth()+10-9)+"-"+"0"+(person.query("213171645").getBirthday().getDate());
+    else  if((personinfo.query("213171645").getBirthday().getMonth()+1)>=10&&personinfo.query("213171645").getBirthday().getDate()<=9){
+        var birth = (personinfo.query("213171645").getBirthday().getYear()+1900)+"-"+(personinfo.query("213171645").getBirthday().getMonth()+10-9)+"-"+"0"+(personinfo.query("213171645").getBirthday().getDate());
         $("#birth").val(birth);
-    } else if((person.query("213171645").getBirthday().getMonth()+1)>=10&&person.query("213171645").getBirthday().getDate()>=10){
-        var birth = (person.query("213171645").getBirthday().getYear()+1900)+"-"+(person.query("213171645").getBirthday().getMonth()+10-9)+"-"+(person.query("213171645").getBirthday().getDate());
+    } else if((personinfo.query("213171645").getBirthday().getMonth()+1)>=10&&personinfo.query("213171645").getBirthday().getDate()>=10){
+        var birth = (personinfo.query("213171645").getBirthday().getYear()+1900)+"-"+(personinfo.query("213171645").getBirthday().getMonth()+10-9)+"-"+(personinfo.query("213171645").getBirthday().getDate());
         $("#birth").val(birth);
 
-    }else  if((person.query("213171645").getBirthday().getMonth()+1)<=9&&person.query("213171645").getBirthday().getDate()>=10){
-        var birth = (person.query("213171645").getBirthday().getYear()+1900)+"-"+"0"+(person.query("213171645").getBirthday().getMonth()+10-9)+"-"+(person.query("213171645").getBirthday().getDate());
+    }else  if((personinfo.query("213171645").getBirthday().getMonth()+1)<=9&&personinfo.query("213171645").getBirthday().getDate()>=10){
+        var birth = (personinfo.query("213171645").getBirthday().getYear()+1900)+"-"+"0"+(personinfo.query("213171645").getBirthday().getMonth()+10-9)+"-"+(personinfo.query("213171645").getBirthday().getDate());
         $("#birth").val(birth);
     }
 

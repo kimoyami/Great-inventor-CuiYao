@@ -2,8 +2,6 @@ package view;
 
 import com.teamdev.jxbrowser.chromium.Browser;
 import com.teamdev.jxbrowser.chromium.JSValue;
-import com.teamdev.jxbrowser.chromium.events.FinishLoadingEvent;
-import com.teamdev.jxbrowser.chromium.events.LoadAdapter;
 import com.teamdev.jxbrowser.chromium.events.ScriptContextAdapter;
 import com.teamdev.jxbrowser.chromium.events.ScriptContextEvent;
 import com.teamdev.jxbrowser.chromium.swing.BrowserView;
@@ -54,7 +52,7 @@ public class test {
         frame.setSize(1200, 800);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
-        browser.loadURL("F:\\GitHub\\Great-inventor-CuiYao\\login\\index.html");
+       /* browser.loadURL("F:\\GitHub\\Great-inventor-CuiYao\\login\\index.html");
         browser.addLoadListener(new LoadAdapter() {
             @Override
             public void onFinishLoadingFrame(FinishLoadingEvent event) {
@@ -64,8 +62,8 @@ public class test {
 
                 window.asObject().setProperty("login", x);
             }
-        });
-        /*browser.loadURL("C:\\Users\\ALIENWARE\\Desktop\\dd\\Great-inventor-CuiYao\\src\\view\\student.html");
+        });*/
+        browser.loadURL("F:\\GitHub\\Great-inventor-CuiYao\\src\\view\\student.html");
         browser.addScriptContextListener(new ScriptContextAdapter() {
             @Override
             public void onScriptContextCreated(ScriptContextEvent event) {
@@ -74,27 +72,24 @@ public class test {
 
 
 
-                Person per = new Person();
+                Person person = new Person();
 
 
                 PersonInfo personinfo = new PersonInfo();
 
                 Date date = new Date();
                 Client client = new Client();
+                Login login = new Login();
 
-
-
-                System.out.println(per.getBirthday());
-                window.asObject().setProperty("person",personinfo);
-                window.asObject().setProperty("per",per);
-                window.asObject().setProperty("birthday",new Date());
-                window.asObject().setProperty("Client",client);
-
-
-
-
-
+                System.out.println(person.getBirthday());
+                window.asObject().setProperty("personinfo", personinfo);
+                window.asObject().setProperty("person", person);
+                window.asObject().setProperty("birthday", new Date());
+                window.asObject().setProperty("Client", client);
+                window.asObject().setProperty("login", login);
             }
-        });*/
+        });
     }
+
+
 }

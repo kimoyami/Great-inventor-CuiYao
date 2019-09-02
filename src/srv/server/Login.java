@@ -49,6 +49,10 @@ public class Login {
                 }
                 ServerThread.cout.flush();
             }
+            else if(op == 10){
+                ServerThread.cout.writeInt(exist());
+                ServerThread.cout.flush();
+            }
 
 
         }catch (Exception e){

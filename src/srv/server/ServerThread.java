@@ -1,12 +1,11 @@
 /*
-Arthor: kimoyami
+Author: kimoyami
 服务端的多线程
  */
 
 package srv.server;
 
 import dao.DataBase;
-import srv.message.Message;
 
 import java.io.*;
 import java.net.Socket;
@@ -37,6 +36,9 @@ public class ServerThread extends Thread{
                 op -= 5;
                 if(op >= 1 && op <= 4) MessageTrans.run(op);
                 op -= 4;
+                if(op >= 1 && op <= 4) BookInfo.run(op);
+                op -= 4;
+                if(op >= 1 && op <= 4) Bank_Info.run(op);
             }
 
             cin.close();

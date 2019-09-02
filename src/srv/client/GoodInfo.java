@@ -10,10 +10,11 @@ import srv.goods.Goods;
 import java.util.Vector;
 
 public class GoodInfo {
+    private static final int STARTPOS = 24;
     public static int insert(Goods goods) {
         Client.run();
         try {
-            Client.cout.writeInt(30);
+            Client.cout.writeInt(STARTPOS + 1);
             Client.cout.writeObject(goods);
             Client.cout.flush();
             int res = Client.cin.readInt();
@@ -28,7 +29,7 @@ public class GoodInfo {
     public static int delete(Goods goods) {
         Client.run();
         try {
-            Client.cout.writeInt(31);
+            Client.cout.writeInt(STARTPOS + 2);
             Client.cout.writeObject(goods);
             Client.cout.flush();
             int res = Client.cin.readInt();
@@ -44,7 +45,7 @@ public class GoodInfo {
         Client.run();
         Vector<Goods> res = new Vector<>();
         try {
-            Client.cout.writeInt(32);
+            Client.cout.writeInt(STARTPOS + 3);
             Client.cout.writeUTF(name);
             Client.cout.writeInt(tag);
             Client.cout.flush();
@@ -63,7 +64,7 @@ public class GoodInfo {
     public static int update(Goods goods) {
         Client.run();
         try {
-            Client.cout.writeInt(33);
+            Client.cout.writeInt(STARTPOS + 4);
             Client.cout.writeObject(goods);
             Client.cout.flush();
             int res = Client.cin.readInt();

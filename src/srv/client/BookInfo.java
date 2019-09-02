@@ -9,10 +9,11 @@ import srv.book.*;
 import java.util.Vector;
 
 public class BookInfo {
+    private static final int STARTPOS = 19;
     public static int insert(Book book) {
         Client.run();
         try {
-            Client.cout.writeInt(20);
+            Client.cout.writeInt(STARTPOS + 1);
             Client.cout.writeObject(book);
             Client.cout.flush();
             int res = Client.cin.readInt();
@@ -27,7 +28,7 @@ public class BookInfo {
     public static int delete(Book book) {
         Client.run();
         try {
-            Client.cout.writeInt(21);
+            Client.cout.writeInt(STARTPOS + 2);
             Client.cout.writeObject(book);
             Client.cout.flush();
             int res = Client.cin.readInt();
@@ -43,7 +44,7 @@ public class BookInfo {
         Client.run();
         Vector<Book> res = new Vector<>();
         try {
-            Client.cout.writeInt(22);
+            Client.cout.writeInt(STARTPOS + 3);
             Client.cout.writeUTF(bookname);
             Client.cout.flush();
             int n = Client.cin.readInt();
@@ -61,7 +62,7 @@ public class BookInfo {
     public static int update(Book book) {
         Client.run();
         try {
-            Client.cout.writeInt(23);
+            Client.cout.writeInt(STARTPOS + 4);
             Client.cout.writeObject(book);
             Client.cout.flush();
             int res = Client.cin.readInt();

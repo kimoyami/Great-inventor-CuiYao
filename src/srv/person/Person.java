@@ -1,14 +1,18 @@
 package srv.person;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.io.Serializable;
 import java.util.Date;
 
 public class Person implements Serializable {
+    static ObjectMapper mapper = new ObjectMapper();
     /**
      * 学生信息
      * academy学院
      * dormitory宿舍
      */
+
     private static final long serialVersionUeCardNumber = 2963524741253039910L;
     private String name;
     private String eCardNumber;
@@ -21,8 +25,17 @@ public class Person implements Serializable {
     private String state;
 
     public Person(){
-
+        name = "";
+        eCardNumber = "";
+        age = 0;
+        gender = "";
+        birthday = new Date();
+        birthplace = "";
+        academy = "";
+        dormitory = "";
+        state = "";
     }
+
 
     public Person(String name, String eCardNumber, String gender, Date birthday,
            String birthplace, String academy, String dormitory, String state) {
@@ -106,5 +119,17 @@ public class Person implements Serializable {
     public void setState(String state) {
         this.state = state;
     }
+
+    public static String getString(Person person){
+        String res = "";
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            res = mapper.writeValueAsString(person);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return res;
+    }
+
 }
 

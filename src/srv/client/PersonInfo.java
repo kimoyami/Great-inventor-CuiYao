@@ -4,6 +4,7 @@ Arthor: kimoyami
 // start: 10
 package srv.client;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import srv.person.Person;
 
 public class PersonInfo {
@@ -53,6 +54,11 @@ public class PersonInfo {
         return person;
     }
 
+    public static String queryStr(String eCardNumber){
+        Person person = query(eCardNumber);
+        return Person.getString(person);
+    }
+
     public static int update(Person person){
         Client.run();
         try {
@@ -66,6 +72,17 @@ public class PersonInfo {
             Client.stop();
             return -4;
         }
+    }
+
+    public static int update(String s){
+        ObjectMapper mapper = new ObjectMapper();
+        Person person = new Person();
+        try {
+            person = mapper.readValue(s, Person.class);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return update(person);
     }
 
     public static int isNew(String eCardNumber){
@@ -84,7 +101,6 @@ public class PersonInfo {
     }
 
     public static void main(String args[]){
-        Person person = query("213171645");
-        if(person == null) System.out.println("pass");
+
     }
 }

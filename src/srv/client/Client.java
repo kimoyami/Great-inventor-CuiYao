@@ -1,5 +1,5 @@
 /*
-Arthor: kimoyami
+Author: kimoyami
  */
 
 package srv.client;

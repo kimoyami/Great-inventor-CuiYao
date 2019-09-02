@@ -22,7 +22,7 @@ public class GoodInfo {
                 ServerThread.cout.flush();
             }
             if (op == 3) {
-                Vector<Goods> res =query();
+                Vector<Goods> res = query();
                 ServerThread.cout.writeInt(res.size());
                 for (int i = 0; i < res.size(); i++) {
                     ServerThread.cout.writeObject(res.elementAt(i));
@@ -57,14 +57,14 @@ public class GoodInfo {
 
     public static Vector<Goods> query() {
         String name = "";
-        int tag=0;
+        int tag = 0;
         try {
             name = ServerThread.cin.readUTF();
-            tag=ServerThread.cin.readInt();
+            tag = ServerThread.cin.readInt();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return DataGoods.query(name,tag);
+        return DataGoods.query(name, tag);
     }
 
- }
+}
