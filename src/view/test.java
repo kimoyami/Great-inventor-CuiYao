@@ -36,7 +36,7 @@ public class test {
             e1.printStackTrace();
         }
     }
-    public static void main(String[] args) {
+    public static void main(String args[]) {
         final Browser browser = new Browser();
         BrowserView view = new BrowserView(browser);
         JFrame frame = new JFrame("JxBrowser");
@@ -46,7 +46,7 @@ public class test {
         frame.setSize(1200, 800);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
-        browser.loadURL("C:\\Users\\崔峣\\Desktop\\test\\Great-inventor-CuiYao\\login\\index.html");
+        browser.loadURL("F:\\GitHub\\Great-inventor-CuiYao\\login\\index.html");
         browser.addLoadListener(new LoadAdapter() {
             @Override
             public void onFinishLoadingFrame(FinishLoadingEvent event) {
@@ -56,6 +56,5 @@ public class test {
                 window.asObject().setProperty("login", x);
             }
         });
-
     }
 }

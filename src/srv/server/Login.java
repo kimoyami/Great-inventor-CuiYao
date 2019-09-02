@@ -154,4 +154,14 @@ public class Login {
     public static Vector<Vector<Object>> getAll(){
         return DataBase.getAll();
     }
+
+    public static int exist(){
+        String eCardNumber;
+        try {
+            eCardNumber = ServerThread.cin.readUTF();
+        }catch (Exception e){
+            return -3;
+        }
+        return DataBase.exist(eCardNumber);
+    }
 }
