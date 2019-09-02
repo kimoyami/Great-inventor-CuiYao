@@ -13,6 +13,8 @@ import java.lang.reflect.Modifier;
 import java.math.BigInteger;
 import com.teamdev.jxbrowser.chromium.ba;
 import srv.client.Login;
+import srv.client.PersonInfo;
+
 
 /**
  * The sample demonstrates how to create Browser instance, embed it,
@@ -53,6 +55,7 @@ public class test {
                 super.onFinishLoadingFrame(event);
                 JSValue window = browser.executeJavaScriptAndReturnValue("window");
                 Login x = new Login();
+
                 window.asObject().setProperty("login", x);
             }
         });
