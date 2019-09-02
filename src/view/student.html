@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title >学生信息管理</title>
+
+</head>
+<body class="setbackgroundcolor"  >
+
+<div class = "textcontrol "   >
+    <h1 style="text-align: center">  Edit    </h1>
+<form action="" method="get">
+    <p class="setfont">name:<input id ="uname"  type="text" placeholder="请输入姓名" readonly/></p>
+    <p><label class="setfont">ID:</label><input id="uid" type="text"  placeholder="请输入一卡通号" readonly/></p>
+    <p class ="setfont">birth:<input id="birth" name="user_birth" type="date"  style="width: 167px" /></p>
+    <p class = "setfont">age:<input id ="age" name ="age" type="text" placeholder="请输入年龄"/></p>
+    <p class="setfont">birthPlace:<input id="birthplace" name="birthplace" type="text" placeholder="请输入出生地"/></p>
+    <p class="setfont">dormitory:<input id="dormitory" type="text" placeholder="请输入宿舍"></p>
+    <p class="setfont">academy:<input id="Academy" name ="Academy" type="text" placeholder="请输入学院"/></p>
+<div>
+    <label class="setfont">
+
+    Sex</label><select name ="sex" id ="sex" name="sex" >
+    <option value="女">女</option>
+    <option value="男">男</option>
+
+</select>
+
+
+    <label class="setfont">
+        Identity</label><select  class ="settext" name = "identity" id ="identity">
+    <option value="teacher">老师</option>
+        <option value = "student">学生</option>
+
+</select>
+
+</div>
+
+<p></p>
+
+    <div style="text-align: center"><input id="load" value="完成" type="button"  onsubmit=" return check"/></div>
+
+</form>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script>
+$(document).ready(function () {
+    $("#load").click(function () {
+          var ID = /^\d{9}$/.test($("#uid").val());
+          if($("#uname").val()==""){
+              check= false;
+              alert("姓名不能为空")
+
+          }else if(!ID){
+              check = false;
+            alert("不正确的一卡通输入")
+
+        }else if($("#birth").val()==""){
+              check = false;
+            alert("生日不能为空")
+
+        }else if(!/^\d+$/.test($("#age").val())||$("#age").val()==""){
+              check = false;
+            alert("不正确的年龄输入")
+
+        }else if($("#birthplace").val()==""){
+              check = false;
+              alert("请输入出生地")
+          }else if($("#dormitory").val()==""){
+              check = false;
+              alert("宿舍不能为空")
+          }
+          else if($("#Academy").val()==""){
+              check = false;
+            alert("请输入学院")
+
+        } else{
+             check = true;
+             alert("提交成功");
+
+          }
+          Client.run();
+
+       let t = $("#birth").val();
+        let year = t.split("-")[0];
+        let month= t.split("-")[1];
+        let day = t.split("-")[2];
+        alert("123")
+
+
+        per.setName($("#uname").val());
+
+        per.seteCardNumber($("#uid").val());
+
+        birthday.setYear(year-1900);
+        birthday.setMonth(month-1);
+        birthday.setDate(day-1+1);
+        per.setBirthplace($("#birthplace").val());
+        per.setDormitory($("#dormitory").val());
+        per.setGender($("#sex").val());
+        per.setAcademy($("#Academy").val());
+        per.setState($("#identity").val());
+
+        per.setBirthday(birthd);
+
+        alert(getBirthday());
+       person.update(per);
+        Client.stop();
+
+
+
+
+
+
+
+    })
+
+
+
+
+
+
+
+})
+
+
+
+    var id =person.query("213171645").geteCardNumber();
+    $("#uid").val(id)
+    var name = person.query("213171645").getName();
+    $("#uname").val(name);
+    var  age = person.query("213171645").getAge();
+    $("#age").val(age);
+    var academy = person.query("213171645").getAcademy();
+    $("#Academy").val(academy);
+    var birthplace = person.query("213171645").getBirthplace();
+    $("#birthplace").val(birthplace);
+    var sex = person.query("213171645").getGender();
+    $("#sex").val(sex);
+    var status = person.query("213171645").getState();
+    $("#identity").val(status);
+    var dor = person.query("213171645").getDormitory();
+    $("#dormitory").val(dor);
+    if((person.query("213171645").getBirthday().getMonth()+1)<=9&&person.query("213171645").getBirthday().getDate()<=9){
+    var birth = (person.query("213171645").getBirthday().getYear()+1900)+"-"+"0"+(person.query("213171645").getBirthday().getMonth()+10-9)+"-"+"0"+(person.query("213171645").getBirthday().getDate());
+    $("#birth").val(birth);}
+    else  if((person.query("213171645").getBirthday().getMonth()+1)>=10&&person.query("213171645").getBirthday().getDate()<=9){
+        var birth = (person.query("213171645").getBirthday().getYear()+1900)+"-"+(person.query("213171645").getBirthday().getMonth()+10-9)+"-"+"0"+(person.query("213171645").getBirthday().getDate());
+        $("#birth").val(birth);
+    } else if((person.query("213171645").getBirthday().getMonth()+1)>=10&&person.query("213171645").getBirthday().getDate()>=10){
+        var birth = (person.query("213171645").getBirthday().getYear()+1900)+"-"+(person.query("213171645").getBirthday().getMonth()+10-9)+"-"+(person.query("213171645").getBirthday().getDate());
+        $("#birth").val(birth);
+
+    }else  if((person.query("213171645").getBirthday().getMonth()+1)<=9&&person.query("213171645").getBirthday().getDate()>=10){
+        var birth = (person.query("213171645").getBirthday().getYear()+1900)+"-"+"0"+(person.query("213171645").getBirthday().getMonth()+10-9)+"-"+(person.query("213171645").getBirthday().getDate());
+        $("#birth").val(birth);
+    }
+
+
+
+
+
+
+
+</script>
+<style>
+    .textcontrol{
+        text-align: right;
+        width: 15%;
+        margin: 0 auto;
+        padding-left: 10%;
+        padding-bottom: 3%;
+        padding-right: 7%;
+        padding-top: 3%;
+        background: url("../view/image/5cf7176231cd9.png") no-repeat 1px center;
+        border: 10px solid black;
+    }
+h1{
+    font-family:Lobster;
+}
+    .setbackgroundcolor{
+        background-color: darksalmon;
+        background: url("image/2.jpg");
+    }
+    .setfont{
+        font-family: Lobster;
+
+    }
+    #load{
+        border:none;
+        outline: none;
+        margin: 2.5rem 0 0;
+        width: 50%;
+        height: 3rem;
+        border-radius: 3rem;
+        background: linear-gradient(90deg,rgb(181, 154, 254),rgb(245, 189, 253) );
+        box-shadow: 0 0 8px rgb(181, 154, 254);
+        cursor: pointer;
+        color:white;
+    }
+    input{
+        border: 1px solid #ccc;
+        padding: 7px 0px;
+        border-radius: 3px;
+        padding-left:5px;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+        box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+        -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+        -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s
+
+    }
+    input:focus{
+        border-color: #66afe9;
+        outline: 0;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+        box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)
+    }
+
+
+
+</style>
+
+</body>
+</html>
+

@@ -4,6 +4,8 @@ import com.teamdev.jxbrowser.chromium.Browser;
 import com.teamdev.jxbrowser.chromium.JSValue;
 import com.teamdev.jxbrowser.chromium.events.FinishLoadingEvent;
 import com.teamdev.jxbrowser.chromium.events.LoadAdapter;
+import com.teamdev.jxbrowser.chromium.events.ScriptContextAdapter;
+import com.teamdev.jxbrowser.chromium.events.ScriptContextEvent;
 import com.teamdev.jxbrowser.chromium.swing.BrowserView;
 
 import javax.swing.*;
@@ -11,9 +13,13 @@ import java.awt.*;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.math.BigInteger;
+import java.util.Date;
+
 import com.teamdev.jxbrowser.chromium.ba;
+import srv.client.Client;
 import srv.client.Login;
 import srv.client.PersonInfo;
+import srv.person.Person;
 
 
 /**
@@ -59,5 +65,36 @@ public class test {
                 window.asObject().setProperty("login", x);
             }
         });
+        /*browser.loadURL("C:\\Users\\ALIENWARE\\Desktop\\dd\\Great-inventor-CuiYao\\src\\view\\student.html");
+        browser.addScriptContextListener(new ScriptContextAdapter() {
+            @Override
+            public void onScriptContextCreated(ScriptContextEvent event) {
+                Browser browser = event.getBrowser();
+                JSValue window = browser.executeJavaScriptAndReturnValue("window");
+
+
+
+                Person per = new Person();
+
+
+                PersonInfo personinfo = new PersonInfo();
+
+                Date date = new Date();
+                Client client = new Client();
+
+
+
+                System.out.println(per.getBirthday());
+                window.asObject().setProperty("person",personinfo);
+                window.asObject().setProperty("per",per);
+                window.asObject().setProperty("birthday",new Date());
+                window.asObject().setProperty("Client",client);
+
+
+
+
+
+            }
+        });*/
     }
 }
