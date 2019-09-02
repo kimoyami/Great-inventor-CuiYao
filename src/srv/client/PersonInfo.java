@@ -83,8 +83,6 @@ public class PersonInfo {
         }
     }
 
-
-
     public static void main(String args[]){
         Person person = query("213171645");
         if(person == null) System.out.println("pass");

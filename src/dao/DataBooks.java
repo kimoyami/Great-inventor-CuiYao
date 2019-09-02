@@ -31,7 +31,6 @@ public class DataBooks {
     }
 
     public static int insert(Book book){
-
         try{
             if(!book.isState()){return 0;}
             String sta="No";
