@@ -16,6 +16,7 @@ import java.math.BigInteger;
 import java.util.Date;
 
 import com.teamdev.jxbrowser.chromium.ba;
+import srv.client.Bank_Info;
 import srv.client.Client;
 import srv.client.Login;
 import srv.client.PersonInfo;
@@ -61,8 +62,8 @@ public class test {
                 super.onFinishLoadingFrame(event);
                 JSValue window = browser.executeJavaScriptAndReturnValue("window");
                 Login x = new Login();
-
                 window.asObject().setProperty("login", x);
+
             }
         });
         /*browser.loadURL("C:\\Users\\ALIENWARE\\Desktop\\dd\\Great-inventor-CuiYao\\src\\view\\student.html");
