@@ -41,7 +41,7 @@
                     </div>
 
                     <!--<span id='forget'>Forget?</span>-->
-                    <button id="Button">LOGIN</button>
+                    <button id="Button" type="button">LOGIN</button>
                 </form>
             </div>
         </div>
@@ -81,6 +81,10 @@
         if(res == 1) alert("正确！");
         if(res == 2) alert("用户待审核！");
         if(res == 3) alert("用户不存在");
+        if(res == 1)
+        {
+            window.location.href = 'file:///C:/Users/%E5%B4%94%E5%B3%A3/Desktop/test/Great-inventor-CuiYao/login/bar.html';
+         }
     }
 
     function SignupClick()
