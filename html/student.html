@@ -3,6 +3,10 @@
 <html lang="en">
 
 <head>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/animate.css/3.7.2/animate.min.css" />
+    <script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+    <link rel="stylesheet" href="syalert/syalert.min.css" />
+    <script src="syalert/syalert.min.js"></script>
     <meta charset="UTF-8">
     <title >学生信息管理</title>
 
@@ -22,7 +26,7 @@
 <div>
     <label class="setfont">
 
-    Sex</label><select name ="sex" id ="sex" name="sex" >
+    Sex</label><select name ="sex" id ="sex" name="sex"  disabled>
     <option value="女">女</option>
     <option value="男">男</option>
 
@@ -30,7 +34,7 @@
 
 
     <label class="setfont">
-        Identity</label><select  class ="settext" name = "identity" id ="identity">
+        Identity</label><select  class ="settext" name = "identity" id ="identity" disabled>
     <option value="teacher">老师</option>
         <option value = "student">学生</option>
 
@@ -44,8 +48,30 @@
 
 </form>
 </div>
+<div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert1">
+    <div class="sy-content">请输入学院</div>
+</div>
+<div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert2">
+    <div class="sy-content">生日不能为空</div>
+</div>
+<div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert3">
+    <div class="sy-content">请输入出生地</div>
+</div>
+<div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert4">
+    <div class="sy-content">请输入宿舍</div>
+</div>
+<div class="sy-alert animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="confirm" sy-mask="true" id="alert5">
+    <div class="sy-title setfont">Yeah</div>
+    <div class="sy-content">你的信息已成功更改！</div>
+    <div class="sy-btn">
+        <button onClick="syalert.syhide('alert5')">好的</button>
+        <button onClick="syalert.syhide('alert5')">取消</button>
+    </div>
+</div>
+<div class="sy-btn " sy-enter="zoomIn" sy-leave="zoomOut">
+    <button class="myBtn" onclick="window.location.href = '../html/bar.html'">主选单</button>
 
-
+</div>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script>
 $(document).ready(function () {
@@ -61,7 +87,7 @@ $(document).ready(function () {
 
         }else if($("#birth").val()==""){
               check = false;
-            alert("生日不能为空")
+            syalert.syopen("alert2")
 
         }else if(!/^\d+$/.test($("#age").val())||$("#age").val()==""){
               check = false;
@@ -69,34 +95,33 @@ $(document).ready(function () {
 
         }else if($("#birthplace").val()==""){
               check = false;
-              alert("请输入出生地")
+              syalert.syopen("alert3")
           }else if($("#dormitory").val()==""){
               check = false;
-              alert("宿舍不能为空")
+             syalert.syopen("alert4")
           }
           else if($("#Academy").val()==""){
               check = false;
-            alert("请输入学院")
+              syalert.syopen('alert1')
 
         } else{
              check = true;
-             alert("提交成功");
+            syalert.syopen("alert5")
+              client.run();
+              let t = $("#birth").val();
+              x = personinfo.query("213171645");
+              let y = JSON.parse(x);
+              y['birthday'] = t;
+              y['birthplace'] = $("#birthplace").val();
+              y['dormitory'] = $("#dormitory").val();
+              y['gender'] = $("#sex").val();
+              y['academy'] = $("#Academy").val()
+              y['state'] = $("#identity").val();
+              x = JSON.stringify(y);
+              personinfo.update(x);
           }
-          client.run();
-          alert(client.eCardNumber);
-        let t = $("#birth").val();
-        x = personinfo.query("213171645");
-        let y = JSON.parse(x);
-        y['birthday'] = t;
-        y['birthplace'] = $("#birthplace").val();
-        y['dormitory'] = $("#dormitory").val();
-        y['gender'] = $("#sex").val();
-        y['academy'] = $("#Academy").val()
-        y['state'] = $("#identity").val();
-        x = JSON.stringify(y);
-        alert(x);
-        personinfo.update(x);
-        window.location.href = '../html/bar.html';
+
+       <!-- window.location.href = '../html/bar.html';-->
     })
 })
 
@@ -167,7 +192,24 @@ h1{
         box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)
     }
 
+    .myBtn{
+        visibility:visible;
+        position: absolute;
+        left: 100px;
+        top: 50px;
+        border:none;
+        outline: none;
+        margin: 2.5rem 0 0;
+        width: 10%;
+        height: 3rem;
+        border-radius: 3rem;
+        background: linear-gradient(90deg,rgb(181, 154, 254),rgb(245, 189, 253) );
+        box-shadow: 0 0 8px rgb(181, 154, 254);
+        cursor: pointer;
+        color:white;
 
+
+    }
 
 </style>
 
