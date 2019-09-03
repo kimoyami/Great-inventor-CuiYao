@@ -29,6 +29,7 @@ public class Client {
             cin.close();
             cout.close();
         }catch (Exception e){
+            e.printStackTrace();
             return;
         }
     }

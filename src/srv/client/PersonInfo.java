@@ -41,7 +41,7 @@ public class PersonInfo {
 
     public static String query(String eCardNumber){
         Client.run();
-        Person person = null;
+        Person person = new Person();
         try {
             Client.cout.writeInt(STARTPOS + 3);
             Client.cout.writeUTF(eCardNumber);
@@ -100,9 +100,5 @@ public class PersonInfo {
             Client.stop();
             return -4;
         }
-    }
-
-    public static void main(String args[]){
-
     }
 }

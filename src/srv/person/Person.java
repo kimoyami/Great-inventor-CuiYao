@@ -47,7 +47,7 @@ public class Person implements Serializable {
         this.state = state;
         this.academy = academy;
         this.dormitory = dormitory;
-        this.age = new Date().getYear() - this.birthday.getYear();
+        if(birthday != null)  this.age = new Date().getYear() - this.birthday.getYear();
     }
 
 
@@ -101,7 +101,7 @@ public class Person implements Serializable {
 
     public void setBirthday(Date birthday) {
         this.birthday = birthday;
-        this.age = new Date().getYear() - birthday.getYear();
+        if(birthday != null)  this.age = new Date().getYear() - birthday.getYear();
     }
 
     public void setBirthplace(String birthplace) {

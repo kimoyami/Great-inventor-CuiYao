@@ -39,6 +39,9 @@ public class ServerThread extends Thread{
                 if(op >= 1 && op <= 4) BookInfo.run(op);
                 op -= 4;
                 if(op >= 1 && op <= 4) Bank_Info.run(op);
+                op -= 4;
+                if(op >= 1 && op <= 4) GoodInfo.run(op);
+                op -= 4;
             }
 
             cin.close();

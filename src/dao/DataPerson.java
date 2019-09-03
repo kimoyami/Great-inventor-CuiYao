@@ -3,6 +3,7 @@ Arthor: kimoyami
  */
 package dao;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import srv.person.Person;
 
 import java.sql.ResultSet;
@@ -21,6 +22,7 @@ public class DataPerson {
             if(!rs.next()) return 0;
             return 1;
         }catch (Exception e){
+            e.printStackTrace();
             return -1;
         }
     }
@@ -29,12 +31,12 @@ public class DataPerson {
         try {
             if(exist(person.geteCardNumber()) == 1) return 0;
             String date = trans.format(person.getBirthday());
-            System.out.println(date);
             String sql = "insert into personinfo(username, ecardnumber, age, sex, birthday, birthplace, academy, dormitory, state) values('"+person.getName()+"', '"+person.geteCardNumber()+"', "+person.getAge()+", '"+person.getGender()+"', #"+date+"#, '"+person.getBirthplace()+"', '"+person.getAcademy()+"', '"+person.getDormitory()+"', '"+person.getState()+"')";
             DataBase.s.executeUpdate(sql);
             DataBase.c.commit();
             return 1;
         }catch (Exception e){
+            e.printStackTrace();
             return -1;
         }
     }
@@ -47,6 +49,7 @@ public class DataPerson {
             DataBase.c.commit();
             return 1;
         }catch (Exception e){
+            e.printStackTrace();
             return -1;
         }
     }
@@ -73,6 +76,7 @@ public class DataPerson {
             DataBase.c.commit();
             return 1;
         }catch (Exception e){
+            e.printStackTrace();
             return -1;
         }
     }
@@ -85,6 +89,7 @@ public class DataPerson {
             if(rs.getString(1) == null) return 1;
             return 0;
         }catch (Exception e){
+            e.printStackTrace();
             return -1;
         }
     }
@@ -92,13 +97,6 @@ public class DataPerson {
     public static void main(String args[]){
         DataBase.start();
         Date now = new Date( 1998 - 1900, Calendar.MARCH,1);
-        Person person = new Person("ryh", "213171642", "男", now, "cq", "CS", "梅园", "student");
-     /*   System.out.println(insert(person));
-        System.out.println(delete("213171645"));*/
-       // System.out.println(isNew("213171645"));
-       // first("21314", now, "cq", "CS", "梅园");
-       // update(person);
-        System.out.println(isNew("213171645"));
         DataBase.stop();
     }
 }

@@ -84,6 +84,7 @@ public class Login {
             sex = ServerThread.cin.readUTF();
             status = ServerThread.cin.readUTF();
         }catch (Exception e){
+            e.printStackTrace();
             return -3;
         }
         return DataBase.insert(userName, password, eCardNumber, sex, status);
@@ -94,6 +95,7 @@ public class Login {
         try {
             eCardNumber = ServerThread.cin.readUTF();
         }catch (Exception e){
+            e.printStackTrace();
             return -3;
         }
         return DataBase.delete(eCardNumber);
@@ -104,6 +106,7 @@ public class Login {
         try {
             eCardNumber = ServerThread.cin.readUTF();
         }catch (Exception e){
+            e.printStackTrace();
             return -3;
         }
         return DataBase.solve(eCardNumber);
@@ -114,6 +117,7 @@ public class Login {
         try {
             eCardNumber = ServerThread.cin.readUTF();
         }catch (Exception e){
+            e.printStackTrace();
             return -3;
         }
         return DataBase.addAdmin(eCardNumber);
@@ -124,6 +128,7 @@ public class Login {
         try {
             eCardNumber = ServerThread.cin.readUTF();
         }catch (Exception e){
+            e.printStackTrace();
             return -3;
         }
         return DataBase.cancelAdmin(eCardNumber);
@@ -142,6 +147,7 @@ public class Login {
             sex = ServerThread.cin.readUTF();
             status = ServerThread.cin.readUTF();
         }catch (Exception e){
+            e.printStackTrace();
             return -3;
         }
         return DataBase.update(userName, password, eCardNumber, sex, status);
@@ -152,6 +158,7 @@ public class Login {
         try {
             eCardNumber = ServerThread.cin.readUTF();
         }catch (Exception e){
+            e.printStackTrace();
             return -3;
         }
         return DataPerson.isNew(eCardNumber);
@@ -166,6 +173,7 @@ public class Login {
         try {
             eCardNumber = ServerThread.cin.readUTF();
         }catch (Exception e){
+            e.printStackTrace();
             return -3;
         }
         return DataBase.exist(eCardNumber);

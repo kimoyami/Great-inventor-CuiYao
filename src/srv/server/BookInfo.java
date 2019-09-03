@@ -33,6 +33,7 @@ public class BookInfo {
                 ServerThread.cout.flush();
             }
         } catch (Exception e) {
+            e.printStackTrace();
             return;
         }
     }
@@ -42,6 +43,7 @@ public class BookInfo {
         try {
             book = (Book) ServerThread.cin.readObject();
         } catch (Exception e) {
+            e.printStackTrace();
             return -3;
         }
         return DataBooks.insert(book);
@@ -72,6 +74,7 @@ public class BookInfo {
         try {
             book = (Book) ServerThread.cin.readObject();
         } catch (Exception e) {
+            e.printStackTrace();
             return -3;
         }
         return DataBooks.update(book);

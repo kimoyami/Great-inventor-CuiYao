@@ -20,6 +20,7 @@ public class BookInfo {
             Client.stop();
             return res;
         } catch (Exception e) {
+            e.printStackTrace();
             Client.stop();
             return -4;
         }
@@ -35,6 +36,7 @@ public class BookInfo {
             Client.stop();
             return res;
         } catch (Exception e) {
+            e.printStackTrace();
             Client.stop();
             return -4;
         }
@@ -69,6 +71,7 @@ public class BookInfo {
             Client.stop();
             return res;
         } catch (Exception e) {
+            e.printStackTrace();
             Client.stop();
             return -4;
         }

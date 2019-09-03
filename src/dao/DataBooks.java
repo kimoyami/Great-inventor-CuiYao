@@ -62,7 +62,7 @@ public class DataBooks {
             return 1;
         }
         catch(Exception e){
-
+            e.printStackTrace();
             return -1;
         }
     }
@@ -104,6 +104,7 @@ public class DataBooks {
             return 1;
         }
         catch(Exception e){
+            e.printStackTrace();
             return -1;
         }
     }

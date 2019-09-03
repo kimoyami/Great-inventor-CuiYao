@@ -10,7 +10,7 @@ import srv.goods.Goods;
 import java.util.Vector;
 
 public class GoodInfo {
-    private static final int STARTPOS = 24;
+    private static final int STARTPOS = 27;
     public static int insert(Goods goods) {
         Client.run();
         try {
@@ -21,6 +21,7 @@ public class GoodInfo {
             Client.stop();
             return res;
         } catch (Exception e) {
+            e.printStackTrace();
             Client.stop();
             return -4;
         }
@@ -36,6 +37,7 @@ public class GoodInfo {
             Client.stop();
             return res;
         } catch (Exception e) {
+            e.printStackTrace();
             Client.stop();
             return -4;
         }
@@ -55,6 +57,7 @@ public class GoodInfo {
             }
             Client.stop();
         } catch (Exception e) {
+            e.printStackTrace();
             Client.stop();
             e.printStackTrace();
         }
@@ -71,6 +74,7 @@ public class GoodInfo {
             Client.stop();
             return res;
         } catch (Exception e) {
+            e.printStackTrace();
             Client.stop();
             return -4;
         }

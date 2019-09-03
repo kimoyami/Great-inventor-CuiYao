@@ -22,6 +22,7 @@ public class DataMessage {
             DataBase.c.commit();
             return 1;
         }catch (Exception e){
+            e.printStackTrace();
             return -1;
         }
     }
@@ -37,6 +38,7 @@ public class DataMessage {
             DataBase.c.commit();
             return 1;
         }catch (Exception e){
+            e.printStackTrace();
             return -1;
         }
     }

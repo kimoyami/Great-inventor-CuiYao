@@ -104,6 +104,7 @@ $(document).ready(function () {
               y['academy'] = $("#Academy").val()
               y['state'] = $("#identity").val();
               x = JSON.stringify(y);
+			  $("#Academy").val(x);
               personinfo.update(x);
           }
 

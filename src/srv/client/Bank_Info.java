@@ -7,7 +7,7 @@ package srv.client;
 import srv.bank.BankInfo;
 
 public class Bank_Info {
-    private static final int STARTPOS = 28;
+    private static final int STARTPOS = 23;
     public static int insert(BankInfo account) {
         Client.run();
         try {
@@ -18,6 +18,7 @@ public class Bank_Info {
             Client.stop();
             return res;
         } catch (Exception e) {
+            e.printStackTrace();
             Client.stop();
             return -4;
         }
@@ -33,6 +34,7 @@ public class Bank_Info {
             Client.stop();
             return res;
         } catch (Exception e) {
+            e.printStackTrace();
             Client.stop();
             return -4;
         }
@@ -48,6 +50,7 @@ public class Bank_Info {
             account = (BankInfo) Client.cin.readObject();
             Client.stop();
         } catch (Exception e) {
+            e.printStackTrace();
             Client.stop();
         }
         return account;
@@ -65,6 +68,7 @@ public class Bank_Info {
             Client.stop();
             return res;
         } catch (Exception e) {
+            e.printStackTrace();
             Client.stop();
             return -4;
         }

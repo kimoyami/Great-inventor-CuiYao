@@ -40,6 +40,7 @@ public class GoodInfo {
         try {
             goods = (Goods) ServerThread.cin.readObject();
         } catch (Exception e) {
+            e.printStackTrace();
             return -3;
         }
         return DataGoods.insert(goods);
@@ -50,6 +51,7 @@ public class GoodInfo {
         try {
             goods = (Goods) ServerThread.cin.readObject();
         } catch (Exception e) {
+            e.printStackTrace();
             return -1;
         }
         return DataGoods.delete(goods);

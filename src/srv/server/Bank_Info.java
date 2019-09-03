@@ -27,6 +27,7 @@ public class Bank_Info {
                 ServerThread.cout.flush();
             }
         } catch (Exception e) {
+            e.printStackTrace();
             return;
         }
     }
@@ -36,6 +37,7 @@ public class Bank_Info {
         try {
             account = (BankInfo) ServerThread.cin.readObject();
         } catch (Exception e) {
+            e.printStackTrace();
             return -3;
         }
         return DataBank.insert(account);
@@ -46,6 +48,7 @@ public class Bank_Info {
         try {
             account = (BankInfo) ServerThread.cin.readObject();
         } catch (Exception e) {
+            e.printStackTrace();
             return -1;
         }
         return DataBank.delete(account);
@@ -70,6 +73,7 @@ public class Bank_Info {
             change=ServerThread.cin.readDouble();
             tag=ServerThread.cin.readInt();
         } catch (Exception e) {
+            e.printStackTrace();
             return -3;
         }
         return DataBank.update(account,change,tag);
