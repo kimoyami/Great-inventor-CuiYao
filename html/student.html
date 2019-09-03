@@ -15,7 +15,7 @@
     <p class="setfont">name:<input id ="uname"  type="text" placeholder="请输入姓名" readonly/></p>
     <p><label class="setfont">ID:</label><input id="uid" type="text"  placeholder="请输入一卡通号" readonly/></p>
     <p class ="setfont">birth:<input id="birth" name="user_birth" type="date"  style="width: 167px" /></p>
-    <p class = "setfont">age:<input id ="age" name ="age" type="text" placeholder="请输入年龄"/></p>
+    <p class = "setfont">age:<input id ="age" name ="age" type="text" placeholder="请输入年龄" readonly/></p>
     <p class="setfont">birthPlace:<input id="birthplace" name="birthplace" type="text" placeholder="请输入出生地"/></p>
     <p class="setfont">dormitory:<input id="dormitory" type="text" placeholder="请输入宿舍"></p>
     <p class="setfont">academy:<input id="Academy" name ="Academy" type="text" placeholder="请输入学院"/></p>
@@ -85,9 +85,7 @@ $(document).ready(function () {
           client.run();
           alert(client.eCardNumber);
         let t = $("#birth").val();
-        var x = personinfo.query('213171645');
-        alert(x);
-        x = personinfo.queryStr("213171645");
+        x = personinfo.query("213171645");
         let y = JSON.parse(x);
         y['birthday'] = t;
         y['birthplace'] = $("#birthplace").val();
@@ -96,7 +94,9 @@ $(document).ready(function () {
         y['academy'] = $("#Academy").val()
         y['state'] = $("#identity").val();
         x = JSON.stringify(y);
+        alert(x);
         personinfo.update(x);
+        window.location.href = '../html/bar.html';
     })
 })
 
@@ -108,8 +108,8 @@ $(document).ready(function () {
     $("#Academy").val(obj['academy']);
     $("#birthplace").val(obj['birthplace']);
     $("#sex").val(obj['gender']);
-    $("#identity").val(obj['status']);
-    $("#dormitory").val(obj['domitory']);
+    $("#identity").val(obj['state']);
+    $("#dormitory").val(obj['dormitory']);
     $("#birth").val(obj['birthday']);
 
 </script>

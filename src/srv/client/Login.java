@@ -177,8 +177,7 @@ public class Login {
 
     public static void main(String args[]){
         Client.run();
-        Vector<Vector<Object>> res = getAll();
-        System.out.println(res.size());
+        System.out.println(isNew("213171645"));
         Client.stop();
     }
 }

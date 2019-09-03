@@ -82,7 +82,7 @@ public class DataPerson {
             String sql = "select academy from personinfo where ecardnumber = '"+eCardNumber+"'";
             ResultSet rs = DataBase.s.executeQuery(sql);
             if(!rs.next()) return -2;
-            if(rs.getString(1).equals("")) return 1;
+            if(rs.getString(1) == null) return 1;
             return 0;
         }catch (Exception e){
             return -1;
@@ -98,6 +98,7 @@ public class DataPerson {
        // System.out.println(isNew("213171645"));
        // first("21314", now, "cq", "CS", "梅园");
        // update(person);
+        System.out.println(isNew("213171645"));
         DataBase.stop();
     }
 }

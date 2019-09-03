@@ -46,25 +46,14 @@ public class test {
     public static void main(String args[]) {
         final Browser browser = new Browser();
         BrowserView view = new BrowserView(browser);
-        JFrame frame = new JFrame("JxBrowser");
+        JFrame frame = new JFrame("东南大学校园管理系统");
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.add(view, BorderLayout.CENTER);
         frame.setLocation(50, 50);
         frame.setSize(1200, 800);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
-       /* browser.loadURL("F:\\GitHub\\Great-inventor-CuiYao\\login\\index.html");
-        browser.addLoadListener(new LoadAdapter() {
-            @Override
-            public void onFinishLoadingFrame(FinishLoadingEvent event) {
-                super.onFinishLoadingFrame(event);
-                JSValue window = browser.executeJavaScriptAndReturnValue("window");
-                Login x = new Login();
-                window.asObject().setProperty("login", x);
-
-            }
-        });*/
-        browser.loadURL("F:\\GitHub\\Great-inventor-CuiYao\\html\\student.html");
+        browser.loadURL("F:\\GitHub\\Great-inventor-CuiYao\\html\\index.html");
         browser.addScriptContextListener(new ScriptContextAdapter() {
             @Override
             public void onScriptContextCreated(ScriptContextEvent event) {
@@ -73,19 +62,15 @@ public class test {
 
                 Person person = new Person();
                 PersonInfo personinfo = new PersonInfo();
-                Date date = new Date();
                 Client client = new Client();
                 Login login = new Login();
 
                 System.out.println(person.getBirthday());
                 window.asObject().setProperty("personinfo", personinfo);
                 window.asObject().setProperty("person", person);
-                window.asObject().setProperty("birthday", new Date());
                 window.asObject().setProperty("client", client);
                 window.asObject().setProperty("login", login);
             }
         });
     }
-
-
 }
