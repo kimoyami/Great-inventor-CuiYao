@@ -64,20 +64,15 @@ public class test {
 
             }
         });*/
-        browser.loadURL("F:\\GitHub\\Great-inventor-CuiYao\\src\\view\\student.html");
+        browser.loadURL("F:\\GitHub\\Great-inventor-CuiYao\\html\\student.html");
         browser.addScriptContextListener(new ScriptContextAdapter() {
             @Override
             public void onScriptContextCreated(ScriptContextEvent event) {
                 Browser browser = event.getBrowser();
                 JSValue window = browser.executeJavaScriptAndReturnValue("window");
 
-
-
                 Person person = new Person();
-
-
                 PersonInfo personinfo = new PersonInfo();
-
                 Date date = new Date();
                 Client client = new Client();
                 Login login = new Login();
@@ -86,7 +81,7 @@ public class test {
                 window.asObject().setProperty("personinfo", personinfo);
                 window.asObject().setProperty("person", person);
                 window.asObject().setProperty("birthday", new Date());
-                window.asObject().setProperty("Client", client);
+                window.asObject().setProperty("client", client);
                 window.asObject().setProperty("login", login);
             }
         });

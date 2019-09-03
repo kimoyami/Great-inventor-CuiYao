@@ -39,7 +39,7 @@ public class PersonInfo {
         }
     }
 
-    public static Person query(String eCardNumber){
+    public static String query(String eCardNumber){
         Client.run();
         Person person = null;
         try {
@@ -51,12 +51,14 @@ public class PersonInfo {
         }catch (Exception e){
             Client.stop();
         }
-        return person;
-    }
-
-    public static String queryStr(String eCardNumber){
-        Person person = query(eCardNumber);
-        return Person.getString(person);
+        String res = "";
+        ObjectMapper mapper = new ObjectMapper();
+        try{
+            res = mapper.writeValueAsString(person);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return res;
     }
 
     public static int update(Person person){

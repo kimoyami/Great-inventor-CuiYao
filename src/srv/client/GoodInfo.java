@@ -75,10 +75,4 @@ public class GoodInfo {
             return -4;
         }
     }
-
-
-
-
-
-
 }

@@ -81,13 +81,10 @@ $(document).ready(function () {
         } else{
              check = true;
              alert("提交成功");
-
           }
-          Client.run();
-
+          client.run();
+          alert(client.eCardNumber);
         let t = $("#birth").val();
-        var q = personinfo.query("213171645");
-        alert("123");
         var x = personinfo.query('213171645');
         alert(x);
         x = personinfo.queryStr("213171645");
@@ -99,59 +96,21 @@ $(document).ready(function () {
         y['academy'] = $("#Academy").val()
         y['state'] = $("#identity").val();
         x = JSON.stringify(y);
-        for(var i in y){
-            alert(i + ' ' + y[i]);
-        }
         personinfo.update(x);
-
     })
-
-
-
-
-
-
-
 })
 
 
-
-    var id = personinfo.query("213171645").geteCardNumber();
-    $("#uid").val(id);
-    var name = personinfo.query("213171645").getName();
-    $("#uname").val(name);
-    var  age = personinfo.query("213171645").getAge();
-    $("#age").val(age);
-    var academy = personinfo.query("213171645").getAcademy();
-    $("#Academy").val(academy);
-    var birthplace = personinfo.query("213171645").getBirthplace();
-    $("#birthplace").val(birthplace);
-    var sex = personinfo.query("213171645").getGender();
-    $("#sex").val(sex);
-    var status = personinfo.query("213171645").getState();
-    $("#identity").val(status);
-    var dor = personinfo.query("213171645").getDormitory();
-    $("#dormitory").val(dor);
-    if((personinfo.query("213171645").getBirthday().getMonth()+1)<=9&&personinfo.query("213171645").getBirthday().getDate()<=9){
-    var birth = (personinfo.query("213171645").getBirthday().getYear()+1900)+"-"+"0"+(personinfo.query("213171645").getBirthday().getMonth()+10-9)+"-"+"0"+(personinfo.query("213171645").getBirthday().getDate());
-    $("#birth").val(birth);}
-    else  if((personinfo.query("213171645").getBirthday().getMonth()+1)>=10&&personinfo.query("213171645").getBirthday().getDate()<=9){
-        var birth = (personinfo.query("213171645").getBirthday().getYear()+1900)+"-"+(personinfo.query("213171645").getBirthday().getMonth()+10-9)+"-"+"0"+(personinfo.query("213171645").getBirthday().getDate());
-        $("#birth").val(birth);
-    } else if((personinfo.query("213171645").getBirthday().getMonth()+1)>=10&&personinfo.query("213171645").getBirthday().getDate()>=10){
-        var birth = (personinfo.query("213171645").getBirthday().getYear()+1900)+"-"+(personinfo.query("213171645").getBirthday().getMonth()+10-9)+"-"+(personinfo.query("213171645").getBirthday().getDate());
-        $("#birth").val(birth);
-
-    }else  if((personinfo.query("213171645").getBirthday().getMonth()+1)<=9&&personinfo.query("213171645").getBirthday().getDate()>=10){
-        var birth = (personinfo.query("213171645").getBirthday().getYear()+1900)+"-"+"0"+(personinfo.query("213171645").getBirthday().getMonth()+10-9)+"-"+(personinfo.query("213171645").getBirthday().getDate());
-        $("#birth").val(birth);
-    }
-
-
-
-
-
-
+    var obj = JSON.parse(personinfo.query("213171645"));
+    $("#uid").val(obj['eCardNumber']);
+    $("#uname").val(obj['name']);
+    $("#age").val(obj['age']);
+    $("#Academy").val(obj['academy']);
+    $("#birthplace").val(obj['birthplace']);
+    $("#sex").val(obj['gender']);
+    $("#identity").val(obj['status']);
+    $("#dormitory").val(obj['domitory']);
+    $("#birth").val(obj['birthday']);
 
 </script>
 <style>
@@ -163,7 +122,7 @@ $(document).ready(function () {
         padding-bottom: 3%;
         padding-right: 7%;
         padding-top: 3%;
-        background: url("../view/image/5cf7176231cd9.png") no-repeat 1px center;
+        background: url("../html/image/5cf7176231cd9.png") no-repeat 1px center;
         border: 10px solid black;
     }
 h1{
