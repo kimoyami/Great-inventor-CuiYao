@@ -143,7 +143,7 @@ form .select {
     top: -10%;
     font-size: 1.2rem;
     color: rgb(129, 101, 207);
-    transition: .3s;
+    transition: all 0.35s ease;
     pointer-events: none;
 }
 
@@ -167,12 +167,13 @@ form .select {
     display: block;
 }
 .select ul {
-    display: none;
+    display: block;
+    opacity: 0;
     position: absolute;
     overflow: hidden;
     width: 100%;
-    background: #fff;
-    border-radius: 2px;
+    background: rgb(255, 239, 255);
+    border-radius: 2px; 
     top: 100%;
     left: 0;
     list-style: none;
@@ -181,7 +182,7 @@ form .select {
     z-index: 100;
 }
 .select ul li {
-    display: block;
+    opacity: 1;
     text-align: left;
     padding: 0.8em 1em 0.8em 1em;
     color: rgb(129, 101, 207);

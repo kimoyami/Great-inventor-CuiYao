@@ -26,7 +26,7 @@ body{
 .box a::before,
 .box a::after{
     width: 14px;
-    height: 14px;
+    height: 14px;   
     content: "";
     position:absolute;
     transition: all 0.35s ease;
