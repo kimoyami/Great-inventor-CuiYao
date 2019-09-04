@@ -1,14 +1,16 @@
 package srv.message;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Message {
+public class Message implements Serializable {
+    private static final long serialVersionUID = 7768054716259077555L;
     private String sender;
     private String receiver;
     private String message;
     private Date time;
 
-    Message(){
+    public Message(){
         sender = "";
         receiver = "";
         message = "";

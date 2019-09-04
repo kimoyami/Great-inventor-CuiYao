@@ -49,6 +49,12 @@ public class Login {
                 }
                 ServerThread.cout.flush();
             }
+            else if(op == 10){
+                ServerThread.cout.writeInt(exist());
+                ServerThread.cout.flush();
+            }
+
+
         }catch (Exception e){
             return;
         }
@@ -78,6 +84,7 @@ public class Login {
             sex = ServerThread.cin.readUTF();
             status = ServerThread.cin.readUTF();
         }catch (Exception e){
+            e.printStackTrace();
             return -3;
         }
         return DataBase.insert(userName, password, eCardNumber, sex, status);
@@ -88,6 +95,7 @@ public class Login {
         try {
             eCardNumber = ServerThread.cin.readUTF();
         }catch (Exception e){
+            e.printStackTrace();
             return -3;
         }
         return DataBase.delete(eCardNumber);
@@ -98,6 +106,7 @@ public class Login {
         try {
             eCardNumber = ServerThread.cin.readUTF();
         }catch (Exception e){
+            e.printStackTrace();
             return -3;
         }
         return DataBase.solve(eCardNumber);
@@ -108,6 +117,7 @@ public class Login {
         try {
             eCardNumber = ServerThread.cin.readUTF();
         }catch (Exception e){
+            e.printStackTrace();
             return -3;
         }
         return DataBase.addAdmin(eCardNumber);
@@ -118,6 +128,7 @@ public class Login {
         try {
             eCardNumber = ServerThread.cin.readUTF();
         }catch (Exception e){
+            e.printStackTrace();
             return -3;
         }
         return DataBase.cancelAdmin(eCardNumber);
@@ -136,6 +147,7 @@ public class Login {
             sex = ServerThread.cin.readUTF();
             status = ServerThread.cin.readUTF();
         }catch (Exception e){
+            e.printStackTrace();
             return -3;
         }
         return DataBase.update(userName, password, eCardNumber, sex, status);
@@ -146,6 +158,7 @@ public class Login {
         try {
             eCardNumber = ServerThread.cin.readUTF();
         }catch (Exception e){
+            e.printStackTrace();
             return -3;
         }
         return DataPerson.isNew(eCardNumber);
@@ -153,5 +166,16 @@ public class Login {
 
     public static Vector<Vector<Object>> getAll(){
         return DataBase.getAll();
+    }
+
+    public static int exist(){
+        String eCardNumber;
+        try {
+            eCardNumber = ServerThread.cin.readUTF();
+        }catch (Exception e){
+            e.printStackTrace();
+            return -3;
+        }
+        return DataBase.exist(eCardNumber);
     }
 }

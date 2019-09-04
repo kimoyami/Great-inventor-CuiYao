@@ -52,8 +52,11 @@
         <SOURCES />
       </library>
     </orderEntry>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
+=======
+>>>>>>> master
     <orderEntry type="module-library">
       <library>
         <CLASSES>
@@ -81,7 +84,10 @@
         <SOURCES />
       </library>
     </orderEntry>
+<<<<<<< HEAD
     <orderEntry type="library" name="jackson-annotations-2.2.3" level="project" />
 >>>>>>> Stashed changes
+=======
+>>>>>>> master
   </component>
 </module>

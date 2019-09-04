@@ -1,5 +1,5 @@
 /*
-Arthor: kimoyami
+Author: kimoyami
  */
 
 package srv.client;
@@ -15,11 +15,15 @@ public class Client {
 
     public static void run(){
         try{
+<<<<<<< HEAD
 <<<<<<< Updated upstream
             socket = new Socket("101.37.79.28", 8888);//
 =======
             socket = new Socket("101.37.79.28", 8888);
 >>>>>>> Stashed changes
+=======
+            socket = new Socket("localhost", 8888);
+>>>>>>> master
             cin = new ObjectInputStream(socket.getInputStream());
             cout = new ObjectOutputStream(socket.getOutputStream());
         }catch (IOException e){
@@ -33,6 +37,7 @@ public class Client {
             cin.close();
             cout.close();
         }catch (Exception e){
+            e.printStackTrace();
             return;
         }
     }

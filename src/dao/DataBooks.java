@@ -31,7 +31,6 @@ public class DataBooks {
     }
 
     public static int insert(Book book){
-
         try{
             if(!book.isState()){return 0;}
             String sta="No";
@@ -63,7 +62,7 @@ public class DataBooks {
             return 1;
         }
         catch(Exception e){
-
+            e.printStackTrace();
             return -1;
         }
     }
@@ -105,14 +104,10 @@ public class DataBooks {
             return 1;
         }
         catch(Exception e){
+            e.printStackTrace();
             return -1;
         }
     }
-
-
-
-
-
 
     public static void main(String []args){
         DataBase.start();

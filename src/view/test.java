@@ -2,8 +2,8 @@ package view;
 
 import com.teamdev.jxbrowser.chromium.Browser;
 import com.teamdev.jxbrowser.chromium.JSValue;
-import com.teamdev.jxbrowser.chromium.events.FinishLoadingEvent;
-import com.teamdev.jxbrowser.chromium.events.LoadAdapter;
+import com.teamdev.jxbrowser.chromium.events.ScriptContextAdapter;
+import com.teamdev.jxbrowser.chromium.events.ScriptContextEvent;
 import com.teamdev.jxbrowser.chromium.swing.BrowserView;
 
 import javax.swing.*;
@@ -11,9 +11,14 @@ import java.awt.*;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.math.BigInteger;
+import java.util.Date;
+
 import com.teamdev.jxbrowser.chromium.ba;
+import srv.client.Bank_Info;
+import srv.client.Client;
 import srv.client.Login;
 import srv.client.PersonInfo;
+import srv.person.Person;
 
 
 /**
@@ -38,16 +43,17 @@ public class test {
             e1.printStackTrace();
         }
     }
-    public static void main(String[] args) {
+    public static void main(String args[]) {
         final Browser browser = new Browser();
         BrowserView view = new BrowserView(browser);
-        JFrame frame = new JFrame("JxBrowser");
+        JFrame frame = new JFrame("东南大学校园管理系统");
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.add(view, BorderLayout.CENTER);
         frame.setLocation(50, 50);
         frame.setSize(1200, 800);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+<<<<<<< HEAD
 <<<<<<< Updated upstream
         browser.loadURL("C:\\Users\\崔峣\\Desktop\\test\\Great-inventor-CuiYao\\login\\index.html");
         browser.addLoadListener(new LoadAdapter() {
@@ -55,15 +61,26 @@ public class test {
         browser.loadURL("C:\\Users\\崔峣\\Desktop\\test\\Great-inventor-CuiYao\\html\\index.html");
         browser.addScriptContextListener(new ScriptContextAdapter() {
 >>>>>>> Stashed changes
+=======
+        browser.loadURL("F:\\GitHub\\Great-inventor-CuiYao\\html\\index.html");
+        browser.addScriptContextListener(new ScriptContextAdapter() {
+>>>>>>> master
             @Override
-            public void onFinishLoadingFrame(FinishLoadingEvent event) {
-                super.onFinishLoadingFrame(event);
+            public void onScriptContextCreated(ScriptContextEvent event) {
+                Browser browser = event.getBrowser();
                 JSValue window = browser.executeJavaScriptAndReturnValue("window");
-                Login x = new Login();
 
-                window.asObject().setProperty("login", x);
+                Person person = new Person();
+                PersonInfo personinfo = new PersonInfo();
+                Client client = new Client();
+                Login login = new Login();
+
+                System.out.println(person.getBirthday());
+                window.asObject().setProperty("personinfo", personinfo);
+                window.asObject().setProperty("person", person);
+                window.asObject().setProperty("client", client);
+                window.asObject().setProperty("login", login);
             }
         });
-
     }
 }
