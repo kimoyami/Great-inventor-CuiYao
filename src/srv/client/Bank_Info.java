@@ -4,6 +4,8 @@
 
 package srv.client;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import srv.bank.Bank;
 import srv.bank.BankInfo;
 
 public class Bank_Info {
@@ -38,9 +40,9 @@ public class Bank_Info {
         }
     }
 
-    public static BankInfo query(String ID) {
+    public static String query(String ID) {
         Client.run();
-        BankInfo account = null;
+        BankInfo account = new BankInfo();
         try {
             Client.cout.writeInt(STARTPOS + 3);
             Client.cout.writeUTF(ID);
@@ -50,7 +52,14 @@ public class Bank_Info {
         } catch (Exception e) {
             Client.stop();
         }
-        return account;
+        String res="";
+        ObjectMapper mapper = new ObjectMapper();
+        try{
+            res = mapper.writeValueAsString(account);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return res;
     }
 
     public static int update(BankInfo account, double change, int tag) {

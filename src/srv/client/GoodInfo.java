@@ -26,6 +26,7 @@ public class GoodInfo {
         }
     }
 
+
     public static int delete(Goods goods) {
         Client.run();
         try {
