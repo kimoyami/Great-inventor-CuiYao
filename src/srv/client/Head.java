@@ -15,9 +15,7 @@ public class Head {
         try {
             Client.cout.writeInt(-100);
             Client.cout.writeUTF(eCardNumber);
-            Client.cout.writeUTF(fileName);
             Client.cout.flush();
-
 
             FileInputStream fis = new FileInputStream(url);
             OutputStream out = Client.socket.getOutputStream();

@@ -11,6 +11,7 @@ import dao.DataHead;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Random;
 
 public class ServerThread extends Thread {
     private static final String BASE = "F:\\GitHub\\Great-inventor-CuiYao\\headimage\\";
@@ -59,11 +60,16 @@ public class ServerThread extends Thread {
 
     public synchronized void update() {
         String eCardNumber = "";
-        String fileName = "";
         try {
             eCardNumber = cin.readUTF();
-            fileName = cin.readUTF();
-            String url = BASE + fileName;
+            StringBuffer fileName = new StringBuffer();
+            Random random = new Random();
+            String str = "zxcvbnmlkjhgfdsaqwertyuiopQWERTYUIOPASDFGHJKLZXCVBNM1234567890";
+            for(int i = 0; i < 20; i++){
+                int num = random.nextInt(62);
+                fileName.append(str.charAt(num));
+            }
+            String url = BASE + fileName.toString() + ".jpg";
             InputStream in = socket.getInputStream();
             FileOutputStream fos = new FileOutputStream(url);
             byte[] buf = new byte[2048];

@@ -21,6 +21,7 @@ import java.util.Properties;
 import java.util.Vector;
 
 public class DataBase {
+    static private final String DEFAULTURL = "F:\\Great-inventor-CuiYao\\headimage\\timg.jpg";
     static private String dbUrl = "jdbc:odbc:account";
     static private String user = "Nemo Sherry";
     static private String password = "ryhlovelyt";
@@ -138,6 +139,10 @@ public class DataBase {
 
             sql = "delete from upsolved where ecardnumber = '"+eCardNumber+"'";
             s.executeUpdate(sql);
+
+            sql = "insert into head(ecardnumber, url) values('"+eCardNumber+"', '"+DEFAULTURL+"')";
+            s.executeUpdate(sql);
+
             c.commit();
             return 1;
         }catch (Exception e){

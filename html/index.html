@@ -78,11 +78,12 @@
         var x = document.getElementById('Ecardnumber').value;
         var y = document.getElementById('Password').value;
         var res = login.query(x, y);
+        alert(res);
         if(res == 0) alert("密码错误！");
-        if(res == 1) alert("正确！");
+        if(res == 1 || res == 4) alert("正确！");
         if(res == 2) alert("用户待审核！");
         if(res == 3) alert("用户不存在");
-        if(res == 1)
+        if(res == 1 || res == 4)
         {
             client.eCardNumber = x;
             if(login.isNew(x) == 1) {

@@ -11,20 +11,11 @@ import java.awt.*;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.math.BigInteger;
-import java.util.Date;
 
 import com.teamdev.jxbrowser.chromium.ba;
-import srv.client.Bank_Info;
-import srv.client.Client;
-import srv.client.Login;
-import srv.client.PersonInfo;
+import srv.client.*;
 import srv.person.Person;
 
-
-/**
- * The sample demonstrates how to create Browser instance, embed it,
- * load HTML content from string, and display it.
- */
 public class test {
     static {
         try {
@@ -64,12 +55,13 @@ public class test {
                 PersonInfo personinfo = new PersonInfo();
                 Client client = new Client();
                 Login login = new Login();
+                Head head = new Head();
 
-                System.out.println(person.getBirthday());
                 window.asObject().setProperty("personinfo", personinfo);
                 window.asObject().setProperty("person", person);
                 window.asObject().setProperty("client", client);
                 window.asObject().setProperty("login", login);
+                window.asObject().setProperty("head", head);
             }
         });
     }
