@@ -22,15 +22,14 @@ public class BankInfo {
     private long transferTime;
     private String state;
 
-    public BankInfo(String id,String n, double b, String p, String to, double amount, long t){
-        this.setID(id);
-        this.setName(n);
-        this.setBalance(b);
-        this.setPassword(p);
-        this.setTransferTo(to);
-        this.setTransferAmount(amount);
-        this.setTransferTime(t);
+    public BankInfo(){
+        ID="";
+        name="";
+        balance=0;
+        eCardBalance=0;
+        password="";
     }
+
 
     public BankInfo(String id,String n, double b, double e,String p){
         this.setID(id);
