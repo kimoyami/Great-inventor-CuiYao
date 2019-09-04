@@ -134,6 +134,10 @@
         e.stopPropagation();
     })
 
+    $('#Ecardnumber').on('input propertychange',function(){
+        $('.png').attr('src','img/232.jpg');
+    })
+
     $('.input input').on('blur',function(){
         if($(this).val() === '')
             $(this).parent().removeClass('focus');
