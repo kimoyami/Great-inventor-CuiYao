@@ -7,6 +7,7 @@
 
 body{
     justify-content: center;
+    font-family: "Microsoft JhengHei"
 }
 
 .container{
@@ -16,7 +17,7 @@ body{
 }
 
 .container .background{
-    width:90rem;
+    width:95rem;
 }
 
 .switch span{
@@ -34,9 +35,9 @@ body{
     margin: 8rem 0 0;
     position: absolute;
     right:0;
-    top:-5%;  
+    top:0;  
     padding: 40px;
-    background: rgba(235, 235, 235);
+    background: rgb(235, 235, 235);
     border-radius: 10px;
     display: flex;
     justify-content: center;
