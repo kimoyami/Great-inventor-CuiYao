@@ -15,7 +15,11 @@ public class Client {
 
     public static void run(){
         try{
+<<<<<<< Updated upstream
             socket = new Socket("101.37.79.28", 8888);//
+=======
+            socket = new Socket("101.37.79.28", 8888);
+>>>>>>> Stashed changes
             cin = new ObjectInputStream(socket.getInputStream());
             cout = new ObjectOutputStream(socket.getOutputStream());
         }catch (IOException e){

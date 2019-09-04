@@ -48,8 +48,13 @@ public class test {
         frame.setSize(1200, 800);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+<<<<<<< Updated upstream
         browser.loadURL("C:\\Users\\崔峣\\Desktop\\test\\Great-inventor-CuiYao\\login\\index.html");
         browser.addLoadListener(new LoadAdapter() {
+=======
+        browser.loadURL("C:\\Users\\崔峣\\Desktop\\test\\Great-inventor-CuiYao\\html\\index.html");
+        browser.addScriptContextListener(new ScriptContextAdapter() {
+>>>>>>> Stashed changes
             @Override
             public void onFinishLoadingFrame(FinishLoadingEvent event) {
                 super.onFinishLoadingFrame(event);
