@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -173,4 +174,181 @@
 		
 	})
 </script>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="css\style.css">
+</head>
+<body>
+    <div class="container">
+        <img class="background" src="img/BG.jpg" alt="">
+        <div class="panel">
+            <div class="content login">
+                <div class="switch">
+                    <span id='login' class='active'>Login</span>
+                    <span>/</span>
+                    <span id='signup'>Sign Up</span>
+                </div>
+                <form action="" method="get" autocomplete="on">
+                    <img class="png" src="img/timg.jpg" alt="">
+                    <div id='username' class="input"  placeholder='Username'><input type="text" id="Username"></div>
+                    <div class="input" placeholder='Ecardnumber'><input type="text" id="Ecardnumber" oninput = "value=value.replace(/[^\d]/g,'')"></div>
+                    <div class="input" placeholder='Password'><input type="password" id="Password"></div>
+                    <div id='repeat' class="input" placeholder='Repeat'><input type="password" id="Repeat"></div>
+                    
+                    <div class="select" id="sex" placeholder="Sex">
+                        <input class="placeholder" id="Sex" readonly>
+                        <ul>
+                            <li>Male</li>
+                            <li>Female</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="select" id="status" placeholder="Status">
+                            <input class="placeholder" id="Status" readonly>
+                            <ul>
+                                <li>Student</li>
+                                <li>Teacher</li>
+                            </ul>
+                    </div>
+
+                    <!--<span id='forget'>Forget?</span>-->
+                    <button id="Button" type="button">LOGIN</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    $('#login').click(function(){
+        $('.switch span').removeClass('active');
+        $(this).addClass('active');
+
+        $(this).parents('.content').removeClass('signup');
+        $(this).parents('.content').addClass('login');
+
+        $('form button').text('LOGIN')
+
+    })
+
+    $('Button').click(function(){
+        if($('form button').text()=='LOGIN')
+        {
+            LoginClick();
+        }
+        if($('form button').text()=='SIGNUP')
+        {
+            SignupClick();
+        }
+    })
+    
+    function LoginClick()
+    {
+        var x = document.getElementById('Ecardnumber').value;
+        var y = document.getElementById('Password').value;
+        var res = login.query(x, y);
+        if(res == 0) alert("密码错误！");
+        if(res == 1) alert("正确！");
+        if(res == 2) alert("用户待审核！");
+        if(res == 3) alert("用户不存在");
+        if(res == 1)
+        {
+            client.eCardNumber = x;
+            if(login.isNew(x) == 1) {
+                window.location.href = '../html/student.html';
+                alert("新用户请完善信息！");
+            }
+            else window.location.href = '../html/bar.html';
+        }
+    }
+
+    function SignupClick()
+    {
+        var Username=$("#Username").val();
+        var Ecardnumber=$("#Ecardnumber").val();
+        var Password=$("#Password").val();
+        var Repeat=$("#Repeat").val();
+        var Sex=$("#Sex").val();
+        var Status=$("#Status").val();
+        if(Password!=Repeat) alert("两次输入密码不相等！");
+        else if(Ecardnumber=="") alert("一卡通不能为空！");
+        else if(Username=="") alert("姓名不能为空！");
+        else if(Password=="") alert("密码不能为空！");
+        else if(Sex=="")  alert("性别必须明确！");
+        else if(Status=="")  alert("身份必须明确！");
+        else{
+            var ans = login.insert(Username,Password, Ecardnumber, Sex, Status);
+            var res;
+            if(ans == 0)res = "提交注册成功！";
+            else if(ans == 2) res = "该一卡通已注册，正待审核！";
+            else if(ans == 1) res = "该一卡通已存在";
+            alert(res);
+        }
+    }
+
+    $('#signup').click(function(){
+        $('.switch span').removeClass('active');
+        $(this).addClass('active');
+
+        $(this).parents('.content').removeClass('login');
+        $(this).parents('.content').addClass('signup');
+
+        $('form button').text('SIGNUP');
+    })
+
+    $('.input input').on('focus',function(){
+        $(this).parent().addClass('focus');
+        
+        e.stopPropagation();
+    })
+
+    $('.input input').on('blur',function(){
+        if($(this).val() === '')
+            $(this).parent().removeClass('focus');
+            
+    })
+
+    $('.select').on('click', '.placeholder', function(e) {
+        var parent = $(this).closest('.select');
+        if (!parent.hasClass('is-open')) {
+            parent.addClass('is-open');
+            $(this).parent().addClass('focus');
+            $('.select.is-open').not(parent).removeClass('is-open');
+        } else {
+			if($(this).val() === '')
+				$(this).parent().removeClass('focus');
+            parent.removeClass('is-open');
+        }
+        e.stopPropagation();
+    })
+	
+	$('.select').on('click', 'ul>li', function() {
+        var parent = $(this).closest('.select');
+        parent.removeClass('is-open').find('.placeholder').val($(this).text());
+        e.stopPropagation();
+    });
+	
+	$(document).on('click',function(){
+        var parent = $(this).find('.focus');
+        parent.each(function(){
+            if($(this).find('.placeholder').val() === '')
+                $(this).removeClass('focus');
+        })
+        var parent = $(this).find('.is-open');
+        parent.each(function(){
+            if($(this).hasClass('is-open'))
+                $(this).removeClass('is-open');
+        })
+		
+	})
+</script>
+>>>>>>> Stashed changes
 </html>
