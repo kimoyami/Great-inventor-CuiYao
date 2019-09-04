@@ -2,29 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="effd8aa9-b86e-4e21-8468-d09d6e21ea63" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/student.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/student.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/DataBank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/DataBank.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/DataBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/DataBooks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/DataBooks.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/DataClinic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/DataClinic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/DataGoods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/DataGoods.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/DataMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/DataMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/DataPerson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/DataPerson.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/account.accdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/account.accdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/srv/bank/BankInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/srv/bank/BankInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/srv/client/Bank_Info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/srv/client/Bank_Info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/srv/client/BookInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/srv/client/BookInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/srv/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/srv/client/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/srv/client/GoodInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/srv/client/GoodInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/srv/client/PersonInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/srv/client/PersonInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/srv/person/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/srv/person/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/srv/server/Bank_Info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/srv/server/Bank_Info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/srv/server/BookInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/srv/server/BookInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/srv/server/GoodInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/srv/server/GoodInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/srv/server/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/srv/server/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/srv/server/PersonInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/srv/server/PersonInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/srv/server/ServerThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/srv/server/ServerThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/css/barstyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/html/css/barstyle.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/html/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/test.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,7 +17,17 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/view/test.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="247">
+              <caret line="46" column="46" lean-forward="true" selection-start-line="46" selection-start-column="46" selection-end-line="46" selection-end-column="46" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -44,7 +35,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/view/test.java" />
         <option value="$PROJECT_DIR$/src/srv/client/Login.java" />
         <option value="$PROJECT_DIR$/src/srv/person/Person.java" />
         <option value="$PROJECT_DIR$/src/srv/client/PersonInfo.java" />
@@ -66,6 +56,7 @@
         <option value="$PROJECT_DIR$/src/srv/server/ServerThread.java" />
         <option value="$PROJECT_DIR$/src/srv/server/Bank_Info.java" />
         <option value="$PROJECT_DIR$/src/srv/bank/BankInfo.java" />
+        <option value="$PROJECT_DIR$/src/view/test.java" />
       </list>
     </option>
   </component>
@@ -80,6 +71,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -97,33 +89,12 @@
               <item name="Great-inventor-CuiYao" type="b2602c69:ProjectViewProjectNode" />
               <item name="Great-inventor-CuiYao" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Great-inventor-CuiYao" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Great-inventor-CuiYao" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="srv" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Great-inventor-CuiYao" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Great-inventor-CuiYao" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="srv" type="462c0819:PsiDirectoryNode" />
-              <item name="bank" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Great-inventor-CuiYao" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Great-inventor-CuiYao" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="srv" type="462c0819:PsiDirectoryNode" />
-              <item name="book" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -144,7 +115,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.DataBase">
+  <component name="RunManager" selected="Application.test">
     <configuration name="DataBase" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="dao.DataBase" />
       <module name="Great-inventor-CuiYao" />
@@ -212,8 +183,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.DataBase" />
         <item itemvalue="Application.test" />
+        <item itemvalue="Application.DataBase" />
         <item itemvalue="Application.Server" />
         <item itemvalue="Application.DataPerson" />
         <item itemvalue="Application.PersonInfo" />
@@ -241,9 +212,9 @@
     <option name="totallyTimeSpent" value="10307000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-6" y="-6" width="1453" height="913" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25746268" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2609319" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -252,7 +223,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32936078" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3286445" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -262,7 +233,7 @@
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.32936078" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.3286445" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -335,13 +306,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="391" column="18" selection-start-line="391" selection-start-column="18" selection-end-line="391" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="31" column="33" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
         </state>
       </provider>
     </entry>
@@ -524,6 +488,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="441">
           <caret line="43" column="24" lean-forward="true" selection-start-line="43" selection-start-column="24" selection-end-line="43" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/view/test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="46" column="46" lean-forward="true" selection-start-line="46" selection-start-column="46" selection-end-line="46" selection-end-column="46" />
         </state>
       </provider>
     </entry>
