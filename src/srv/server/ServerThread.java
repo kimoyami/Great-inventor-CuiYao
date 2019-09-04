@@ -6,48 +6,77 @@ Author: kimoyami
 package srv.server;
 
 import dao.DataBase;
+import dao.DataHead;
 
 import java.io.*;
+import java.net.ServerSocket;
 import java.net.Socket;
 
-public class ServerThread extends Thread{
+public class ServerThread extends Thread {
+    private static final String BASE = "F:\\GitHub\\Great-inventor-CuiYao\\headimage\\";
     private Socket socket;
     public static ObjectInputStream cin = null;
     public static ObjectOutputStream cout = null;
 
-    public ServerThread(Socket socket){
+    public ServerThread(Socket socket) {
         this.socket = socket;
     }
 
-    public void run(){
-        try{
+    public void run() {
+        try {
             cout = new ObjectOutputStream(socket.getOutputStream());
             cin = new ObjectInputStream(socket.getInputStream());
 
             DataBase.start();
 
-            while(true){
+            while (true) {
                 int op = cin.readInt();
-                System.out.println(op);
-                if(op == -1) break;
-                if(op >= 1 && op <= 10) Login.run(op);
+                if (op == -1) break;
+                if (op == -100) update();
+                if (op >= 1 && op <= 10) Login.run(op);
                 op -= 10;
-                if(op >= 1 && op <= 5) PersonInfo.run(op);
+                if (op >= 1 && op <= 5) PersonInfo.run(op);
                 op -= 5;
-                if(op >= 1 && op <= 4) MessageTrans.run(op);
+                if (op >= 1 && op <= 4) MessageTrans.run(op);
                 op -= 4;
-                if(op >= 1 && op <= 4) BookInfo.run(op);
+                if (op >= 1 && op <= 4) BookInfo.run(op);
                 op -= 4;
-                if(op >= 1 && op <= 4) Bank_Info.run(op);
+                if (op >= 1 && op <= 4) Bank_Info.run(op);
                 op -= 4;
-                if(op >= 1 && op <= 4) GoodInfo.run(op);
+                if (op >= 1 && op <= 4) GoodInfo.run(op);
                 op -= 4;
+                if(op == 1) Head.run(op);
+                op -= 1;
             }
 
             cin.close();
             cout.close();
             DataBase.stop();
-        }catch(IOException e){
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public synchronized void update() {
+        String eCardNumber = "";
+        String fileName = "";
+        try {
+            eCardNumber = cin.readUTF();
+            fileName = cin.readUTF();
+            String url = BASE + fileName;
+            InputStream in = socket.getInputStream();
+            FileOutputStream fos = new FileOutputStream(url);
+            byte[] buf = new byte[2048];
+            int len = 0;
+            while ((len = in.read(buf)) != -1) {
+                fos.write(buf, 0, len);
+            }
+            fos.flush();
+            cout.writeInt(DataHead.update(eCardNumber, url));
+            cout.flush();
+            fos.close();
+            in.close();
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
