@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/animate.css/3.7.2/animate.min.css" />
+    <script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+    <link rel="stylesheet" href="syalert/syalert.min.css" />
+    <script src="syalert/syalert.min.js"></script>
+    <meta charset="UTF-8">
+    <title >学生信息管理</title>
+
+</head>
+<body class="setbackgroundcolor"  >
+
+<div class = "textcontrol "   >
+    <h1 style="text-align: center">  Edit    </h1>
+<form action="" method="get">
+    <p class="setfont">name:<input id ="uname"  type="text" placeholder="请输入姓名" readonly/></p>
+    <p><label class="setfont">ID:</label><input id="uid" type="text"  placeholder="请输入一卡通号" readonly/></p>
+    <p class ="setfont">birth:<input id="birth" name="user_birth" type="date"  style="width: 167px" /></p>
+    <p class = "setfont">age:<input id ="age" name ="age" type="text" placeholder="请输入年龄" readonly/></p>
+    <p class="setfont">birthPlace:<input id="birthplace" name="birthplace" type="text" placeholder="请输入出生地"/></p>
+    <p class="setfont">dormitory:<input id="dormitory" type="text" placeholder="请输入宿舍"></p>
+    <p class="setfont">academy:<input id="Academy" name ="Academy" type="text" placeholder="请输入学院"/></p>
+<div>
+    <label class="setfont">
+
+    Sex</label><select name ="sex" id ="sex" name="sex"  disabled>
+    <option value="女">女</option>
+    <option value="男">男</option>
+
+</select>
+
+
+    <label class="setfont">
+        Identity</label><select  class ="settext" name = "identity" id ="identity" disabled>
+    <option value="teacher">老师</option>
+        <option value = "student">学生</option>
+
+</select>
+
+</div>
+
+<p></p>
+
+    <div style="text-align: center"><input id="load" value="完成" type="button"  onsubmit=" return check"/></div>
+
+</form>
+</div>
+<div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert1">
+    <div class="sy-content">请输入学院</div>
+</div>
+<div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert2">
+    <div class="sy-content">生日不能为空</div>
+</div>
+<div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert3">
+    <div class="sy-content">请输入出生地</div>
+</div>
+<div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert4">
+    <div class="sy-content">请输入宿舍</div>
+</div>
+<div class="sy-alert animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="confirm" sy-mask="true" id="alert5">
+    <div class="sy-title setfont">Yeah</div>
+    <div class="sy-content">你的信息已成功更改！</div>
+    <div class="sy-btn">
+        <button onClick="syalert.syhide('alert5')">好的</button>
+        <button onClick="syalert.syhide('alert5')">取消</button>
+    </div>
+</div>
+<div class="sy-btn " sy-enter="zoomIn" sy-leave="zoomOut">
+    <button class="myBtn" onclick="window.location.href = '../html/bar.html'">主选单</button>
+
+</div>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script>
+$(document).ready(function () {
+    $("#load").click(function () {
+         if($("#birth").val()==""){
+              check = false;
+            syalert.syopen("alert2")
+
+        }else if($("#birthplace").val()==""){
+              check = false;
+              syalert.syopen("alert3")
+          }else if($("#dormitory").val()==""){
+              check = false;
+             syalert.syopen("alert4")
+          }
+          else if($("#Academy").val()==""){
+              check = false;
+              syalert.syopen('alert1')
+
+        } else{
+             check = true;
+			  syalert.syopen("alert5")
+              let t = $("#birth").val();
+              x = personinfo.query(client.eCardNumber);
+			  let y = JSON.parse(x);
+              y['birthday'] = t;
+              y['birthplace'] = $("#birthplace").val();
+              y['dormitory'] = $("#dormitory").val();
+              y['gender'] = $("#sex").val();
+              y['academy'] = $("#Academy").val()
+              y['state'] = $("#identity").val();
+              x = JSON.stringify(y);
+              personinfo.update(x);
+          }
+
+       <!-- window.location.href = '../html/bar.html';-->
+    })
+})
+
+	alert(client.eCardNumber);
+    var obj = JSON.parse(personinfo.query(client.eCardNumber));
+    $("#uid").val(obj['eCardNumber']);
+    $("#uname").val(obj['name']);
+    $("#age").val(obj['age']);
+    $("#Academy").val(obj['academy']);
+    $("#birthplace").val(obj['birthplace']);
+    $("#sex").val(obj['gender']);
+    $("#identity").val(obj['state']);
+    $("#dormitory").val(obj['dormitory']);
+    $("#birth").val(obj['birthday']);
+
+</script>
+<style>
+    .textcontrol{
+        text-align: right;
+        width: 15%;
+        margin: 0 auto;
+        padding-left: 10%;
+        padding-bottom: 3%;
+        padding-right: 7%;
+        padding-top: 3%;
+        background: url("../html/image/5cf7176231cd9.png") no-repeat 1px center;
+        border: 10px solid black;
+    }
+h1{
+    font-family:Lobster;
+}
+    .setbackgroundcolor{
+        background-color: darksalmon;
+        background: url("image/2.jpg");
+    }
+    .setfont{
+        font-family: Lobster;
+
+    }
+    #load{
+        border:none;
+        outline: none;
+        margin: 2.5rem 0 0;
+        width: 50%;
+        height: 3rem;
+        border-radius: 3rem;
+        background: linear-gradient(90deg,rgb(181, 154, 254),rgb(245, 189, 253) );
+        box-shadow: 0 0 8px rgb(181, 154, 254);
+        cursor: pointer;
+        color:white;
+    }
+    input{
+        border: 1px solid #ccc;
+        padding: 7px 0px;
+        border-radius: 3px;
+        padding-left:5px;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+        box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+        -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+        -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s
+
+    }
+    input:focus{
+        border-color: #66afe9;
+        outline: 0;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+        box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)
+    }
+
+    .myBtn{
+        visibility:visible;
+        position: absolute;
+        left: 100px;
+        top: 50px;
+        border:none;
+        outline: none;
+        margin: 2.5rem 0 0;
+        width: 10%;
+        height: 3rem;
+        border-radius: 3rem;
+        background: linear-gradient(90deg,rgb(181, 154, 254),rgb(245, 189, 253) );
+        box-shadow: 0 0 8px rgb(181, 154, 254);
+        cursor: pointer;
+        color:white;
+
+
+    }
+
+</style>
+
+</body>
+</html>
+
