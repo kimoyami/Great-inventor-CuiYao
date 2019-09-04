@@ -44,7 +44,7 @@ public class test {
         frame.setSize(1200, 800);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
-        browser.loadURL("F:\\GitHub\\Great-inventor-CuiYao\\html\\index.html");
+        browser.loadURL("F:\\GitHub\\Great-inventor-CuiYao\\html\\library.html");
         browser.addScriptContextListener(new ScriptContextAdapter() {
             @Override
             public void onScriptContextCreated(ScriptContextEvent event) {
@@ -56,12 +56,14 @@ public class test {
                 Client client = new Client();
                 Login login = new Login();
                 Head head = new Head();
+                BookInfo bookinfo= new BookInfo;
 
                 window.asObject().setProperty("personinfo", personinfo);
                 window.asObject().setProperty("person", person);
                 window.asObject().setProperty("client", client);
                 window.asObject().setProperty("login", login);
                 window.asObject().setProperty("head", head);
+                window.asObject().setProperty("BookInfo", head);
             }
         });
     }

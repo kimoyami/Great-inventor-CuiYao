@@ -56,6 +56,12 @@ public class BookInfo {
             Client.stop();
         } catch (Exception e) {
             Client.stop();
+        }
+        String res = "";
+        ObjectMapper mapper = new ObjectMapper();
+        try{
+            res = mapper.writeValueAsString(book);
+        }catch (Exception e){
             e.printStackTrace();
         }
         return res;

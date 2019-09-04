@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<charset="utf-8" />
+	<title>图书管理</title>
+</head>
+<body class="setbackground">
+	<h1 style="text-align: center;">添加图书</h1>
+	<p style="text-align: center;">图书书名
+	<input type="text" id="BOOK_NAME" name="BOOK_NAME" placeholder="请输入书名"></p> 
+	<p style="text-align: center;">图书序号
+	<input type="text" id="aBOOK_ID" name="aBOOK_ID" placeholder="请输入ID"></p> 
+	<p style="text-align: center;">出版公司
+	<input type="text" id="BOOK_PUB" name="BOOK_PUB" placeholder="请输入出版社"></p>
+	<p style="text-align: center;">图书分类
+	<input type="text" id="Category" name="Category" placeholder="请输入图书类型"></p> 
+	<p style="text-align: center;">图书作者
+	<input type="text" id="BOOK_EDIT" name="BOOK_EDIT" placeholder="请输入作者"></p>
+	<p style="text-align: center;">删除图书</p>
+	<p style="text-align: center;">图书序号
+	<input type="text" id="dBOOK_ID" name="dBOOK_ID"
+	placeholder="请输入ID"> </p>
+
+		<div id="login_add">
+	<a type="button" id="add">添加书籍</a>
+</div>
+<div id="login_del">
+	<a type="button" id="del">删除书籍</a>
+</div>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script>
+
+$(document).ready(function(){
+	$("#del").click(function(){
+		
+		alert("删除成功")
+	})
+})
+
+$(document).ready(function(){
+	$("#add").click(function(){
+		
+		alert("添加成功")
+	})
+})
+</script>
+
+<body background="123.jpg"
+style=" background-repeat: no-repeat ;
+background-size:100% ;" >
+<style type="text/css">
+	#login_add{ 
+		margin-top:30px;
+		margin-left: 630px; 
+		height:40px;
+	}
+		#login_add a {
+    	text-decoration:none;
+		background:#4DFFFF;
+		color:#5B4B00;
+	
+		padding: 8px 5px 8px 5px;
+		font-size:20px;
+		font-family: 微软雅黑,宋体,Arial,Helvetica,Verdana,sans-serif;
+		font-weight:bold;
+		border-radius:2px;
+	
+		-webkit-transition:all linear 0.30s;
+		-moz-transition:all linear 0.30s;
+		transition:all linear 0.30s;
+	}
+    #login_add a:hover { background:#385f9e; }
+
+
+
+	
+	
+	
+	#login_del{ 
+		margin-top:-40px;
+		margin-left:760px; 
+		height:40px;
+	}
+		#login_del a {
+    	text-decoration:none;
+		background:#4DFFFF;
+		color:#5B4B00;
+	
+		padding: 8px 5px 8px 5px;
+		font-size:20px;
+		font-family: 微软雅黑,宋体,Arial,Helvetica,Verdana,sans-serif;
+		font-weight:bold;
+		border-radius:2px;
+	
+		-webkit-transition:all linear 0.30s;
+		-moz-transition:all linear 0.30s;
+		transition:all linear 0.30s;
+	
+	}
+    #login_del a:hover { background:#385f9e; }

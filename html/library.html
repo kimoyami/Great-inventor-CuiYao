@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<charset="utf-8" />
+	<title>线上图书馆系统</title>
+</head>
+<body class="setbackground">
+	<h1 style="text-align: center">线上图书馆</h1>
+	<p style="text-align: center;">查询信息
+	<input type="text" id="book" name="book" placeholder="请输入书名"></p>
+	<div id="login_search">
+	<a type="button" id="search" >查询书籍</a>
+</div>
+<div id="login_borrow">
+	<a type="button" id="borrow">借阅此书</a>
+</div>
+ 
+<table border="5" width="30%"  align="center"> 
+<tr align="center">
+<th>书籍ID</th>    
+<th>书籍名称</th>
+<th>作者  </th>
+  <th> 出版社</th>
+  <th>图书类别</th>
+  <th>状态</th>
+</tr>
+<tr align="center">
+<td>1</td>
+<td>22</td>
+<td>333</td>
+<td>4444</td>
+<td>55555</td>
+<td>666666</td>
+</tr>
+<tr align="center">
+<td>1</td>
+<td>22</td>
+<td>333</td>
+<td>4444</td>
+<td>55555</td>
+<td>666666</td>
+</tr>
+<tr align="center">
+<td>1</td>
+<td>22</td>
+<td>333</td>
+<td>4444</td>
+<td>55555</td>
+<td>666666</td>
+</tr>
+ </table>
+
+<p style="text-align: center">
+<a href="personalbook.html" style="text-align: center">还书界面</a>
+</p>
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script>
+$(document).ready(function(){
+	$("#borrow").click(function(){
+		
+		alert("借阅成功")
+	})
+})
+
+</script>
+
+<body background="123.jpg"
+style=" background-repeat: no-repeat ;
+background-size:100% ;" >
+<style type="text/css">
+	#login_search{ 
+		margin-top:40px;
+		margin-left: 600px; 
+		height:40px;
+	}
+		#login_search a {
+    	text-decoration:none;
+		background:#4DFFFF;
+		color:#5B4B00;
+	
+		padding: 8px 5px 8px 5px;
+		font-size:20px;
+		font-family: 微软雅黑,宋体,Arial,Helvetica,Verdana,sans-serif;
+		font-weight:bold;
+		border-radius:2px;
+	
+		-webkit-transition:all linear 0.30s;
+		-moz-transition:all linear 0.30s;
+		transition:all linear 0.30s;
+	
+	}
+    #login_search a:hover { background:#385f9e; }
+    #login_borrow{ 
+		margin-top:-40px;
+		margin-left: 800px; 
+		height:40px;
+	}
+	#login_borrow a {
+    	text-decoration:none;
+		background:#4DFFFF;
+		color:#5B4B00;
+	
+		padding: 8px 5px 8px 5px;
+		font-size:20px;
+		font-family: 微软雅黑,宋体,Arial,Helvetica,Verdana,sans-serif;
+		font-weight:bold;
+		border-radius:2px;
+	
+		-webkit-transition:all linear 0.30s;
+		-moz-transition:all linear 0.30s;
+		transition:all linear 0.30s;
+	
+	}
+    #login_borrow a:hover { 
+    	background:#385f9e; 
+    }
+
+
+	</style>
+</body>
+</html>
