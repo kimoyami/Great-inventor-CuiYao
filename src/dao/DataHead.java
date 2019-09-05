@@ -7,7 +7,6 @@ package dao;
 import java.sql.ResultSet;
 
 public class DataHead {
-    private static final String DEFAULTURL = "F:\\GitHub\\Great-inventor-CuiYao\\html\\img\\timg.jpg";
     public static int update(String eCardNumber, String url){
         try{
             String sql = "update head set url = '"+url+"' where ecardnumber = '"+eCardNumber+"'";
@@ -24,11 +23,11 @@ public class DataHead {
         try {
             String sql = "select url from head where ecardnumber = '"+eCardNumber+"'";
             ResultSet rs = DataBase.s.executeQuery(sql);
-            if(!rs.next()) return DEFAULTURL;
+            if(!rs.next()) return "";
             return rs.getString(1);
         }catch (Exception e){
             e.printStackTrace();
-            return DEFAULTURL;
+            return "";
         }
     }
 }

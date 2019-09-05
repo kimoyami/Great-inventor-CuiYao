@@ -20,7 +20,7 @@
                 </div>
                 <form action="" method="get" autocomplete="on">
                     <div id='username' class="input"  placeholder='Username'><input type="text" id="Username"></div>
-                    <div class="input" placeholder='Ecardnumber'><input type="number" id="Ecardnumber"></div>
+                    <div class="input" placeholder='Ecardnumber'><input type="text" id="Ecardnumber" oninput = "value=value.replace(/[^\d]/g,'')"></div>
                     <div class="input" placeholder='Password'><input type="password" id="Password"></div>
                     <div id='repeat' class="input" placeholder='Repeat'><input type="password" id="Repeat"></div>
                     
@@ -41,7 +41,7 @@
                     </div>
 
                     <!--<span id='forget'>Forget?</span>-->
-                    <button id="Button">LOGIN</button>
+                    <button id="Button" type="button">LOGIN</button>
                 </form>
             </div>
         </div>
@@ -77,10 +77,15 @@
         var x = document.getElementById('Ecardnumber').value;
         var y = document.getElementById('Password').value;
         var res = login.query(x, y);
+		alert("xxx");
         if(res == 0) alert("密码错误！");
         if(res == 1) alert("正确！");
         if(res == 2) alert("用户待审核！");
         if(res == 3) alert("用户不存在");
+        if(res == 1)
+        {
+            window.location.href = 'F:\\GitHub\\Great-inventor-CuiYao\\login\\bar.html';
+         }
     }
 
     function SignupClick()
@@ -119,11 +124,14 @@
 
     $('.input input').on('focus',function(){
         $(this).parent().addClass('focus');
+        
+        e.stopPropagation();
     })
 
     $('.input input').on('blur',function(){
         if($(this).val() === '')
             $(this).parent().removeClass('focus');
+            
     })
 
     $('.select').on('click', '.placeholder', function(e) {
@@ -137,6 +145,7 @@
 				$(this).parent().removeClass('focus');
             parent.removeClass('is-open');
         }
+        e.stopPropagation();
     })
 	
 	$('.select').on('click', 'ul>li', function() {
@@ -145,17 +154,18 @@
         e.stopPropagation();
     });
 	
-	$('.select').on('blur','.placeholder',function(){
-		var parent = $(this).closest('.select');
-        if(true)
-        {
-		    if (parent.hasClass('is-open')){
-			        if($(this).val() === '')
-				$(this).parent().removeClass('focus');
-			    parent.removeClass('is-open');
-			}
-        }
+	$(document).on('click',function(){
+        var parent = $(this).find('.focus');
+        parent.each(function(){
+            if($(this).find('.placeholder').val() === '')
+                $(this).removeClass('focus');
+        })
+        var parent = $(this).find('.is-open');
+        parent.each(function(){
+            if($(this).hasClass('is-open'))
+                $(this).removeClass('is-open');
+        })
+		
 	})
-	
 </script>
 </html>
