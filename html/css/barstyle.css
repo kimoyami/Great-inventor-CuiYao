@@ -28,6 +28,13 @@ body{
 .bar{
     transform: translateY(28%);
 }
+.png{
+    width:3rem;
+    top:-2rem;
+    left:47%;
+    position: relative;
+    border-radius: 50%;
+}
 
 .box{
     font-size: 20px;

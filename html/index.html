@@ -135,7 +135,8 @@
     })
 
     $('#Ecardnumber').on('input propertychange',function(){
-        $('.png').attr('src','img/232.jpg');
+        var url = head.query($("#Ecardnumber").val());
+        $('.png').attr('src', url);
     })
 
     $('.input input').on('blur',function(){

@@ -17,6 +17,7 @@
                     <li><a class="tab" href="javascript:i">聊天</a> </li>    
                 </ul>
             </div>
+            <a href="javascript:;" class="headpng"><img class="png" src="img/timg.jpg" alt="" style="cursor:hand" onclick="headpng()"></a>
         </div>
         <div class="content">      
             <div class = "textcontrol">
@@ -124,6 +125,10 @@
     $("#identity").val(obj['state']);
     $("#dormitory").val(obj['dormitory']);
     $("#birth").val(obj['birthday']);
+
+    function headpng(){
+        alert("更改头像");
+    }
 
 </script>
 </html>
