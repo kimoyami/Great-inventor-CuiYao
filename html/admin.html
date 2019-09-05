@@ -32,20 +32,28 @@
 
 $(document).ready(function(){
 	$("#del").click(function(){
-		
+		<!--数据库存在 -->
 		alert("删除成功")
 	})
 })
 
 $(document).ready(function(){
 	$("#add").click(function(){
-		
+		<!-- if($("#bookname").val()=="" -->
 		alert("添加成功")
 	})
 })
+alert(client.bookname);
+    var obj = JSON.parse(bookinfo.query(client.bookname));
+    $("#uid").val(obj['BOOK_ID']);
+    $("#uname").val(obj['BOOK_NAME']);
+    $("#public").val(obj['BOOK_PUB']);
+    $("#category").val(obj['Category']);
+    $("#state").val(obj['BE_BORROWED']);
+    $("#editor").val(obj['BOOK_EDIT']);
 </script>
 
-<body background="123.jpg"
+<body background="image/123.jpg"
 style=" background-repeat: no-repeat ;
 background-size:100% ;" >
 <style type="text/css">

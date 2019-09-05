@@ -54,9 +54,15 @@ $(document).ready(function(){
 	})
 })
 
-
+alert(client.personalbook);
+    var obj = JSON.parse(bookinfo.query(client.bookname));
+    $("#uid").val(obj['BOOK_ID']);
+    $("#uname").val(obj['BOOK_NAME']);
+    $("#bdate").val(obj['borrowDate']);
+    $("#rdate").val(obj['returnDate']);
+    $("#state").val(obj['BE_BORROWED']);
 </script>
-<body background="123.jpg"
+<body background="image/123.jpg"
 style=" background-repeat:no-repeat ;
 background-size:100% ;" >
 <style type="text/css">
