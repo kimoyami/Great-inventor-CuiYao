@@ -72,7 +72,12 @@ public class DataCourse {
     public static void main(String args[]){
             DataBase.start();
             int a=exist("0011","贺传富");
+            int b=insert(new Course("0011","明凯",112212,"明凯",100,100,"未满"));
+
+
             System.out.println(a);
+            System.out.println(b);
+
             DataBase.stop();
     }
 }

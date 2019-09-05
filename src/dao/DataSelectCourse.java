@@ -39,7 +39,6 @@ public class DataSelectCourse {
             int cur=0;
             for (int i = 0; i <list.size() ; i++) {
                 for (int j = 0; j <list1.size() ; j++) {
-                    System.out.println(list.get(i)+""+list1.get(j)+"");
                     if(list1.get(j).equals(list.get(i))){cur=1;}
                 }
             }
@@ -58,7 +57,6 @@ public class DataSelectCourse {
             int cur=0;
             while(rs.next()){
                 int a=rs.getInt("coursetime");
-                System.out.println(a);
                 cur=check(a,course.getTime());
                 if(cur==1){break;}
             }
@@ -94,9 +92,10 @@ public class DataSelectCourse {
         //SelectCourse course=new SelectCourse();
 
         DataBase.start();
-        int a=exist("213170001","压刀学");
+       int a=insert(new SelectCourse("213170001","0011","接Q学",135256));
         int b=exist("213170002","压刀学");
         int c=insert(new SelectCourse("213170001","0011","接Q学",156256));
+
         System.out.println(a);
         System.out.println(b);
         System.out.println(c);
