@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="container">
-        <img class="background" src="img/BG.jpg" alt="">
+        <img src="img/bc.jpg" alt="">
         <div class="panel">
             <div class="content login">
                 <div class="switch">
@@ -19,7 +19,6 @@
                     <span id='signup'>Sign Up</span>
                 </div>
                 <form action="" method="get" autocomplete="on">
-                    <img class="png" src="img/timg.jpg" alt="">
                     <div id='username' class="input"  placeholder='Username'><input type="text" id="Username"></div>
                     <div class="input" placeholder='Ecardnumber'><input type="text" id="Ecardnumber" oninput = "value=value.replace(/[^\d]/g,'')"></div>
                     <div class="input" placeholder='Password'><input type="password" id="Password"></div>
@@ -78,20 +77,15 @@
         var x = document.getElementById('Ecardnumber').value;
         var y = document.getElementById('Password').value;
         var res = login.query(x, y);
-        alert(res);
+		alert("xxx");
         if(res == 0) alert("密码错误！");
-        if(res == 1 || res == 4) alert("正确！");
+        if(res == 1) alert("正确！");
         if(res == 2) alert("用户待审核！");
         if(res == 3) alert("用户不存在");
-        if(res == 1 || res == 4)
+        if(res == 1)
         {
-            client.eCardNumber = x;
-            if(login.isNew(x) == 1) {
-                window.location.href = '../html/student.html';
-                alert("新用户请完善信息！");
-            }
-            else window.location.href = '../html/bar.html';
-        }
+            window.location.href = 'F:\\GitHub\\Great-inventor-CuiYao\\login\\bar.html';
+         }
     }
 
     function SignupClick()
@@ -132,10 +126,6 @@
         $(this).parent().addClass('focus');
         
         e.stopPropagation();
-    })
-
-    $('#Ecardnumber').on('input propertychange',function(){
-        $('.png').attr('src','img/232.jpg');
     })
 
     $('.input input').on('blur',function(){

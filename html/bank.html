@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<charset ="utf-8" />
+	<charset="utf-8" />
 	<title>银行信息管理</title>
 </head>
 
@@ -10,7 +10,7 @@
 <div class="searchBox" id="search_box">
 	<a id="search" type="button" onclick="searchFct()">余额查询</a>
 	<br/><br/><br/><br/><br/><br/>
-	<img src="image/timg.jpg" id="piggyBank" width="200" align="bottom">
+	<img src="timg.jpg" id="piggyBank" width="200" align="bottom">
 	<p style="text-align: center">您的余额为：
 		<input type="text" id="balance" value="0.0"></p>
 </div>
@@ -35,8 +35,11 @@ function transferFct(){
 function searchFct(){
 	//gif动画
 	var imgObj = document.getElementById("piggyBank");
-	var Flag=(imgObj.getAttribute("src",2)=="image/timg.jpg")
-	imgObj.src=Flag?"image/timg.gif":"image/timg.jpg";
+	var Flag=(imgObj.getAttribute("src",2)=="timg.jpg")
+	imgObj.src=Flag?"timg.gif":"timg.jpg";
+	var a = Bank_Info.query(213170001);
+	var r = document.getElementById("balance");
+
 }
 
 </script>

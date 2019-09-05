@@ -1,0 +1,17 @@
+<component name="libraryTable">
+  <library name="jackson-annotations-2.2.3">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/jackson-annotations-2.2.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jackson-core-2.2.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jackson-databind-2.2.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jxbrowser-6.21.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jxbrowser-linux64-6.21.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jxbrowser-mac-6.21.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jxbrowser-win32-6.21.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jxbrowser-win64-6.21.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jxbrowserdemo.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

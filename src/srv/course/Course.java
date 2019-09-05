@@ -11,7 +11,7 @@ import java.io.Serializable;
 课程类Course(String, String, String, int, int)
  */
 
-public class Course {
+public class Course implements Serializable{
     private static final long serialVersionUID = 6445069540877410708L;
     private String idx;
     private String courseName;

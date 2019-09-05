@@ -4,7 +4,7 @@ function:
 
 start() 启动数据库
 stop() 停止数据库
-query() 查询账号密码是否正确  -1异常 0错误 1正确 2待审核 3不存在
+query() 查询账号密码是否正确  -1异常 0错误 1正确 2待审核 3不存在 4管理员
 insert() 注册新账号(当且仅当用户名不存在) -2异常 -1异常 0成功 1已存在且审核 2已存在待审核
 exist() 查询用户名是否存在 -1异常 0不存在 1存在且审核 2存在待审核
 delete() 删除用户 -1异常 0不存在 1存在且审核过 2存在且待审核
@@ -21,6 +21,7 @@ import java.util.Properties;
 import java.util.Vector;
 
 public class DataBase {
+    static private final String DEFAULTURL = "F:\\Great-inventor-CuiYao\\headimage\\timg.jpg";
     static private String dbUrl = "jdbc:odbc:account";
     static private String user = "Nemo Sherry";
     static private String password = "ryhlovelyt";
@@ -48,6 +49,7 @@ public class DataBase {
             s.close();
             c.close();
         }catch (Exception e){
+            e.printStackTrace();
             return;
         }
     }
@@ -57,12 +59,16 @@ public class DataBase {
             String sql = "select password from upsolved where ecardnumber like '"+eCardNumber+"'";
             ResultSet rs = s.executeQuery(sql);
             if(rs.next()) return 2;
-            sql = "select password from login where ecardnumber like '"+eCardNumber+"'";
+            sql = "select * from login where ecardnumber like '"+eCardNumber+"'";
             rs = s.executeQuery(sql);
             if(!rs.next()) return 3;
-            if(password.equals(rs.getString(1))) return 1;
+            if(password.equals(rs.getString(3))) {
+                if(rs.getBoolean(7) == true) return 4;
+                else return 1;
+            }
             else return 0;
         }catch (SQLException e){
+            e.printStackTrace();
             return -1;
         }
     }
@@ -77,6 +83,7 @@ public class DataBase {
             if(!rs.next()) return 0;
             else return 1;
         }catch (SQLException e){
+            e.printStackTrace();
             return -1;
         }
     }
@@ -90,6 +97,7 @@ public class DataBase {
 
             return 0;
         }catch (SQLException e){
+            e.printStackTrace();
             return -2;
         }
     }
@@ -110,6 +118,7 @@ public class DataBase {
             }
             return res;
         }catch (SQLException e){
+            e.printStackTrace();
             return -1;
         }
     }
@@ -130,9 +139,14 @@ public class DataBase {
 
             sql = "delete from upsolved where ecardnumber = '"+eCardNumber+"'";
             s.executeUpdate(sql);
+
+            sql = "insert into head(ecardnumber, url) values('"+eCardNumber+"', '"+DEFAULTURL+"')";
+            s.executeUpdate(sql);
+
             c.commit();
             return 1;
         }catch (Exception e){
+            e.printStackTrace();
             return -1;
         }
     }
@@ -146,6 +160,7 @@ public class DataBase {
             c.commit();
             return 1;
         }catch (SQLException e){
+            e.printStackTrace();
             return -1;
         }
     }
@@ -159,6 +174,7 @@ public class DataBase {
             c.commit();
             return 1;
         }catch (SQLException e){
+            e.printStackTrace();
             return -1;
         }
     }
@@ -172,6 +188,7 @@ public class DataBase {
             c.commit();
             return 0;
         }catch (SQLException e){
+            e.printStackTrace();
             return -2;
         }
     }
@@ -190,15 +207,14 @@ public class DataBase {
                 res.add(tmp);
             }
         }catch (Exception e){
-
+            e.printStackTrace();
         }
         return res;
     }
 
     public static void main(String args[]){
         start();
-        //insert("xxx", "yyy", "21314", "男", "学生");
-        solve("21314");
+        System.out.println(query("213171645", "ryhlovelyt"));
         stop();
     }
 }
