@@ -16,7 +16,7 @@ import com.teamdev.jxbrowser.chromium.ba;
 import srv.client.*;
 import srv.person.Person;
 
-public class test {
+public class MainView {
     static {
         try {
             Field e = ba.class.getDeclaredField("e");
@@ -34,10 +34,13 @@ public class test {
             e1.printStackTrace();
         }
     }
+
+    public static JFrame frame;
+    public static final Browser browser = new Browser();
+
     public static void main(String args[]) {
-        final Browser browser = new Browser();
         BrowserView view = new BrowserView(browser);
-        JFrame frame = new JFrame("东南大学校园管理系统");
+        frame = new JFrame("东南大学校园管理系统");
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.add(view, BorderLayout.CENTER);
         frame.setLocation(50, 50);
@@ -59,13 +62,31 @@ public class test {
                 Client client = new Client();
                 Login login = new Login();
                 Head head = new Head();
+                MainView mainview = new MainView();
 
                 window.asObject().setProperty("personinfo", personinfo);
                 window.asObject().setProperty("person", person);
                 window.asObject().setProperty("client", client);
                 window.asObject().setProperty("login", login);
                 window.asObject().setProperty("head", head);
+                window.asObject().setProperty("mainview", mainview);
             }
         });
     }
+
+    public static void choose(String eCardNumber){
+        JFileChooser chooser = new JFileChooser();
+        ImagePreview imagePreview = new ImagePreview(chooser);
+        chooser.addPropertyChangeListener(imagePreview);
+        chooser.setAccessory(imagePreview);
+        int flag = chooser.showOpenDialog(frame);
+        if (flag == JFileChooser.APPROVE_OPTION){
+            int res = Head.update(eCardNumber, chooser.getSelectedFile().getPath());
+            if(res == 1) {
+                browser.executeJavaScript("alert('上传成功！')");
+            }
+            else browser.executeJavaScript("alert('上传失败！')");
+        }
+    }
+
 }

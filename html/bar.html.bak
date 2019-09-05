@@ -139,7 +139,6 @@
 
     function headpng(){
         mainview.choose(client.eCardNumber);
-		document.getElementById('head').src = head.query(client.eCardNumber);
     }
 
 </script>

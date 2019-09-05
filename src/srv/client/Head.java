@@ -10,7 +10,7 @@ import java.io.OutputStream;
 public class Head {
     private static final int STARTPOS = 31;
     private static final String DEFAULTURL = "F:\\GitHub\\Great-inventor-CuiYao\\html\\img\\timg.jpg";
-    public static int update(String eCardNumber, String fileName, String url){
+    public static int update(String eCardNumber, String url){
         Client.run();
         try {
             Client.cout.writeInt(-100);
@@ -56,7 +56,7 @@ public class Head {
 
     public static void main(String args[]){
         String url = "F:\\GitHub\\untitled\\5a4af734f0021.jpg";
-        System.out.println(update("213171645", "232.jpg", url));
+        System.out.println(update("213171645", url));
         System.out.println(query("213171645"));
     }
 }
