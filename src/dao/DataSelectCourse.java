@@ -1,5 +1,6 @@
 /*
- * Copyright: kimoyami
+ * Copyright: Mashiro
+ * insert()插入 -3已满 -2冲突 -1异常 0已选过 1成功
  */
 
 package dao;
@@ -49,11 +50,21 @@ public class DataSelectCourse {
             return -1;
         }
     }
+
+
     public static int insert(SelectCourse course){
         try{
             if(exist(course.getECardName(),course.getCourseName())==1){return 0;}
-            String sql="select * from selectcourse where ecardname='"+course.getECardName()+"'";
-            ResultSet rs= DataBase.s.executeQuery(sql);
+            String sql="select * from course where idx='"+course.getIdx()+"' and teacher='"+course.getTeacher()+"'";
+            ResultSet rs=DataBase.s.executeQuery(sql);
+            rs.next();
+            int tmp=rs.getInt("remainnumber");
+            if (tmp == 0) {
+                return -3;
+            }
+
+            sql="select * from selectcourse where ecardname='"+course.getECardName()+"'";
+            rs= DataBase.s.executeQuery(sql);
             int cur=0;
             while(rs.next()){
                 int a=rs.getInt("coursetime");
@@ -63,11 +74,25 @@ public class DataSelectCourse {
             System.out.println(cur);
             if(cur==1){return -2;}
 
-            sql="insert into selectcourse(ecardname,idx,coursename,coursetime)values ('"+course.getECardName()+"','"+course.getIdx()+"','"+course.getCourseName()+"',"+course.getTime()+")";
-
+            sql="insert into selectcourse(ecardname,idx,coursename,coursetime,teacher)" +
+                    "values ('"+course.getECardName()+"','"+course.getIdx()+"'," +
+                    "'"+course.getCourseName()+"',"+course.getTime()+",'"+course.getTeacher()+"')";
+            tmp=tmp-1;
             DataBase.s.executeUpdate(sql);
-
             DataBase.c.commit();
+            if(tmp>0){
+                sql="update course set remainnumber="+tmp+" " +
+                        "where idx='"+course.getIdx()+"' and teacher='"+course.getTeacher()+"'";
+                DataBase.s.executeUpdate(sql);
+                DataBase.c.commit();
+            }
+            else{
+                String sta="已满";
+                sql="update course set remainnumber="+tmp+", state='"+sta+"'" +
+                        "where idx='"+course.getIdx()+"' and teacher='"+course.getTeacher()+"'";
+                DataBase.s.executeUpdate(sql);
+                DataBase.c.commit();
+            }
             return 1;
         }
         catch(Exception e){
@@ -92,17 +117,10 @@ public class DataSelectCourse {
         //SelectCourse course=new SelectCourse();
 
         DataBase.start();
-       int a=insert(new SelectCourse("213170001","0011","接Q学",135256));
-        int b=exist("213170002","压刀学");
-        int c=insert(new SelectCourse("213170001","0011","接Q学",156256));
-
+       int a=insert(new SelectCourse("213170001","0011","野区经济学",112212,"明凯"));
+        int b=insert(new SelectCourse("213170002","0011","野区经济学",112212,"明凯"));
         System.out.println(a);
         System.out.println(b);
-        System.out.println(c);
         DataBase.stop();
-
-
     }
-
-
 }

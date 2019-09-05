@@ -1,5 +1,5 @@
 /*
- * Copyright: kimoyami
+ * Copyright: Mashiro
  */
 
 package srv.course;
@@ -9,13 +9,14 @@ public class SelectCourse {
     private String idx;
     private String courseName;
     private int time;
+    private String teacher;
 
-    public SelectCourse(String e,String i,String c,int t) {
+    public SelectCourse(String e,String i,String c,int t,String teacher) {
         this.eCardName=e;
         this.idx=i;
         this.courseName=c;
         this.time=t;
-
+        this.teacher=teacher;
     }
 
 
@@ -31,6 +32,9 @@ public class SelectCourse {
     public int getTime() {
         return this.time;
     }
+    public String getTeacher() {
+        return this.teacher;
+    }
 
     public void setECardName(String eCardName) {
         this.eCardName = eCardName;
@@ -44,4 +48,8 @@ public class SelectCourse {
     public void setTime(int time) {
         this.time = time;
     }
+    public void setTeacher(String teacher) {
+        this.teacher = teacher;
+    }
+
 }
