@@ -9,7 +9,7 @@ import java.io.OutputStream;
 
 public class Head {
     private static final int STARTPOS = 31;
-
+    private static final String DEFAULTURL = "F:\\GitHub\\Great-inventor-CuiYao\\html\\img\\timg.jpg";
     public static int update(String eCardNumber, String fileName, String url){
         Client.run();
         try {
@@ -50,7 +50,7 @@ public class Head {
         }catch (Exception e){
             e.printStackTrace();
             Client.stop();
-            return "";
+            return DEFAULTURL;
         }
     }
 

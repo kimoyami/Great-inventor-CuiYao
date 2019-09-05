@@ -64,7 +64,7 @@ public class Bank_Info {
         return DataBank.query(ID);
     }
 
-    public static int update() {
+    public static synchronized int update() {
         BankInfo account;
         double change;
         int tag;

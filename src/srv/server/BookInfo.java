@@ -69,7 +69,7 @@ public class BookInfo {
         return DataBooks.query(bookname);
     }
 
-    public static int update() {
+    public static synchronized int update() {
         Book book;
         try {
             book = (Book) ServerThread.cin.readObject();
