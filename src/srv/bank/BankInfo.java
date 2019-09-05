@@ -39,7 +39,17 @@ public class BankInfo implements Serializable{
         this.seteCardBalance(e);
         this.setPassword(p);
     }
-
+    public BankInfo(){
+        ID = "";
+        name = "";
+        balance = 0.0;
+        eCardBalance = 0.0;
+        password = "";
+        transferTo = "";
+        transferAmount = 0.0;
+        transferTime = 0;
+        state = "";
+    }
 
     public void setID(String param){
         this.ID = param;
