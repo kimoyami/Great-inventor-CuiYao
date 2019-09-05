@@ -2,8 +2,8 @@ package view;
 
 import com.teamdev.jxbrowser.chromium.Browser;
 import com.teamdev.jxbrowser.chromium.JSValue;
-import com.teamdev.jxbrowser.chromium.events.ScriptContextAdapter;
-import com.teamdev.jxbrowser.chromium.events.ScriptContextEvent;
+import com.teamdev.jxbrowser.chromium.events.FinishLoadingEvent;
+import com.teamdev.jxbrowser.chromium.events.LoadAdapter;
 import com.teamdev.jxbrowser.chromium.swing.BrowserView;
 
 import javax.swing.*;
@@ -11,11 +11,13 @@ import java.awt.*;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.math.BigInteger;
-
 import com.teamdev.jxbrowser.chromium.ba;
-import srv.client.*;
-import srv.person.Person;
+import srv.client.Login;
 
+/**
+ * The sample demonstrates how to create Browser instance, embed it,
+ * load HTML content from string, and display it.
+ */
 public class test {
     static {
         try {
@@ -34,35 +36,26 @@ public class test {
             e1.printStackTrace();
         }
     }
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         final Browser browser = new Browser();
         BrowserView view = new BrowserView(browser);
-        JFrame frame = new JFrame("东南大学校园管理系统");
+        JFrame frame = new JFrame("JxBrowser");
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.add(view, BorderLayout.CENTER);
         frame.setLocation(50, 50);
         frame.setSize(1200, 800);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
-        browser.loadURL("F:\\GitHub\\Great-inventor-CuiYao\\html\\index.html");
-        browser.addScriptContextListener(new ScriptContextAdapter() {
+        browser.loadURL("C:\\Users\\崔峣\\Desktop\\test\\Great-inventor-CuiYao\\login\\index.html");
+        browser.addLoadListener(new LoadAdapter() {
             @Override
-            public void onScriptContextCreated(ScriptContextEvent event) {
-                Browser browser = event.getBrowser();
+            public void onFinishLoadingFrame(FinishLoadingEvent event) {
+                super.onFinishLoadingFrame(event);
                 JSValue window = browser.executeJavaScriptAndReturnValue("window");
-
-                Person person = new Person();
-                PersonInfo personinfo = new PersonInfo();
-                Client client = new Client();
-                Login login = new Login();
-                Head head = new Head();
-
-                window.asObject().setProperty("personinfo", personinfo);
-                window.asObject().setProperty("person", person);
-                window.asObject().setProperty("client", client);
-                window.asObject().setProperty("login", login);
-                window.asObject().setProperty("head", head);
+                Login x = new Login();
+                window.asObject().setProperty("login", x);
             }
         });
+
     }
 }

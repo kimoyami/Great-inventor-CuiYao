@@ -41,7 +41,6 @@ public class PersonInfo {
         try {
             person = (Person)ServerThread.cin.readObject();
         }catch (Exception e){
-            e.printStackTrace();
             return -3;
         }
         return DataPerson.insert(person);
@@ -52,10 +51,19 @@ public class PersonInfo {
         try {
             eCardNumber = ServerThread.cin.readUTF();
         }catch (Exception e){
-            e.printStackTrace();
             return -3;
         }
         return DataPerson.delete(eCardNumber);
+    }
+
+    public static int update(){
+        Person person;
+        try{
+            person = (Person)ServerThread.cin.readObject();
+        }catch (Exception e){
+            return -3;
+        }
+        return DataPerson.update(person);
     }
 
     public static Person query(){
@@ -68,25 +76,11 @@ public class PersonInfo {
         return DataPerson.query(eCardNumber);
     }
 
-    public static int update(){
-        Person person;
-        try{
-            person = (Person)ServerThread.cin.readObject();
-        }catch (Exception e){
-            e.printStackTrace();
-            return -3;
-        }
-        return DataPerson.update(person);
-    }
-
-
-
     public static int isNew(){
         String eCardNumber = "";
         try {
             eCardNumber = ServerThread.cin.readUTF();
         }catch (Exception e){
-            e.printStackTrace();
             return -3;
         }
         return DataPerson.isNew(eCardNumber);

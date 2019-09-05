@@ -55,8 +55,7 @@ public class DataBank {
             return 1;
         }
         catch (Exception e) {
-            e.printStackTrace();
-            return -1;
+        return -1;
         }
     }
 

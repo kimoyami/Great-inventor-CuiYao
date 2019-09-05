@@ -9,7 +9,7 @@ import java.io.Serializable;
 转账时间transferTime
 银行个人信息类BankInfo(String, double, int, String, double, long)
  */
-public class BankInfo implements Serializable{
+public class BankInfo {
     private static final long serialVersionUID = -1925809561781496530L;
 
     private String ID;

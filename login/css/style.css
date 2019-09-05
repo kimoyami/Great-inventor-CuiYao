@@ -1,5 +1,4 @@
 
-
 *{
     margin: 0;
     padding: 0;
@@ -206,4 +205,3 @@ form .select {
 .select ul li:hover {
     background: linear-gradient(90deg,rgb(181, 154, 254),rgb(245, 189, 253) );
     color: #fff;
-}

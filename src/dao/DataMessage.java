@@ -7,7 +7,6 @@ import srv.message.Message;
 
 import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Vector;
 
 public class DataMessage {
@@ -17,12 +16,11 @@ public class DataMessage {
         try {
             String time = trans.format(message.getTime());
             System.out.println(time);
-            String sql = "insert into message(sender, receiver, message, clock, tags, tagr) values('"+message.getSender()+"', '"+message.getReceiver()+"', '"+message.getMessage()+"', #"+time+"#, No, No)";
+            String sql = "insert into message(sender, receiver, message, clock, tag) values('"+message.getSender()+"', '"+message.getReceiver()+"', '"+message.getMessage()+"', #"+time+"#, No)";
             DataBase.s.executeUpdate(sql);
             DataBase.c.commit();
             return 1;
         }catch (Exception e){
-            e.printStackTrace();
             return -1;
         }
     }
@@ -38,7 +36,6 @@ public class DataMessage {
             DataBase.c.commit();
             return 1;
         }catch (Exception e){
-            e.printStackTrace();
             return -1;
         }
     }
@@ -78,8 +75,6 @@ public class DataMessage {
 
     public static void main(String args[]){
         DataBase.start();
-        Message message = new Message("213171645", "213171643", "fuck you", new Date());
-        System.out.println(delete(message));
         DataBase.stop();
     }
 }

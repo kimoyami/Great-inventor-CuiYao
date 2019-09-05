@@ -16,7 +16,6 @@ public class DataGoods {
             if(!rs.next()) return 0;
             return 1;
         }catch (Exception e){
-            e.printStackTrace();
             return -1;
         }
     }
@@ -32,7 +31,6 @@ public class DataGoods {
             DataBase.c.commit();
             return 1;
         }catch (Exception e){
-            e.printStackTrace();
             return -1;
         }
     }
@@ -47,7 +45,6 @@ public class DataGoods {
             DataBase.c.commit();
             return 1;
         }catch (Exception e){
-            e.printStackTrace();
             return -1;
         }
     }
