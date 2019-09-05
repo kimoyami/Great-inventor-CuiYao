@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://cdn.bootcss.com/animate.css/3.7.2/animate.min.css" />
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<link rel="stylesheet" href="syalert/syalert.min.css" />
+<script src="syalert/syalert.min.js"></script>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商店系统</title>
+
+</head>
+<body>
+<h1 style="font-family: Lobster">SHOP</h1>
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="搜索...">
+<table id="myTable" >
+    <tr>
+        <th style="width:16.5%;">数量</th>
+        <th style="width: 16.5%">商品名称</th>
+        <th style="width: 16.5%"> 价格</th>
+        <th style="width: 16.5%"> 超市</th>
+        <th style="width: 16.5%">购买数量</th>
+        <th style="width: 16.5%">操作</th>
+
+    </tr>
+</table>
+<div class="sy-alert sy-alert-model animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="confirm" sy-mask="true" id="alert4">
+    <div class="sy-title">输入</div>
+    <div class="sy-content">
+        <div class="form">
+            <p class="input-item"><input type="text" id ="number" placeholder="请输入你要购买的商品数量" value="0" onkeyup=""/></p>
+        </div>
+    </div>
+    <div class="sy-btn">
+        <button onClick="syalert.syhide('alert4')">取消</button>
+        <button onClick="syalert.syhide('alert4')" id="ok">确定</button>
+    </div>
+</div>
+<div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert3">
+    <div class="sy-content">不能为负数</div>
+</div>
+    <script>
+
+    for(var i=1;i<=5;i++){
+
+    $("#myTable").append("<tr><td>"+i+"</td><td>"+i+"</td><td>"+3+"</td><td>"+4+"</td><td>"+"<input id='numberInput' placeholder='请输入购买数量' /><button id='mySelect' class='buy' disabled>选择数量</button>"+"</td><td>"+"<button id='buy'class='buy'>购买</button>"+"</td></tr>")}
+
+   $(document).on("click",'#buy',function () {
+       var count = $(this).parents("tr").find("td").eq(0).text();
+       var  number = $(this).parents("tr").find("input").val()
+
+       var newcount = count -number;
+       if(number < 0){
+           syalert.syopen("alert3");
+       }else if(newcount < 0){
+           syalert.syopen("alert3");
+
+       }else {
+       $(this).parents("tr").find("td").eq(0).html(newcount);}
+      })
+
+    function myFunction() {
+        // 声明变量
+        var input, filter, table, tr, td, i;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+
+        // 循环表格每一行，查找匹配项
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[1];
+            if (td) {
+                if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+
+
+
+
+
+
+</script>
+<style>
+    #myInput {
+        background-image: url('https://static.runoob.com/images/mix/searchicon.png'); /* 搜索按钮 */
+        background-position: 10px 12px; /* 定位搜索按钮 */
+        background-repeat: no-repeat; /* 不重复图片 */
+        width: 100%;
+        font-size: 16px;
+        padding: 12px 20px 12px 40px;
+        border: 1px solid #ddd;
+        margin-bottom: 12px;
+    }
+    #myTable {
+        border-collapse: collapse;
+        width: 100%;
+        border: 1px solid #ddd;
+        font-size: 18px;
+        background: url("image/570.jpg");
+    }
+
+  td{
+      text-align: center;
+
+  }
+    h1{
+
+        background-color: darkcyan;
+        text-align: center;
+
+    }
+    .buy{
+        line-height: 1.499;
+        position: relative;
+        display: inline-block;
+        font-weight: 400;
+        white-space: nowrap;
+        text-align: center;
+        background-image: none;
+        border: 1px solid transparent;
+        -webkit-box-shadow: 0 2px 0 rgba(0,0,0,0.015);
+        box-shadow: 0 2px 0 rgba(0,0,0,0.015);
+        cursor: pointer;
+        -webkit-transition: all .3s cubic-bezier(.645, .045, .355, 1);
+        transition: all .3s cubic-bezier(.645, .045, .355, 1);
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -ms-touch-action: manipulation;
+        touch-action: manipulation;
+        height: 32px;
+        padding: 0 15px;
+        font-size: 14px;
+        border-radius: 4px;
+        color: rgba(0,0,0,0.65);
+        background-color: #fff;
+        border-color: #d9d9d9;
+        color: #fff;
+        background-color: #FF5A44;
+        border-color: #FF5A44;
+        text-shadow: 0 -1px 0 rgba(0,0,0,0.12);
+        -webkit-box-shadow: 0 2px 0 rgba(0,0,0,0.045);
+        box-shadow: 0 2px 0 rgba(0,0,0,0.045);
+
+    }
+    input{
+        border: 1px solid #ccc;
+        padding: 7px 0px;
+        border-radius: 3px;
+        padding-left:5px;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+        box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+        -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+        -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s
+
+    }
+    input:focus{
+        border-color: #66afe9;
+        outline: 0;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+        box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)
+    }
+</style>
+</body>
+</html>
