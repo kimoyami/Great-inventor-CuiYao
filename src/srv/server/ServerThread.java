@@ -45,7 +45,7 @@ public class ServerThread extends Thread {
                 op -= 4;
                 if (op >= 1 && op <= 4) Bank_Info.run(op);
                 op -= 4;
-                if (op >= 1 && op <= 4) GoodInfo.run(op);
+                if (op >= 1 && op <= 5) GoodInfo.run(op);
                 op-=4;
                 if(op == 1) Head.run(op);
                 op -= 1;
