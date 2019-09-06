@@ -12,7 +12,7 @@ import java.util.Date;
 import java.util.Vector;
 
 public class MessageTrans {
-    private static final int STARTPOS = 15;
+    private static final int STARTPOS = 20;
     public static int insert(Message message){
         Client.run();
         try {

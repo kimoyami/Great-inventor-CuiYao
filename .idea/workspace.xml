@@ -2,34 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e9e75e62-ef5d-482f-bdce-fa8ea2706755" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/headimage/xb6pcjBKIaxEBPVYgNoa.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/.idea/html.iml" beforeDir="false" afterPath="$PROJECT_DIR$/html/.idea/html.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/MessageIndex.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/MessageIndex.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/bank.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/bank.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/bar.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/bar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/bar.html.bak" beforeDir="false" afterPath="$PROJECT_DIR$/html/bar.html.bak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/css/barstyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/html/css/barstyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/html/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/css/style.css~HEAD" beforeDir="false" afterPath="$PROJECT_DIR$/html/css/style.css~HEAD" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/img/timg.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/index.html.bak" beforeDir="false" afterPath="$PROJECT_DIR$/html/index.html.bak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/shop.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/shop.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/student.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/student.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/html/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/syalert/syalert.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/html/syalert/syalert.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/syalert/syalert.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/html/syalert/syalert.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/trade.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/trade.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/DataHead.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/DataHead.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/DataGoods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/DataGoods.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dao/account.accdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/account.accdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/account.laccdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/account.laccdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/srv/client/Bank_Info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/srv/client/Bank_Info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/srv/client/BookInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/srv/client/BookInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/srv/client/CourseInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/srv/client/CourseInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/srv/client/GoodInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/srv/client/GoodInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/srv/client/Head.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/srv/client/Head.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/srv/client/MessageTrans.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/srv/client/MessageTrans.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/srv/message/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/srv/message/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/srv/client/SelectCourseInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/srv/client/SelectCourseInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/srv/goods/Goods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/srv/goods/Goods.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/srv/server/GoodInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/srv/server/GoodInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/srv/server/ServerThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/srv/server/ServerThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/ImagePreview.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ImagePreview.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/MainView.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -59,7 +43,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/view/MainView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="821">
+            <state relative-caret-position="2080">
               <caret line="102" selection-start-line="102" selection-end-line="102" />
             </state>
           </provider>
@@ -69,7 +53,7 @@
         <entry file="file://$PROJECT_DIR$/src/srv/server/ServerThread.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="419">
-              <caret line="55" column="13" selection-start-line="55" selection-start-column="13" selection-end-line="55" selection-end-column="13" />
+              <caret line="74" column="13" selection-start-line="74" selection-start-column="13" selection-end-line="74" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -318,12 +302,12 @@
       <workItem from="1567694540243" duration="3071000" />
       <workItem from="1567728330265" duration="13163000" />
       <workItem from="1567754778776" duration="4223000" />
-      <workItem from="1567764137121" duration="5124000" />
+      <workItem from="1567764137121" duration="5439000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46908000" />
+    <option name="totallyTimeSpent" value="47223000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -691,7 +675,7 @@
     <entry file="file://$PROJECT_DIR$/src/srv/server/ServerThread.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="419">
-          <caret line="55" column="13" selection-start-line="55" selection-start-column="13" selection-end-line="55" selection-end-column="13" />
+          <caret line="74" column="13" selection-start-line="74" selection-start-column="13" selection-end-line="74" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -707,7 +691,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/view/MainView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="821">
+        <state relative-caret-position="2080">
           <caret line="102" selection-start-line="102" selection-end-line="102" />
         </state>
       </provider>

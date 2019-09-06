@@ -9,7 +9,7 @@ import srv.bank.BankInfo;
 import srv.person.Person;
 
 public class Bank_Info {
-    private static final int STARTPOS = 23;
+    private static final int STARTPOS = 40;
     public static int insert(BankInfo account) {
         Client.run();
         try {

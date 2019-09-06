@@ -29,14 +29,17 @@ public class GoodInfo {
                 }
                 ServerThread.cout.flush();
             }
-
-            if(op==4){
-                Vector<Goods>res=getAll();
+            if (op == 4) {
+                Vector<Goods> res = getAll();
                 ServerThread.cout.writeInt(res.size());
                 System.out.println(res.size());
-                for (int i = 0; i <res.size() ; i++) {
+                for (int i = 0; i < res.size(); i++) {
                     ServerThread.cout.writeObject(res.elementAt(i));
                 }
+                ServerThread.cout.flush();
+            }
+            if (op == 5) {
+                ServerThread.cout.writeInt(update());
                 ServerThread.cout.flush();
             }
 
@@ -57,32 +60,45 @@ public class GoodInfo {
     }
 
     public static synchronized int delete() {
-        Goods goods;
+        String goodsname;
+        String tag;
         try {
-            goods = (Goods) ServerThread.cin.readObject();
+            goodsname = ServerThread.cin.readUTF();
+            tag = ServerThread.cin.readUTF();
         } catch (Exception e) {
             e.printStackTrace();
             return -1;
         }
-        return DataGoods.delete(goods);
+        return DataGoods.delete(goodsname, tag);
     }
 
 
     public static Vector<Goods> query() {
         String name = "";
-        int tag = 0;
         try {
             name = ServerThread.cin.readUTF();
-            tag = ServerThread.cin.readInt();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return DataGoods.query(name, tag);
+        return DataGoods.query(name);
+    }
+
+    public static int update() {
+        String name = "";
+        String tag = "";
+        int change = 0;
+        try {
+            name = ServerThread.cin.readUTF();
+            tag = ServerThread.cin.readUTF();
+            change = ServerThread.cin.readInt();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return DataGoods.update(name, tag, change);
     }
 
 
-
-    public static Vector<Goods> getAll(){
+    public static Vector<Goods> getAll() {
         return DataGoods.getAll();
     }
 }

@@ -5,12 +5,15 @@
 package srv.client;
 
 
+import com.sun.org.apache.bcel.internal.generic.InstructionConstants;
+import srv.clinic.Clinic;
 import srv.goods.Goods;
 
 import java.util.Vector;
 
 public class GoodInfo {
-    private static final int STARTPOS = 27;
+    private static final int STARTPOS = 50;
+
     public static int insert(Goods goods) {
         Client.run();
         try {
@@ -27,11 +30,12 @@ public class GoodInfo {
         }
     }
 
-    public static int delete(Goods goods) {
+    public static int delete(String goodsname, String tag) {
         Client.run();
         try {
             Client.cout.writeInt(STARTPOS + 2);
-            Client.cout.writeObject(goods);
+            Client.cout.writeUTF(goodsname);
+            Client.cout.writeUTF(tag);
             Client.cout.flush();
             int res = Client.cin.readInt();
             Client.stop();
@@ -43,13 +47,12 @@ public class GoodInfo {
         }
     }
 
-    public static Vector<Goods> query(String name,int tag) {
+    public static Vector<Goods> query(String name) {
         Client.run();
         Vector<Goods> res = new Vector<>();
         try {
             Client.cout.writeInt(STARTPOS + 3);
             Client.cout.writeUTF(name);
-            Client.cout.writeInt(tag);
             Client.cout.flush();
             int n = Client.cin.readInt();
             for (int i = 0; i < n; i++) {
@@ -65,9 +68,10 @@ public class GoodInfo {
     }
 
 
+
+
     public static Vector<Goods> getAll() {
         Client.run();
-        System.out.println("ryhnb");
         Vector<Goods> res = new Vector<>();
         try {
             Client.cout.writeInt(STARTPOS + 4);
@@ -85,11 +89,31 @@ public class GoodInfo {
         return res;
     }
 
-    public static void main(String args[]){
-        Vector<Goods>res=getAll();
-        for (int i = 0; i <res.size() ; i++) {
-            System.out.println(res.elementAt(i).getPrice());
+    public static int update(String name,String tag,int change){
+        Client.run();
+        System.out.println("u");
+        try{
+            Client.cout.writeInt(STARTPOS+5);
+            Client.cout.writeUTF(name);
+            Client.cout.writeUTF(tag);
+            Client.cout.writeInt(change);
+            Client.cout.flush();
+            int res=Client.cin.readInt();
+            System.out.println("res="+res);
+            Client.stop();
+            return res;
+        }catch(Exception e){
+            e.printStackTrace();
+            Client.stop();
+            return -4;
         }
+    }
+
+
+
+    public static void main(String args[]) {
+        int a=update("薯片","中超",10);
+        System.out.println(a);
     }
 
 }
