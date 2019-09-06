@@ -70,12 +70,16 @@ public class DataBank {
             if(rs.next()){
                 double tmp=rs.getDouble("balance");
                 double eCardtmp=rs.getDouble("eCardBalance");
-                if(tag==1){ cur=tmp+change;}
+                if(tag==1){ cur=tmp+change;}//虚空向银行卡充值
                 else{
                     if(tmp-change<0) { return -3; }
                     else{
-                        cur=tmp-change;}
-                        if(tag==2){eCardcur=eCardtmp+change;}
+                        cur=tmp-change;
+                    }
+                    if(tag==2){//银行卡向一卡通充值
+                        cur=tmp-change;
+                        eCardcur=eCardtmp+change;
+                    }
                 }
             }
             else{return 0;}
@@ -104,6 +108,9 @@ public class DataBank {
         account.setID(rs.getString("idx"));
         account.setName(rs.getString("username"));
         account.setBalance(rs.getDouble("balance"));
+        account.setPassword(rs.getString("password"));
+        account.seteCardBalance(rs.getDouble("eCardBalance"));
+
         }
     }
     catch(Exception e){
