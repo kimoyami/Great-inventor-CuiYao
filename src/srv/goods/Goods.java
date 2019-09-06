@@ -1,6 +1,10 @@
 package srv.goods;
 
-public class Goods {
+import srv.server.ServerThread;
+
+import java.io.Serializable;
+
+public class Goods implements Serializable {
     private static final long serialVersionUID= 5006441955722175923L;
     private String ID;
     private int number;

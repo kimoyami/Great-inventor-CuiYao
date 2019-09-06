@@ -30,6 +30,16 @@ public class GoodInfo {
                 ServerThread.cout.flush();
             }
 
+            if(op==4){
+                Vector<Goods>res=getAll();
+                ServerThread.cout.writeInt(res.size());
+                System.out.println(res.size());
+                for (int i = 0; i <res.size() ; i++) {
+                    ServerThread.cout.writeObject(res.elementAt(i));
+                }
+                ServerThread.cout.flush();
+            }
+
         } catch (Exception e) {
             return;
         }
@@ -57,6 +67,7 @@ public class GoodInfo {
         return DataGoods.delete(goods);
     }
 
+
     public static Vector<Goods> query() {
         String name = "";
         int tag = 0;
@@ -69,4 +80,9 @@ public class GoodInfo {
         return DataGoods.query(name, tag);
     }
 
+
+
+    public static Vector<Goods> getAll(){
+        return DataGoods.getAll();
+    }
 }
