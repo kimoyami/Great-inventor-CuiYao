@@ -4,7 +4,7 @@ import com.sun.org.apache.bcel.internal.generic.InstructionConstants;
 import srv.course.SelectCourse;
 
 public class SelectCourseInfo {
-    private static final int STARTPOS = 35;
+    private static final int STARTPOS = 80;
 
     public static int insert(SelectCourse course) {
         Client.run();

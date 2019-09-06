@@ -9,7 +9,7 @@ import srv.course.Course;
 import java.util.Vector;
 
 public class CourseInfo {
-    private static final int STARTPOS = 32;
+    private static final int STARTPOS = 70;
 
     public static int insert(Course course) {
         Client.run();

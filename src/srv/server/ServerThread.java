@@ -37,22 +37,22 @@ public class ServerThread extends Thread {
                 if (op == -100) update();
                 if (op >= 1 && op <= 10) Login.run(op);
                 op -= 10;
-                if (op >= 1 && op <= 5) PersonInfo.run(op);
-                op -= 5;
-                if (op >= 1 && op <= 4) MessageTrans.run(op);
-                op -= 4;
-                if (op >= 1 && op <= 4) BookInfo.run(op);
-                op -= 4;
-                if (op >= 1 && op <= 4) Bank_Info.run(op);
-                op -= 4;
-                if (op >= 1 && op <= 5) GoodInfo.run(op);
-                op-=4;
+                if (op >= 1 && op <= 10) PersonInfo.run(op);
+                op -= 10;
+                if (op >= 1 && op <= 10) MessageTrans.run(op);
+                op -= 10;
+                if (op >= 1 && op <= 10) BookInfo.run(op);
+                op -= 10;
+                if (op >= 1 && op <= 10) Bank_Info.run(op);
+                op -= 10;
+                if (op >= 1 && op <= 10) GoodInfo.run(op);
+                op-=10;
                 if(op == 1) Head.run(op);
-                op -= 1;
-                if(op>=1&&op<=3)CourseInfo.run(op);
-                op -= 3;
-                if(op>=1&&op<=2) SelectCourseInfo.run(op);
-                op-=2;
+                op -= 10;
+                if(op>=1&&op<=10)CourseInfo.run(op);
+                op -= 10;
+                if(op>=1&&op<=10) SelectCourseInfo.run(op);
+                op-=10;
             }
 
             cin.close();

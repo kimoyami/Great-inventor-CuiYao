@@ -9,7 +9,7 @@ import srv.book.*;
 import java.util.Vector;
 
 public class BookInfo {
-    private static final int STARTPOS = 19;
+    private static final int STARTPOS = 30;
     public static int insert(Book book) {
         Client.run();
         try {
