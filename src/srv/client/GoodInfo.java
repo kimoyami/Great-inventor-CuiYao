@@ -64,19 +64,32 @@ public class GoodInfo {
         return res;
     }
 
-    public static int update(Goods goods) {
+
+    public static Vector<Goods> getAll() {
         Client.run();
+        System.out.println("ryhnb");
+        Vector<Goods> res = new Vector<>();
         try {
             Client.cout.writeInt(STARTPOS + 4);
-            Client.cout.writeObject(goods);
             Client.cout.flush();
-            int res = Client.cin.readInt();
+            int n = Client.cin.readInt();
+            for (int i = 0; i < n; i++) {
+                res.add((Goods) Client.cin.readObject());
+            }
             Client.stop();
-            return res;
         } catch (Exception e) {
             e.printStackTrace();
             Client.stop();
-            return -4;
+            e.printStackTrace();
+        }
+        return res;
+    }
+
+    public static void main(String args[]){
+        Vector<Goods>res=getAll();
+        for (int i = 0; i <res.size() ; i++) {
+            System.out.println(res.elementAt(i).getPrice());
         }
     }
+
 }

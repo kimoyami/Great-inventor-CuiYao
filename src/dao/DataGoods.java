@@ -69,8 +69,24 @@ public class DataGoods {
         }
         return res;
     }
+    public static Vector<Goods>getAll(){
+        Vector<Goods>res=new Vector<>();
+        try{
+            String sql="select * from goods";
+            ResultSet rs=DataBase.s.executeQuery(sql);
+            while(rs.next()){
+                Goods tmp = new Goods(rs.getString(2), rs.getInt(3), rs.getString(4), rs.getDouble(5), rs.getString(6), rs.getInt(7));
+                res.addElement(tmp);
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    return res;
+    }
 
-    public static void main(String args[]){
+
+    public static void main(String args[]) {
         DataBase.start();
+        DataBase.stop();
     }
 }
