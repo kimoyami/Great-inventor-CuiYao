@@ -31,7 +31,7 @@ public class DataPerson {
         try {
             if(exist(person.geteCardNumber()) == 1) return 0;
             String date = trans.format(person.getBirthday());
-            String sql = "insert into personinfo(username, ecardnumber, age, sex, birthday, birthplace, academy, dormitory, state) values('"+person.getName()+"', '"+person.geteCardNumber()+"', "+person.getAge()+", '"+person.getGender()+"', #"+date+"#, '"+person.getBirthplace()+"', '"+person.getAcademy()+"', '"+person.getDormitory()+"', '"+person.getState()+"')";
+            String sql = "insert into personinfo(username, ecardnumber, age, sex, birthday, birthplace, academy, dormitory, state, sign) values('"+person.getName()+"', '"+person.geteCardNumber()+"', "+person.getAge()+", '"+person.getGender()+"', #"+date+"#, '"+person.getBirthplace()+"', '"+person.getAcademy()+"', '"+person.getDormitory()+"', '"+person.getState()+"', '"+person.getSign()+"')";
             DataBase.s.executeUpdate(sql);
             DataBase.c.commit();
             return 1;
@@ -60,7 +60,7 @@ public class DataPerson {
             String sql = "select * from personinfo where ecardnumber = '"+eCardNumber+"'";
             ResultSet rs = DataBase.s.executeQuery(sql);
             if(rs.next()){
-                person = new Person(rs.getString(2), rs.getString(3), rs.getString(5), rs.getDate(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10));
+                person = new Person(rs.getString(2), rs.getString(3), rs.getString(5), rs.getDate(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11));
             }
         }catch (Exception e){
             e.printStackTrace();
@@ -71,7 +71,7 @@ public class DataPerson {
     public static int update(Person person){
         if(exist(person.geteCardNumber()) == 0) return 0;
         try{
-            String sql = "update personinfo set username = '"+person.getName()+"', age = "+person.getAge()+", sex = '"+person.getGender()+"', birthday = #"+trans.format(person.getBirthday())+"#, birthplace = '"+person.getBirthplace()+"', academy = '"+person.getAcademy()+"', dormitory = '"+person.getDormitory()+"', state = '"+person.getState()+"' where ecardnumber = '"+person.geteCardNumber()+"'";
+            String sql = "update personinfo set username = '"+person.getName()+"', age = "+person.getAge()+", sex = '"+person.getGender()+"', birthday = #"+trans.format(person.getBirthday())+"#, birthplace = '"+person.getBirthplace()+"', academy = '"+person.getAcademy()+"', dormitory = '"+person.getDormitory()+"', state = '"+person.getState()+"', sign = '"+person.getSign()+"' where ecardnumber = '"+person.geteCardNumber()+"'";
             DataBase.s.executeUpdate(sql);
             DataBase.c.commit();
             return 1;

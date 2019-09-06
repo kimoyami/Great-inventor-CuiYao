@@ -76,11 +76,13 @@ public class MessageTrans {
         return res;
     }
 
-    public static Vector<Message> querynew(){
+    public static Vector<Message> querynew(String sender, String receiver){
         Client.run();
         Vector<Message> res = new Vector<>();
         try {
             Client.cout.writeInt(STARTPOS + 4);
+            Client.cout.writeUTF(sender);
+            Client.cout.writeUTF(receiver);
             Client.cout.flush();
             int n = Client.cin.readInt();
             for(int i = 0; i < n; i++){

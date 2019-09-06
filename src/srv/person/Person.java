@@ -23,6 +23,15 @@ public class Person implements Serializable {
     private String academy;
     private String dormitory;
     private String state;
+    private String sign;
+
+    public String getSign() {
+        return sign;
+    }
+
+    public void setSign(String sign) {
+        this.sign = sign;
+    }
 
     public Person(){
         name = "";
@@ -34,11 +43,12 @@ public class Person implements Serializable {
         academy = "";
         dormitory = "";
         state = "";
+        sign = "";
     }
 
 
     public Person(String name, String eCardNumber, String gender, Date birthday,
-           String birthplace, String academy, String dormitory, String state) {
+           String birthplace, String academy, String dormitory, String state, String sign) {
         this.name = name;
         this.eCardNumber = eCardNumber;
         this.gender = gender;
@@ -48,6 +58,7 @@ public class Person implements Serializable {
         this.academy = academy;
         this.dormitory = dormitory;
         if(birthday != null)  this.age = new Date().getYear() - this.birthday.getYear();
+        this.sign = sign;
     }
 
 

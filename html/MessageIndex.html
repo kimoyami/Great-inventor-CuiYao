@@ -163,6 +163,9 @@
   <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
   <script>
 
+    var last = client.getDate();
+    last.setYear(-100);
+
     function judge(date1, date2){
         if(date1.getYear() < date2.getYear()) return 1;
         if(date1.getMonth() < date2.getMonth()) return 1;
@@ -172,6 +175,23 @@
         return 0;
     }
 
+    function getnew(){
+        var per = $(".message-active").find(".desc-contact").find(".message").text();
+        var res = messagetrans.querynew(client.eCardNumber, per);
+        if(res.size() == 0) return;
+        for(var i = 0; i < res.size(); i++){
+            if(res.elementAt(i).getSender() == client.eCardNumber) RightInsert(res.elementAt(i).getMessage());
+            else LeftImgInsert(res.elementAt(i).getMessage(), head.query(per));
+            if (judge(last, res.elementAt(i).getTime()) == 1) {
+                last = res.elementAt(i).getTime();
+                LeftTimeInsert(last);
+           }
+        }
+    }
+
+    var id = -1000;
+
+    //点击发送
     document.querySelector('.fa-paper-plane-o').addEventListener('click',()=> {
       div = document.createElement("div");
       div.className = "message text-only";
@@ -195,7 +215,11 @@
       document.querySelector(".write-message").value = '';
     });
 
+
+
+    //点击选人
     $(".discussion-person").on("click",".discussion",function() {
+      last.setYear(-100);
       client.eCardNumber = "213171645";
       current = document.querySelector('.message-active');
       current.classList.remove("message-active");
@@ -203,15 +227,20 @@
       Name = this.querySelector('.name').innerText;
       $(".header-chat .name").text(Name);
       $(".messages-chat").empty();
+
+      if(id == -1000){
+          id = setInterval('getnew()',  5000);
+          getnew();
+      }
+
       var per = $(".message-active").find(".desc-contact").find(".message").text();
-      alert(head.query(per));
       var res = messagetrans.query(client.eCardNumber, per);
-      var last;
+      messagetrans.querynew(client.eCardNumber, per);
 
       for (var i = 0; i < res.size(); i++) {
         if (res.elementAt(i).getSender() == client.eCardNumber) RightInsert(res.elementAt(i).getMessage());
         else LeftImgInsert(res.elementAt(i).getMessage(), head.query(per));
-        if (i == 0 || judge(last, res.elementAt(i).getTime()) == 1) {
+        if (judge(last, res.elementAt(i).getTime()) == 1) {
           last = res.elementAt(i).getTime();
           LeftTimeInsert(last);
         }
@@ -220,32 +249,33 @@
 
     });
 
-    function LeftImgInsert(text,url){
-      div=document.createElement("div");
-      div.className="message";
-      div1=document.createElement("div");
-      div1.className="photo";
-      div1.style.backgroundImage="url("+url+")";
+    function LeftImgInsert(text,url) {
+      div = document.createElement("div");
+      div.className = "message";
+      div1 = document.createElement("div");
+      div1.className = "photo";
+      div1.style.backgroundImage = "url(" + url + ")";
       div.appendChild(div1);
 
-      p=document.createElement("p");
-      p.className="text";
-      p.innerText=text;
-      
+      p = document.createElement("p");
+      p.className = "text";
+      p.innerText = text;
+
       div.appendChild(p);
 
       document.querySelector(".messages-chat").appendChild(div);
     }
 
-    function LeftInsert(text){
-      div=document.createElement("div");
-      div.className="message text-only";
-      p=document.createElement("p");
-      p.className="text";
-      p.innerText=text;
+    function LeftInsert(text) {
+      div = document.createElement("div");
+      div.className = "message text-only";
+      p = document.createElement("p");
+      p.className = "text";
+      p.innerText = text;
       div.appendChild(p);
       document.querySelector(".messages-chat").appendChild(div);
     }
+
     function RightInsert(text){
       div=document.createElement("div");
       div.className="message text-only";
@@ -273,6 +303,7 @@
       p.innerText=text;
       document.querySelector(".messages-chat").appendChild(p);
     }
+
 
     function DiscussionPersonInsert(name,url,ecardnumber,time){
         div=document.createElement("div");
@@ -313,6 +344,8 @@
       this.classList.add("item-active");
     })
 
+
+    //搜索
     document.querySelector('.fa-search').addEventListener('click',()=>{
       var str = personinfo.query(document.querySelector(".searchbar-message").value);
       var per = JSON.parse(str);
@@ -322,10 +355,10 @@
       }
       var time = new Date();
       DiscussionPersonInsert(per['name'], head.query(document.querySelector(".searchbar-message").value), document.querySelector(".searchbar-message").value, time.getHours() + ":" + time.getMinutes());
-
-      //DiscussionPersonInsert(name,url,ecardnumber,time);
   });
 
+
+    //信息标签
   document.querySelector('.fa-ellipsis-h').addEventListener('click',()=>{
       var str = personinfo.query(document.querySelector(".searchbar-message").value);
       var per = JSON.parse(str);
@@ -334,11 +367,11 @@
         $(".card").addClass("inform");
       }
       $(".card").find(".text").find(".name").text(per['name'] + ", " + per['age']);
-      $(".card").find(".text").find(".title").text("ACM竞赛一级选手");
+      $(".card").find(".text").find(".title").text(per['academy'] + " " + per['dormitory']);
       $(".card").find(".like").find(".height").text(per['sex']);
       $(".card").find(".status").find(".height").text(per['state']);
       $(".card").find(".horo").find(".height").text(per['birthplace']);
-      $(".card").find(".desc").text("我擅长武器大师");
+      $(".card").find(".desc").text(per['sign']);
 
       //DiscussionPersonInsert(name,url,ecardnumber,time);
   })

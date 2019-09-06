@@ -16,6 +16,7 @@ import java.io.File;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.math.BigInteger;
+import java.util.Date;
 
 import com.teamdev.jxbrowser.chromium.ba;
 import srv.client.*;
@@ -85,7 +86,6 @@ public class MainView {
                 window.asObject().setProperty("mainview", mainview);
                 window.asObject().setProperty("messagetrans", messagetrans);
                 window.asObject().setProperty("message", message);
-
             }
         });
     }
