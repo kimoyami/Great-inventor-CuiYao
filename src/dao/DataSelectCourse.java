@@ -51,7 +51,6 @@ public class DataSelectCourse {
         }
     }
 
-
     public static int insert(SelectCourse course){
         try{
             if(exist(course.getECardName(),course.getCourseName())==1){return 0;}
@@ -104,8 +103,11 @@ public class DataSelectCourse {
     public static int delete(String eCardName,String coursename){
         try{
             if(exist(eCardName,coursename)!=1){return 0;}
+            System.out.println("nb");
             String sql="delete from selectcourse where ecardname='"+eCardName+"' and coursename='"+coursename+"'";
+            System.out.println("nb");
             DataBase.s.executeUpdate(sql);
+            System.out.println("nb");
             DataBase.c.commit();
             return 1;
         }
@@ -113,13 +115,14 @@ public class DataSelectCourse {
          return -1;
         }
     }
+
     public static void main(String args[]){
         //SelectCourse course=new SelectCourse();
 
         DataBase.start();
-       int a=insert(new SelectCourse("213170001","0011","野区经济学",112212,"明凯"));
-        int b=insert(new SelectCourse("213170002","0011","野区经济学",112212,"明凯"));
-        System.out.println(a);
+
+        int b=delete("213170004","一步大棋");
+
         System.out.println(b);
         DataBase.stop();
     }

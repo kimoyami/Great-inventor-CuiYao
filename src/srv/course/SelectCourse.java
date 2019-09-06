@@ -4,7 +4,10 @@
 
 package srv.course;
 
-public class SelectCourse {
+import java.io.Serializable;
+
+public class SelectCourse implements Serializable {
+    private static final long serialVersionUID = -8211013883712433979L;
     private String eCardName;
     private String idx;
     private String courseName;

@@ -7,6 +7,7 @@ package srv.server;
 
 import dao.DataBase;
 import dao.DataHead;
+import srv.course.SelectCourse;
 
 import java.io.*;
 import java.net.ServerSocket;
@@ -50,6 +51,8 @@ public class ServerThread extends Thread {
                 op -= 1;
                 if(op>=1&&op<=3)CourseInfo.run(op);
                 op -= 3;
+                if(op>=1&&op<=2) SelectCourseInfo.run(op);
+                op-=2;
             }
 
             cin.close();
