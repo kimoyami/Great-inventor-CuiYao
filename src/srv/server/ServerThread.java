@@ -46,13 +46,13 @@ public class ServerThread extends Thread {
                 if (op >= 1 && op <= 4) Bank_Info.run(op);
                 op -= 4;
                 if (op >= 1 && op <= 4) GoodInfo.run(op);
-                op-=4;
-                if(op == 1) Head.run(op);
+                op -= 4;
+                if (op == 1) Head.run(op);
                 op -= 1;
-                if(op>=1&&op<=3)CourseInfo.run(op);
+                if (op >= 1 && op <= 3) CourseInfo.run(op);
                 op -= 3;
-                if(op>=1&&op<=2) SelectCourseInfo.run(op);
-                op-=2;
+                if (op >= 1 && op <= 2) SelectCourseInfo.run(op);
+                op -= 2;
             }
 
             cin.close();
@@ -83,6 +83,7 @@ public class ServerThread extends Thread {
                 fos.write(buf, 0, len);
             }
             fos.flush();
+            url = "../headimage/" + fileName.toString() + ".jpg";
             cout.writeInt(DataHead.update(eCardNumber, url));
             cout.flush();
             fos.close();

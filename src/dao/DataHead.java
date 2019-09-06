@@ -7,7 +7,7 @@ package dao;
 import java.sql.ResultSet;
 
 public class DataHead {
-    private static final String DEFAULTURL = "F:\\GitHub\\Great-inventor-CuiYao\\html\\img\\timg.jpg";
+    private static final String DEFAULTURL = "../headimage/timg.jpg";
     public static int update(String eCardNumber, String url){
         try{
             String sql = "update head set url = '"+url+"' where ecardnumber = '"+eCardNumber+"'";

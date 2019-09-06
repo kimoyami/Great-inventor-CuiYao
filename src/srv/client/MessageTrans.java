@@ -5,6 +5,7 @@
 //15
 package srv.client;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import srv.message.Message;
 
 import java.util.Date;
@@ -28,6 +29,18 @@ public class MessageTrans {
         }
     }
 
+    public static int insert(String s){
+        Message message = new Message();
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            message = mapper.readValue(s, Message.class);
+        }catch (Exception e){
+            e.printStackTrace();
+            return -4;
+        }
+        return insert(message);
+    }
+
     public static int delete(Message message){
         Client.run();
         try {
@@ -44,11 +57,13 @@ public class MessageTrans {
         }
     }
 
-    public static Vector<Message> query(){
+    public static Vector<Message> query(String sender, String receiver){
         Client.run();
         Vector<Message> res = new Vector<>();
         try {
             Client.cout.writeInt(STARTPOS + 3);
+            Client.cout.writeUTF(sender);
+            Client.cout.writeUTF(receiver);
             Client.cout.flush();
             int n = Client.cin.readInt();
             for(int i = 0; i < n; i++){
@@ -79,7 +94,10 @@ public class MessageTrans {
     }
 
     public static void main(String args[]){
-        Message message = new Message("213171645", "213171643", "fuck you", new Date());
-        System.out.println(delete(message));
+        Vector<Message> res = query("123", "234");
+        for(int i = 0; i < res.size(); i++){
+            System.out.println(res.elementAt(i).getSender() + " " + res.elementAt(i).getReceiver() + " " + res.elementAt(i).getMessage() + " " + res.elementAt(i).getTime());
+        }
     }
+
 }

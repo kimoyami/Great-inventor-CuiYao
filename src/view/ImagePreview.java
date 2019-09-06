@@ -22,9 +22,9 @@ public class ImagePreview extends JPanel implements PropertyChangeListener {
         try {
             File file = jfc.getSelectedFile();
             updateImage(file);
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-            ex.printStackTrace();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 
@@ -37,15 +37,11 @@ public class ImagePreview extends JPanel implements PropertyChangeListener {
     }
 
     public void paintComponent(Graphics g) {
-        // fill the background
         g.fillRect(0, 0, getWidth(), getHeight());
-
         if (img != null) {
-
             g.drawImage(img, 0, 0, getWidth(), getHeight(), null);
-
-        } else {
-            // print a message
+        }
+        else {
             g.setColor(Color.black);
             g.drawString("Not an image", 30, 100);
         }

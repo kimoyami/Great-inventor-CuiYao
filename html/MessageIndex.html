@@ -172,14 +172,14 @@
         return 0;
     }
 
-    document.querySelector('.fa-paper-plane-o').addEventListener('click',()=>{
-      div=document.createElement("div");
-      div.className="message text-only";
-      p=document.createElement("p");
-      p.className="text";
-      p.innerText=document.querySelector(".write-message").value;
-      div1=document.createElement("div");
-      div1.className="response";
+    document.querySelector('.fa-paper-plane-o').addEventListener('click',()=> {
+      div = document.createElement("div");
+      div.className = "message text-only";
+      p = document.createElement("p");
+      p.className = "text";
+      p.innerText = document.querySelector(".write-message").value;
+      div1 = document.createElement("div");
+      div1.className = "response";
       div1.appendChild(p);
       div.appendChild(div1);
       document.querySelector(".messages-chat").appendChild(div);
@@ -187,44 +187,38 @@
       var str = message.getJson();
 
       var obj = JSON.parse(str);
-      obj['sender'] = '123';
-      obj['receiver'] = '456';
+      obj['sender'] = client.eCardNumber;
+      obj['receiver'] = document.querySelector(".searchbar-message").value;
       obj['message'] = document.querySelector(".write-message").value;
       str = JSON.stringify(obj);
       messagetrans.insert(str);
-      alert(res);
+      document.querySelector(".write-message").value = '';
+    });
 
-      document.querySelector(".write-message").value="";
-  })
-
-    $(".discussion-person").on("click",".discussion",function(){
-      
-      current=document.querySelector('.message-active');
+    $(".discussion-person").on("click",".discussion",function() {
+      client.eCardNumber = "213171645";
+      current = document.querySelector('.message-active');
       current.classList.remove("message-active");
       this.classList.add("message-active");
-      Name=this.querySelector('.name').innerText;
-      $(".header-chat .name").text (Name);
+      Name = this.querySelector('.name').innerText;
+      $(".header-chat .name").text(Name);
       $(".messages-chat").empty();
+      var per = $(".message-active").find(".desc-contact").find(".message").text();
+      alert(head.query(per));
+      var res = messagetrans.query(client.eCardNumber, per);
+      var last;
 
-      var res = messagetrans.query("123", "234");
-        var last;
-
-        for (var i = 0; i < res.size(); i++) {
-            if (res.elementAt(i).getSender() == '123') RightInsert(res.elementAt(i).getMessage());
-            else LeftImgInsert(res.elementAt(i).getMessage(), "../" + head.query("213171645"));
-            if(i == 0 || judge(last, res.elementAt(i).getTime()) == 1) {
-                last = res.elementAt(i).getTime();
-                LeftTimeInsert(last);
-            }
+      for (var i = 0; i < res.size(); i++) {
+        if (res.elementAt(i).getSender() == client.eCardNumber) RightInsert(res.elementAt(i).getMessage());
+        else LeftImgInsert(res.elementAt(i).getMessage(), head.query(per));
+        if (i == 0 || judge(last, res.elementAt(i).getTime()) == 1) {
+          last = res.elementAt(i).getTime();
+          LeftTimeInsert(last);
         }
+      }
 
-     /* RightInsert("ryhnb.");
-      RightTimeInsert("11:00");
-      LeftImgInsert("Yes, she is.","img/1.jpg");
-      LeftInsert("YES!"); 
-      LeftTimeInsert("12:00");
-      DiscussionPersonInsert("ryh","img/1.jpg","213171645","13:00")*/
-    })
+
+    });
 
     function LeftImgInsert(text,url){
       div=document.createElement("div");
@@ -309,7 +303,7 @@
 
         div.appendChild(div3);
         document.querySelector(".discussion-person").appendChild(div);
-
+        div3.click();
     }
 
     $(".items").on("click",".item",function(){
@@ -320,22 +314,30 @@
     })
 
     document.querySelector('.fa-search').addEventListener('click',()=>{
-      DiscussionPersonInsert("ryhnb","img/1.jpg",document.querySelector(".searchbar-message").value,"17:00  ");
+      var str = personinfo.query(document.querySelector(".searchbar-message").value);
+      var per = JSON.parse(str);
+      if(per['name'] == '') {
+        alert("不存在该用户！");
+        return;
+      }
+      var time = new Date();
+      DiscussionPersonInsert(per['name'], head.query(document.querySelector(".searchbar-message").value), document.querySelector(".searchbar-message").value, time.getHours() + ":" + time.getMinutes());
 
       //DiscussionPersonInsert(name,url,ecardnumber,time);
-  })
+  });
 
-  document.querySelector('.fa-ellipsis-h').addEventListener('click',()=>{ 
-      alert($(".message-active").find(".desc-contact").find(".message").text());
+  document.querySelector('.fa-ellipsis-h').addEventListener('click',()=>{
+      var str = personinfo.query(document.querySelector(".searchbar-message").value);
+      var per = JSON.parse(str);
       if(!$(".card").hasClass("inform"))
       {
         $(".card").addClass("inform");
       }
-      $(".card").find(".text").find(".name").text("冉雨杭, 34");
+      $(".card").find(".text").find(".name").text(per['name'] + ", " + per['age']);
       $(".card").find(".text").find(".title").text("ACM竞赛一级选手");
-      $(".card").find(".like").find(".height").text("男");
-      $(".card").find(".status").find(".height").text("学生");
-      $(".card").find(".horo").find(".height").text("重庆");
+      $(".card").find(".like").find(".height").text(per['sex']);
+      $(".card").find(".status").find(".height").text(per['state']);
+      $(".card").find(".horo").find(".height").text(per['birthplace']);
       $(".card").find(".desc").text("我擅长武器大师");
 
       //DiscussionPersonInsert(name,url,ecardnumber,time);
