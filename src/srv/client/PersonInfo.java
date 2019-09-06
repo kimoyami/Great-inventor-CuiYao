@@ -61,6 +61,7 @@ public class PersonInfo {
         return res;
     }
 
+
     public static int update(Person person){
         Client.run();
         try {
