@@ -58,7 +58,7 @@ public class Bank_Info {
         return DataBank.delete(account);
     }
 
-    public static synchronized BankInfo query() {
+    public static BankInfo query() {
         String ID = "";
         try {
             ID = ServerThread.cin.readUTF();
@@ -68,7 +68,7 @@ public class Bank_Info {
         return DataBank.query(ID);
     }
 
-    public static synchronized int transfer(){
+    public static int transfer(){
         String fromID;
         String toID;
         double change;
@@ -83,7 +83,7 @@ public class Bank_Info {
         return DataBank.transfer(fromID,toID,change);
     }
 
-    public static synchronized int transferToEcard(){
+    public static int transferToEcard(){
         String ID;
         double change;
         try{

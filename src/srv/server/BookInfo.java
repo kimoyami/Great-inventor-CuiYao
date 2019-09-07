@@ -59,7 +59,7 @@ public class BookInfo {
         return DataBooks.delete(book);
     }
 
-    public static synchronized Vector<Book> query() {
+    public static Vector<Book> query() {
         String bookname = "";
         try {
             bookname = ServerThread.cin.readUTF();

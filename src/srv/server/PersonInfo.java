@@ -58,7 +58,7 @@ public class PersonInfo {
         return DataPerson.delete(eCardNumber);
     }
 
-    public static synchronized Person query(){
+    public static Person query(){
         String eCardNumber = "";
         try {
             eCardNumber =  ServerThread.cin.readUTF();
@@ -81,7 +81,7 @@ public class PersonInfo {
 
 
 
-    public static synchronized int isNew(){
+    public static int isNew(){
         String eCardNumber = "";
         try {
             eCardNumber = ServerThread.cin.readUTF();
