@@ -119,6 +119,33 @@ public class DataBank {
         }
     }
 
+    public static int transferTocard(String ID,double change){
+        try{
+            if(change<=0){return -2;}
+            if(exist(ID)!=1){return 0;}
+            String sql=sql="select * from bank where idx='"+ID+"'";
+            ResultSet rs=DataBase.s.executeQuery(sql);
+            rs.next();
+            double balance=rs.getDouble("balance");
+            double ebalance=rs.getDouble("eCardBalance");
+            balance+=change;
+            ebalance-=change;
+
+            SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            String d = f.format(new Date());
+
+            sql="update bank set balance="+balance+",eCardBalance="+ebalance+",operationdate=#"+d+"# where idx='"+ID+"'";
+            DataBase.s.executeUpdate(sql);
+            DataBase.c.commit();
+            return 1;
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            return -1;
+        }
+    }
+
+
     public static BankInfo query(String ID){
         BankInfo account=new BankInfo(null,null,0,0,null);
         try{
@@ -141,7 +168,8 @@ public class DataBank {
 
     public static void main(String[] args) {
         DataBase.start();
-        int a=transferToEcard("213170002",100);
+        int b=transferToEcard("213170002",110);
+        int a=transferTocard("213170002",100);
         System.out.println(a);
 
         DataBase.stop();

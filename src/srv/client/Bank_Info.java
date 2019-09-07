@@ -83,6 +83,7 @@ public class Bank_Info {
         }
     }
 
+<<<<<<< HEAD
     public static int transfToEcard(String s){
         ObjectMapper mapper = new ObjectMapper();
         BankInfo bankinfo = new BankInfo();
@@ -94,6 +95,26 @@ public class Bank_Info {
         return transfToEcard(bankinfo.getID(), bankinfo.getTransferAmount());
     }
 
+=======
+    public static int transfTocard(String ID,double change) {
+        Client.run();
+        try {
+            Client.cout.writeInt(STARTPOS + 6);
+            Client.cout.writeUTF(ID);
+            Client.cout.writeDouble(change);
+            Client.cout.flush();
+            int res = Client.cin.readInt();
+            Client.stop();
+            return res;
+        } catch (Exception e) {
+            e.printStackTrace();
+            Client.stop();
+            return -4;
+        }
+    }
+
+
+>>>>>>> master
     public static int transfer(String fromID,String toID,double change){
         Client.run();
         try{
@@ -142,9 +163,9 @@ public class Bank_Info {
      */
 
     public static void main(String args[]){
-        int a=transfer("213170001","213170002",50);
-        int b=transfToEcard("213170001",20);
-        System.out.println(a);
+
+        int b=transfTocard("213170001",20);
         System.out.println(b);
+
     }
 }
