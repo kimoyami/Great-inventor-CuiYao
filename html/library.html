@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<charset="utf-8" />
+	<meta charset="utf-8" />
 	<title>线上图书馆系统</title>
 </head>
 <body class="setbackground">
@@ -12,10 +12,10 @@
 	<a type="button" id="search" >查询书籍</a>
 </div>
 <div id="login_borrow">
-	<a type="button" id="borrow">借阅此书</a>
+	<a type="button" id="borrow" >借阅此书</a>
 </div>
- 
-<table border="5" width="30%"  align="center"> 
+
+	<table border="5" width="30%"  align="center">
 <tr align="center">
 <th>书籍ID</th>    
 <th>书籍名称</th>
@@ -25,12 +25,12 @@
   <th>状态</th>
 </tr>
 <tr align="center">
-<td>uid</td>
-<td>uname</td>
-<td>editor</td>
-<td>public</td>
-<td>category</td>
-<td>state</td>
+<td>$("#uid")</td>
+<td>$("#uname")</td>
+<td>$("#editor")</td>
+<td>$("#public")</td>
+<td>$("#category")</td>
+<td>$("#state")</td>
 </tr>
 <tr align="center">
 <td>1</td>
@@ -46,37 +46,47 @@
 <td>333</td>
 <td>4444</td>
 <td>55555</td>
-<td>666666</td>
+<td>666666</td>6
 </tr>
- </table>
+</table>
 
-<p style="text-align: center">
+
+
+	<p style="text-align: center">
 <a href="personalbook.html" style="text-align: center">还书界面</a>
 </p>
 
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-<script>
-$(document).ready(function(){
-	$("#borrow").click(function(){
-		<!-- if($("#state").val()=="true"){
-              check = false;
-              alert("图书已借出")
-              else-->
-		alert("借阅成功")
+<script type="text/javascript">
+
+$(document).ready(function() {
+	$("#search").click(function () {
+		var t = $("#book").val();
+		alert(t);
+		var x = bookinfo.query(t);
+	for(var i=0;i<res.size();i++){
+	$("#myTable").append("<tr><td>"+(Book.getAll().elementAt(i).getBookID())+"</td><td>"+(Book.getAll().elementAt(i).getBookName())+"</td><td>"+(Book.getAll().elementAt(i).getBookEdit())+"</td><td id='td3'>"+(Book.getAll().elementAt(i).getBOOK_PUB())+"</td><td>"+(Book.getAll().elementAt(i).getCategory())+"</td><td>"+(Book.getAll().elementAt(i).getCategory())+"</td></tr>")}
+
+
 	})
+    $("#borrow").click(function () {
+    if
+        alert("借出成功");
+        update(book);
+    })
 })
 alert(client.bookname);
     var obj = JSON.parse(bookinfo.query(client.bookname));
     $("#uid").val(obj['BOOK_ID']);
-    $("#uname").val(obj['BOOK_NAME']);
+    $("#uname").val(obj['BOOK_NAME'])	;
     $("#public").val(obj['BOOK_PUB']);
     $("#category").val(obj['Category']);
     $("#state").val(obj['BE_BORROWED']);
     $("#editor").val(obj['BOOK_EDIT']);
 </script>
 
-<body background="image/123.jpg"
-style=" background-repeat: no-repeat ;
+	<body background="image/123.jpg"
+		  style=" background-repeat:no-repeat ;
 background-size:100% ;" >
 <style type="text/css">
 	#login_search{ 
@@ -125,10 +135,7 @@ background-size:100% ;" >
     #login_borrow a:hover { 
     	background:#385f9e; 
     }
-
-
-
-	</style>
+</style>
 </body>
 
 </html>

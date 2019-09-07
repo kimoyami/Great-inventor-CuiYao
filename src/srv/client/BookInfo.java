@@ -4,6 +4,7 @@
 
 package srv.client;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import srv.book.*;
 
 import java.util.Vector;
@@ -57,14 +58,7 @@ public class BookInfo {
         } catch (Exception e) {
             Client.stop();
         }
-        String res = "";
-        ObjectMapper mapper = new ObjectMapper();
-        try{
-            res = mapper.writeValueAsString(book);
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        return res;
+        return  res;
     }
 
     public static int update(Book book) {
@@ -83,4 +77,16 @@ public class BookInfo {
         }
     }
 
+            public static int update(String s){
+            ObjectMapper mapper= new ObjectMapper();
+             Book book = new Book();
+            try {
+                book = mapper.readValue(s, Book.class);
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+            return update(book);
+        }
 }
+
+
