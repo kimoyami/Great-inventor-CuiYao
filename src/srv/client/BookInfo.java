@@ -10,7 +10,7 @@ import srv.book.*;
 import java.util.Vector;
 
 public class BookInfo {
-    private static final int STARTPOS = 30;
+    private static final int STARTPOS = 19;
     public static int insert(Book book) {
         Client.run();
         try {
@@ -76,17 +76,3 @@ public class BookInfo {
             return -4;
         }
     }
-
-            public static int update(String s){
-            ObjectMapper mapper= new ObjectMapper();
-             Book book = new Book();
-            try {
-                book = mapper.readValue(s, Book.class);
-            }catch (Exception e){
-                e.printStackTrace();
-            }
-            return update(book);
-        }
-}
-
-

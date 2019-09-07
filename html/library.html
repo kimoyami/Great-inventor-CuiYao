@@ -62,32 +62,35 @@
 $(document).ready(function() {
 	$("#search").click(function () {
 		var t = $("#book").val();
-		alert(t);
-		var x = bookinfo.query(t);
-	for(var i=0;i<res.size();i++){
-	$("#myTable").append("<tr><td>"+(Book.getAll().elementAt(i).getBookID())+"</td><td>"+(Book.getAll().elementAt(i).getBookName())+"</td><td>"+(Book.getAll().elementAt(i).getBookEdit())+"</td><td id='td3'>"+(Book.getAll().elementAt(i).getBOOK_PUB())+"</td><td>"+(Book.getAll().elementAt(i).getCategory())+"</td><td>"+(Book.getAll().elementAt(i).getCategory())+"</td></tr>")}
-
-
-	})
-    $("#borrow").click(function () {
-    if
-        alert("借出成功");
-        update(book);
-    })
-})
-alert(client.bookname);
-    var obj = JSON.parse(bookinfo.query(client.bookname));
-    $("#uid").val(obj['BOOK_ID']);
+		var y = bookinfo.query(t);
+		var obj = JSON.parse(y);
+		 $("#uid").val(obj['BOOK_ID']);
     $("#uname").val(obj['BOOK_NAME'])	;
     $("#public").val(obj['BOOK_PUB']);
     $("#category").val(obj['Category']);
     $("#state").val(obj['BE_BORROWED']);
     $("#editor").val(obj['BOOK_EDIT']);
+    })
+	for(var i=0;i<res.size();i++){
+	$("#myTable").append("<tr><td>"+(Book.query().elementAt(i).getBookID())+"</td><td>"+(Book.query().elementAt(i).getBookName())+"</td><td>"+(Book.query().elementAt(i).getBookEdit())+"</td><td id='td3'>"+(Book.query().elementAt(i).getBOOK_PUB())+"</td><td>"+(Book.query().elementAt(i).getCategory())+"</td><td>"+(Book.query().elementAt(i).isState())+"</td></tr>")}
+
+    $("#borrow").click(function () {
+    if(BE_BORROWED==true)
+        alert("借出成功");
+        setState(false);
+        update(book);
+        else
+        alert("借出失败");
+    })
+})
+
+
 </script>
 
 	<body background="image/123.jpg"
 		  style=" background-repeat:no-repeat ;
 background-size:100% ;" >
+
 <style type="text/css">
 	#login_search{ 
 		margin-top:40px;
@@ -136,6 +139,6 @@ background-size:100% ;" >
     	background:#385f9e; 
     }
 </style>
-</body>
 
+	</body>
 </html>

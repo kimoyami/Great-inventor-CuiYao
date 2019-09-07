@@ -9,7 +9,7 @@
 	<p style="text-align: center;">图书书名
 	<input type="text" id="BOOK_NAME" name="BOOK_NAME" placeholder="请输入书名"></p> 
 	<p style="text-align: center;">图书序号
-	<input type="text" id="aBOOK_ID" name="aBOOK_ID" placeholder="请输入ID"></p> 
+	<input type="text" id="BOOK_ID" name="BOOK_ID" placeholder="请输入ID"></p>
 	<p style="text-align: center;">出版公司
 	<input type="text" id="BOOK_PUB" name="BOOK_PUB" placeholder="请输入出版社"></p>
 	<p style="text-align: center;">图书分类
@@ -32,25 +32,40 @@
 
 $(document).ready(function(){
 	$("#del").click(function(){
-		<!--数据库存在 insert(); -->
+	let t = $("#dBOOK_ID").val();
+     x = BookInfo.query(client.BookInfo);
+	 let y = JSON.parse(x);
+     obj['BOOK_ID'] = $("#dBOOK_ID").val();
+	 x = JSON.stringify(y);
+     BookInfo.delete(x);
+
 		alert("删除成功")
 	})
 })
 
 $(document).ready(function(){
 	$("#add").click(function(){
-		<!-- if($("#bookname").val()=="" ;delete()	-->
+
+		let t = $("#BOOK_ID").val();
+              x = BookInfo.query(client.BookInfo);
+			  let y = JSON.parse(x);
+              obj['BOOK_ID'] = $("#BOOK_ID").val();
+              obj['BOOK_NAME'] = $("#BOOK_NAME").val();
+              obj['BOOK_PUB'] = $("#BOOK_PUB").val();
+              y['Category'] = $("#Category").val()
+              y['BOOK_EDIT'] = $("#BOOK_EDIT").val();
+              x = JSON.stringify(y);
+              BookInfo.insert(x);
 		alert("添加成功")
 	})
 })
-alert(client.bookname);
-    var obj = JSON.parse(bookinfo.query(client.bookname));
-    $("#uid").val(obj['BOOK_ID']);
-    $("#uname").val(obj['BOOK_NAME']);
-    $("#public").val(obj['BOOK_PUB']);
-    $("#category").val(obj['Category']);
-    $("#state").val(obj['BE_BORROWED']);
-    $("#editor").val(obj['BOOK_EDIT']);
+
+    var obj = JSON.parse(BookInfo.query(client.ecardnumber));
+    $("#BOOK_ID").val(obj['BOOK_ID']);
+    $("#BOOK_NAME").val(obj['BOOK_NAME']);
+    $("#BOOK_PUB").val(obj['BOOK_PUB']);
+    $("#Category").val(obj['Category']);
+    $("#BOOK_EDIT").val(obj['BOOK_EDIT']);
 </script>
 
 <body background="image/123.jpg"

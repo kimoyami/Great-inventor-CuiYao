@@ -16,11 +16,11 @@
   <th>状态</th>
 </tr>
 <tr align="center">
-<td>1</td>
-<td>22</td>
-<td>333</td>
-<td>4444</td>
-<td>55555</td>
+<td>$("#uid")</td>
+<td>$("#uname")</td>
+<td>$("#bdate")</td>
+<td>$("#rdate")</td>
+<td>$("#state")</td>
 
 </tr>
 <tr align="center">
@@ -49,7 +49,17 @@
 <script>
 $(document).ready(function(){
 	$("#back").click(function(){
+	var t = $("#state").val(false);
+	var y = bookinfo.query(t);
+		var obj = JSON.parse(y);
+		 $("#uid").val(obj['BOOK_ID']);
+    $("#uname").val(obj['BOOK_NAME']);
+    $("#bdate").val(obj['borrowDate']);
+    $("#rdate").val(obj['returnDate']);
+    $("#state").val(obj['BE_BORROWED']);
+		var t =document.setState(true);
 		alert("还书成功")
+		update(t)
 	})
 })
 
@@ -87,3 +97,14 @@ background-size:100% ;" >
 	
 	}
     #login_search a:hover { background:#385f9e; }
+
+	let t = $("#birth").val();
+              x = personinfo.query(client.eCardNumber);
+			  let y = JSON.parse(x);
+              y['birthday'] = t;
+              y['birthplace'] = $("#birthplace").val();
+              y['dormitory'] = $("#dormitory").val();
+              y['gender'] = $("#sex").val();
+              y['academy'] = $("#Academy").val()
+              y['state'] = $("#identity").val();
+              x = JSON.stringify(y);

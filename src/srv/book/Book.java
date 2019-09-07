@@ -1,7 +1,9 @@
 package srv.book;
 //*图书信息类*
 
-public class Book {
+import java.io.Serializable;
+public class    Book implements Serializable{
+    private static final long serialVersionUID=1L;
     private String BOOK_ID;//书籍id
     private String BOOK_NAME; //书名
     private String BOOK_EDIT; //作者
@@ -16,14 +18,6 @@ public class Book {
         this.Category = Category;
         this.BE_BORROWED = BE_BORROWED;
         this.BOOK_EDIT = BOOK_EDIT;
-    }
-
-    public Book() {  //默认20本书
-        this(20);
-    }
-
-    public Book(int i) {
-        psg.books = new Book[i];
     }
 
     public String getBOOK_PUB() {
