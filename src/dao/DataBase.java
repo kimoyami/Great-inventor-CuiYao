@@ -55,56 +55,95 @@ public class DataBase {
     }
 
     public static int query(String eCardNumber, String password){
+        start();
         try {
             String sql = "select password from upsolved where ecardnumber like '"+eCardNumber+"'";
             ResultSet rs = s.executeQuery(sql);
-            if(rs.next()) return 2;
+            if(rs.next()){
+                stop();
+                return 2;
+            }
+
             sql = "select * from login where ecardnumber like '"+eCardNumber+"'";
             rs = s.executeQuery(sql);
-            if(!rs.next()) return 3;
-            if(password.equals(rs.getString(3))) {
-                if(rs.getBoolean(7) == true) return 4;
-                else return 1;
+            if(!rs.next()){
+                stop();
+                return 3;
             }
-            else return 0;
+
+            if(password.equals(rs.getString(3))) {
+                if(rs.getBoolean(7) == true) {
+                    stop();
+                    return 4;
+                }
+                else {
+                    stop();
+                    return 1;
+                }
+            }
+            else {
+                stop();
+                return 0;
+            }
         }catch (SQLException e){
+            stop();
             e.printStackTrace();
             return -1;
         }
     }
 
     public static int exist(String eCardNumber){
+        start();
         try{
             String sql = "select username from upsolved where ecardnumber = '"+eCardNumber+"'";
             ResultSet rs = s.executeQuery(sql);
-            if(rs.next()) return 2;
+            if(rs.next()) {
+                stop();
+                return 2;
+            }
             sql = "select username from login where ecardnumber = '"+eCardNumber+"'";;
             rs = s.executeQuery(sql);
-            if(!rs.next()) return 0;
-            else return 1;
+            if(!rs.next()) {
+                stop();
+                return 0;
+            }
+            else {
+                stop();
+                return 1;
+            }
         }catch (SQLException e){
+            stop();
             e.printStackTrace();
             return -1;
         }
     }
 
     public static int insert(String userName, String password, String eCardNumber, String sex, String status){
+        start();
         int res = exist(eCardNumber);
-        if(res != 0) return res;
+        if(res != 0) {
+            stop();
+            return res;
+        }
         try{
             s.executeUpdate("insert into upsolved(username, password, ecardnumber, sex, status) values ('"+userName+"', '"+password+"', '"+eCardNumber+"', '"+sex+"', '"+status+"')");
             c.commit();
-
+            stop();
             return 0;
         }catch (SQLException e){
+            stop();
             e.printStackTrace();
             return -2;
         }
     }
 
     public static int delete(String eCardNumber){
+        start();
         int res = exist(eCardNumber);
-        if(res != 1 && res != 2) return res;
+        if(res != 1 && res != 2) {
+            stop();
+            return res;
+        }
         try{
             if(res == 1) {
                 String sql = "delete from login where ecardnumber = '"+eCardNumber+"'";
@@ -116,14 +155,17 @@ public class DataBase {
                 s.executeUpdate(sql);
                 c.commit();
             }
+            stop();
             return res;
         }catch (SQLException e){
+            stop();
             e.printStackTrace();
             return -1;
         }
     }
 
     public static int solve(String eCardNumber){
+        start();
         try{
             String sql = "select * from upsolved where ecardnumber = '"+eCardNumber+"'";
             ResultSet rs = s.executeQuery(sql);
@@ -144,56 +186,78 @@ public class DataBase {
             s.executeUpdate(sql);
 
             c.commit();
+            stop();
             return 1;
         }catch (Exception e){
+            stop();
             e.printStackTrace();
+
             return -1;
         }
     }
 
     public static int addAdmin(String eCardNumber){
+        start();
         int res = exist(eCardNumber);
-        if(res != 1) return res;
+        if(res != 1) {
+            stop();
+            return res;
+        }
         try{
             String sql = "update login set control = Yes where ecardnumber = '"+eCardNumber+"'";
             s.executeUpdate(sql);
             c.commit();
+            stop();
             return 1;
         }catch (SQLException e){
+            stop();
             e.printStackTrace();
             return -1;
         }
     }
 
     public static int cancelAdmin(String eCardNumber){
+        start();
         int res = exist(eCardNumber);
-        if(res != 1) return res;
+        if(res != 1) {
+            stop();
+            return res;
+        }
         try{
             String sql = "update login set control = No where ecardnumber = '"+eCardNumber+"'";
             s.executeUpdate(sql);
             c.commit();
+            stop();
             return 1;
         }catch (SQLException e){
+            stop();
             e.printStackTrace();
             return -1;
         }
     }
 
     public static int update(String userName, String password, String eCardNumber, String sex, String status){
+        start();
         int res = exist(eCardNumber);
-        if(res != 1) return res;
+        if(res != 1){
+            stop();
+            return res;
+        }
         try{
             String sql = "update login set username = '"+userName+"', password = '"+password+"', sex = '"+sex+"', status = '"+status+"' where ecardnumber = '"+eCardNumber+"'";
             s.executeUpdate(sql);
             c.commit();
+            stop();
             return 0;
         }catch (SQLException e){
+            stop();
             e.printStackTrace();
             return -2;
         }
     }
 
     public static Vector<Vector<Object>> getAll(){
+        start();
         Vector<Vector<Object>> res = new Vector<>();
         try {
             String sql = "select * from upsolved";
@@ -209,6 +273,7 @@ public class DataBase {
         }catch (Exception e){
             e.printStackTrace();
         }
+        stop();
         return res;
     }
 

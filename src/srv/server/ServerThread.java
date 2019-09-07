@@ -29,7 +29,6 @@ public class ServerThread extends Thread {
             cout = new ObjectOutputStream(socket.getOutputStream());
             cin = new ObjectInputStream(socket.getInputStream());
 
-            DataBase.start();
 
             while (true) {
                 int op = cin.readInt();
@@ -57,7 +56,7 @@ public class ServerThread extends Thread {
 
             cin.close();
             cout.close();
-            DataBase.stop();
+
         } catch (IOException e) {
             e.printStackTrace();
         }
