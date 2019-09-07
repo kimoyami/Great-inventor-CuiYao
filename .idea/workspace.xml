@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e9e75e62-ef5d-482f-bdce-fa8ea2706755" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/html/MessageIndex.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/MessageIndex.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/DataPerson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/DataPerson.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dao/account.accdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/account.accdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dao/account.laccdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/account.laccdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/srv/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/srv/client/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/srv/client/MessageTrans.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/srv/client/MessageTrans.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/srv/person/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/srv/person/Person.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/MainView.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,8 +36,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/view/MainView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1679">
-              <caret line="102" selection-start-line="102" selection-end-line="102" />
+            <state relative-caret-position="208">
+              <caret line="61" column="75" selection-start-line="61" selection-start-column="72" selection-end-line="61" selection-end-column="76" />
+              <folding>
+                <element signature="e#4720#4721#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -48,12 +48,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/srv/client/Client.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="910">
+            <state relative-caret-position="341">
               <caret line="39" column="5" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
-              <folding>
-                <element signature="e#867#868#0" expanded="true" />
-                <element signature="e#899#900#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -100,12 +96,12 @@
         <option value="$PROJECT_DIR$/src/srv/person/Person.java" />
         <option value="$PROJECT_DIR$/src/dao/DataPerson.java" />
         <option value="$PROJECT_DIR$/src/srv/client/MessageTrans.java" />
-        <option value="$PROJECT_DIR$/src/view/MainView.java" />
         <option value="$PROJECT_DIR$/src/srv/client/Client.java" />
+        <option value="$PROJECT_DIR$/src/view/MainView.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="30" />
     <option name="width" value="1750" />
     <option name="height" value="1050" />
@@ -116,6 +112,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -132,20 +130,7 @@
               <item name="Great-inventor-CuiYao" type="b2602c69:ProjectViewProjectNode" />
               <item name="Great-inventor-CuiYao" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Great-inventor-CuiYao" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Great-inventor-CuiYao" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="srv" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Great-inventor-CuiYao" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Great-inventor-CuiYao" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="srv" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Great-inventor-CuiYao" type="b2602c69:ProjectViewProjectNode" />
@@ -158,8 +143,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -277,18 +260,19 @@
       <workItem from="1567694540243" duration="3071000" />
       <workItem from="1567728330265" duration="13163000" />
       <workItem from="1567754778776" duration="4223000" />
-      <workItem from="1567764137121" duration="10512000" />
+      <workItem from="1567764137121" duration="11473000" />
+      <workItem from="1567820103389" duration="1004000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52296000" />
+    <option name="totallyTimeSpent" value="54261000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49919486" visible="true" weight="0.26439232" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49919486" visible="true" weight="0.26705757" />
       <window_info id="Structure" order="1" sideWeight="0.50080514" side_tool="true" weight="0.2553305" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -666,19 +650,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/srv/client/Client.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="910">
+        <state relative-caret-position="341">
           <caret line="39" column="5" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
-          <folding>
-            <element signature="e#867#868#0" expanded="true" />
-            <element signature="e#899#900#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/view/MainView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1679">
-          <caret line="102" selection-start-line="102" selection-end-line="102" />
+        <state relative-caret-position="208">
+          <caret line="61" column="75" selection-start-line="61" selection-start-column="72" selection-end-line="61" selection-end-column="76" />
+          <folding>
+            <element signature="e#4720#4721#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

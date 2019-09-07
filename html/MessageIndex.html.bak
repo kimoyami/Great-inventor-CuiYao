@@ -229,7 +229,7 @@
       $(".messages-chat").empty();
 
       if(id == -1000){
-          id = setInterval('getnew()',  50);
+          id = setInterval('getnew()',  5000);
           getnew();
       }
 

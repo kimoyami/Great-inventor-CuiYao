@@ -59,7 +59,7 @@ public class MainView {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         frame.setResizable(false);
-        browser.loadURL("F:\\GitHub\\Great-inventor-CuiYao\\html\\MessageIndex.html");
+        browser.loadURL("F:\\GitHub\\Great-inventor-CuiYao\\html\\index.html");
         Toolkit kit = Toolkit.getDefaultToolkit();
         Image image = kit.createImage("F:\\GitHub\\Great-inventor-CuiYao\\html\\img\\xh.jpg");
         frame.setIconImage(image);
@@ -97,8 +97,13 @@ public class MainView {
         chooser.setAccessory(imagePreview);
         FileFilter filter = new FileFilter() {
             @Override
-            public boolean accept(File f) {
-                return f.getPath().endsWith("jpg") || f.getPath().endsWith("png") || f.getPath().endsWith("gif") || f.getPath().endsWith("jpeg") || f.getPath().endsWith("bmp") || !f.getPath().contains(".");
+                    public boolean accept(File f) {
+                return f.getPath().endsWith("jpg") || f.getPath().endsWith("JPG")
+                        || f.getPath().endsWith("png") || f.getPath().endsWith("PNG")
+                        || f.getPath().endsWith("gif") || f.getPath().endsWith("GIF")
+                        || f.getPath().endsWith("jpeg") || f.getPath().endsWith("JPEG")
+                        || f.getPath().endsWith("bmp") || f.getPath().endsWith("BMP")
+                        || !f.getPath().contains(".");
             }
 
             @Override
