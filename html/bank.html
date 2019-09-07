@@ -7,36 +7,80 @@
 
 <body class="setbackground">
 <h1 style="text-align: center">个人银行</h1>
-<div class="searchBox" id="search_box">
-	<a id="search" type="button" onclick="searchFct()">余额查询</a>
-	<br/><br/><br/><br/><br/><br/>
-	<img src="image/bank.jpg" id="piggyBank" width="200" align="bottom">
-	<p style="text-align: center">您的余额为：
-		<input type="text" id="balance" value="0.0"></p>
-</div>
-<div class="transferBox" id="login_transfer">
-	<a id="transfer" type="button" onclick="transferFct()">转账</a>
-	<p style="text-align: center">转账金额
-		<input type="text" id="transferAmount" value="" placeholder="请输入转账金额" /></p>
-	<p style="text-align: center">交易密码
-		<input type="password" id="password" name="transferTo" placeholder="请输入交易密码" /></p>
-	<p style="text-align: center">
-		<input type="radio" name="toecard" value="2" checked="checked"/>一卡通充值
-		<input type="radio" name="toecard" value="0" />银行卡充值
-	</p>
+<div>
+	<div class="searchBox" id="search_box">
+		<button id="search" onclick="searchFct()">余额查询</button>
+		<br/><br/><br/>
+		<img src="image/bank.jpg" id="piggyBank" width="200" align="bottom">
+		<p style="text-align: center">一卡通余额
+			<input type="text" id="Ecardbalance" value="0.0"></p>
+		<p style="text-align: center">银行卡余额
+			<input type="text" id="balance" value="0.0"></p>
+	</div>
+	<div class="topup" id="login_topup">
+		<button id="top_up" onclick="topupFct()">充值</button>
+		<p style="text-align: center">转账金额
+			<input type="text" id="topupAmount" placeholder="请输入转账金额" /></p>
+		<p style="text-align: center">交易密码
+			<input type="password" id="topuppassword" placeholder="请输入交易密码" /></p>
+		<p style="text-align: center">
+			<input type="radio" name="toecard" value="2" checked="checked"/>一卡通充值
+			<input type="radio" name="toecard" value="0" />银行卡充值
+		</p>
+	</div>
+	<div class="transferBox" id="login_transfer">
+		<button id="transfer" onclick="transferFct()">转账</button>
+		<p style="text-align: center">转账金额
+			<input type="text" id="transferAmount" value="" placeholder="请输入转账金额" /></p>
+		<p style="text-align: center">转账对象
+			<input type="text" id="transferTo" value="" placeholder="请输入转账对象" /></p>
+		<p style="text-align: center">交易密码
+			<input type="password" id="transferPassword" name="transferTo" placeholder="请输入交易密码" /></p>
+	</div>
 </div>
 
 
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
 <script type="text/javascript">
-function transferFct(){
+
+function transferFct() {
+	var y = bankinfo.query("213170002");
+	var a = JSON.parse(y);
+	var pwd = $("#transferPassword").val();
+	var ac = $("#transferAmount").val();
+	var to = $("#transferTo").val();
+
+	if(ac==""|| isNaN(ac) || ac<0){
+		alert("请输入正确的金额数目！");
+	}
+	else{
+	    if(to == a['id']){
+	        alert("转账对象不能为自己！");
+	    }
+	    else {
+            if (pwd == a['password']) {
+                if (ac <= a['balance']) {
+                    a['transferAmount'] = ac;
+                    a['transferTo'] = to;
+
+                    bankinfo.transfer(JSON.stringify(a));
+                    alert("转账成功！");
+                } else {
+                    alert("银行卡余额不足！");
+                }
+            } else {
+                alert("密码错误！");
+            }
+        }
+	}
+}
+function topupFct(){
 	var y = bankinfo.query("213170001");
 	var a = JSON.parse(y);
-	var pwd = $("#password").val();
-	var ac = $("#transferAmount").val();
-	alert(a['balance']);
-	alert(a['password']);
+	var pwd = $("#topuppassword").val();
+	var ac = $("#topupAmount").val();
+
 	var d = null;
 	var obj = document.getElementsByTagName("input");
 	for(var i=0;i<obj.length;i++){
@@ -52,8 +96,8 @@ function transferFct(){
 			if(ac <= a['balance']){
 				a['transferAmount'] = ac;
 				a['transferTo'] = d;
-				bankinfo.update(JSON.stringify(a));
-				alert("转账成功！");
+				bankinfo.transfToEcard(JSON.stringify(a));
+				alert("充值成功！");
 			}
 			else{
 				alert("银行卡余额不足！");
@@ -69,27 +113,55 @@ function searchFct(){
 	var imgObj = document.getElementById("piggyBank");
 	var Flag=(imgObj.getAttribute("src",2)=="image/bank.jpg")
 	imgObj.src=Flag?"image/bank.gif":"image/bank.jpg";
+
 	var a = bankinfo.query("213170001");
 	var y = JSON.parse(a);
-	$("#balance").val(y['balance']);
+	var bal = y['balance'];
+	var ebal = y['eCardBalance'];
+	var balRun = 0;
+	var ebalRun = 0;
+	var timesRun = 0;
+	var stop = bal<ebal?ebal:bal;
+	var myVar = setInterval(function(){
+		if(balRun < bal)
+			balRun += 1;
+		if (ebalRun < ebal)
+			ebalRun += 1;
 
+		if(timesRun === stop){
+			var ImgObj = document.getElementById("piggyBank");
+			var flag=(ImgObj.getAttribute("src",2)=="image/bank.jpg")
+			ImgObj.src=flag?"image/bank.gif":"image/bank.jpg";
+			clearInterval(myVar);
+		}
+		//do whatever here..
+		$("#balance").val(balRun);
+		$("#Ecardbalance").val(ebalRun);
+	}, 2);
 }
-
 </script>
 
 
 <style type="text/css">
-	body{background-color: #FF79BC}
+	body{
+		background-image: url(image/1019.jpg);
+		background-repeat:no-repeat ;
+		background-size: cover;
+		padding-top: 0%;
+		background-position: center;
+		background-color: #e6afcf;
+	}
 	
 	#search_box{ 
-		margin-top:100px;
-		margin-left: 600px; 
-		height:40px;
+		margin-top:10px;
+		margin-left: 50px;
+		height:200px;
 	}
-	#search_box a {
+	#search_box button {
     	text-decoration:none;
-		background:#4DFFFF;
-		color:#5B4B00;
+		background-image: url(image/300.jpg);
+		background-position: center;
+		color:#000000;
 	
 		padding: 50px 30px 50px 30px;
 		font-size:32px;
@@ -102,17 +174,20 @@ function searchFct(){
 		transition:all linear 0.30s;
 	
 	}
-    #search_box a:hover { background:#385f9e; }
+    #search_box button:hover {
+		background:#debecc;
+	}
 
     #login_transfer{ 
-		margin-top: 100px;
-		margin-left: 7%; 
-		height:40px;
+		margin-top: -512px;
+		margin-left: 7%;
+		height:200px;
 	}
-	#login_transfer a {
+	#login_transfer button {
     	text-decoration:none;
-		background:#4DFFFF;
-		color:#5B4B00;
+		background-image: url(image/1.jpg);
+		background-position: center;
+		color:#000000;
 	
 		padding: 50px 62px 50px 62px;
 		font-size:32px;
@@ -125,11 +200,37 @@ function searchFct(){
 		transition:all linear 0.30s;
 	
 	}
-    #login_transfer a:hover { 
-    	background:#385f9e; 
+    #login_transfer button:hover {
+    	background:#debecc;
     }
+
+	#login_topup{
+		margin-top: 10px;
+		margin-left: 7%;
+		height:200px;
+	}
+	#login_topup button {
+		text-decoration:none;
+		background-image: url(image/1.jpg);
+		background-position: center;
+		color:#000000;
+
+		padding: 50px 62px 50px 62px;
+		font-size:32px;
+		font-family: 微软雅黑,宋体,Arial,Helvetica,Verdana,sans-serif;
+		font-weight:bold;
+		border-radius:10px;
+
+		-webkit-transition:all linear 0.30s;
+		-moz-transition:all linear 0.30s;
+		transition:all linear 0.30s;
+	}
+	#login_topup button:hover {
+		background:#debecc;
+	}
+
     .searchBox{
-        border: 10px solid black; 
+        border: 15px solid #eb6ea0;
         float: left;
         text-align: center;
         padding-left: 2%;
@@ -137,24 +238,34 @@ function searchFct(){
         padding-bottom: 20%;
         padding-top: 5%;
         border-radius: 7px;
+		border-image: url(image/300.jpg) 30;
     }
     .transferBox{
-        border: 10px solid blue; 
-        float: left;
-        text-align: center;
-        padding-left: 2%;
-        padding-right: 2%;
-        padding-bottom: 20%;
-        padding-top: 5%;
-        border-radius: 7px;
+		border: 15px solid #eb6ea0;
+		float: right;
+		text-align: center;
+		padding-left: 2%;
+		padding-right: 2%;
+		padding-bottom: 20%;
+		padding-top: 5%;
+		border-radius: 7px;
+		border-image: url(image/1.jpg) 30;
     }
+	.topup{
+		border: 15px solid #eb6ea0;
+		float: left;
+		text-align: center;
+		padding-left: 2%;
+		padding-right: 2%;
+		padding-bottom: 20%;
+		padding-top: 5%;
+		border-radius: 7px;
+		border-image: url(image/1.jpg) 30;
+	}
     .transferTo{
     	text-align: center;
     	margin-top: 100px;
     }
-    
-
-
 </style>
 </body>
 </html>

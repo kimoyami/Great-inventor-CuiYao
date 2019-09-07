@@ -83,6 +83,17 @@ public class Bank_Info {
         }
     }
 
+    public static int transfToEcard(String s){
+        ObjectMapper mapper = new ObjectMapper();
+        BankInfo bankinfo = new BankInfo();
+        try {
+            bankinfo = mapper.readValue(s, BankInfo.class);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return transfToEcard(bankinfo.getID(), bankinfo.getTransferAmount());
+    }
+
     public static int transfer(String fromID,String toID,double change){
         Client.run();
         try{
@@ -99,6 +110,18 @@ public class Bank_Info {
             Client.stop();
             return -4;
         }
+    }
+
+    public static int transfer(String s){
+        ObjectMapper mapper = new ObjectMapper();
+        BankInfo bankinfo = new BankInfo();
+        int a = 0;
+        try {
+            bankinfo = mapper.readValue(s, BankInfo.class);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return transfer(bankinfo.getID(), bankinfo.getTransferTo(), bankinfo.getTransferAmount());
     }
 
 
