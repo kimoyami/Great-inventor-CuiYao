@@ -17,43 +17,31 @@ import java.sql.ResultSet;
 import java.util.Vector;
 
 public class DataBooks {
-
     public static int exist(String idx,String state){
-        DataBase.start();
         try{
             String sql="select * from books where idx='"+idx+"' and state="+state+"";
             ResultSet rs=DataBase.s.executeQuery(sql);
-            if(!rs.next()){
-                DataBase.stop();
-                return 0;}
-            DataBase.stop();
+            if(!rs.next()){return 0;}
             return 1;
         }
         catch(Exception e){
-            DataBase.stop();
             e.printStackTrace();
             return -1;
         }
     }
 
     public static int insert(Book book){
-        DataBase.start();
         try{
-            if(!book.isState()){
-                DataBase.stop();
-                return 0;
-            }
+            if(!book.isState()){return 0;}
             String sta="No";
             String sql="insert into books(idx,bookname,author,publish,Category,state) values" +
                     "('"+book.getBookID()+"','"+book.getBookName()+"','"+book.getBookEdit()+"','"+book.getBOOK_PUB()+"'," +
                     "'"+book.getCategory()+"',"+sta+")";
             DataBase.s.executeUpdate(sql);
             DataBase.c.commit();
-            DataBase.stop();
             return 1;
         }
         catch(Exception e){
-            DataBase.stop();
             e.printStackTrace();
             return -1;
         }
@@ -61,32 +49,25 @@ public class DataBooks {
     }
 
     public static int delete(Book book){
-        DataBase.start();
         try{
             String sta;
             if(book.isState()){sta="No";}
             else{sta="Yes";}
             String sql="select * from books where idx='"+book.getBookID()+ "'and state="+sta+"";
             ResultSet rs=DataBase.s.executeQuery(sql);
-            if(!rs.next()){
-                DataBase.stop();
-                return 0;
-            }
+            if(!rs.next()){return 0;}
             sql="delete *from books where idx='"+book.getBookID()+"'";
             DataBase.s.executeUpdate(sql);
             DataBase.c.commit();
-            DataBase.stop();
             return 1;
         }
         catch(Exception e){
-            DataBase.stop();
             e.printStackTrace();
             return -1;
         }
     }
 
     public static Vector<Book> query(String bookName){
-        DataBase.start();
         Vector<Book> res=new Vector<>();
         try{
            String sql="select *from books where bookname='"+bookName+"'";
@@ -101,12 +82,10 @@ public class DataBooks {
         catch (Exception e){
            e.printStackTrace();
         }
-        DataBase.stop();
         return res;
     }
 
     public static int update(Book book){
-        DataBase.start();
         String sta;
         if(book.isState()){sta="No";}
 
@@ -115,26 +94,23 @@ public class DataBooks {
         System.out.println(book.getBookID());
         int res=exist(book.getBookID(),sta);
 
-        if(res!=1){
-            DataBase.stop();
-            return 0;
-        }
+        if(res!=1){return 0;}
         try{
             if(book.isState()){sta="Yes";}
             else{sta="No";}
             String sql="update books set state="+sta+" where idx='"+book.getBookID()+"'";
             DataBase.s.executeUpdate(sql);
             DataBase.c.commit();
-            DataBase.stop();
             return 1;
         }
         catch(Exception e){
-            DataBase.stop();
             e.printStackTrace();
             return -1;
         }
     }
 
     public static void main(String []args){
+        DataBase.start();
+        DataBase.stop();
     }
 }
