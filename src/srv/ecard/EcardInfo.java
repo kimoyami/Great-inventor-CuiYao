@@ -27,9 +27,4 @@ public class EcardInfo implements Serializable {
         this.balance = balance;
     }
 
-    public void changeBalance(double money){
-        if(state==1){
-            this.balance+=money;
-        }
-    }
 }

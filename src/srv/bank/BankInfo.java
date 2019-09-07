@@ -9,23 +9,34 @@ import java.io.Serializable;
 转账时间transferTime
 银行个人信息类BankInfo(String, double, int, String, double, long)
  */
-public class BankInfo {
+public class BankInfo implements Serializable{
     private static final long serialVersionUID = -1925809561781496530L;
 
     private String ID;
+    private String name;
     private double balance;
-    private int password;
+    private double eCardBalance;
+    private String password;
     private String transferTo;
     private double transferAmount;
     private long transferTime;
+    private String state;
 
-    public BankInfo(String id, double b, int p, String to, double amount, long t){
+    public BankInfo(){
+        ID="";
+        name="";
+        balance=0;
+        eCardBalance=0;
+        password="";
+    }
+
+
+    public BankInfo(String id,String n, double b, double e,String p){
         this.setID(id);
+        this.setName(n);
         this.setBalance(b);
+        this.seteCardBalance(e);
         this.setPassword(p);
-        this.setTransferTo(to);
-        this.setTransferAmount(amount);
-        this.setTransferTime(t);
     }
 
     public void setID(String param){
@@ -42,10 +53,17 @@ public class BankInfo {
         return this.balance;
     }
 
-    public void setPassword(int param){
+    public void seteCardBalance(double param){
+        this.eCardBalance = param;
+    }
+    public double geteCardBalance(){
+        return this.eCardBalance;
+    }
+
+    public void setPassword(String param){
         this.password = param;
     }
-    public int getPassword(){
+    public String getPassword(){
         return this.password;
     }
 
@@ -69,4 +87,11 @@ public class BankInfo {
     public long getTransferTime(){
         return this.transferTime;
     }
+
+    public void setName(String name){this.name=name;}
+    public String getName(){return this.name;}
+
+    public void setState(String state){this.state=state;}
+    public String getState(){return this.state;}
+
 }

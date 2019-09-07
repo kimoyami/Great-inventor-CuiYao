@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>银行信息管理</title>
+</head>
+
+<body class="setbackground">
+<h1 style="text-align: center">个人银行</h1>
+<div class="searchBox" id="search_box">
+	<a id="search" type="button" onclick="searchFct()">余额查询</a>
+	<br/><br/><br/><br/><br/><br/>
+	<img src="image/bank.jpg" id="piggyBank" width="200" align="bottom">
+	<p style="text-align: center">您的余额为：
+		<input type="text" id="balance" value="0.0"></p>
+</div>
+<div class="transferBox" id="login_transfer">
+	<a id="transfer" type="button" onclick="transferFct()">转账</a>
+	<p style="text-align: center">转账金额
+		<input type="text" id="transferAmount" value="" placeholder="请输入转账金额" /></p>
+	<p style="text-align: center">交易密码
+		<input type="password" id="password" name="transferTo" placeholder="请输入交易密码" /></p>
+	<p style="text-align: center">
+		<input type="radio" name="toecard" value="2" checked="checked"/>一卡通充值
+		<input type="radio" name="toecard" value="0" />银行卡充值
+	</p>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+<script type="text/javascript">
+function transferFct(){
+	var y = bankinfo.query("213170001");
+	var a = JSON.parse(y);
+	var pwd = $("#password").val();
+	var ac = $("#transferAmount").val();
+	alert(a['balance']);
+	alert(a['password']);
+	var d = null;
+	var obj = document.getElementsByTagName("input");
+	for(var i=0;i<obj.length;i++){
+		if (obj[i].checked){
+			d = obj[i].value;
+		}
+	}
+	if (ac==""|| isNaN(ac) || ac<0){
+		alert("请输入正确的金额数目！");
+	}
+	else {
+		if(pwd == a['password']){
+			if(ac <= a['balance']){
+				a['transferAmount'] = ac;
+				a['transferTo'] = d;
+				bankinfo.update(JSON.stringify(a));
+				alert("转账成功！");
+			}
+			else{
+				alert("银行卡余额不足！");
+			}
+		}
+		else{
+			alert("密码错误！");
+		}
+	}
+}
+function searchFct(){
+	//gif动画
+	var imgObj = document.getElementById("piggyBank");
+	var Flag=(imgObj.getAttribute("src",2)=="image/bank.jpg")
+	imgObj.src=Flag?"image/bank.gif":"image/bank.jpg";
+	var a = bankinfo.query("213170001");
+	var y = JSON.parse(a);
+	$("#balance").val(y['balance']);
+
+}
+
+</script>
+
+
+<style type="text/css">
+	body{background-color: #FF79BC}
+	
+	#search_box{ 
+		margin-top:100px;
+		margin-left: 600px; 
+		height:40px;
+	}
+	#search_box a {
+    	text-decoration:none;
+		background:#4DFFFF;
+		color:#5B4B00;
+	
+		padding: 50px 30px 50px 30px;
+		font-size:32px;
+		font-family: 微软雅黑,宋体,Arial,Helvetica,Verdana,sans-serif;
+		font-weight:bold;
+		border-radius:10px;
+	
+		-webkit-transition:all linear 0.30s;
+		-moz-transition:all linear 0.30s;
+		transition:all linear 0.30s;
+	
+	}
+    #search_box a:hover { background:#385f9e; }
+
+    #login_transfer{ 
+		margin-top: 100px;
+		margin-left: 7%; 
+		height:40px;
+	}
+	#login_transfer a {
+    	text-decoration:none;
+		background:#4DFFFF;
+		color:#5B4B00;
+	
+		padding: 50px 62px 50px 62px;
+		font-size:32px;
+		font-family: 微软雅黑,宋体,Arial,Helvetica,Verdana,sans-serif;
+		font-weight:bold;
+		border-radius:10px;
+	
+		-webkit-transition:all linear 0.30s;
+		-moz-transition:all linear 0.30s;
+		transition:all linear 0.30s;
+	
+	}
+    #login_transfer a:hover { 
+    	background:#385f9e; 
+    }
+    .searchBox{
+        border: 10px solid black; 
+        float: left;
+        text-align: center;
+        padding-left: 2%;
+        padding-right: 2%;
+        padding-bottom: 20%;
+        padding-top: 5%;
+        border-radius: 7px;
+    }
+    .transferBox{
+        border: 10px solid blue; 
+        float: left;
+        text-align: center;
+        padding-left: 2%;
+        padding-right: 2%;
+        padding-bottom: 20%;
+        padding-top: 5%;
+        border-radius: 7px;
+    }
+    .transferTo{
+    	text-align: center;
+    	margin-top: 100px;
+    }
+    
+
+
+</style>
+</body>
+</html>

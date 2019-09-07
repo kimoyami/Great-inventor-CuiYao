@@ -1,15 +1,15 @@
 package srv.book;
 //*图书信息类*
 
-class Book {
-    public String BOOK_ID;//书籍id
-    public String BOOK_NAME; //书名
-    public String BOOK_EDIT; //作者
-    public String BOOK_PUB; //出版社
-    public String Category; //分类
-    public boolean BE_BORROWED; //状态  true-未借出  false-已借出
+public class Book {
+    private String BOOK_ID;//书籍id
+    private String BOOK_NAME; //书名
+    private String BOOK_EDIT; //作者
+    private String BOOK_PUB; //出版社
+    private String Category; //分类
+    private boolean BE_BORROWED; //状态  true-未借出  false-已借出
 
-    public Book(String BOOK_NAME, String BOOK_ID, String BOOK_PUB, String Category, String BOOK_EDIT, boolean BE_BORROWED) {
+    public Book( String BOOK_ID, String BOOK_NAME,String BOOK_EDIT,String BOOK_PUB, String Category,  boolean BE_BORROWED) {
         this.BOOK_ID = BOOK_ID;
         this.BOOK_NAME = BOOK_NAME;
         this.BOOK_PUB = BOOK_PUB;

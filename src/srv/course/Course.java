@@ -11,68 +11,69 @@ import java.io.Serializable;
 课程类Course(String, String, String, int, int)
  */
 
-public class Course {
+public class Course implements Serializable{
     private static final long serialVersionUID = 6445069540877410708L;
-
+    private String idx;
     private String courseName;
-    private String courseTime;
-    private String instructor;
-    private int numberOfClass;
-    private int numberOfSelected;
-    private String[] studentList;
+    private int courseTime;
+    private String teacher;
+    private int maxPeople;
+    private int remainNumber;
+    private String state;
 
-    public Course(String cName, String cTime, String cInstr, int numberOfClass, int numberOfSelected){
-        this.courseName = cName;
-        this.courseTime = cTime;
-        this.instructor = cInstr;
-        this.numberOfClass = numberOfClass;
-        this.numberOfSelected = numberOfSelected;
-        this.studentList = new String[numberOfClass];
-        for(int i = 0;i < numberOfClass;i++){
-            this.studentList[i] = null;
-        }
+    public Course(String idx,String Name, int Time, String teacher, int maxPeople, int remainNumber,String state){
+        this.idx=idx;
+        this.courseName = Name;
+        this.courseTime = Time;
+        this.teacher = teacher;
+        this.maxPeople=maxPeople;
+        this.remainNumber=remainNumber;
+        this.state=state;
     }
 
-    public void setCourseName(String param){
-        this.courseName = param;
+
+    public String getIdx() {
+        return this.idx;
     }
-    public String getCourseName(){
+    public String getCourseName() {
         return this.courseName;
     }
-
-    public void setCourseTime(String param){
-        this.courseTime = param;
-    }
-    public String getCourseTime(){
+    public int getCourseTime() {
         return this.courseTime;
     }
-
-    public void setInstructor(String param){
-        this.instructor = param;
+    public String getTeacher() {
+        return this.teacher;
     }
-    public String getInstructor(){
-        return this.instructor;
+    public int getMaxPeople() {
+        return this.maxPeople;
     }
-
-    public void setNumberOfClass(int param){
-        this.numberOfClass = param;
+    public int getRemainNumber() {
+        return this.remainNumber;
     }
-    public int getNumberOfClass(){
-        return this.numberOfClass;
+    public String getState() {
+        return this.state;
     }
 
-    public void setNumberOfSelected(int param){
-        this.numberOfSelected = param;
+    public void setIdx(String idx) {
+        this.idx = idx;
     }
-    public int getGetNumberOfClass() {
-        return this.numberOfSelected;
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
+    }
+    public void setCourseTime(int courseTime) {
+        this.courseTime = courseTime;
+    }
+    public void setTeacher(String teacher) {
+        this.teacher = teacher;
+    }
+    public void setMaxPeople(int maxPeople) {
+        this.maxPeople = maxPeople;
+    }
+    public void setRemainNumber(int remainNumber) {
+        this.remainNumber = remainNumber;
+    }
+    public void setState(String state) {
+        this.state = state;
     }
 
-    public void setStudentList(String param){
-        this.studentList[this.numberOfSelected - 1] = param;
-    }
-    public void getStudentList(){
-        for(int i=0; i < this.studentList.length; i++)
-            System.out.println(this.studentList[i] + "  ");
-    }
 }
