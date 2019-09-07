@@ -68,7 +68,7 @@ public class PersonInfo {
         return DataPerson.query(eCardNumber);
     }
 
-    public static int update(){
+    public static synchronized int update(){
         Person person;
         try{
             person = (Person)ServerThread.cin.readObject();

@@ -4,10 +4,13 @@
 
 package srv.client;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import srv.bank.BankInfo;
+import srv.person.Person;
+import srv.server.Server;
 
 public class Bank_Info {
-    private static final int STARTPOS = 23;
+    private static final int STARTPOS = 40;
     public static int insert(BankInfo account) {
         Client.run();
         try {
@@ -40,7 +43,7 @@ public class Bank_Info {
         }
     }
 
-    public static BankInfo query(String ID) {
+    public static String query(String ID) {
         Client.run();
         BankInfo account = null;
         try {
@@ -53,16 +56,22 @@ public class Bank_Info {
             e.printStackTrace();
             Client.stop();
         }
-        return account;
+        String res = "";
+        ObjectMapper mapper = new ObjectMapper();
+        try{
+            res = mapper.writeValueAsString(account);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return res;
     }
 
-    public static int update(BankInfo account, double change, int tag) {
+    public static int transfToEcard(String ID,double change) {
         Client.run();
         try {
             Client.cout.writeInt(STARTPOS + 4);
-            Client.cout.writeObject(account);
+            Client.cout.writeUTF(ID);
             Client.cout.writeDouble(change);
-            Client.cout.writeInt(tag);
             Client.cout.flush();
             int res = Client.cin.readInt();
             Client.stop();
@@ -74,4 +83,45 @@ public class Bank_Info {
         }
     }
 
+    public static int transfer(String fromID,String toID,double change){
+        Client.run();
+        try{
+            Client.cout.writeInt(STARTPOS+5);
+            Client.cout.writeUTF(fromID);
+            Client.cout.writeUTF(toID);
+            Client.cout.writeDouble(change);
+            Client.cout.flush();
+            int res=Client.cin.readInt();
+            Client.stop();
+            return res;
+        }catch(Exception e){
+            e.printStackTrace();
+            Client.stop();
+            return -4;
+        }
+    }
+
+
+    /*
+    public static int update(String s){
+        ObjectMapper mapper = new ObjectMapper();
+        BankInfo bankInfo = new BankInfo();
+        int a = 0;
+        try {
+            bankInfo = mapper.readValue(s, BankInfo.class);
+            a = Integer.parseInt(bankInfo.getTransferTo());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return update(bankInfo, bankInfo.getTransferAmount(), a);
+    }
+    /
+     */
+
+    public static void main(String args[]){
+        int a=transfer("213170001","213170002",50);
+        int b=transfToEcard("213170001",20);
+        System.out.println(a);
+        System.out.println(b);
+    }
 }

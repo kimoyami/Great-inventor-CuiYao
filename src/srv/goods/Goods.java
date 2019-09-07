@@ -1,16 +1,20 @@
 package srv.goods;
 
-public class Goods {
+import srv.server.ServerThread;
+
+import java.io.Serializable;
+
+public class Goods implements Serializable {
     private static final long serialVersionUID= 5006441955722175923L;
     private String ID;
     private int number;
     private double price;
     private String name;
     private String picturePath;
-    private int tag;//0=tianping,1=zhongchao
+    private String tag;//0=tianping,1=zhongchao
 
 
-    public Goods(String ID,int number,String name,double price, String picturePath,int tag) {
+    public Goods(String ID,int number,String name,double price, String picturePath,String tag) {
             this.tag=tag;
             this.ID=ID;
             this.name=name;
@@ -32,7 +36,7 @@ public class Goods {
     public String getPicturePath() {
         return this.picturePath;
     }
-    public int getTag() {
+    public String getTag() {
         return this.tag;
     }
 
@@ -51,6 +55,6 @@ public class Goods {
     public void setPicturePath(String picturePath) {
         this.picturePath = picturePath;
     }
-    public void setTag(int tag){this.tag=tag;};
+    public void setTag(String tag){this.tag=tag;};
 
 }

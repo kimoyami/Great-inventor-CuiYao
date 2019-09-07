@@ -16,86 +16,147 @@ import java.sql.ResultSet;
 
 public class DataBank {
     public static int exist(String ID){
+        DataBase.start();
         try{
             String sql="select * from bank where idx='"+ID+"'";
             ResultSet rs=DataBase.s.executeQuery(sql);
-            if(!rs.next()){return 0;}
+            if(!rs.next()){
+                DataBase.stop();
+                return 0;
+            }
+            DataBase.stop();
             return 1;
         }
         catch(Exception e){
+            e.printStackTrace();
+            DataBase.stop();
+            return -1;
+        }
+    }
+
+    public static int transfer(String fromID,String toID,double change){
+        DataBase.start();
+        try{
+            if(change<=0){
+                DataBase.stop();
+                return -2;
+            }
+            if(exist(fromID)!=1||exist(toID)!=1){
+                DataBase.stop();
+                return 0;
+            }
+
+            String sql="select * from bank where idx='"+fromID+"'";
+            ResultSet rs =DataBase.s.executeQuery(sql);
+            rs.next();
+            double fromBalance=rs.getDouble("balance");
+
+            sql="select * from bank where idx='"+toID+"'";
+            rs =DataBase.s.executeQuery(sql);
+            rs.next();
+            double toBalance=rs.getDouble("balance");
+
+            fromBalance-=change;
+            toBalance+=change;
+            SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            String d = f.format(new Date());
+            sql="update bank set balance="+fromBalance+" ,operationdate=#"+d+"# where idx='"+fromID+"'";
+            DataBase.s.executeUpdate(sql);
+            DataBase.c.commit();
+
+            sql="update bank set balance="+toBalance+" ,operationdate=#"+d+"# where idx='"+toID+"'";
+            DataBase.s.executeUpdate(sql);
+            DataBase.c.commit();
+            DataBase.stop();
+            return 1;
+        }catch(Exception e){
+            DataBase.stop();
             e.printStackTrace();
             return -1;
         }
     }
 
     public static int insert(BankInfo account){
+        DataBase.start();
         try {
             int res = exist(account.getID());
-            if(res!=0){return 0;}
+            if(res!=0){
+                DataBase.stop();
+                return 0;
+            }
             SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             String d = f.format(new Date());
-            String sql="insert into bank(idx,username,balance,eCardBalance,password,state,operationdate) values('"+account.getID()+"','"+account.getName()+"','"+account.getBalance()+"','"+account.geteCardBalance()+"','"+account.getPassword()+"','正常',#"+d+"#)";
+            String sql="insert into bank(idx,username,balance,eCardBalance,password,operationdate) values('"+account.getID()+"','"+account.getName()+"','"+account.getBalance()+"','"+account.geteCardBalance()+"','"+account.getPassword()+"',#"+d+"#)";
             DataBase.s.executeUpdate(sql);
             DataBase.c.commit();
+            DataBase.stop();
             return 1;
         }
         catch(Exception e){
+            DataBase.stop();
             e.printStackTrace();
             return -1;
         }
     }
 
     public static int delete(BankInfo account){
+        DataBase.start();
         try {
             int res=exist(account.getID());
-            if(res!=1){return 0;}
+            if(res!=1){
+                DataBase.stop();
+                return 0;
+            }
             String sql="delete from bank where idx='"+account.getID()+"'";
             DataBase.s.executeUpdate(sql);
             DataBase.c.commit();
+            DataBase.stop();
             return 1;
         }
         catch (Exception e) {
+            DataBase.stop();
             e.printStackTrace();
             return -1;
         }
     }
 
-    public static int update(BankInfo account,double change,int tag){
+    public static int transferToEcard(String ID,double change){
+        DataBase.start();
         try{
-            if(change<=0){return -2;}
-            String sql="select * from bank where idx='"+account.getID()+"'";
-            ResultSet rs=DataBase.s.executeQuery(sql);
-            double cur=0;
-            double eCardcur=0;
-            if(rs.next()){
-                double tmp=rs.getDouble("balance");
-                double eCardtmp=rs.getDouble("eCardBalance");
-                if(tag==1){ cur=tmp+change;}
-                else{
-                    if(tmp-change<0) { return -3; }
-                    else{
-                        cur=tmp-change;}
-                        if(tag==2){eCardcur=eCardtmp+change;}
-                }
-            }
-            else{return 0;}
+           if(change<=0){
+               DataBase.stop();
+               return -2;
+           }
+           if(exist(ID)!=1){
+               DataBase.stop();
+               return 0;
+           }
+           String sql=sql="select * from bank where idx='"+ID+"'";
+           ResultSet rs=DataBase.s.executeQuery(sql);
+           rs.next();
+           double balance=rs.getDouble("balance");
+           double ebalance=rs.getDouble("eCardBalance");
+           balance-=change;
+           ebalance+=change;
 
-            String sta;
-            if(cur<0){ sta="欠费"; }
-            else{sta="正常";}
+            SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            String d = f.format(new Date());
 
-            sql="update bank set balance='"+cur+"',eCardBalance='"+eCardcur+"',state='"+sta+"' where idx='"+account.getID()+"'";
-            DataBase.s.executeUpdate(sql);
-            DataBase.c.commit();
+           sql="update bank set balance="+balance+",eCardBalance="+ebalance+",operationdate=#"+d+"# where idx='"+ID+"'";
+           DataBase.s.executeUpdate(sql);
+           DataBase.c.commit();
+            DataBase.stop();
             return 1;
         }
         catch(Exception e){
             e.printStackTrace();
+            DataBase.stop();
             return -1;
         }
     }
 
     public static BankInfo query(String ID){
+        DataBase.start();
         BankInfo account=new BankInfo(null,null,0,0,null);
         try{
         String sql="select * from bank where idx='"+ID+"'";
@@ -104,22 +165,19 @@ public class DataBank {
         account.setID(rs.getString("idx"));
         account.setName(rs.getString("username"));
         account.setBalance(rs.getDouble("balance"));
+        account.setPassword(rs.getString("password"));
+        account.seteCardBalance(rs.getDouble("eCardBalance"));
         }
     }
     catch(Exception e){
         e.printStackTrace();
        }
-    return account;
+        DataBase.stop();
+        return account;
     }
 
     public static void main(String[] args) {
         DataBase.start();
-        BankInfo a=new BankInfo("213170001","明凯",4396,0,"cznb");
-        int b=update(a,4397,0);
-        int c=update(a,100,2);
-        System.out.println(b);
-        System.out.println(c);
-
         DataBase.stop();
     }
 }

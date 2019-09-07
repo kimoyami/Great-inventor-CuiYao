@@ -1,5 +1,7 @@
 package srv.message;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -56,4 +58,17 @@ public class Message implements Serializable {
     }
 
     public Date getTime(){return time;}
+
+    public static String getJson(){
+        Message message = new Message();
+        ObjectMapper mapper = new ObjectMapper();
+        String res = "";
+        try {
+            res = mapper.writeValueAsString(message);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return res;
+    }
+
 }

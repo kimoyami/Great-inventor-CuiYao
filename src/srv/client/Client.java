@@ -6,6 +6,7 @@ package srv.client;
 
 import java.io.*;
 import java.net.Socket;
+import java.util.Date;
 
 public class Client {
     public static Socket socket;
@@ -32,6 +33,10 @@ public class Client {
             e.printStackTrace();
             return;
         }
+    }
+
+    public static Date getDate(){
+        return new Date();
     }
 
 }

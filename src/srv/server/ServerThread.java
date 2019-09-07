@@ -7,6 +7,7 @@ package srv.server;
 
 import dao.DataBase;
 import dao.DataHead;
+import srv.course.SelectCourse;
 
 import java.io.*;
 import java.net.ServerSocket;
@@ -28,7 +29,6 @@ public class ServerThread extends Thread {
             cout = new ObjectOutputStream(socket.getOutputStream());
             cin = new ObjectInputStream(socket.getInputStream());
 
-            DataBase.start();
 
             while (true) {
                 int op = cin.readInt();
@@ -36,23 +36,27 @@ public class ServerThread extends Thread {
                 if (op == -100) update();
                 if (op >= 1 && op <= 10) Login.run(op);
                 op -= 10;
-                if (op >= 1 && op <= 5) PersonInfo.run(op);
-                op -= 5;
-                if (op >= 1 && op <= 4) MessageTrans.run(op);
-                op -= 4;
-                if (op >= 1 && op <= 4) BookInfo.run(op);
-                op -= 4;
-                if (op >= 1 && op <= 4) Bank_Info.run(op);
-                op -= 4;
-                if (op >= 1 && op <= 4) GoodInfo.run(op);
-                op -= 4;
+                if (op >= 1 && op <= 10) PersonInfo.run(op);
+                op -= 10;
+                if (op >= 1 && op <= 10) MessageTrans.run(op);
+                op -= 10;
+                if (op >= 1 && op <= 10) BookInfo.run(op);
+                op -= 10;
+                if (op >= 1 && op <= 10) Bank_Info.run(op);
+                op -= 10;
+                if (op >= 1 && op <= 10) GoodInfo.run(op);
+                op-=10;
                 if(op == 1) Head.run(op);
-                op -= 1;
+                op -= 10;
+                if(op>=1&&op<=10)CourseInfo.run(op);
+                op -= 10;
+                if(op>=1&&op<=10) SelectCourseInfo.run(op);
+                op-=10;
             }
 
             cin.close();
             cout.close();
-            DataBase.stop();
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -78,6 +82,7 @@ public class ServerThread extends Thread {
                 fos.write(buf, 0, len);
             }
             fos.flush();
+            url = "../headimage/" + fileName.toString() + ".jpg";
             cout.writeInt(DataHead.update(eCardNumber, url));
             cout.flush();
             fos.close();
