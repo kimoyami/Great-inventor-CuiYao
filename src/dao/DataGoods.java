@@ -6,6 +6,8 @@ package dao;
 import srv.goods.Goods;
 
 import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Vector;
 
 public class DataGoods {
@@ -111,6 +113,14 @@ public class DataGoods {
             sql="update bank set eCardBalance="+tmp+" where idx='"+ID+"'";
             DataBase.s.executeUpdate(sql);
             DataBase.c.commit();
+
+            SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            String d = f.format(new Date());
+
+            sql="insert into bankrecord(ecardname,change,record,otime) values('"+ID+"',"+change+",'超市购物',#"+d+"#)";
+            DataBase.s.executeUpdate(sql);
+            DataBase.c.commit();
+
             return 1;
         }catch(Exception e){
             e.printStackTrace();

@@ -58,13 +58,11 @@ public class SelectCourseInfo {
         }
         return res;
     }
-
-
+    
     public static void main(String args[]) {
-        Vector<SelectCourse>res=query("213170001");
+        Vector<SelectCourse>res=query("213171645");
         for (int i = 0; i <res.size() ; i++) {
-            System.out.println(res.elementAt(i).getCourseName());
+            System.out.println(res.elementAt(i).getCourseName()+res.elementAt(i).getTime());
         }
-
     }
 }
