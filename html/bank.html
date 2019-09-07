@@ -76,7 +76,7 @@ function transferFct() {
 	}
 }
 function topupFct(){
-	var y = bankinfo.query("213170001");
+	var y = bankinfo.query("213170002");
 	var a = JSON.parse(y);
 	var pwd = $("#topuppassword").val();
 	var ac = $("#topupAmount").val();
@@ -88,20 +88,36 @@ function topupFct(){
 			d = obj[i].value;
 		}
 	}
+
 	if (ac==""|| isNaN(ac) || ac<0){
 		alert("请输入正确的金额数目！");
 	}
 	else {
 		if(pwd == a['password']){
-			if(ac <= a['balance']){
-				a['transferAmount'] = ac;
-				a['transferTo'] = d;
-				bankinfo.transfToEcard(JSON.stringify(a));
-				alert("充值成功！");
-			}
-			else{
-				alert("银行卡余额不足！");
-			}
+		    if (d == 2) {
+                if (ac <= a['balance']) {
+                    a['transferAmount'] = ac;
+                    a['transferTo'] = d;
+                    bankinfo.transfToEcard(JSON.stringify(a));
+                    alert("充值成功！");
+                }
+                else {
+                    alert("银行卡余额不足！");
+                }
+            }
+		    else if(d == 0){
+		        if (ac <= a['eCardBalance']){
+                    a['transferAmount'] = ac;
+                    a['transferTo'] = d;
+                    bankinfo.transfTocard(JSON.stringify(a));
+                    alert("提现成功！");
+                }
+		        else {
+		            alert("一卡通余额不足！");
+                }
+            }
+		    else
+		        alert("请选择服务！");
 		}
 		else{
 			alert("密码错误！");

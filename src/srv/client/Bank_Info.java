@@ -83,7 +83,7 @@ public class Bank_Info {
         }
     }
 
-<<<<<<< HEAD
+
     public static int transfToEcard(String s){
         ObjectMapper mapper = new ObjectMapper();
         BankInfo bankinfo = new BankInfo();
@@ -95,7 +95,7 @@ public class Bank_Info {
         return transfToEcard(bankinfo.getID(), bankinfo.getTransferAmount());
     }
 
-=======
+
     public static int transfTocard(String ID,double change) {
         Client.run();
         try {
@@ -113,8 +113,19 @@ public class Bank_Info {
         }
     }
 
+    public static int transfTocard(String s){
+        ObjectMapper mapper = new ObjectMapper();
+        BankInfo bankinfo = new BankInfo();
+        try {
+            bankinfo = mapper.readValue(s, BankInfo.class);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return transfTocard(bankinfo.getID(), bankinfo.getTransferAmount());
+    }
 
->>>>>>> master
+
+
     public static int transfer(String fromID,String toID,double change){
         Client.run();
         try{
@@ -136,7 +147,6 @@ public class Bank_Info {
     public static int transfer(String s){
         ObjectMapper mapper = new ObjectMapper();
         BankInfo bankinfo = new BankInfo();
-        int a = 0;
         try {
             bankinfo = mapper.readValue(s, BankInfo.class);
         }catch (Exception e){
