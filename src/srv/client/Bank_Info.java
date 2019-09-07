@@ -6,8 +6,11 @@ package srv.client;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import srv.bank.BankInfo;
+import srv.bank.Bankrecord;
 import srv.person.Person;
 import srv.server.Server;
+
+import java.util.Vector;
 
 public class Bank_Info {
     private static final int STARTPOS = 40;
@@ -83,22 +86,6 @@ public class Bank_Info {
         }
     }
 
-    public static int transfTocard(String ID,double change) {
-        Client.run();
-        try {
-            Client.cout.writeInt(STARTPOS + 6);
-            Client.cout.writeUTF(ID);
-            Client.cout.writeDouble(change);
-            Client.cout.flush();
-            int res = Client.cin.readInt();
-            Client.stop();
-            return res;
-        } catch (Exception e) {
-            e.printStackTrace();
-            Client.stop();
-            return -4;
-        }
-    }
 
 
     public static int transfer(String fromID,String toID,double change){
@@ -119,27 +106,48 @@ public class Bank_Info {
         }
     }
 
-
-    /*
-    public static int update(String s){
-        ObjectMapper mapper = new ObjectMapper();
-        BankInfo bankInfo = new BankInfo();
-        int a = 0;
+    public static int transfTocard(String ID) {
+        Client.run();
         try {
-            bankInfo = mapper.readValue(s, BankInfo.class);
-            a = Integer.parseInt(bankInfo.getTransferTo());
-        }catch (Exception e){
+            Client.cout.writeInt(STARTPOS + 6);
+            Client.cout.writeUTF(ID);
+            Client.cout.flush();
+            int res = Client.cin.readInt();
+            Client.stop();
+            return res;
+        } catch (Exception e) {
+            e.printStackTrace();
+            Client.stop();
+            return -4;
+        }
+    }
+
+
+    public static Vector<Bankrecord> queryrecord(String ID) {
+        Client.run();
+        Vector<Bankrecord> res = new Vector<>();
+        try {
+            Client.cout.writeInt(STARTPOS + 7);
+            Client.cout.writeUTF(ID);
+            Client.cout.flush();
+            int n = Client.cin.readInt();
+            for (int i = 0; i < n; i++) {
+                res.add((Bankrecord) Client.cin.readObject());
+            }
+            Client.stop();
+        } catch (Exception e) {
+            e.printStackTrace();
+            Client.stop();
             e.printStackTrace();
         }
-        return update(bankInfo, bankInfo.getTransferAmount(), a);
+        return res;
+
     }
-    /
-     */
 
     public static void main(String args[]){
-
-        int b=transfTocard("213170001",20);
-        System.out.println(b);
-
+        Vector<Bankrecord> res=queryrecord("213170002");
+        for (int i = 0; i <res.size() ; i++) {
+            System.out.println(res.elementAt(i).getRecord()+res.elementAt(i).getOtime());
+        }
     }
 }
