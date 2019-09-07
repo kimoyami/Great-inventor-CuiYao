@@ -2,6 +2,7 @@
 <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="https://cdn.bootcss.com/animate.css/3.7.2/animate.min.css" />
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="/jquery/jquery-1.11.1.min.js"></script>
 <link rel="stylesheet" href="syalert/syalert.min.css" />
 <script src="syalert/syalert.min.js"></script>
 <html lang="en">
@@ -15,39 +16,56 @@
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="搜索...">
 <table id="myTable" >
     <tr>
-        <th style="width:16.5%;">数量</th>
+        <th style="width:16.5%;">超市</th>
         <th style="width: 16.5%">商品名称</th>
         <th style="width: 16.5%"> 价格</th>
-        <th style="width: 16.5%"> 超市</th>
+        <th style="width: 16.5%"> 数量</th>
         <th style="width: 16.5%">购买数量</th>
         <th style="width: 16.5%">操作</th>
 
     </tr>
 </table>
+<div><button id="basket" class="buy">查看购物车</button></div>
 <div class="sy-alert sy-alert-model animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="confirm" sy-mask="true" id="alert4">
-    <div class="sy-title">输入</div>
+    <div class="sy-title">购物车</div>
     <div class="sy-content">
-        <div class="form">
-            <p class="input-item"><input type="text" id ="number" placeholder="请输入你要购买的商品数量" value="0" onkeyup=""/></p>
-        </div>
+        <table id="myForm">
+            <tr>
+                <th style="width: 20%">超市</th>
+                <th style="width: 20%">商品名</th>
+                <th style="width: 20%">价格</th>
+                <th style="width: 20%">数量</th>
+                <th style="width: 20%">操作</th>
+            </tr>
+        </table>
     </div>
     <div class="sy-btn">
         <button onClick="syalert.syhide('alert4')">取消</button>
-        <button onClick="syalert.syhide('alert4')" id="ok">确定</button>
+        <button  id="Buy">购买</button>
     </div>
 </div>
 <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert3">
     <div class="sy-content">不能为负数</div>
 </div>
+<div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert2">
+    <div class="sy-content">加入成功！</div>
+</div>
+
     <script>
 
-    for(var i=1;i<=5;i++){
+       var s =0;
+      var res = goodinfo.getAll();
+    for(var i=0;i<res.size();i++){
+    $("#myTable").append("<tr><td>"+(goodinfo.getAll().elementAt(i).getTag())+"</td><td>"+(goodinfo.getAll().elementAt(i).getName())+"</td><td>"+(goodinfo.getAll().elementAt(i).getPrice())+"</td><td id='td3'>"+(goodinfo.getAll().elementAt(i).getNumber())+"</td><td>"+"<input id='numberInput' placeholder='请输入购买数量'oninput = \"value=value.replace(/[^\\d]/g,'')\" />"+"</td><td>"+"<button id='buy'class='buy'>加入购物车</button>"+"</td></tr>")}
 
-    $("#myTable").append("<tr><td>"+i+"</td><td>"+i+"</td><td>"+3+"</td><td>"+4+"</td><td>"+"<input id='numberInput' placeholder='请输入购买数量' /><button id='mySelect' class='buy' disabled>选择数量</button>"+"</td><td>"+"<button id='buy'class='buy'>购买</button>"+"</td></tr>")}
 
    $(document).on("click",'#buy',function () {
-       var count = $(this).parents("tr").find("td").eq(0).text();
-       var  number = $(this).parents("tr").find("input").val()
+
+       var count = $(this).parents("tr").find("td").eq(3).text();
+       var  number = $(this).parents("tr").find("input").val();
+       var name =$(this).parents("tr").find("td").eq(1).text();
+       var tag =$(this).parents("tr").find("td").eq(0).text();
+       var price =$(this).parents("tr").find("td").eq(2).text();
 
        var newcount = count -number;
        if(number < 0){
@@ -56,9 +74,16 @@
            syalert.syopen("alert3");
 
        }else {
-       $(this).parents("tr").find("td").eq(0).html(newcount);}
-      })
-
+           syalert.syopen("alert2");
+           var i = parseInt(number);
+           //goodinfo.update(name,tag,i);
+       $(this).parents("tr").find("td").eq(3).html(newcount)
+           $("#myForm").append("<tr><td>"+tag+"</td><td>"+name+"</td><td>"+price+"</td><td>"+number+"</td><td>"+"<button id='delete' class='buy'>删除</button>"+"</td></tr>")
+       ;}
+      });
+$(document).on("click",'#delete',function () {
+    $(this).parents("tr").remove();
+})
     function myFunction() {
         // 声明变量
         var input, filter, table, tr, td, i;
@@ -80,7 +105,26 @@
         }
     }
 
+$("#basket").click(function () {
+    syalert.syopen("alert4")
+})
+$(document).on("click",'#Buy',function () {
+    var price,number,name,tag,i;
+    var table = document.getElementById("myForm");
+    var tr=table.getElementsByTagName("tr");
+    alert(tr.length);
+    for(i =1;i<tr.length;i++){
+        price=tr[i].getElementsByTagName("td")[2].innerHTML.toUpperCase();
+        number=tr[i].getElementsByTagName("td")[3].innerHTML.toUpperCase();
+        name =tr[i].getElementsByTagName("td")[1].innerHTML.toUpperCase();
+        tag = tr[i].getElementsByTagName("td")[0].innerHTML.toUpperCase();
+        var h = parseInt(number);
+        goodinfo.update(name,tag,h);
+        goodinfo.consumption(client.eCardNumber,price*number);
 
+    }
+    syalert.syhide("alert4");
+})
 
 
 
@@ -104,7 +148,12 @@
         font-size: 18px;
         background: url("image/570.jpg");
     }
+   #myForm{
+       border-collapse: collapse;
+       width: 100%;
+       border: 1px solid #ddd;
 
+   }
   td{
       text-align: center;
 
@@ -113,6 +162,7 @@
 
         background-color: darkcyan;
         text-align: center;
+        fadeIn();
 
     }
     .buy{
