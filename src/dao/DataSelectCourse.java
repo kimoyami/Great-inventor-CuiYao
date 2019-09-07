@@ -11,20 +11,25 @@ import java.util.ArrayList;
 
 public class DataSelectCourse {
     public static int exist(String eCardName,String courseName) {
+        DataBase.start();
         try {
             String sql="select * from selectcourse where ecardname='"+eCardName+"' and coursename='"+courseName+"'";
             ResultSet rs=DataBase.s.executeQuery(sql);
-            if(!rs.next()){return 0;}
+            if(!rs.next()){
+                DataBase.stop();
+                return 0;
+            }
+            DataBase.stop();
             return 1;
         }
         catch(Exception e){
+            DataBase.stop();
             e.printStackTrace();
             return -1;
         }
     }
 
     public static int check(int a,int b){
-        try{
             ArrayList<Integer> list = new ArrayList<Integer>();
             ArrayList<Integer> list1 = new ArrayList<Integer>();
             while(a!=0){
@@ -43,22 +48,22 @@ public class DataSelectCourse {
                     if(list1.get(j).equals(list.get(i))){cur=1;}
                 }
             }
-
             return cur;
-        }
-        catch(Exception e){
-            return -1;
-        }
     }
 
     public static int insert(SelectCourse course){
+        DataBase.start();
         try{
-            if(exist(course.getECardName(),course.getCourseName())==1){return 0;}
+            if(exist(course.getECardName(),course.getCourseName())==1){
+                DataBase.stop();
+                return 0;
+            }
             String sql="select * from course where idx='"+course.getIdx()+"' and teacher='"+course.getTeacher()+"'";
             ResultSet rs=DataBase.s.executeQuery(sql);
             rs.next();
             int tmp=rs.getInt("remainnumber");
             if (tmp == 0) {
+                DataBase.stop();
                 return -3;
             }
 
@@ -71,7 +76,10 @@ public class DataSelectCourse {
                 if(cur==1){break;}
             }
             System.out.println(cur);
-            if(cur==1){return -2;}
+            if(cur==1){
+                DataBase.stop();
+                return -2;
+            }
 
             sql="insert into selectcourse(ecardname,idx,coursename,coursetime,teacher)" +
                     "values ('"+course.getECardName()+"','"+course.getIdx()+"'," +
@@ -92,27 +100,35 @@ public class DataSelectCourse {
                 DataBase.s.executeUpdate(sql);
                 DataBase.c.commit();
             }
+            DataBase.stop();
             return 1;
         }
         catch(Exception e){
+            DataBase.stop();
             e.printStackTrace();
             return -1;
         }
     }
 
     public static int delete(String eCardName,String coursename){
+        DataBase.start();
         try{
-            if(exist(eCardName,coursename)!=1){return 0;}
+            if(exist(eCardName,coursename)!=1){
+                DataBase.stop();
+                return 0;
+            }
             System.out.println("nb");
             String sql="delete from selectcourse where ecardname='"+eCardName+"' and coursename='"+coursename+"'";
             System.out.println("nb");
             DataBase.s.executeUpdate(sql);
             System.out.println("nb");
             DataBase.c.commit();
+            DataBase.stop();
             return 1;
         }
         catch(Exception e){
-         return -1;
+            DataBase.stop();
+            return -1;
         }
     }
 
@@ -121,9 +137,6 @@ public class DataSelectCourse {
 
         DataBase.start();
 
-        int b=delete("213170004","一步大棋");
-
-        System.out.println(b);
         DataBase.stop();
     }
 }
