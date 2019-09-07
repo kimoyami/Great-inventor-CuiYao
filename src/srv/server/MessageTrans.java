@@ -66,7 +66,7 @@ public class MessageTrans {
         return DataMessage.delete(message);
     }
 
-    public static Vector<Message> query(){
+    public static synchronized Vector<Message> query(){
         String sender = "", receiver = "";
         try {
             sender = ServerThread.cin.readUTF();
@@ -77,7 +77,7 @@ public class MessageTrans {
         return DataMessage.query(sender, receiver);
     }
 
-    public static Vector<Message> querynew(){
+    public static synchronized Vector<Message> querynew(){
         String sender = "", receiver = "";
         try {
             sender = ServerThread.cin.readUTF();

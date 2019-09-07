@@ -77,7 +77,7 @@ public class GoodInfo {
     }
 
 
-    public static Vector<Goods> query() {
+    public static synchronized Vector<Goods> query() {
         String name = "";
         try {
             name = ServerThread.cin.readUTF();
@@ -87,7 +87,7 @@ public class GoodInfo {
         return DataGoods.query(name);
     }
 
-    public static int update() {
+    public static synchronized int update() {
         String name = "";
         String tag = "";
         int change = 0;
@@ -101,7 +101,7 @@ public class GoodInfo {
         return DataGoods.update(name, tag, change);
     }
 
-    public static int consumption() {
+    public static synchronized int consumption() {
         String ID = "";
         double change = 0;
         try {
@@ -113,7 +113,7 @@ public class GoodInfo {
         return DataGoods.consumption(ID,change);
     }
 
-    public static Vector<Goods> getAll() {
+    public static synchronized Vector<Goods> getAll() {
         return DataGoods.getAll();
     }
 

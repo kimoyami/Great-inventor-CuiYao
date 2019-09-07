@@ -18,7 +18,7 @@ public class Head {
         }
     }
 
-    public static String query(){
+    public static synchronized String query(){
         String eCardNumber = "";
         try {
             eCardNumber = ServerThread.cin.readUTF();

@@ -60,7 +60,7 @@ public class Login {
         }
     }
     
-    public static int query(){
+    public static synchronized int query(){
         String eCardNumber, password;
         try {
             eCardNumber = ServerThread.cin.readUTF();
@@ -153,7 +153,7 @@ public class Login {
         return DataBase.update(userName, password, eCardNumber, sex, status);
     }
 
-    public static int isNew(){
+    public static synchronized int isNew(){
         String eCardNumber;
         try {
             eCardNumber = ServerThread.cin.readUTF();
@@ -164,7 +164,7 @@ public class Login {
         return DataPerson.isNew(eCardNumber);
     }
 
-    public static Vector<Vector<Object>> getAll(){
+    public static synchronized Vector<Vector<Object>> getAll(){
         return DataBase.getAll();
     }
 
