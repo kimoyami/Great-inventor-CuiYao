@@ -58,7 +58,7 @@ public class CourseInfo {
         return DataCourse.delete(idx, teacher);
     }
 
-    public static synchronized Vector<Course> query() {
+    public static Vector<Course> query() {
         String teacher = "";
         try {
             teacher = ServerThread.cin.readUTF();
