@@ -68,8 +68,6 @@ public class GoodInfo {
     }
 
 
-
-
     public static Vector<Goods> getAll() {
         Client.run();
         Vector<Goods> res = new Vector<>();
@@ -91,7 +89,6 @@ public class GoodInfo {
 
     public static int update(String name,String tag,int change){
         Client.run();
-        System.out.println("u");
         try{
             Client.cout.writeInt(STARTPOS+5);
             Client.cout.writeUTF(name);
@@ -99,7 +96,6 @@ public class GoodInfo {
             Client.cout.writeInt(change);
             Client.cout.flush();
             int res=Client.cin.readInt();
-            System.out.println("res="+res);
             Client.stop();
             return res;
         }catch(Exception e){
@@ -109,10 +105,26 @@ public class GoodInfo {
         }
     }
 
+    public static int consumption(String ID,double change){
+        Client.run();
+        try{
+        Client.cout.writeInt(STARTPOS+6);
+        Client.cout.writeUTF(ID);
+        Client.cout.writeDouble(change);
+        Client.cout.flush();
+        int res=Client.cin.readInt();
+        Client.stop();
+        return res;
+        }catch(Exception e){
+            e.printStackTrace();
+            Client.stop();
+            return -4;
+        }
 
+    }
 
     public static void main(String args[]) {
-        int a=update("薯片","中超",10);
+        int a=consumption("213170001",11);
         System.out.println(a);
     }
 

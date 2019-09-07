@@ -23,7 +23,11 @@ public class Bank_Info {
                ServerThread.cout.flush();
             }
             if (op == 4) {
-                ServerThread.cout.writeInt(update());
+                ServerThread.cout.writeInt(transferToEcard());
+                ServerThread.cout.flush();
+            }
+            if(op==5){
+                ServerThread.cout.writeInt(transfer());
                 ServerThread.cout.flush();
             }
         } catch (Exception e) {
@@ -49,7 +53,7 @@ public class Bank_Info {
             account = (BankInfo) ServerThread.cin.readObject();
         } catch (Exception e) {
             e.printStackTrace();
-            return -1;
+            return -3;
         }
         return DataBank.delete(account);
     }
@@ -64,18 +68,31 @@ public class Bank_Info {
         return DataBank.query(ID);
     }
 
-    public static synchronized int update() {
-        BankInfo account;
+    public static int transfer(){
+        String fromID;
+        String toID;
         double change;
-        int tag;
-        try {
-            account=(BankInfo) ServerThread.cin.readObject();
+        try{
+            fromID=ServerThread.cin.readUTF();
+            toID=ServerThread.cin.readUTF();
             change=ServerThread.cin.readDouble();
-            tag=ServerThread.cin.readInt();
-        } catch (Exception e) {
+        }catch(Exception e){
             e.printStackTrace();
             return -3;
         }
-        return DataBank.update(account,change,tag);
+        return DataBank.transfer(fromID,toID,change);
+    }
+
+    public static int transferToEcard(){
+        String ID;
+        double change;
+        try{
+            ID=ServerThread.cin.readUTF();
+            change=ServerThread.cin.readDouble();
+        }catch(Exception e){
+            e.printStackTrace();
+            return -3;
+        }
+        return DataBank.transferToEcard(ID,change);
     }
 }

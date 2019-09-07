@@ -42,6 +42,10 @@ public class GoodInfo {
                 ServerThread.cout.writeInt(update());
                 ServerThread.cout.flush();
             }
+            if (op == 6) {
+                ServerThread.cout.writeInt(consumption());
+                ServerThread.cout.flush();
+            }
 
         } catch (Exception e) {
             return;
@@ -97,8 +101,21 @@ public class GoodInfo {
         return DataGoods.update(name, tag, change);
     }
 
+    public static int consumption() {
+        String ID = "";
+        double change = 0;
+        try {
+            ID = ServerThread.cin.readUTF();
+            change = ServerThread.cin.readDouble();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return DataGoods.consumption(ID,change);
+    }
 
     public static Vector<Goods> getAll() {
         return DataGoods.getAll();
     }
+
+
 }

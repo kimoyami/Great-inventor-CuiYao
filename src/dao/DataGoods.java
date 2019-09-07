@@ -100,24 +100,28 @@ public class DataGoods {
 
     }
 
+    public static int consumption(String ID,double change){
+        try{
+            String sql="select * from bank where idx='"+ID+"'";
+            ResultSet rs=DataBase.s.executeQuery(sql);
+            rs.next();
+            double tmp=rs.getDouble("eCardBalance");
+            tmp-=change;
+            if(tmp<0){return -2;}
+            sql="update bank set eCardBalance="+tmp+" where idx='"+ID+"'";
+            DataBase.s.executeUpdate(sql);
+            DataBase.c.commit();
+            return 1;
+        }catch(Exception e){
+            e.printStackTrace();
+            return -1;
+        }
+    }
+
     public static void main(String args[]) {
         DataBase.start();
-        int c=update("薯片","中超",10);
-        System.out.println(c);
-
+        int a=consumption("213170001",100);
+        System.out.println(a);
         DataBase.stop();
     }
 }
-/*
-        int a=insert(new Goods("0005",100,"薯片",5,"","中超"));
-        int b=delete("可乐","天平");
-        Vector<Goods>res =query("雪碧");
-        for (int i = 0; i <res.size() ; i++) {
-            System.out.println(res.elementAt(i).getTag());
-        }
-
-        res=getAll();
-        for (int i = 0; i <res.size() ; i++) {
-            System.out.println(res.elementAt(i).getName());
-        }
-*/
