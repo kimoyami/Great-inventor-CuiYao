@@ -32,11 +32,10 @@ public class DataBooks {
 
     public static int insert(Book book){
         try{
-            if(!book.isState()){return 0;}
-            String sta="No";
+
             String sql="insert into books(idx,bookname,author,publish,Category,state) values" +
                     "('"+book.getBookID()+"','"+book.getBookName()+"','"+book.getBookEdit()+"','"+book.getBOOK_PUB()+"'," +
-                    "'"+book.getCategory()+"',"+sta+")";
+                    "'"+book.getCategory()+"','"+book.getState()+"')";
             DataBase.s.executeUpdate(sql);
             DataBase.c.commit();
             return 1;
@@ -50,10 +49,7 @@ public class DataBooks {
 
     public static int delete(Book book){
         try{
-            String sta;
-            if(book.isState()){sta="No";}
-            else{sta="Yes";}
-            String sql="select * from books where idx='"+book.getBookID()+ "'and state="+sta+"";
+            String sql="select * from books where idx='"+book.getBookID()+ "'and state='"+book.getState()+"'";
             ResultSet rs=DataBase.s.executeQuery(sql);
             if(!rs.next()){return 0;}
             sql="delete *from books where idx='"+book.getBookID()+"'";
@@ -70,12 +66,12 @@ public class DataBooks {
     public static Vector<Book> query(String bookName){
         Vector<Book> res=new Vector<>();
         try{
-           String sql="select *from books where bookname='"+bookName+"'";
+           String sql="select * from books where bookname='"+bookName+"'";
            ResultSet rs=DataBase.s.executeQuery(sql);
            while(rs.next()){
                Book book=new Book(rs.getString("idx"),rs.getString("bookname"),
                        rs.getString("author"), rs.getString("publish"),
-                       rs.getString("category"),rs.getBoolean("state"));
+                       rs.getString("category"),rs.getString("state"));
                res.add(book);
            }
        }
@@ -85,20 +81,13 @@ public class DataBooks {
         return res;
     }
 
-    public static int update(Book book){
-        String sta;
-        if(book.isState()){sta="No";}
+    public static int update(String ID,String state){
 
-        else{sta="Yes";}
-        System.out.println(book.isState());
-        System.out.println(book.getBookID());
-        int res=exist(book.getBookID(),sta);
+        int res=exist(ID,state);
 
         if(res!=1){return 0;}
         try{
-            if(book.isState()){sta="Yes";}
-            else{sta="No";}
-            String sql="update books set state="+sta+" where idx='"+book.getBookID()+"'";
+            String sql="update books set state='"+state +"' where idx='"+ID+"'";
             DataBase.s.executeUpdate(sql);
             DataBase.c.commit();
             return 1;
@@ -109,8 +98,42 @@ public class DataBooks {
         }
     }
 
+    public static Vector<Book>getAll(){
+        Vector<Book> res=new Vector<>();
+        try{
+            String sql="select * from books";
+            ResultSet rs=DataBase.s.executeQuery(sql);
+            while(rs.next()){
+                Book book=new Book(rs.getString("idx"),rs.getString("bookname"),
+                        rs.getString("author"), rs.getString("publish"),
+                        rs.getString("category"),rs.getString("state"));
+                res.add(book);
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return res;
+    }
+
+
+
     public static void main(String []args){
         DataBase.start();
+
+        int a=insert(new Book("0014", "西游记", "章金莱",
+                "中国人民出版社", "名著", "已借"));
+        int b=delete(new Book("0003", "西游记", "六小龄童",
+                "大闹天宫出版社", "神魔小说", "未借"));
+
+        Vector<Book>res= getAll();
+        for (int i = 0; i < res.size(); i++) {
+            System.out.println(res.elementAt(i).getBookEdit());
+        }
+        res= getAll();
+        for (int i = 0; i < res.size(); i++) {
+            System.out.println(res.elementAt(i).getBookEdit());
+        }
+
         DataBase.stop();
     }
 }
