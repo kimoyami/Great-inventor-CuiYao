@@ -64,12 +64,13 @@ public class BookInfo {
 
 
 
-    public static int update(String id,String state) {
+    public static int update(String id,String state,String ecardname) {
         Client.run();
         try {
             Client.cout.writeInt(STARTPOS + 4);
             Client.cout.writeUTF(id);
             Client.cout.writeUTF(state);
+            Client.cout.writeUTF(ecardname);
             Client.cout.flush();
             int res = Client.cin.readInt();
             Client.stop();
@@ -101,6 +102,10 @@ public class BookInfo {
     }
 
     public static void main(String args[]){
+        int a=update("0001","已借","213170001");
+        System.out.println(a);
+        int b=update("0002","未借","213170002");
+
     }
 }
 /*

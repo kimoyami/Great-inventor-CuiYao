@@ -14,6 +14,8 @@ import srv.bank.BankInfo;
 import srv.book.Book;
 
 import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Vector;
 
 public class DataBooks {
@@ -33,7 +35,7 @@ public class DataBooks {
     public static int insert(Book book){
         try{
 
-            String sql="insert into books(idx,bookname,author,publish,Category,state) values" +
+            String sql="insert into books(idx,bookname,author,publish,Category,state,ecardname) values" +
                     "('"+book.getBookID()+"','"+book.getBookName()+"','"+book.getBookEdit()+"','"+book.getBOOK_PUB()+"'," +
                     "'"+book.getCategory()+"','"+book.getState()+"')";
             DataBase.s.executeUpdate(sql);
@@ -81,23 +83,28 @@ public class DataBooks {
         return res;
     }
 
-    public static int update(String ID,String state){
+    public static int update(String ID,String state,String ecardname){
 
         int res=exist(ID,state);
 
         if(res!=1){return 0;}
         try{
+            String sql;
             if(state.equals("未借")){
                 state="已借";
+                SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                String d = f.format(new Date());
+                sql="update books set state='"+state +"',ecardname='"+ecardname+"',borrowtime=#"+d+"# where idx='"+ID+"'";
+                DataBase.s.executeUpdate(sql);
+                DataBase.c.commit();
             }
-
             else {
                 state = "未借";
+                String tmp="";
+                sql="update books set state='"+state +"',ecardname='"+tmp+"',borrowtime='"+tmp+"' where idx='"+ID+"'";
+                DataBase.s.executeUpdate(sql);
+                DataBase.c.commit();
             }
-
-            String sql="update books set state='"+state +"' where idx='"+ID+"'";
-            DataBase.s.executeUpdate(sql);
-            DataBase.c.commit();
             return 1;
         }
         catch(Exception e){
@@ -126,7 +133,7 @@ public class DataBooks {
 
     public static void main(String []args){
         DataBase.start();
-        int a=update("0001","未借");
+        int a=update("0002","已借","213170001");
         System.out.println(a);
         DataBase.stop();
     }
