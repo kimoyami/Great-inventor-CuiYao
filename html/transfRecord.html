@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+
+<body>
+
+	<table id="myTable" border="solid">
+		<tr>
+			<th style="width: 10%; align-self: center;">转账日期</th>
+			<th style="width: 10%; align-self: center;">转账对象</th>
+			<th style="width: 10%; align-self: center;">转账金额</th>
+		</tr>
+	</table>
+
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+	<script type="text/javascript">
+		var a = bankinfo.queryrecord("213170001");
+		for (var i = 0; i<3; i++){
+			$("#myTable").append("<tr><td style='text-align: center'>"+a.elementAt(i).getOtime()+"</td><td style='text-align: center'>"+a.elementAt(i).getRecord()+"</td><td style='text-align: center'>"+a.elementAt(i).getChange()+"</td>");
+		}
+	</script>
+
+	<style type="text/css">
+		
+	</style>
+</body>
+</html>
