@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="syalert/syalert.min.css" />
+<script src="syalert/syalert.min.js"></script>
 <html>
     <head>
         <meta charset="utf-8">
@@ -6,21 +9,22 @@
         <link rel="stylesheet" href="css/barstyle.css">
     </head>
     <body>
-        <img class="background" src="img/1.jpg" alt="">
+        <img class="background" src="img/2.jpg" alt="">
         <div class="menu">
             <div class="bar">
                 <ul class="box">
-                    <li><a class="tab" id="message" href="javascript:i">信息</a> </li>
-                    <li><a class="tab" href="javascript:i">商店</a> </li>
-                    <li><a class="tab" href="javascript:i">银行</a> </li>
+                    <li><a class="tab" id="Message" href="javascript:i">信息</a> </li>
+                    <li><a class="tab" id="Shop" href="javascript:i">商店</a> </li>
+                    <li><a class="tab" id="Bank" href="javascript:i">银行</a> </li>
                     <li><a class="tab" href="javascript:i">图书馆</a> </li>
                     <li><a class="tab" href="javascript:i">聊天</a> </li>    
                 </ul>
             </div>
             <a href="javascript:;" class="headpng"><img class="png" id = "head" src="?" alt="" style="cursor:hand" onclick="headpng()"></a>
         </div>
-        <div class="content">      
-            <div class = "textcontrol">
+        <div class="content">    
+            <div>  
+                <div id = "textcontrol">
                 <h1 style="text-align: center">信息修改</h1>
                 <form action="" method="get">
                     <p><label class="setfont">Name:      </label><input id="uname"  type="text" placeholder="请输入姓名" style="width: 140px" readonly/></p>
@@ -46,32 +50,155 @@
                         <input id="load" value="完成" type="button"  onsubmit=" return check"/>
                     </div>
                 </form>
+                </div>
             </div>
-        </div>
+            <div id="shop">
+                    <h1 style="font-family: Lobster" >SHOP</h1>
+                    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="搜索...">
+                    <table id="myTable" >
+                        <tr>
+                            <th style="width: 16.5%;">超市</th>
+                            <th style="width: 16.5%">商品名称</th>
+                            <th style="width: 16.5%"> 价格</th>
+                            <th style="width: 16.5%"> 数量</th>
+                            <th style="width: 16.5%">购买数量</th>
+                            <th style="width: 16.5%">操作</th>
+                    
+                        </tr>
+                    </table>
+                    <div><button id="basket" class="buy">查看购物车</button></div>
+                    <div class="sy-alert sy-alert-model animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="confirm" sy-mask="true" id="alert4">
+                        <div class="sy-title">购物车</div>
+                        <div class="sy-content">
+                            <table id="myForm">
+                                <tr>
+                                    <th style="width: 20%">超市</th>
+                                    <th style="width: 20%">商品名</th>
+                                    <th style="width: 20%">价格</th>
+                                    <th style="width: 20%">数量</th>
+                                    <th style="width: 20%">操作</th>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="sy-btn">
+                            <button onClick="syalert.syhide('alert4')">取消</button>
+                            <button  id="Buy">购买</button>
+                        </div>
+                    </div>
+                
+            </div>
+
+        <div id="bank">
+                    <h1 style="text-align: center;margin-top: 30%;margin-bottom: 20%;">个人银行</h1>
+                        <div id="function_button">
+                                <div style="text-align: center">
+                                        <input id="search" class="bankbutton" value="余额" type="button"/>
+                                </div>
+                                <div style="text-align: center">
+                                         <input id="top_up" class="bankbutton" value="充值" type="button"/>
+                                </div>
+                                 <div style="text-align: center">
+                                        <input id="transfer" class="bankbutton" value="转账" type="button"/>
+                                 </div>
+                        </div>
+                        <div id="money_input">
+                            <div id="remainder">
+                                <p style="text-align: center">一卡通余额
+                                <input type="text" id="Ecardbalance" value="0.0" readonly></p>
+                                <p style="text-align: center">银行卡余额
+                                <input type="text" id="balance" value="0.0"readonly></p>
+                                <input id="search" class="checkbutton" value="余额" type="button"onclick="searchFct()"/>
+                            </div>
+                            <div id="transferB1">
+                                <p style="text-align: center">转账金额
+                                <input type="text" id="topupAmount" placeholder="请输入转账金额" /></p>
+                                <p style="text-align: center">交易密码
+                                <input type="password" id="topuppassword" placeholder="请输入交易密码" /></p>
+                                <p style="text-align: center">
+                                <input type="radio" name="toecard" id="Ecard" value="2" checked="checked"/>一卡通充值</br>
+                                <input type="radio" name="toecard" id="Card" value="0" />银行卡充值
+                                <input id="search" class="checkbutton" value="充值" type="button"onclick="topupFct()"/>
+                                
+                                </p>
+                            </div>
+                            <div id="transferB2">
+                                <p style="text-align: center">转账金额
+                                    <input type="text" id="transferAmount" value="" placeholder="请输入转账金额" /></p>
+                                <p style="text-align: center">转账对象
+                                    <input type="text" id="transferTo" value="" placeholder="请输入转账对象" /></p>
+                                <p style="text-align: center">交易密码
+                                    <input type="password" id="transferPassword" name="transferTo" placeholder="请输入交易密码" /></p>
+                                    <input id="search" class="checkbutton" value="转账" type="button"onclick="transferFct()"/>
+                            </div>
+                        </div>
+             </div>
+
+    </div>
+
+
+        <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert3">
+                <div class="sy-content">不能为负数</div>
+            </div>
+            <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert2">
+                <div class="sy-content">加入成功！</div>
+            </div>
     </body>
 
 <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
 <script>
-    document.getElementById('head').src = head.query(client.eCardNumber);
+   
+    //document.getElementById('head').src = head.query(client.eCardNumber);
+    
     $('.tab').on('click',function(){
-        var parent = $(document).find('.tagfocus');
-        parent.each(function(){
+        var focused = $(document).find('.tagfocus');
+        focused.each(function(){
             if($(this).hasClass('tagfocus'))
                 $(this).removeClass('tagfocus');
         })
 
-        var parent = $(document).find('.seen');
-        parent.each(function(){
+        
+        $(this).parent().addClass('tagfocus');
+
+        var seened = $(document).find('.seen');
+
+        seened.each(function(){
             if($(this).hasClass('seen'))
                 $(this).removeClass('seen');
         })
 
-        $(this).parent().addClass('tagfocus');
-        if($(this).attr('id')=="message")
+        if($(this).attr('id')=="Message")
         {
-            $('.textcontrol').addClass('seen');
+            
+            $('#textcontrol').addClass('seen');
+            
+    var obj = JSON.parse(personinfo.query(client.eCardNumber));
+    $("#uid").val(obj['eCardNumber']);
+    $("#uname").val(obj['name']);
+    $("#age").val(obj['age']);
+    $("#Academy").val(obj['academy']);
+    $("#birthplace").val(obj['birthplace']);
+    $("#sex").val(obj['gender']);
+    $("#identity").val(obj['state']);
+    $("#dormitory").val(obj['dormitory']);
+    $("#birth").val(obj['birthday']);
         }
-        e.stopPropagation();
+
+        if($(this).attr('id')=="Shop")
+        {
+            
+            $('#shop').addClass('seen');
+            var s =0;
+            var res = goodinfo.getAll();
+            for(var i=0;i<res.size();i++){
+            $("#myTable").append("<tr><td>"+(goodinfo.getAll().elementAt(i).getTag())+"</td><td>"+(goodinfo.getAll().elementAt(i).getName())+"</td><td>"+(goodinfo.getAll().elementAt(i).getPrice())+"</td><td id='td3'>"+(goodinfo.getAll().elementAt(i).getNumber())+"</td><td>"+"<input id='numberInput' placeholder='请输入购买数量'oninput = \"value=value.replace(/[^\\d]/g,'')\" />"+"</td><td>"+"<button id='buy'class='buy'>加入购物车</button>"+"</td></tr>")}
+        }
+
+        if($(this).attr('id')=="Bank")
+        {
+            
+            $('#bank').addClass('seen');
+        }
+
     })
 
 
@@ -112,16 +239,7 @@
     })
 })
 
-    var obj = JSON.parse(personinfo.query(client.eCardNumber));
-    $("#uid").val(obj['eCardNumber']);
-    $("#uname").val(obj['name']);
-    $("#age").val(obj['age']);
-    $("#Academy").val(obj['academy']);
-    $("#birthplace").val(obj['birthplace']);
-    $("#sex").val(obj['gender']);
-    $("#identity").val(obj['state']);
-    $("#dormitory").val(obj['dormitory']);
-    $("#birth").val(obj['birthday']);
+
     function getPath(obj) {
         if (obj) {
             if (window.navigator.userAgent.indexOf("MSIE") >= 1) {
@@ -142,6 +260,200 @@
 		document.getElementById('head').src = head.query(client.eCardNumber);
     }
 
-</script>
-</html>
+   
+
+
+   $(document).on("click",'#buy',function () {
+       var count = $(this).parents("tr").find("td").eq(3).text();
+       var  number = $(this).parents("tr").find("input").val();
+       var name =$(this).parents("tr").find("td").eq(1).text();
+       var tag =$(this).parents("tr").find("td").eq(0).text();
+       var price =$(this).parents("tr").find("td").eq(2).text();
+
+       var newcount = count -number;
+       if(number < 0){
+           syalert.syopen("alert3");
+       }else if(newcount < 0){
+           syalert.syopen("alert3");
+
+       }else {
+           syalert.syopen("alert2");
+           var i = parseInt(number);
+           //goodinfo.update(name,tag,i);
+       $(this).parents("tr").find("td").eq(3).html(newcount)
+           $("#myForm").append("<tr><td>"+tag+"</td><td>"+name+"</td><td>"+price+"</td><td>"+number+"</td><td>"+"<button id='delete' class='buy'>删除</button>"+"</td></tr>")
+       ;}
+      });
+
+
+    $(document).on("click",'#delete',function () {
+        $(this).parents("tr").remove();
+    })
+
+
+
+
+
+    function myFunction() {
+        // 声明变量
+        var input, filter, table, tr, td, i;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+
+        // 循环表格每一行，查找匹配项
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[1];
+            if (td) {
+                if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+
+    
+    
+    $("#basket").click(function () {
+     syalert.syopen("alert4")
+    })
+
+    $(document).on("click",'#Buy',function () {
+    var price,number,name,tag,i;
+    var table = document.getElementById("myForm");
+    var tr=table.getElementsByTagName("tr");
+    alert(tr.length);
+    for(i =1;i<tr.length;i++){
+        price=tr[i].getElementsByTagName("td")[2].innerHTML.toUpperCase();
+        number=tr[i].getElementsByTagName("td")[3].innerHTML.toUpperCase();
+        name =tr[i].getElementsByTagName("td")[1].innerHTML.toUpperCase();
+        tag = tr[i].getElementsByTagName("td")[0].innerHTML.toUpperCase();
+        var h = parseInt(number);
+        goodinfo.update(name,tag,h);
+        goodinfo.consumption(client.eCardNumber,price*number);
+
+        }
+    syalert.syhide("alert4");
+    })
+
+ 
+    $('.bankbutton').on('click',function(){
+        var focused = $(document).find('.clear');
+        focused.each(function(){
+            if($(this).hasClass('clear'))
+                $(this).removeClass('clear');
+        })
+
+        if($(this).attr("id")=="search"){
+            $("#remainder").addClass("clear");
+        }
+        if($(this).attr("id")=="top_up"){
+            $("#transferB1").addClass("clear");
+        }
+        if($(this).attr("id")=="transfer"){
+            $("#transferB2").addClass("clear");
+        }
+    })
+
+
+
+    function transferFct() {
+	var y = bankinfo.query(client.eCardNumber);
+	var a = JSON.parse(y);
+	var pwd = $("#transferPassword").val();
+	var ac = $("#transferAmount").val();
+	var to = $("#transferTo").val();
+
+	if(ac==""|| isNaN(ac) || ac<0){
+		alert("请输入正确的金额数目！");
+	}
+	else{
+	    if(to == a['id']){
+	        alert("转账对象不能为自己！");
+	    }
+	    else {
+            if (pwd == a['password']) {
+                if (ac <= a['balance']) {
+                    a['transferAmount'] = ac;
+                    a['transferTo'] = to;
+
+                    bankinfo.transfer(client.eCardNumber,to,ac);
+                    alert("转账成功！");
+                } else {
+                    alert("银行卡余额不足！");
+                }
+            } else {
+                alert("密码错误！");
+            }
+        }
+	}
+    }
+
+function topupFct(){
+	var y = bankinfo.query(client.eCardNumber);
+	var a = JSON.parse(y);
+	var pwd = $("#topuppassword").val();
+	var ac = $("#topupAmount").val();
+
+    
+	if (ac==""|| isNaN(ac) || ac<0){
+		alert("请输入正确的金额数目！");
+	}
+	else {
+		if(pwd == a['password']){
+            
+			if(ac <= a['balance']){
+				bankinfo.transfToEcard(client.eCardNumber,ac);
+				alert("充值成功！");
+			}
+			else{
+				alert("银行卡余额不足！");
+			}
+		}
+		else{
+			alert("密码错误！");
+		}
+	}
+}
+function searchFct(){
+    
+
+	var a = bankinfo.query(client.eCardNumber);
+	var y = JSON.parse(a);
+	var bal = y['balance'];
+    var ebal = y['eCardBalance'];
+    alert(bal);
+    alert(ebal);
+	var balRun = 0;
+	var ebalRun = 0;
+	var timesRun = 0;
+	var stop = bal<ebal?ebal:bal;
+	var myVar = setInterval(function(){
+		if(balRun < bal)
+			balRun += 1;
+		if (ebalRun < ebal)
+			ebalRun += 1;
+
+		if(timesRun === stop){
+			
+			clearInterval(myVar);
+		}
+		//do whatever here..
+		$("#balance").val(balRun);
+		$("#Ecardbalance").val(ebalRun);
+	}, 2);
+}
+        
+
+
+
+
+
+
+
+    </script>
+    </html>
 

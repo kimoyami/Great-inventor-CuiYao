@@ -8,7 +8,6 @@ body{
     background-color: #212121;
     background-size: cover;
     text-align: center;
-    justify-content: center;
 }
 
 .background{
@@ -22,7 +21,7 @@ body{
     height: 4rem;
     position: absolute;
     box-sizing: border-box;
-    background: rgba(235, 235, 235,1);
+    background: rgba(235, 235, 235,0.85);
     box-shadow: 0 15px 25px rgba(0,0,0,.5);
 }
 .bar{
@@ -109,36 +108,51 @@ li.tagfocus a::after{
 }
 
 
-.textcontrol{
-    display: none;
+#textcontrol{
+    display:none;
     position: absolute;
     text-align: right;
     top:10rem;
     left:35rem;
     padding:4rem;
-    background: rgba(235, 235, 235,1);
+    background: rgba(235, 235, 235,0.85);
+    border-radius: 10px;
+    
+}
+
+#shop{
+    display: none;
+    position: absolute;
+    top:10rem;
+    left:15%;
+    width: 60%;
+    padding:3rem;
+    background: rgba(235, 235, 235,0.85);
     border-radius: 10px;
 }
 
-.textcontrol.seen{
-    
-    display: inline;
+
+
+#bank.seen,
+#shop.seen,
+#textcontrol.seen{
+    display: block;
 }
 
-h1{
+#textcontrol h1{
     font-family:Lobster;
     height: 5rem;
 }
-.setbackgroundcolor{
+#textcontrol .setbackgroundcolor{
     background-color: darksalmon;
     background: url("image/2.jpg");
 }
-.setfont{
+#textcontrol .setfont{
     text-align: left;
     font-family: Lobster;
 
 }
-#load{
+#textcontrol #load{
     border:none;
     outline: none;
     margin: 2rem 0  0 0;
@@ -150,7 +164,7 @@ h1{
     cursor: pointer;
     color:white;
 }
-input{
+#textcontrol input{
     border: 1px solid #ccc;
     padding: 7px 0px;
     border-radius: 3px;
@@ -162,14 +176,14 @@ input{
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s
 
 }
-input:focus{
+#textcontrol input:focus{
     border-color: #66afe9;
     outline: 0;
     -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
     box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)
 }
 
-.myBtn{
+#textcontrol .myBtn{
     border:none;
     outline: none;
     margin: 1rem 0 0;
@@ -182,3 +196,183 @@ input:focus{
     color:white;
 }
 
+#shop #myInput {
+    background-image: url('https://static.runoob.com/images/mix/searchicon.png'); /* 搜索按钮 */
+    background-position: 10px 12px; /* 定位搜索按钮 */
+    background-repeat: no-repeat; /* 不重复图片 */
+    width:92%;
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+    border: 1px solid #ddd;
+    margin-bottom: 12px;
+}
+#shop #myTable {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #ddd;
+    font-size: 18px;
+    background: url("image/570.jpg");
+}
+#shop #myForm{
+   border-collapse: collapse;
+   width: 100%;
+   border: 1px solid #ddd;
+
+}
+#shop td{
+  text-align: center;
+
+}
+
+#shop h1{
+    width:100%;
+    background-color: darkcyan;
+    text-align: center;
+    fadeIn();
+
+}
+
+#shop .buy{
+    line-height: 1.499;
+    position: relative;
+    display: inline-block;
+    font-weight: 400;
+    white-space: nowrap;
+    text-align: center;
+    background-image: none;
+    border: 1px solid transparent;
+    -webkit-box-shadow: 0 2px 0 rgba(0,0,0,0.015);
+    box-shadow: 0 2px 0 rgba(0,0,0,0.015);
+    cursor: pointer;
+    -webkit-transition: all .3s cubic-bezier(.645, .045, .355, 1);
+    transition: all .3s cubic-bezier(.645, .045, .355, 1);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    height: 32px;
+    padding: 0 15px;
+    font-size: 14px;
+    border-radius: 4px;
+    color: rgba(0,0,0,0.65);
+    background-color: #fff;
+    border-color: #d9d9d9;
+    color: #fff;
+    background-color: #FF5A44;
+    border-color: #FF5A44;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.12);
+    -webkit-box-shadow: 0 2px 0 rgba(0,0,0,0.045);
+    box-shadow: 0 2px 0 rgba(0,0,0,0.045);
+}
+
+#shop input{
+    border: 1px solid #ccc;
+    padding: 7px 0px;
+    border-radius: 3px;
+    padding-left:5px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s
+
+}
+#shop input:focus{
+    border-color: #66afe9;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)
+}
+
+
+.bg-gradient1 span,
+.bg-gradient1:before {
+  background: #fa7e29;
+  background: linear-gradient(90deg,rgb(181, 154, 254),rgb(245, 189, 253) );
+}
+
+.bg-gradient2 span,
+.bg-gradient2:before {
+  background: #39C2C9;
+  background: linear-gradient(180deg, #39C2C9 0%, #3FC8C9 80%, #3FC8C9 100%);
+}
+
+.pop-onhover.bg-gradient3 span,
+.pop-onhover.bg-gradient3:before {
+  background: #B9AEF0;
+  background: linear-gradient(180deg, #B9AEF0 0%, #ADA1EB 80%, #ADA1EB 100%);
+}
+
+.bg-gradient4 span {
+  background: #F6682F;
+  background: linear-gradient(180deg, #F6682F 0%, #F6682F 80%, #F6682F 100%);
+}
+
+/* General */
+.wrapper {
+  margin: 4% auto;
+  text-align: center;
+}
+
+#bank{
+    display: none;
+    position: absolute;
+    top:10rem;
+    left:25%;
+    width: 10%;
+    padding:3rem;
+    background-image: url(image/1019.jpg);
+    background-repeat:no-repeat ;
+    background-size: cover;
+    padding-top: 0%;
+    background-position: center;
+    background-color: rgba(235, 235, 235,0.85);
+    border-radius: 10px;
+}
+
+#bank #function_button{
+    text-align: center;
+}
+#bank #remainder,
+#bank #transferB1,
+#bank #transferB2
+{
+    display: none;
+    position: absolute;
+    top:20%;
+    left:200%;
+    background-color: rgba(235, 235, 235,0.85);
+    border-radius: 10px;
+    padding:3rem;
+}
+
+
+#bank #remainder.clear,
+#bank #transferB1.clear,
+#bank #transferB2.clear
+{
+    display: inline;
+}
+
+#bank a {
+  text-decoration: none;
+}
+#bank a:hover, #bank a:focus,#bank  a:active {
+  text-decoration: none;
+}
+
+#bank .bankbutton,
+#bank .checkbutton{
+    border:none;
+    outline: none;
+    margin: 2rem 0  0 0;
+    width: 50%;
+    height: 3rem;
+    border-radius: 0.6rem;
+    background: linear-gradient(90deg,rgb(181, 154, 254),rgb(245, 189, 253) );
+    box-shadow: 0 0 8px rgb(181, 154, 254);
+    cursor: pointer;
+    color:white;
+}
