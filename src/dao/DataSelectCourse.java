@@ -24,10 +24,10 @@ public class DataSelectCourse {
         }
     }
 
-    public static int insert(SelectCourse course){
+    public static int insert(String e,String idx,String name,int time,String teacher){
         try{
-            if(exist(course.getECardName(),course.getCourseName())==1){return 0;}
-            String sql="select * from course where idx='"+course.getIdx()+"' and teacher='"+course.getTeacher()+"'";
+            if(exist(e,name)==1){return 0;}
+            String sql="select * from course where idx='"+idx+"' and teacher='"+teacher+"'";
             ResultSet rs=DataBase.s.executeQuery(sql);
             rs.next();
             int tmp=rs.getInt("remainnumber");
@@ -35,22 +35,22 @@ public class DataSelectCourse {
                 return -3;
             }//判断能否继续选择
 
-            sql="select * from selectcourse where ecardname='"+course.getECardName()+"'";
+            sql="select * from selectcourse where ecardname='"+name+"'";
             rs= DataBase.s.executeQuery(sql);
             int cur=0;
             while(rs.next()){
                 int a=rs.getInt("coursetime");
-                cur=check(a,course.getTime());
+                cur=check(a,time);
                 if(cur==1){break;}
             }
 
             if(cur==1){return -2;}//冲突
-            ArrayList<Integer>ct=cuttime(course.getTime());
+            ArrayList<Integer>ct=cuttime(time);
             for (int i = 0; i <ct.size() ; i++) {
                 int temp=ct.get(i);
                 sql="insert into selectcourse(ecardname,idx,coursename,coursetime,teacher)" +
-                        "values ('"+course.getECardName()+"','"+course.getIdx()+"'," +
-                        "'"+course.getCourseName()+"',"+temp+",'"+course.getTeacher()+"')";
+                        "values ('"+e+"','"+idx+"'," +
+                        "'"+name+"',"+temp+",'"+teacher+"')";
                 DataBase.s.executeUpdate(sql);
                 DataBase.c.commit();
             }
@@ -58,21 +58,21 @@ public class DataSelectCourse {
             tmp=tmp-1;
             if(tmp>0){
                 sql="update course set remainnumber="+tmp+" " +
-                        "where idx='"+course.getIdx()+"' and teacher='"+course.getTeacher()+"'";
+                        "where idx='"+idx+"' and teacher='"+teacher+"'";
                 DataBase.s.executeUpdate(sql);
                 DataBase.c.commit();
             }
             else{
                 String sta="已满";
                 sql="update course set remainnumber="+tmp+", state='"+sta+"'" +
-                        "where idx='"+course.getIdx()+"' and teacher='"+course.getTeacher()+"'";
+                        "where idx='"+idx+"' and teacher='"+teacher+"'";
                 DataBase.s.executeUpdate(sql);
                 DataBase.c.commit();
             }
             return 1;
         }
-        catch(Exception e){
-            e.printStackTrace();
+        catch(Exception ex){
+            ex.printStackTrace();
             return -1;
         }
     }
@@ -150,10 +150,7 @@ public class DataSelectCourse {
 
     public static void main(String args[]){
         DataBase.start();
-        Vector<SelectCourse>res=query("213170002");
-        for (int i = 0; i <res.size() ; i++) {
-            System.out.println(res.elementAt(i).getTime());
-        }
+       insert("213170003","0014","编译原理",112212,"翟玉庆");
         DataBase.stop();
     }
 }

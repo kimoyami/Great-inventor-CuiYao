@@ -6,6 +6,7 @@ package dao;
 import srv.course.*;
 
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.Vector;
 
 public class DataCourse {
@@ -85,6 +86,16 @@ public class DataCourse {
             e.printStackTrace();
         }
         return res;
+    }
+
+    public static ArrayList<Integer> cuttime(int t){
+        ArrayList<Integer>list =new ArrayList<>();
+        while(t!=0){
+            int tmp=t%1000;
+            t=t/1000;
+            list.add(tmp);
+        }
+        return list;
     }
 
 
