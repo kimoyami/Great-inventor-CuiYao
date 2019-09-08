@@ -49,9 +49,9 @@ $(document).ready(function(){
 		let t = $("#BOOK_ID").val();
               x = BookInfo.query(client.BookInfo);
 			  let y = JSON.parse(x);
-              obj['BOOK_ID'] = $("#BOOK_ID").val();
-              obj['BOOK_NAME'] = $("#BOOK_NAME").val();
-              obj['BOOK_PUB'] = $("#BOOK_PUB").val();
+              y['BOOK_ID'] = $("#BOOK_ID").val();
+              y['BOOK_NAME'] = $("#BOOK_NAME").val();
+              y['BOOK_PUB'] = $("#BOOK_PUB").val();
               y['Category'] = $("#Category").val()
               y['BOOK_EDIT'] = $("#BOOK_EDIT").val();
               x = JSON.stringify(y);
