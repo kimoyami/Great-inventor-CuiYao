@@ -32,12 +32,12 @@ public class DataBooks {
         }
     }
 
-    public static int insert(Book book){
+    public static int insert(String idx,String name,String author,String publish,String category,String state){
         try{
 
-            String sql="insert into books(idx,bookname,author,publish,Category,state,ecardname) values" +
-                    "('"+book.getBookID()+"','"+book.getBookName()+"','"+book.getBookEdit()+"','"+book.getBOOK_PUB()+"'," +
-                    "'"+book.getCategory()+"','"+book.getState()+"')";
+            String sql="insert into books(idx,bookname,author,publish,Category,state) values" +
+                    "('"+idx+"','"+name+"','"+author+"','"+publish+"'," +
+                    "'"+category+"','"+state+"')";
             DataBase.s.executeUpdate(sql);
             DataBase.c.commit();
             return 1;
@@ -49,12 +49,12 @@ public class DataBooks {
 
     }
 
-    public static int delete(Book book){
+    public static int delete(String idx){
         try{
-            String sql="select * from books where idx='"+book.getBookID()+ "'and state='"+book.getState()+"'";
+            String sql="select * from books where idx='"+idx+ "'";
             ResultSet rs=DataBase.s.executeQuery(sql);
             if(!rs.next()){return 0;}
-            sql="delete *from books where idx='"+book.getBookID()+"'";
+            sql="delete *from books where idx='"+idx+"'";
             DataBase.s.executeUpdate(sql);
             DataBase.c.commit();
             return 1;
@@ -151,10 +151,14 @@ public class DataBooks {
 
     public static void main(String []args){
         DataBase.start();
-        Vector<Book>res=queryrecord("213170002");
-        for (int i = 0; i <res.size() ; i++) {
-            System.out.println(res.elementAt(i).getBookName());
-        }
+        int a=insert("0016", "西游记", "章金莱",
+                "中国人民出版社", "名著", "已借");
+        System.out.println(a);
+
         DataBase.stop();
     }
 }
+/* Vector<Book>res=queryrecord("213170002");
+        for (int i = 0; i <res.size() ; i++) {
+            System.out.println(res.elementAt(i).getBookName());
+        }*/

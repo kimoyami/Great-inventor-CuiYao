@@ -10,11 +10,16 @@ import java.util.Vector;
 
 public class BookInfo {
     private static final int STARTPOS = 30;
-    public static int insert(Book book) {
+    public static int insert(String idx,String name,String author,String publish,String category,String state) {
         Client.run();
         try {
             Client.cout.writeInt(STARTPOS + 1);
-            Client.cout.writeObject(book);
+            Client.cout.writeUTF(idx);
+            Client.cout.writeUTF(name);
+            Client.cout.writeUTF(author);
+            Client.cout.writeUTF(publish);
+            Client.cout.writeUTF(category);
+            Client.cout.writeUTF(state);
             Client.cout.flush();
             int res = Client.cin.readInt();
             Client.stop();
@@ -26,11 +31,11 @@ public class BookInfo {
         }
     }
 
-    public static int delete(Book book) {
+    public static int delete(String idx) {
         Client.run();
         try {
             Client.cout.writeInt(STARTPOS + 2);
-            Client.cout.writeObject(book);
+            Client.cout.writeUTF(idx);
             Client.cout.flush();
             int res = Client.cin.readInt();
             Client.stop();
@@ -124,15 +129,14 @@ public class BookInfo {
 
 
     public static void main(String args[]){
-        Vector<Book>res=queryrecord("213170002");
-        for (int i = 0; i <res.size() ; i++) {
-            System.out.println(res.elementAt(i).getBookName());
-        }
+        int a=insert("0016", "西游记", "章金莱",
+                "中国人民出版社", "名著", "已借");
+        System.out.println(a);
+
     }
 }
 /*
-        int a=insert(new Book("0015", "西游记", "章金莱",
-                "中国人民出版社", "名著", "已借"));
+
         int b=delete(new Book("0014", "西游记", "章金莱",
                 "中国人民出版社", "名著", "已借"));
 
@@ -143,6 +147,11 @@ public class BookInfo {
         Vector<Book>res= query("西游记");
         for (int i = 0; i < res.size(); i++) {
             System.out.println(res.elementAt(i).getBookEdit());
+        }
+
+         Vector<Book>res=queryrecord("213170002");
+        for (int i = 0; i <res.size() ; i++) {
+            System.out.println(res.elementAt(i).getBookName());
         }
 
         res=getAll();
