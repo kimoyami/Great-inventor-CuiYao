@@ -86,8 +86,8 @@ public class Bank_Info {
         }
     }
 
-<<<<<<< HEAD
 
+/*
     public static int transfToEcard(String s){
         ObjectMapper mapper = new ObjectMapper();
         BankInfo bankinfo = new BankInfo();
@@ -98,7 +98,7 @@ public class Bank_Info {
         }
         return transfToEcard(bankinfo.getID(), bankinfo.getTransferAmount());
     }
-
+*/
 
     public static int transfTocard(String ID,double change) {
         Client.run();
@@ -116,7 +116,7 @@ public class Bank_Info {
             return -4;
         }
     }
-
+/*
     public static int transfTocard(String s){
         ObjectMapper mapper = new ObjectMapper();
         BankInfo bankinfo = new BankInfo();
@@ -127,13 +127,10 @@ public class Bank_Info {
         }
         return transfTocard(bankinfo.getID(), bankinfo.getTransferAmount());
     }
+*/
 
 
 
-=======
-
-
->>>>>>> master
     public static int transfer(String fromID,String toID,double change){
         Client.run();
         try{
@@ -152,27 +149,15 @@ public class Bank_Info {
         }
     }
 
-<<<<<<< HEAD
-    public static int transfer(String s){
+/*
+    public static int transfer(String s) {
         ObjectMapper mapper = new ObjectMapper();
         BankInfo bankinfo = new BankInfo();
-=======
-    public static int transfTocard(String ID) {
-        Client.run();
->>>>>>> master
-        try {
-            Client.cout.writeInt(STARTPOS + 6);
-            Client.cout.writeUTF(ID);
-            Client.cout.flush();
-            int res = Client.cin.readInt();
-            Client.stop();
-            return res;
-        } catch (Exception e) {
-            e.printStackTrace();
-            Client.stop();
-            return -4;
+        try{
+            bankinfo = mapper.readValue(s, )
         }
     }
+*/
 
 
     public static Vector<Bankrecord> queryrecord(String ID) {
