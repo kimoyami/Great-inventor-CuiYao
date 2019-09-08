@@ -69,6 +69,25 @@ public class DataCourse {
             return res;
         }
 
+    public static Vector<Course> getAll(){
+        Vector<Course> res = new Vector<>();
+        try{
+            String sql = "select * from course ";
+            ResultSet rs = DataBase.s.executeQuery(sql);
+            while(rs.next()){
+                Course tmp = new Course(rs.getString("idx"),
+                        rs.getString("coursename"), rs.getInt("coursetime"),
+                        rs.getString("teacher"), rs.getInt("maxpeople"),
+                        rs.getInt("remainnumber"),rs.getString("state"));
+                res.addElement(tmp);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return res;
+    }
+
+
     public static void main(String args[]){
             DataBase.start();
             DataBase.stop();

@@ -19,7 +19,7 @@ import java.util.Vector;
 public class DataBooks {
     public static int exist(String idx,String state){
         try{
-            String sql="select * from books where idx='"+idx+"' and state="+state+"";
+            String sql="select * from books where idx='"+idx+"' and state='"+state+"'";
             ResultSet rs=DataBase.s.executeQuery(sql);
             if(!rs.next()){return 0;}
             return 1;
@@ -87,6 +87,14 @@ public class DataBooks {
 
         if(res!=1){return 0;}
         try{
+            if(state.equals("未借")){
+                state="已借";
+            }
+
+            else {
+                state = "未借";
+            }
+
             String sql="update books set state='"+state +"' where idx='"+ID+"'";
             DataBase.s.executeUpdate(sql);
             DataBase.c.commit();
@@ -119,21 +127,8 @@ public class DataBooks {
 
     public static void main(String []args){
         DataBase.start();
-
-        int a=insert(new Book("0014", "西游记", "章金莱",
-                "中国人民出版社", "名著", "已借"));
-        int b=delete(new Book("0003", "西游记", "六小龄童",
-                "大闹天宫出版社", "神魔小说", "未借"));
-
-        Vector<Book>res= getAll();
-        for (int i = 0; i < res.size(); i++) {
-            System.out.println(res.elementAt(i).getBookEdit());
-        }
-        res= getAll();
-        for (int i = 0; i < res.size(); i++) {
-            System.out.println(res.elementAt(i).getBookEdit());
-        }
-
+        int a=update("0001","未借");
+        System.out.println(a);
         DataBase.stop();
     }
 }
