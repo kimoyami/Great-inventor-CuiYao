@@ -23,12 +23,12 @@ public class DataGoods {
         }
     }
 
-    public static int insert(Goods goods) {
+    public static int insert(String idx,int cnt,String goodname,double price,String url,String tag) {
         try {
-            if(exist(goods.getName(), goods.getTag()) == 1) return 0;
+            if(exist(goodname,tag) == 1) return 0;
             String sql = "insert into goods(idx, cnt, goodsname, price, url, tag) " +
-                    "values ('" + goods.getID() + "', "+ goods.getNumber() +", " +
-                    "'"+goods.getName()+"', "+goods.getPrice()+", '"+goods.getPicturePath()+"', '"+goods.getTag()+"')";
+                    "values ('" + idx+ "', "+ cnt +", " +
+                    "'"+goodname+"', "+price+", '"+url+"', '"+tag+"')";
             DataBase.s.executeUpdate(sql);
             DataBase.c.commit();
             return 1;
@@ -40,7 +40,6 @@ public class DataGoods {
 
     public static int delete(String goodsname,String tag){
         try {
-
             String sql = "delete from goods where goodsname = '" +goodsname+ "' and tag = '"+tag+"'";
             DataBase.s.executeUpdate(sql);
             DataBase.c.commit();
@@ -99,7 +98,6 @@ public class DataGoods {
             e.printStackTrace();
             return -1;
         }
-
     }
 
     public static int consumption(String ID,double change){

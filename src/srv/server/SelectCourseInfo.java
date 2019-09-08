@@ -25,14 +25,23 @@ public class SelectCourseInfo {
     }
 
     public static synchronized int insert() {
-        SelectCourse course;
+        String e;
+        String idx;
+        String name;
+        int time;
+        String teacher;
+
         try {
-            course = (SelectCourse) ServerThread.cin.readObject();
-        } catch (Exception e) {
-            e.printStackTrace();
+            e=ServerThread.cin.readUTF();;
+            idx=ServerThread.cin.readUTF();;
+            name=ServerThread.cin.readUTF();;
+            time=ServerThread.cin.readInt();;
+            teacher=ServerThread.cin.readUTF();;
+        } catch (Exception ex) {
+            ex.printStackTrace();
             return -3;
         }
-        return DataSelectCourse.insert(course);
+        return DataSelectCourse.insert(e,idx,name,time,teacher);
     }
 
     public static synchronized int delete() {
