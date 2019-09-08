@@ -35,17 +35,15 @@ $(document).ready(function(){
 	let t = $("#dBOOK_ID").val();
      x = BookInfo.query(client.BookInfo);
 	 let y = JSON.parse(x);
-     obj['BOOK_ID'] = $("#dBOOK_ID").val();
+     y['BOOK_ID'] = $("#dBOOK_ID").val();
 	 x = JSON.stringify(y);
      BookInfo.delete(x);
-
 		alert("删除成功")
 	})
 })
 
 $(document).ready(function(){
 	$("#add").click(function(){
-
 		let t = $("#BOOK_ID").val();
               x = BookInfo.query(client.BookInfo);
 			  let y = JSON.parse(x);
