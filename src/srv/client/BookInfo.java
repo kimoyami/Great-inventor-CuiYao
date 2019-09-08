@@ -11,6 +11,7 @@ import java.util.Vector;
 
 public class BookInfo {
     private static final int STARTPOS = 19;
+
     public static int insert(Book book) {
         Client.run();
         try {
@@ -58,7 +59,7 @@ public class BookInfo {
         } catch (Exception e) {
             Client.stop();
         }
-        return  res;
+        return res;
     }
 
     public static int update(Book book) {
@@ -76,3 +77,4 @@ public class BookInfo {
             return -4;
         }
     }
+}
