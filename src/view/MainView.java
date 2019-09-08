@@ -59,7 +59,7 @@ public class MainView {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         frame.setResizable(false);
-        browser.loadURL("F:\\GitHub\\Great-inventor-CuiYao\\html\\index.html");
+        browser.loadURL("C:\\Users\\崔峣\\Desktop\\test\\Great-inventor-CuiYao\\html\\index.html");
         Toolkit kit = Toolkit.getDefaultToolkit();
         Image image = kit.createImage("F:\\GitHub\\Great-inventor-CuiYao\\html\\img\\xh.jpg");
         frame.setIconImage(image);
@@ -77,7 +77,8 @@ public class MainView {
                 MainView mainview = new MainView();
                 MessageTrans messagetrans = new MessageTrans();
                 Message message = new Message();
-
+                Bank_Info bankinfo=new Bank_Info();
+                GoodInfo goodinfo=new GoodInfo();
                 window.asObject().setProperty("personinfo", personinfo);
                 window.asObject().setProperty("person", person);
                 window.asObject().setProperty("client", client);
@@ -86,6 +87,8 @@ public class MainView {
                 window.asObject().setProperty("mainview", mainview);
                 window.asObject().setProperty("messagetrans", messagetrans);
                 window.asObject().setProperty("message", message);
+                window.asObject().setProperty("bankinfo",bankinfo);
+                window.asObject().setProperty("goodinfo",goodinfo);
             }
         });
     }
