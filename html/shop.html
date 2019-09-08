@@ -11,7 +11,7 @@
     <title>商店系统</title>
 
 </head>
-<body>
+<body background="image/606.jpg">
 <h1 style="font-family: Lobster">SHOP</h1>
 <input type="text" id="myInput" onkeyup="myFunction()" placeholder="搜索...">
 <table id="myTable" >
@@ -24,6 +24,7 @@
         <th style="width: 16.5%">操作</th>
 
     </tr>
+
 </table>
 <div><button id="basket" class="buy">查看购物车</button></div>
 <div class="sy-alert sy-alert-model animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="confirm" sy-mask="true" id="alert4">
@@ -37,6 +38,9 @@
                 <th style="width: 20%">数量</th>
                 <th style="width: 20%">操作</th>
             </tr>
+
+
+            
         </table>
     </div>
     <div class="sy-btn">
@@ -50,7 +54,12 @@
 <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert2">
     <div class="sy-content">加入成功！</div>
 </div>
-
+<div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert1">
+    <div class="sy-content">购买成功！</div>
+</div>
+<div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert0">
+    <div class="sy-content">数量为空！</div>
+</div>
     <script>
 
        var s =0;
@@ -75,11 +84,10 @@
 
        }else {
            syalert.syopen("alert2");
-           var i = parseInt(number);
-           //goodinfo.update(name,tag,i);
-       $(this).parents("tr").find("td").eq(3).html(newcount)
-           $("#myForm").append("<tr><td>"+tag+"</td><td>"+name+"</td><td>"+price+"</td><td>"+number+"</td><td>"+"<button id='delete' class='buy'>删除</button>"+"</td></tr>")
-       ;}
+       $(this).parents("tr").find("td").eq(3).html(newcount);
+
+           $("#myForm").append("<tr><td>"+tag+"</td><td>"+name+"</td><td>"+price+"</td><td>"+number+"</td><td>"+"<button id='delete' class='buy'>删除</button>"+"</td></tr>");
+       }
       });
 $(document).on("click",'#delete',function () {
     $(this).parents("tr").remove();
@@ -112,18 +120,22 @@ $(document).on("click",'#Buy',function () {
     var price,number,name,tag,i;
     var table = document.getElementById("myForm");
     var tr=table.getElementsByTagName("tr");
-    alert(tr.length);
+
     for(i =1;i<tr.length;i++){
         price=tr[i].getElementsByTagName("td")[2].innerHTML.toUpperCase();
         number=tr[i].getElementsByTagName("td")[3].innerHTML.toUpperCase();
         name =tr[i].getElementsByTagName("td")[1].innerHTML.toUpperCase();
         tag = tr[i].getElementsByTagName("td")[0].innerHTML.toUpperCase();
+        if(number==""){
+             syalert.syopen("alert0")
+        }
         var h = parseInt(number);
         goodinfo.update(name,tag,h);
-        goodinfo.consumption(client.eCardNumber,price*number);
+        goodinfo.consumption("213170001",price*number);
 
     }
     syalert.syhide("alert4");
+    syalert.syopen("alert1");
 })
 
 

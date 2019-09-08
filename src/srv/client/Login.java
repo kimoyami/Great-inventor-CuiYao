@@ -5,7 +5,7 @@ Arthor: kimoyami
 package srv.client;
 
 import java.util.Vector;
-
+import com.fasterxml.jackson.databind.ObjectMapper;
 public class Login {
     private static final int STARTPOS = 0;
     public static int query(String eCardNumber, String password){
@@ -121,6 +121,7 @@ public class Login {
             return -4;
         }
     }
+
 
     public static int isNew(String eCardNumber){
         Client.run();
