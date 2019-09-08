@@ -40,5 +40,31 @@ public class SelectCourseInfo {
     }
 public static void main(String args[]){
 
+<<<<<<< HEAD
 }
+=======
+    public static Vector<SelectCourse> query(String id) {
+        Client.run();
+        Vector<SelectCourse> res = new Vector<>();
+        try {
+            Client.cout.writeInt(STARTPOS + 3);
+            Client.cout.writeUTF(id);
+            Client.cout.flush();
+            int n = Client.cin.readInt();
+            for (int i = 0; i < n; i++) {
+                res.add((SelectCourse) Client.cin.readObject());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return res;
+    }
+    
+    public static void main(String args[]) {
+        Vector<SelectCourse>res=query("213171645");
+        for (int i = 0; i <res.size() ; i++) {
+            System.out.println(res.elementAt(i).getCourseName()+res.elementAt(i).getTime());
+        }
+    }
+>>>>>>> master
 }

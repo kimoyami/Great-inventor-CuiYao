@@ -5,7 +5,11 @@
 package srv.server;
 
 import dao.DataBank;
+import srv.bank.Bank;
 import srv.bank.BankInfo;
+import srv.bank.Bankrecord;
+
+import java.util.Vector;
 
 public class Bank_Info {
     public static void run(int op) {
@@ -32,6 +36,14 @@ public class Bank_Info {
             }
             if(op==6){
                 ServerThread.cout.writeInt(transferTocard());
+                ServerThread.cout.flush();
+            }
+            if(op==7){
+                Vector<Bankrecord> res = queryrecord();
+                ServerThread.cout.writeInt(res.size());
+                for (int i = 0; i < res.size(); i++) {
+                    ServerThread.cout.writeObject(res.elementAt(i));
+                }
                 ServerThread.cout.flush();
             }
         } catch (Exception e) {
@@ -112,4 +124,13 @@ public class Bank_Info {
         return DataBank.transferTocard(ID,change);
     }
 
+    public static Vector<Bankrecord> queryrecord(){
+        String ID="";
+        try{
+            ID=ServerThread.cin.readUTF();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return DataBank.queryrecord(ID);
+    }
 }

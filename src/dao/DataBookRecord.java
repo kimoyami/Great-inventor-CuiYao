@@ -9,9 +9,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import srv.book.bookrecord;
 public class DataBookRecord {
-
-
-
     public static int insert(String eCardName,String bookID){
         try{
             SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");

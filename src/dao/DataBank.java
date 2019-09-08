@@ -13,6 +13,7 @@ import javax.xml.crypto.Data;
 import java.text.*;
 import java.util.Date;
 import java.sql.ResultSet;
+import java.util.Vector;
 
 public class DataBank {
     public static int exist(String ID){
@@ -111,6 +112,10 @@ public class DataBank {
            sql="update bank set balance="+balance+",eCardBalance="+ebalance+",operationdate=#"+d+"# where idx='"+ID+"'";
            DataBase.s.executeUpdate(sql);
            DataBase.c.commit();
+
+            sql="insert into bankrecord(ecardname,change,record,otime) values('"+ID+"',"+change+",'一卡通充值',#"+d+"#)";
+            DataBase.s.executeUpdate(sql);
+            DataBase.c.commit();
            return 1;
         }
         catch(Exception e){
@@ -137,6 +142,10 @@ public class DataBank {
             sql="update bank set balance="+balance+",eCardBalance="+ebalance+",operationdate=#"+d+"# where idx='"+ID+"'";
             DataBase.s.executeUpdate(sql);
             DataBase.c.commit();
+
+            sql="insert into bankrecord(ecardname,change,record,otime) values('"+ID+"',"+change+",'一卡通提现',#"+d+"#)";
+            DataBase.s.executeUpdate(sql);
+            DataBase.c.commit();
             return 1;
         }
         catch(Exception e){
@@ -149,15 +158,14 @@ public class DataBank {
     public static BankInfo query(String ID){
         BankInfo account=new BankInfo(null,null,0,0,null);
         try{
-        String sql="select * from bank where idx='"+ID+"'";
-        ResultSet rs=DataBase.s.executeQuery(sql);
+            String sql="select * from bank where idx='"+ID+"'";
+            ResultSet rs=DataBase.s.executeQuery(sql);
         if(rs.next()) {
         account.setID(rs.getString("idx"));
         account.setName(rs.getString("username"));
         account.setBalance(rs.getDouble("balance"));
         account.setPassword(rs.getString("password"));
         account.seteCardBalance(rs.getDouble("eCardBalance"));
-
         }
     }
     catch(Exception e){
@@ -166,11 +174,30 @@ public class DataBank {
     return account;
     }
 
+    public static Vector<Bankrecord>queryrecord(String ID){
+            Vector<Bankrecord> res = new Vector<>();
+            try{
+                String sql="select * from bankrecord where ecardname='"+ID+"'";
+                ResultSet rs=DataBase.s.executeQuery(sql);
+                while(rs.next()){
+                    Bankrecord tmp=new Bankrecord(rs.getString("ecardname"),
+                            rs.getDouble("change"),rs.getString("record"),
+                            rs.getString("otime"));
+                    res.addElement(tmp);
+                }
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+            return res;
+        }
+
     public static void main(String[] args) {
         DataBase.start();
-        int b=transferToEcard("213170002",110);
-        int a=transferTocard("213170002",100);
-        System.out.println(a);
+
+        Vector<Bankrecord> res=queryrecord("213170002");
+        for (int i = 0; i <res.size() ; i++) {
+            System.out.println(res.elementAt(i).getRecord()+res.elementAt(i).getOtime());
+        }
 
         DataBase.stop();
     }
