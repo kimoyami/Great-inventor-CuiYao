@@ -10,8 +10,9 @@ import java.util.Date;
 import srv.book.bookrecord;
 public class DataBookRecord {
 
+
+
     public static int insert(String eCardName,String bookID){
-        DataBase.start();
         try{
             SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             String d = f.format(new Date());
@@ -19,11 +20,9 @@ public class DataBookRecord {
                     "#"+d+"#)";
             DataBase.s.executeUpdate(sql);
             DataBase.c.commit();
-            DataBase.stop();
             return 1;
         }
         catch(Exception e){
-            DataBase.stop();
             e.printStackTrace();
             return -1;
         }
@@ -31,7 +30,6 @@ public class DataBookRecord {
     }
 
     public static int returnbook(String eCardName,String bookID){
-        DataBase.start();
         try{
             String sql="select * from bookrecord where eCardName='"+eCardName+"'and bookID='"+bookID+"'";
             ResultSet rs=DataBase.s.executeQuery(sql);
@@ -43,11 +41,9 @@ public class DataBookRecord {
             sql="update bookrecord set returntime=#"+d+"# where eCardName='"+eCardName+"'and bookID='"+bookID+"' and borrowtime='"+rs.getString("borrowtime")+"'";
             DataBase.s.executeUpdate(sql);
             DataBase.c.commit();
-            DataBase.stop();
             return 1;
         }
         catch(Exception e){
-            DataBase.stop();
             e.printStackTrace();
             return -1;
         }

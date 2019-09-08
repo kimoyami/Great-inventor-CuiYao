@@ -5,6 +5,7 @@ import dao.DataSelectCourse;
 import srv.course.SelectCourse;
 
 import javax.xml.crypto.Data;
+import java.util.Vector;
 
 public class SelectCourseInfo {
     public static void run(int op) {
@@ -14,8 +15,15 @@ public class SelectCourseInfo {
                 ServerThread.cout.flush();
             }
             if (op == 2) {
-                System.out.println("opd");
                 ServerThread.cout.writeInt(delete());
+                ServerThread.cout.flush();
+            }
+            if (op == 3) {
+                Vector<SelectCourse> res = query();
+                ServerThread.cout.writeInt(res.size());
+                for (int i = 0; i < res.size(); i++) {
+                    ServerThread.cout.writeObject(res.elementAt(i));
+                }
                 ServerThread.cout.flush();
             }
         } catch (Exception e) {
@@ -47,4 +55,15 @@ public class SelectCourseInfo {
         }
         return DataSelectCourse.delete(eCardName, courseName);
     }
+
+    public static Vector<SelectCourse> query() {
+        String id = "";
+        try {
+            id = ServerThread.cin.readUTF();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return DataSelectCourse.query(id);
+    }
+
 }

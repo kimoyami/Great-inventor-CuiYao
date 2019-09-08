@@ -30,6 +30,10 @@ public class Bank_Info {
                 ServerThread.cout.writeInt(transfer());
                 ServerThread.cout.flush();
             }
+            if(op==6){
+                ServerThread.cout.writeInt(transferTocard());
+                ServerThread.cout.flush();
+            }
         } catch (Exception e) {
             e.printStackTrace();
             return;
@@ -95,4 +99,17 @@ public class Bank_Info {
         }
         return DataBank.transferToEcard(ID,change);
     }
+    public static int transferTocard(){
+        String ID;
+        double change;
+        try{
+            ID=ServerThread.cin.readUTF();
+            change=ServerThread.cin.readDouble();
+        }catch(Exception e){
+            e.printStackTrace();
+            return -3;
+        }
+        return DataBank.transferTocard(ID,change);
+    }
+
 }

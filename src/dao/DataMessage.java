@@ -14,46 +14,36 @@ public class DataMessage {
     private static SimpleDateFormat trans = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     public static int insert(Message message){
-        DataBase.start();
         try {
             String time = trans.format(message.getTime());
             System.out.println(time);
             String sql = "insert into message(sender, receiver, message, clock, tags, tagr) values('"+message.getSender()+"', '"+message.getReceiver()+"', '"+message.getMessage()+"', #"+time+"#, No, No)";
             DataBase.s.executeUpdate(sql);
             DataBase.c.commit();
-            DataBase.stop();
             return 1;
         }catch (Exception e){
             e.printStackTrace();
-            DataBase.stop();
             return -1;
         }
     }
 
     public static int delete(Message message){
-        DataBase.start();
         try {
             String time = trans.format(message.getTime());
             String sql = "select * from message where sender = '"+message.getSender()+"' and receiver = '"+message.getReceiver()+"' and message = '"+message.getMessage()+"' and clock = #"+time+"#";
             ResultSet rs = DataBase.s.executeQuery(sql);
-            if(!rs.next()) {
-                DataBase.stop();
-                return 0;
-            }
+            if(!rs.next()) return 0;
             sql = "delete from message where sender = '"+message.getSender()+"' and receiver = '"+message.getReceiver()+"' and message = '"+message.getMessage()+"' and clock = #"+time+"#";
             DataBase.s.executeUpdate(sql);
             DataBase.c.commit();
-            DataBase.stop();
             return 1;
         }catch (Exception e){
-            DataBase.stop();
             e.printStackTrace();
             return -1;
         }
     }
 
     public static Vector<Message> query(String sender, String receiver){
-        DataBase.start();
         Vector<Message> res = new Vector<>();
         try {
             String sql = "select * from message where sender = '"+sender+"' and receiver = '"+receiver+"' or (sender = '"+receiver+"' and receiver = '"+sender+"')";
@@ -64,12 +54,10 @@ public class DataMessage {
         }catch (Exception e){
             e.printStackTrace();
         }
-        DataBase.stop();
         return res;
     }
 
     public static Vector<Message> querynew(String sender, String receiver){
-        DataBase.start();
         Vector<Message> res = new Vector<>();
         try {
             String sql = "select * from message where (sender = '"+sender+"' and receiver = '"+receiver+"' and tags = No) or (sender = '"+receiver+"' and receiver = '"+sender+"' and tagr = No)";
@@ -85,13 +73,13 @@ public class DataMessage {
         }catch (Exception e){
             e.printStackTrace();
         }
-        DataBase.stop();
         return res;
     }
 
     public static void main(String args[]){
         DataBase.start();
-
+        Message message = new Message("213171645", "213171643", "fuck you", new Date());
+        System.out.println(delete(message));
         DataBase.stop();
     }
 }
