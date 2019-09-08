@@ -36,7 +36,7 @@
 			<input type="text" id="transferTo" value="" placeholder="请输入转账对象" /></p>
 		<p style="text-align: center">交易密码
 			<input type="password" id="transferPassword" name="transferTo" placeholder="请输入交易密码" /></p>
-        <button id="transferM" onclick="">转账记录</button>
+        <button id="transferM" onclick="record()">转账记录</button>
 	</div>
 </div>
 
@@ -44,7 +44,9 @@
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
 <script type="text/javascript">
-
+function record() {
+	window.location.href="transfRecord.html"
+}
 function transferFct() {
 	var y = bankinfo.query("213170002");
 	var a = JSON.parse(y);
