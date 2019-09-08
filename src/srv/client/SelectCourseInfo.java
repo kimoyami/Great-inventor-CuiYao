@@ -3,6 +3,8 @@ package srv.client;
 import com.sun.org.apache.bcel.internal.generic.InstructionConstants;
 import srv.course.SelectCourse;
 
+import java.util.Vector;
+
 public class SelectCourseInfo {
     private static final int STARTPOS = 80;
 
@@ -38,11 +40,8 @@ public class SelectCourseInfo {
             return -4;
         }
     }
-public static void main(String args[]){
 
-<<<<<<< HEAD
-}
-=======
+
     public static Vector<SelectCourse> query(String id) {
         Client.run();
         Vector<SelectCourse> res = new Vector<>();
@@ -66,5 +65,5 @@ public static void main(String args[]){
             System.out.println(res.elementAt(i).getCourseName()+res.elementAt(i).getTime());
         }
     }
->>>>>>> master
+
 }
