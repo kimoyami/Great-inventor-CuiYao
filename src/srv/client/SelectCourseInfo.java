@@ -2,24 +2,28 @@ package srv.client;
 
 import com.sun.org.apache.bcel.internal.generic.InstructionConstants;
 import srv.course.SelectCourse;
-import srv.goods.Goods;
+
 
 import java.util.Vector;
 
 public class SelectCourseInfo {
     private static final int STARTPOS = 80;
 
-    public static int insert(SelectCourse course) {
+    public static int insert(String e,String idx,String name,int time,String teacher) {
         Client.run();
         try {
             Client.cout.writeInt(STARTPOS + 1);
-            Client.cout.writeObject(course);
+            Client.cout.writeUTF(e);
+            Client.cout.writeUTF(idx);
+            Client.cout.writeUTF(name);
+            Client.cout.writeInt(time);
+            Client.cout.writeUTF(teacher);
             Client.cout.flush();
             int res = Client.cin.readInt();
             Client.stop();
             return res;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception ex) {
+            ex.printStackTrace();
             Client.stop();
             return -4;
         }
@@ -60,9 +64,7 @@ public class SelectCourseInfo {
     }
     
     public static void main(String args[]) {
-        Vector<SelectCourse>res=query("213171645");
-        for (int i = 0; i <res.size() ; i++) {
-            System.out.println(res.elementAt(i).getCourseName()+res.elementAt(i).getTime());
+        int a=insert("213170004","0014","编译原理",112212,"翟玉庆");
+        System.out.println(a);
         }
     }
-}
