@@ -8,6 +8,7 @@ import srv.course.SelectCourse;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Vector;
 
 public class DataSelectCourse {
     public static int exist(String eCardName,String courseName) {
@@ -115,6 +116,24 @@ public class DataSelectCourse {
          return -1;
         }
     }
+
+    public static Vector<SelectCourse> query(String id){
+        Vector<SelectCourse> res=new Vector<>();
+        try{
+            String sql="select * from selectcourse where ecardname='"+id+"'";
+            ResultSet rs = DataBase.s.executeQuery(sql);
+            while(rs.next()){
+                SelectCourse tmp=new SelectCourse(rs.getString("ecardname"),rs.getString("idx"),
+                        rs.getString("coursename"),rs.getInt("coursetime"),
+                        rs.getString("teacher"));
+                res.add(tmp);
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return res;
+    }
+
 
     public static void main(String args[]){
         //SelectCourse course=new SelectCourse();

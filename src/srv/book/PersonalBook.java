@@ -1,6 +1,10 @@
 package srv.book;
+
+import java.io.Serializable;
+
 //私有的借书信息
- class PersonalBook {
+ class PersonalBook implements Serializable {
+    private static final long serialVersionUID = -1925809561781496530L;
     private String BOOK_ID;
     private String BOOK_NAME;
     private long borrowDate;
