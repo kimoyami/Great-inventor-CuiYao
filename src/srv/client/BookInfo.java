@@ -62,6 +62,8 @@ public class BookInfo {
         return res;
     }
 
+
+
     public static int update(String id,String state) {
         Client.run();
         try {
