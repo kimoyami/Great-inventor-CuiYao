@@ -14,11 +14,16 @@ import java.util.Vector;
 public class GoodInfo {
     private static final int STARTPOS = 50;
 
-    public static int insert(Goods goods) {
+    public static int insert(String idx,int cnt,String goodname,double price,String url,String tag) {
         Client.run();
         try {
             Client.cout.writeInt(STARTPOS + 1);
-            Client.cout.writeObject(goods);
+            Client.cout.writeUTF(idx);
+            Client.cout.writeInt(cnt);
+            Client.cout.writeUTF(goodname);
+            Client.cout.writeDouble(price);
+            Client.cout.writeUTF(url);
+            Client.cout.writeUTF(tag);
             Client.cout.flush();
             int res = Client.cin.readInt();
             Client.stop();
@@ -123,9 +128,12 @@ public class GoodInfo {
 
     }
 
-    public static void main(String args[]) {
-        int a=consumption("213170001",11);
-        System.out.println(a);
+    public static void main(String args[]){
+
+        int b=delete("yb","中超");
+
+        System.out.println(b);
+
     }
 
 }
