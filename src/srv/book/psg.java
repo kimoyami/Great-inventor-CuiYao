@@ -7,7 +7,7 @@ public class psg {
 
         public static Book[] books = new Book[]{  //书库
 
-                new Book("西游记", "11111", "中国人民出版社", "名著", "章金莱", "已借"),
+                new Book("西游记", "11111", "中国人民出版社", "名著", "章金莱", "已借",""),
 
         };
 

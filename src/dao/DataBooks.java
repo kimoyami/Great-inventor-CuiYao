@@ -73,12 +73,30 @@ public class DataBooks {
            while(rs.next()){
                Book book=new Book(rs.getString("idx"),rs.getString("bookname"),
                        rs.getString("author"), rs.getString("publish"),
-                       rs.getString("category"),rs.getString("state"));
+                       rs.getString("category"),rs.getString("state"),rs.getString("borrowtime"));
                res.add(book);
            }
        }
         catch (Exception e){
            e.printStackTrace();
+        }
+        return res;
+    }
+
+    public static Vector<Book> queryrecord(String ecardname){
+        Vector<Book> res=new Vector<>();
+        try{
+            String sql="select * from books where ecardname='"+ecardname+"'";
+            ResultSet rs=DataBase.s.executeQuery(sql);
+            while(rs.next()){
+                Book book=new Book(rs.getString("idx"),rs.getString("bookname"),
+                        rs.getString("author"), rs.getString("publish"),
+                        rs.getString("category"),rs.getString("state"),rs.getString("borrowtime"));
+                res.add(book);
+            }
+        }
+        catch (Exception e){
+            e.printStackTrace();
         }
         return res;
     }
@@ -121,7 +139,7 @@ public class DataBooks {
             while(rs.next()){
                 Book book=new Book(rs.getString("idx"),rs.getString("bookname"),
                         rs.getString("author"), rs.getString("publish"),
-                        rs.getString("category"),rs.getString("state"));
+                        rs.getString("category"),rs.getString("state"),rs.getString("borrowtime"));
                 res.add(book);
             }
         }catch(Exception e){
@@ -133,8 +151,10 @@ public class DataBooks {
 
     public static void main(String []args){
         DataBase.start();
-        int a=update("0002","已借","213170001");
-        System.out.println(a);
+        Vector<Book>res=queryrecord("213170002");
+        for (int i = 0; i <res.size() ; i++) {
+            System.out.println(res.elementAt(i).getBookName());
+        }
         DataBase.stop();
     }
 }
