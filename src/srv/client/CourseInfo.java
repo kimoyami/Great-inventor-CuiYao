@@ -64,6 +64,24 @@ public class CourseInfo {
         }
         return res;
     }
+    public static Vector<Course>getAll(){
+        Client.run();
+        Vector<Course> res = new Vector<>();
+        try {
+            Client.cout.writeInt(STARTPOS + 4);
+            Client.cout.flush();
+            int n = Client.cin.readInt();
+            for (int i = 0; i < n; i++) {
+                res.add((Course) Client.cin.readObject());
+            }
+            Client.stop();
+        } catch (Exception e) {
+            Client.stop();
+            e.printStackTrace();
+        }
+        return res;
+    }
+
 
     public static void main(String args[]){
     }

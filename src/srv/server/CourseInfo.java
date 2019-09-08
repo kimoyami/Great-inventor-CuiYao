@@ -28,6 +28,14 @@ public class CourseInfo {
                 }
                 ServerThread.cout.flush();
             }
+            if (op == 4) {
+                Vector<Course> res = getAll();
+                ServerThread.cout.writeInt(res.size());
+                for (int i = 0; i < res.size(); i++) {
+                    ServerThread.cout.writeObject(res.elementAt(i));
+                }
+                ServerThread.cout.flush();
+            }
 
         } catch (Exception e) {
             return;
@@ -66,5 +74,9 @@ public class CourseInfo {
             e.printStackTrace();
         }
         return DataCourse.query(teacher);
+    }
+
+    public static Vector<Course> getAll(){
+        return DataCourse.getAll();
     }
 }

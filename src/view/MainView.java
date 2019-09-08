@@ -20,6 +20,8 @@ import java.util.Date;
 
 import com.teamdev.jxbrowser.chromium.ba;
 import srv.client.*;
+import srv.course.Course;
+import srv.course.SelectCourse;
 import srv.message.Message;
 import srv.person.Person;
 
@@ -59,7 +61,7 @@ public class MainView {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         frame.setResizable(false);
-        browser.loadURL("F:\\GitHub\\Great-inventor-CuiYao\\html\\index.html");
+        browser.loadURL("D:\\Learning\\java短学期\\schoolsystem\\Great-inventor-CuiYao\\html\\SelectCourse.html");
         Toolkit kit = Toolkit.getDefaultToolkit();
         Image image = kit.createImage("F:\\GitHub\\Great-inventor-CuiYao\\html\\img\\xh.jpg");
         frame.setIconImage(image);
@@ -77,6 +79,8 @@ public class MainView {
                 MainView mainview = new MainView();
                 MessageTrans messagetrans = new MessageTrans();
                 Message message = new Message();
+                SelectCourseInfo selectCourseInfo = new SelectCourseInfo();
+                CourseInfo courseInfo = new CourseInfo();
 
                 window.asObject().setProperty("personinfo", personinfo);
                 window.asObject().setProperty("person", person);
@@ -86,6 +90,8 @@ public class MainView {
                 window.asObject().setProperty("mainview", mainview);
                 window.asObject().setProperty("messagetrans", messagetrans);
                 window.asObject().setProperty("message", message);
+                window.asObject().setProperty("selectCourseinfo", selectCourseInfo);
+                window.asObject().setProperty("courseInfo", courseInfo);
             }
         });
     }
