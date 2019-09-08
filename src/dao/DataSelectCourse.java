@@ -24,6 +24,75 @@ public class DataSelectCourse {
         }
     }
 
+    public static int insert(String e,String idx,String name,int time,String teacher){
+        try{
+            if(exist(e,name)==1){return 0;}
+            String sql="select * from course where idx='"+idx+"' and teacher='"+teacher+"'";
+            ResultSet rs=DataBase.s.executeQuery(sql);
+            rs.next();
+            int tmp=rs.getInt("remainnumber");
+            if (tmp == 0) {
+                return -3;
+            }//判断能否继续选择
+
+            sql="select * from selectcourse where ecardname='"+name+"'";
+            rs= DataBase.s.executeQuery(sql);
+            int cur=0;
+            while(rs.next()){
+                int a=rs.getInt("coursetime");
+                cur=check(a,time);
+                if(cur==1){break;}
+            }
+
+            if(cur==1){return -2;}//冲突
+            ArrayList<Integer>ct=cuttime(time);
+            for (int i = 0; i <ct.size() ; i++) {
+                int temp=ct.get(i);
+                sql="insert into selectcourse(ecardname,idx,coursename,coursetime,teacher)" +
+                        "values ('"+e+"','"+idx+"'," +
+                        "'"+name+"',"+temp+",'"+teacher+"')";
+                DataBase.s.executeUpdate(sql);
+                DataBase.c.commit();
+            }
+
+            tmp=tmp-1;
+            if(tmp>0){
+                sql="update course set remainnumber="+tmp+" " +
+                        "where idx='"+idx+"' and teacher='"+teacher+"'";
+                DataBase.s.executeUpdate(sql);
+                DataBase.c.commit();
+            }
+            else{
+                String sta="已满";
+                sql="update course set remainnumber="+tmp+", state='"+sta+"'" +
+                        "where idx='"+idx+"' and teacher='"+teacher+"'";
+                DataBase.s.executeUpdate(sql);
+                DataBase.c.commit();
+            }
+            return 1;
+        }
+        catch(Exception ex){
+            ex.printStackTrace();
+            return -1;
+        }
+    }
+
+    public static int delete(String eCardName,String coursename){
+        try{
+            if(exist(eCardName,coursename)!=1){return 0;}
+            System.out.println("nb");
+            String sql="delete from selectcourse where ecardname='"+eCardName+"' and coursename='"+coursename+"'";
+            System.out.println("nb");
+            DataBase.s.executeUpdate(sql);
+            System.out.println("nb");
+            DataBase.c.commit();
+            return 1;
+        }
+        catch(Exception e){
+            return -1;
+        }
+    }
+
     public static int check(int a,int b){
         try{
             ArrayList<Integer> list = new ArrayList<Integer>();
@@ -51,76 +120,20 @@ public class DataSelectCourse {
             return -1;
         }
     }
-
-    public static int insert(SelectCourse course){
-        try{
-            if(exist(course.getECardName(),course.getCourseName())==1){return 0;}
-            String sql="select * from course where idx='"+course.getIdx()+"' and teacher='"+course.getTeacher()+"'";
-            ResultSet rs=DataBase.s.executeQuery(sql);
-            rs.next();
-            int tmp=rs.getInt("remainnumber");
-            if (tmp == 0) {
-                return -3;
-            }
-
-            sql="select * from selectcourse where ecardname='"+course.getECardName()+"'";
-            rs= DataBase.s.executeQuery(sql);
-            int cur=0;
-            while(rs.next()){
-                int a=rs.getInt("coursetime");
-                cur=check(a,course.getTime());
-                if(cur==1){break;}
-            }
-            System.out.println(cur);
-            if(cur==1){return -2;}
-
-            sql="insert into selectcourse(ecardname,idx,coursename,coursetime,teacher)" +
-                    "values ('"+course.getECardName()+"','"+course.getIdx()+"'," +
-                    "'"+course.getCourseName()+"',"+course.getTime()+",'"+course.getTeacher()+"')";
-            tmp=tmp-1;
-            DataBase.s.executeUpdate(sql);
-            DataBase.c.commit();
-            if(tmp>0){
-                sql="update course set remainnumber="+tmp+" " +
-                        "where idx='"+course.getIdx()+"' and teacher='"+course.getTeacher()+"'";
-                DataBase.s.executeUpdate(sql);
-                DataBase.c.commit();
-            }
-            else{
-                String sta="已满";
-                sql="update course set remainnumber="+tmp+", state='"+sta+"'" +
-                        "where idx='"+course.getIdx()+"' and teacher='"+course.getTeacher()+"'";
-                DataBase.s.executeUpdate(sql);
-                DataBase.c.commit();
-            }
-            return 1;
+    public static ArrayList<Integer> cuttime(int t){
+        ArrayList<Integer>list =new ArrayList<>();
+        while(t!=0){
+            int tmp=t%1000;
+            t=t/1000;
+            list.add(tmp);
         }
-        catch(Exception e){
-            e.printStackTrace();
-            return -1;
-        }
-    }
-
-    public static int delete(String eCardName,String coursename){
-        try{
-            if(exist(eCardName,coursename)!=1){return 0;}
-            System.out.println("nb");
-            String sql="delete from selectcourse where ecardname='"+eCardName+"' and coursename='"+coursename+"'";
-            System.out.println("nb");
-            DataBase.s.executeUpdate(sql);
-            System.out.println("nb");
-            DataBase.c.commit();
-            return 1;
-        }
-        catch(Exception e){
-         return -1;
-        }
+        return list;
     }
 
     public static Vector<SelectCourse> query(String id){
         Vector<SelectCourse> res=new Vector<>();
         try{
-            String sql="select * from selectcourse where ecardname='"+id+"'";
+            String sql="select * from selectcourse where ecardname='"+id+"' order by coursetime";
             ResultSet rs = DataBase.s.executeQuery(sql);
             while(rs.next()){
                 SelectCourse tmp=new SelectCourse(rs.getString("ecardname"),rs.getString("idx"),
@@ -136,13 +149,8 @@ public class DataSelectCourse {
 
 
     public static void main(String args[]){
-        //SelectCourse course=new SelectCourse();
-
         DataBase.start();
-
-        int b=delete("213170004","一步大棋");
-
-        System.out.println(b);
+       insert("213170003","0014","编译原理",112212,"翟玉庆");
         DataBase.stop();
     }
 }

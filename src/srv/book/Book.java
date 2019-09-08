@@ -11,14 +11,17 @@ public class Book implements Serializable {
     private String BOOK_PUB; //出版社
     private String Category; //分类
     private String state; //状态
+    private String borrowtime;
 
-    public Book( String BOOK_ID, String BOOK_NAME,String BOOK_EDIT,String BOOK_PUB, String Category,  String BE_BORROWED) {
+    public Book( String BOOK_ID, String BOOK_NAME,String BOOK_EDIT,String BOOK_PUB, String Category,  String BE_BORROWED,String borrowtime) {
         this.BOOK_ID = BOOK_ID;
         this.BOOK_NAME = BOOK_NAME;
         this.BOOK_PUB = BOOK_PUB;
         this.Category = Category;
         this.state = BE_BORROWED;
         this.BOOK_EDIT = BOOK_EDIT;
+        this.borrowtime=borrowtime;
+
     }
 
     public Book() {  //默认20本书
@@ -74,4 +77,8 @@ public class Book implements Serializable {
     public void setCategory(String Category) {
         this.Category = Category;
     }
+
+    public void setTime(String time){this.borrowtime=time;}
+
+    public String getTime(){return this.borrowtime;}
 }
