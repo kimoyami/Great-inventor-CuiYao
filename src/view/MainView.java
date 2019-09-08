@@ -5,8 +5,7 @@ package view;
 
 import com.teamdev.jxbrowser.chromium.Browser;
 import com.teamdev.jxbrowser.chromium.JSValue;
-import com.teamdev.jxbrowser.chromium.events.ScriptContextAdapter;
-import com.teamdev.jxbrowser.chromium.events.ScriptContextEvent;
+import com.teamdev.jxbrowser.chromium.events.*;
 import com.teamdev.jxbrowser.chromium.swing.BrowserView;
 
 import javax.swing.*;
@@ -55,14 +54,45 @@ public class MainView {
         int x = (screenSize.width - frame.getWidth()) / 2;
         int y = (screenSize.height - frame.getHeight()) / 2;
         frame.setLocation(x, y);
-        frame.setSize(3 * screenSize.width / 4, 3 * screenSize.height / 4);
+        frame.setSize(3 * screenSize.width / 4, 27 * screenSize.width/ 64);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         frame.setResizable(false);
-        browser.loadURL("C:\\Users\\崔峣\\Desktop\\test\\Great-inventor-CuiYao\\html\\shopAdmi.html");
+        browser.loadURL("C:\\Users\\崔峣\\Desktop\\test\\Great-inventor-CuiYao\\html\\index.html");
         Toolkit kit = Toolkit.getDefaultToolkit();
         Image image = kit.createImage("F:\\GitHub\\Great-inventor-CuiYao\\html\\img\\xh.jpg");
         frame.setIconImage(image);
+        browser.addLoadListener(new LoadListener() {
+            @Override
+            public void onStartLoadingFrame(StartLoadingEvent startLoadingEvent) {
+
+            }
+
+            @Override
+            public void onProvisionalLoadingFrame(ProvisionalLoadingEvent provisionalLoadingEvent) {
+
+            }
+
+            @Override
+            public void onFinishLoadingFrame(FinishLoadingEvent finishLoadingEvent) {
+
+            }
+
+            @Override
+            public void onFailLoadingFrame(FailLoadingEvent failLoadingEvent) {
+
+            }
+
+            @Override
+            public void onDocumentLoadedInFrame(FrameLoadEvent frameLoadEvent) {
+
+            }
+
+            @Override
+            public void onDocumentLoadedInMainFrame(LoadEvent loadEvent) {
+                browser.setZoomLevel(-2.2);
+            }
+        });
         browser.addScriptContextListener(new ScriptContextAdapter() {
             @Override
             public void onScriptContextCreated(ScriptContextEvent event) {
