@@ -80,14 +80,16 @@ public class BookInfo {
     public static synchronized int update() {
         String id;
         String state;
+        String ecardname;
         try {
             id = ServerThread.cin.readUTF();
             state=ServerThread.cin.readUTF();
+            ecardname=ServerThread.cin.readUTF();
         } catch (Exception e) {
             e.printStackTrace();
             return -3;
         }
-        return DataBooks.update(id,state);
+        return DataBooks.update(id,state,ecardname);
     }
 
     public static Vector<Book>getAll(){
