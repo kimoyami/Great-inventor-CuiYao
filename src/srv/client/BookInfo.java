@@ -62,8 +62,6 @@ public class BookInfo {
         return res;
     }
 
-
-
     public static int update(String id,String state,String ecardname) {
         Client.run();
         try {
@@ -101,21 +99,45 @@ public class BookInfo {
 
     }
 
-    public static void main(String args[]){
-        int a=update("0001","已借","213170001");
-        System.out.println(a);
-        int b=update("0002","未借","213170002");
+    public static Vector<Book> queryrecord(String ecardname) {
+        Client.run();
+        Vector<Book> res = new Vector<>();
+        try {
+            Client.cout.writeInt(STARTPOS + 6);
+            Client.cout.writeUTF(ecardname);
 
+            Client.cout.flush();
+            int n = Client.cin.readInt();
+            System.out.println(n);
+            for (int i = 0; i < n; i++) {
+                res.add((Book) Client.cin.readObject());
+            }
+            Client.stop();
+        } catch (Exception e) {
+            Client.stop();
+            e.printStackTrace();
+        }
+        return res;
+    }
+
+
+
+
+    public static void main(String args[]){
+        Vector<Book>res=queryrecord("213170002");
+        for (int i = 0; i <res.size() ; i++) {
+            System.out.println(res.elementAt(i).getBookName());
+        }
     }
 }
 /*
-
-
         int a=insert(new Book("0015", "西游记", "章金莱",
                 "中国人民出版社", "名著", "已借"));
         int b=delete(new Book("0014", "西游记", "章金莱",
                 "中国人民出版社", "名著", "已借"));
 
+        int a=update("0001","已借","213170001");
+        int b=update("0002","未借","213170002");
 
 
         Vector<Book>res= query("西游记");
