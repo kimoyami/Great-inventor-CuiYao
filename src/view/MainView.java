@@ -58,9 +58,9 @@ public class MainView {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         frame.setResizable(false);
-        browser.loadURL("C:\\Users\\崔峣\\Desktop\\test\\Great-inventor-CuiYao\\html\\index.html");
+        browser.loadURL("http://101.37.79.28/html/index.html");
         Toolkit kit = Toolkit.getDefaultToolkit();
-        Image image = kit.createImage("F:\\GitHub\\Great-inventor-CuiYao\\html\\img\\xh.jpg");
+        Image image = kit.createImage("http://101.37.79.28/html/image/xh.jpg");
         frame.setIconImage(image);
         browser.addLoadListener(new LoadListener() {
             @Override

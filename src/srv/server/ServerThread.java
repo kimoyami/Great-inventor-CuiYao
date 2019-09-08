@@ -15,7 +15,7 @@ import java.net.Socket;
 import java.util.Random;
 
 public class ServerThread extends Thread {
-    private static final String BASE = "F:\\GitHub\\Great-inventor-CuiYao\\headimage\\";
+    private static final String BASE = "C:\\Users\\Administrator\\Documents\\GitHub\\Great-inventor-CuiYao\\headimage\\";
     private Socket socket;
     public static ObjectInputStream cin = null;
     public static ObjectOutputStream cout = null;
@@ -46,13 +46,13 @@ public class ServerThread extends Thread {
                 if (op >= 1 && op <= 10) Bank_Info.run(op);
                 op -= 10;
                 if (op >= 1 && op <= 10) GoodInfo.run(op);
-                op-=10;
-                if(op == 1) Head.run(op);
                 op -= 10;
-                if(op>=1&&op<=10)CourseInfo.run(op);
+                if (op == 1) Head.run(op);
                 op -= 10;
-                if(op>=1&&op<=10) SelectCourseInfo.run(op);
-                op-=10;
+                if (op >= 1 && op <= 10) CourseInfo.run(op);
+                op -= 10;
+                if (op >= 1 && op <= 10) SelectCourseInfo.run(op);
+                op -= 10;
             }
 
             cin.close();

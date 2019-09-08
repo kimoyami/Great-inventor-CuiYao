@@ -220,18 +220,12 @@
     //点击选人
     $(".discussion-person").on("click",".discussion",function() {
       last.setYear(-100);
-      client.eCardNumber = "213171645";
       current = document.querySelector('.message-active');
       current.classList.remove("message-active");
       this.classList.add("message-active");
       Name = this.querySelector('.name').innerText;
       $(".header-chat .name").text(Name);
       $(".messages-chat").empty();
-
-      if(id == -1000){
-          id = setInterval('getnew()',  50);
-          getnew();
-      }
 
       var per = $(".message-active").find(".desc-contact").find(".message").text();
       var res = messagetrans.query(client.eCardNumber, per);
@@ -244,6 +238,11 @@
           last = res.elementAt(i).getTime();
           LeftTimeInsert(last);
         }
+      }
+
+	  if(id == -1000){
+          id = setInterval('getnew()',  10000);
+          getnew();
       }
 
 
