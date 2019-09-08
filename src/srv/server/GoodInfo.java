@@ -53,14 +53,24 @@ public class GoodInfo {
     }
 
     public static synchronized int insert() {
-        Goods goods;
+        String idx;
+        int cnt;
+        String goodname;
+        double price;
+        String url;
+        String tag;
         try {
-            goods = (Goods) ServerThread.cin.readObject();
+            idx=ServerThread.cin.readUTF();
+            cnt=ServerThread.cin.readInt();
+            goodname=ServerThread.cin.readUTF();
+            price=ServerThread.cin.readDouble();
+            url=ServerThread.cin.readUTF();
+            tag=ServerThread.cin.readUTF();
         } catch (Exception e) {
             e.printStackTrace();
             return -3;
         }
-        return DataGoods.insert(goods);
+        return DataGoods.insert(idx,cnt,goodname,price,url,tag);
     }
 
     public static synchronized int delete() {
@@ -116,6 +126,7 @@ public class GoodInfo {
     public static Vector<Goods> getAll() {
         return DataGoods.getAll();
     }
+
 
 
 }
