@@ -5,6 +5,7 @@ package srv.server;
 
 import dao.DataBase;
 import dao.DataPerson;
+import srv.person.Unsolve;
 
 import java.util.Vector;
 
@@ -39,13 +40,10 @@ public class Login {
                 ServerThread.cout.flush();
             }
             else if(op == 9){
-                Vector<Vector<Object>> res = getAll();
+                Vector<Unsolve> res = getAll();
                 ServerThread.cout.writeInt(res.size());
                 for(int i = 0; i < res.size(); i++){
-                    ServerThread.cout.writeInt(res.elementAt(i).size());
-                    for(int j = 0; j < res.elementAt(i).size(); j++){
-                        ServerThread.cout.writeObject(res.elementAt(i).elementAt(j));
-                    }
+                    ServerThread.cout.writeObject(res.elementAt(i));
                 }
                 ServerThread.cout.flush();
             }
@@ -164,7 +162,7 @@ public class Login {
         return DataPerson.isNew(eCardNumber);
     }
 
-    public static Vector<Vector<Object>> getAll(){
+    public static Vector<Unsolve> getAll(){
         return DataBase.getAll();
     }
 

@@ -19,6 +19,7 @@ package dao;
 import java.sql.*;
 import java.util.Properties;
 import java.util.Vector;
+import srv.person.Unsolve;
 
 public class DataBase {
     static private final String DEFAULTURL = "F:\\Great-inventor-CuiYao\\headimage\\timg.jpg";
@@ -193,28 +194,31 @@ public class DataBase {
         }
     }
 
-    public static Vector<Vector<Object>> getAll(){
-        Vector<Vector<Object>> res = new Vector<>();
-        try {
-            String sql = "select * from upsolved";
-            ResultSet rs = DataBase.s.executeQuery(sql);
-            while(rs.next()){
-                Vector<Object> tmp = new Vector<>();
-                tmp.add(rs.getString(2));
-                tmp.add(rs.getString(4));
-                tmp.add(rs.getString(5));
-                tmp.add(rs.getString(6));
-                res.add(tmp);
+    public static Vector<Unsolve> getAll() {
+            Vector<Unsolve> res = new Vector<>();
+            try {
+                String sql = "select * from upsolved";
+                ResultSet rs = DataBase.s.executeQuery(sql);
+                while (rs.next()) {
+                    Unsolve tmp = new Unsolve(rs.getString("username"), rs.getString("password"),
+                            rs.getString("ecardname"), rs.getString("sex"),
+                            rs.getString("status"));
+                    res.addElement(tmp);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        return res;
+            return res;
     }
 
     public static void main(String args[]){
         start();
-        System.out.println(query("213171645", "ryhlovelyt"));
+        Vector<Unsolve>res=getAll();
+        for (int i = 0; i <res.size() ; i++) {
+            System.out.println(res.elementAt(i).getSex());
+        }
+
+
         stop();
     }
 }

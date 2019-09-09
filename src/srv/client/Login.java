@@ -4,6 +4,8 @@ Arthor: kimoyami
 
 package srv.client;
 
+import srv.person.Unsolve;
+
 import java.util.Vector;
 import com.fasterxml.jackson.databind.ObjectMapper;
 public class Login {
@@ -138,23 +140,20 @@ public class Login {
         }
     }
 
-    public static Vector<Vector<Object>> getAll(){
+    public static Vector<Unsolve> getAll(){
         Client.run();
-        Vector<Vector<Object>> res = new Vector<>();
+        Vector<Unsolve> res = new Vector<>();
         try {
-           Client.cout.writeInt(STARTPOS + 9);
-           Client.cout.flush();
-           int n = Client.cin.readInt();
-           for(int i = 0; i < n; i++){
-               Vector<Object> tmp = new Vector<>();
-               int m = Client.cin.readInt();
-               for(int j = 0; j < m; j++){
-                   tmp.add(Client.cin.readObject());
-               }
-               res.add(tmp);
-           }
-           Client.stop();
-        }catch (Exception e){
+            Client.cout.writeInt(STARTPOS + 9);
+
+            Client.cout.flush();
+            int n = Client.cin.readInt();
+            for (int i = 0; i < n; i++) {
+                res.add((Unsolve) Client.cin.readObject());
+            }
+            Client.stop();
+        } catch (Exception e) {
+            e.printStackTrace();
             Client.stop();
             e.printStackTrace();
         }
@@ -176,9 +175,12 @@ public class Login {
         }
     }
 
-    public static void main(String args[]){
-        Client.run();
-        System.out.println(isNew("213171645"));
-        Client.stop();
-    }
+   public static void main(String args[]) {
+        Vector<Unsolve>res=getAll();
+       for (int i = 0; i <res.size() ; i++) {
+           System.out.println(res.elementAt(i).getSex());
+       }
+
+
+   }
 }
