@@ -7,11 +7,12 @@ package srv.server;
 import dao.DataHead;
 
 public class Head {
+    public static ServerThread now;
     public static void run(int op){
         try {
             if(op == 1){
-                ServerThread.cout.writeUTF(query());
-                ServerThread.cout.flush();
+                now.cout.writeUTF(query());
+                now.cout.flush();
             }
         }catch (Exception e){
             e.printStackTrace();
@@ -21,7 +22,7 @@ public class Head {
     public static String query(){
         String eCardNumber = "";
         try {
-            eCardNumber = ServerThread.cin.readUTF();
+            eCardNumber = now.cin.readUTF();
         }catch (Exception e){
             e.printStackTrace();
         }

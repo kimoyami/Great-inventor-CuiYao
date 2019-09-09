@@ -11,32 +11,33 @@ import srv.message.Message;
 import java.util.Vector;
 
 public class MessageTrans {
-
+    public static ServerThread now;
+    
     public static void run(int op){
         try {
             if(op == 1){
-                ServerThread.cout.writeInt(insert());
-                ServerThread.cout.flush();
+                now.cout.writeInt(insert());
+                now.cout.flush();
             }
             else if(op == 2){
-                ServerThread.cout.writeInt(delete());
-                ServerThread.cout.flush();
+                now.cout.writeInt(delete());
+                now.cout.flush();
             }
             else if(op == 3){
                 Vector<Message> res = query();
-                ServerThread.cout.writeInt(res.size());
+                now.cout.writeInt(res.size());
                 for(int i = 0; i < res.size(); i++){
-                    ServerThread.cout.writeObject(res.elementAt(i));
+                    now.cout.writeObject(res.elementAt(i));
                 }
-                ServerThread.cout.flush();
+                now.cout.flush();
             }
             else if(op == 4){
                 Vector<Message> res = querynew();
-                ServerThread.cout.writeInt(res.size());
+                now.cout.writeInt(res.size());
                 for(int i = 0; i < res.size(); i++){
-                    ServerThread.cout.writeObject(res.elementAt(i));
+                    now.cout.writeObject(res.elementAt(i));
                 }
-                ServerThread.cout.flush();
+                now.cout.flush();
             }
         }catch (Exception e){
             e.printStackTrace();
@@ -46,7 +47,7 @@ public class MessageTrans {
     public static synchronized int insert(){
         Message message = new Message();
         try {
-            message = (Message)ServerThread.cin.readObject();
+            message = (Message)now.cin.readObject();
             System.out.println(message.getSender());
         }catch (Exception e){
             e.printStackTrace();
@@ -58,7 +59,7 @@ public class MessageTrans {
     public static synchronized int delete(){
         Message message = new Message();
         try{
-            message = (Message)ServerThread.cin.readObject();
+            message = (Message)now.cin.readObject();
         }catch (Exception e){
             e.printStackTrace();
             return -3;
@@ -69,8 +70,8 @@ public class MessageTrans {
     public static Vector<Message> query(){
         String sender = "", receiver = "";
         try {
-            sender = ServerThread.cin.readUTF();
-            receiver = ServerThread.cin.readUTF();
+            sender = now.cin.readUTF();
+            receiver = now.cin.readUTF();
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -80,8 +81,8 @@ public class MessageTrans {
     public static Vector<Message> querynew(){
         String sender = "", receiver = "";
         try {
-            sender = ServerThread.cin.readUTF();
-            receiver = ServerThread.cin.readUTF();
+            sender = now.cin.readUTF();
+            receiver = now.cin.readUTF();
         }catch (Exception e){
             e.printStackTrace();
         }
