@@ -6,10 +6,6 @@
 </head>
 <body>
 <div style="text-align: center">
-    <div>
-        <input type="text" id="Ecardnumber" placeholder="搜索">
-        <input type="button" value="搜索" id="search_btn">
-    </div>
     <h1 align="center"><b><em>
         <caption>课程表</caption>
     </em></b></h1>
@@ -73,21 +69,18 @@
             <td>10</td>
         </tr>
     </table>
+    <div>
+        <button id="back" onclick="Back()">返回</button>
+    </div>
 </div>
 <script>
     window.onload = function () {
-        var search_btn = document.getElementById('search_btn');
-        search_btn.onclick = function ()
-        {
-            var x = document.getElementById('Ecardnumber').value;
-            alert(x);
-            //var res = 1;//测试
-            var res = login.exist(x);
-
-            if(res == 1) {
+            //var x = client.eCardNumber;
+            //alert(x);
+            var x = "213171645";
                 var str = personinfo.query(x);
                 var obj = JSON.parse(str);
-                alert("用户存在");//跳转
+                //alert("用户存在");//跳转
                 var a = document.getElementById("useridentify");
                 a.innerHTML = obj['state'];
                 var y0 = document.getElementById("115");
@@ -101,7 +94,7 @@
                 var y8 = document.getElementById("460");
                 var y9 = document.getElementById("560");
                 var vec = selectCourseinfo.query(x);
-                alert(vec.elementAt(0).getCourseName());
+                //alert(vec.elementAt(0).getCourseName());
                for (var i = 0; i <vec.size() ; i++){
 
                    var b = vec.elementAt(i).getTime();
@@ -114,7 +107,7 @@
                            e = (Math.floor(b/1000000))%1000;
                        }
                    }
-                   alert(c);
+                   //alert(c);
                    if(c !==0){
                        if((c==112)||(c==113)||(c==134)||(c==135)){
                            y0.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>";
@@ -213,12 +206,10 @@
                 }
             }
 
-            }
-
-            else{
-                alert("搜索不到该用户");
-            }
-        }
+    }
+    function Back()
+    {
+        window.location.href="education.html";
     }
 
 

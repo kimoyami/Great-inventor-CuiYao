@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>学生教务系统</title>
+</head>
+<body>
+	<button id="selectCourse" onclick="selectCourse()">选课</button>
+	<button id="checkSchedule" onclick="checkSchedule()">查看课表</button>
+	<button id="viewResults" onclick="viewResults()">查看成绩</button>
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+	function selectCourse() {
+		//var information = client.eCardNumber;
+		window.location.href="SelectCourse.html";
+	}
+	function checkSchedule() {
+		//var information = client.eCardNumber;
+		window.location.href="TimeTable.html";
+	}
+	function viewResults() {
+		var information = client.eCardNumber;
+		//window.location.href="";地址未填
+	}
+</script>
+
+</body>
+</html>
