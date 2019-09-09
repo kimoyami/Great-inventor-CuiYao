@@ -24,8 +24,10 @@ public class DataSelectCourse {
         }
     }
 
-    public static int insert(String e,String idx,String name,int time,String teacher){
+    public static int insert(String e,String idx,String name,int time,String teacher,int classroom){
         try{
+
+
             if(exist(e,name)==1){return 0;}
             String sql="select * from course where idx='"+idx+"' and teacher='"+teacher+"'";
             ResultSet rs=DataBase.s.executeQuery(sql);
@@ -48,9 +50,9 @@ public class DataSelectCourse {
             ArrayList<Integer>ct=cuttime(time);
             for (int i = 0; i <ct.size() ; i++) {
                 int temp=ct.get(i);
-                sql="insert into selectcourse(ecardname,idx,coursename,coursetime,teacher)" +
+                sql="insert into selectcourse(ecardname,idx,coursename,coursetime,teacher,classroom)" +
                         "values ('"+e+"','"+idx+"'," +
-                        "'"+name+"',"+temp+",'"+teacher+"')";
+                        "'"+name+"',"+temp+",'"+teacher+"',"+classroom+")";
                 DataBase.s.executeUpdate(sql);
                 DataBase.c.commit();
             }
@@ -138,7 +140,7 @@ public class DataSelectCourse {
             while(rs.next()){
                 SelectCourse tmp=new SelectCourse(rs.getString("ecardname"),rs.getString("idx"),
                         rs.getString("coursename"),rs.getInt("coursetime"),
-                        rs.getString("teacher"));
+                        rs.getString("teacher"),rs.getInt("classroom"));
                 res.add(tmp);
             }
         }catch(Exception e){
@@ -150,7 +152,7 @@ public class DataSelectCourse {
 
     public static void main(String args[]){
         DataBase.start();
-       insert("213170003","0014","编译原理",112212,"翟玉庆");
+        int a=insert("213170003","0014","编译原理",112212,"翟玉庆",2101);
         DataBase.stop();
     }
 }

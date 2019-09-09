@@ -26,12 +26,10 @@ public class DataCourse {
         try{
         if(exist(course.getIdx(),course.getTeacher())==1){return 0;}
 
-
-
-        String sql="insert into course(idx,coursename,teacher,coursetime,maxpeople,remainnumber,state) " +
+        String sql="insert into course(idx,coursename,teacher,coursetime,maxpeople,remainnumber,state,classroom) " +
                 "values ('"+course.getIdx()+"','"+course.getCourseName()+"','"+course.getTeacher()+"'," +
                 ""+course.getCourseTime()+","+course.getMaxPeople()+","+course.getRemainNumber()+"," +
-                "'"+course.getState()+"')";
+                "'"+course.getState()+"','"+course.getClassroom()+"')";
         DataBase.s.executeUpdate(sql);
         DataBase.c.commit();
         return 1;
@@ -65,7 +63,8 @@ public class DataCourse {
                     Course tmp = new Course(rs.getString("idx"),
                             rs.getString("coursename"), rs.getInt("coursetime"),
                             rs.getString("teacher"), rs.getInt("maxpeople"),
-                            rs.getInt("remainnumber"),rs.getString("state"));
+                            rs.getInt("remainnumber"),rs.getString("state"),
+                            rs.getInt("classroom"));
                     res.addElement(tmp);
                 }
             }catch (Exception e){
@@ -83,7 +82,8 @@ public class DataCourse {
                 Course tmp = new Course(rs.getString("idx"),
                         rs.getString("coursename"), rs.getInt("coursetime"),
                         rs.getString("teacher"), rs.getInt("maxpeople"),
-                        rs.getInt("remainnumber"),rs.getString("state"));
+                        rs.getInt("remainnumber"),rs.getString("state"),
+                        rs.getInt("classroom"));
                 res.addElement(tmp);
             }
         }catch (Exception e){

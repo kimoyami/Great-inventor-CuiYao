@@ -37,19 +37,21 @@ public class SelectCourseInfo {
         String idx;
         String name;
         int time;
+        int classroom;
         String teacher;
 
         try {
-            e=ServerThread.cin.readUTF();;
-            idx=ServerThread.cin.readUTF();;
-            name=ServerThread.cin.readUTF();;
-            time=ServerThread.cin.readInt();;
-            teacher=ServerThread.cin.readUTF();;
+            e=ServerThread.cin.readUTF();
+            idx=ServerThread.cin.readUTF();
+            name=ServerThread.cin.readUTF();
+            time=ServerThread.cin.readInt();
+            teacher=ServerThread.cin.readUTF();
+            classroom=ServerThread.cin.readInt();
         } catch (Exception ex) {
             ex.printStackTrace();
             return -3;
         }
-        return DataSelectCourse.insert(e,idx,name,time,teacher);
+        return DataSelectCourse.insert(e,idx,name,time,teacher,classroom);
     }
 
     public static synchronized int delete() {
