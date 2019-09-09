@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>注册信息审核</title>
+</head>
+
+<body>
+	<table id="MyTable" border="solid">
+		<tr>
+			<th style="width: 10%; align-self: center;">用户姓名</th>
+			<th style="width: 10%; align-self: center;">交易密码</th>
+			<th style="width: 10%; align-self: center;">一卡通号</th>
+			<th style="width: 10%; align-self: center;">性别</th>
+			<th style="width: 10%; align-self: center;">身份</th>
+			<th style="width: 10%; align-self: center;">通过审核</th>
+		</tr>
+	</table>
+	<button id="pass" onclick="pass()">通过</button>
+
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+	<script type="text/javascript">
+		(function (){
+		var a = login.getAll();
+		alert("1234")
+		for (var i = 0; i<5; i++){
+			var v = a.elementAt(i).getEcardname();
+
+			$("#MyTable").append("<tr><td>"+a.elementAt(i).getUsername()+"</td><td>"+a.elementAt(i).getPassword()+"</td><td>"+a.elementAt(i).getEcardname()
+				+"</td><td>"+a.elementAt(i).getSex()+"</td><td>"+a.elementAt(i).getStatus()+"</td><td>" +
+					"<input type='checkbox' name='ispass' value='"+v+"'/>"+"</td></tr>");
+		}})();
+		alert("12345")
+
+	function pass() {
+		alert("123");
+		var m = document.getElementsByName("ispass");
+		for (i in m) {
+			if (m[i].checked) {
+				login.solve(m[i].value);
+				alert(m[i].value+"审核通过！");
+			}
+		}
+	}
+
+	</script>
+
+	<style type="text/css">
+		
+	</style>
+</body>
+</html>

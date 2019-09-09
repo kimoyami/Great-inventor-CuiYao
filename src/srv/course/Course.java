@@ -20,8 +20,10 @@ public class Course implements Serializable{
     private int maxPeople;
     private int remainNumber;
     private String state;
+    private int classroom;
 
-    public Course(String idx,String Name, int Time, String teacher, int maxPeople, int remainNumber,String state){
+    public Course(String idx,String Name, int Time, String teacher, int maxPeople, int remainNumber,String state,int classroom){
+        this.classroom=classroom;
         this.idx=idx;
         this.courseName = Name;
         this.courseTime = Time;
@@ -53,6 +55,7 @@ public class Course implements Serializable{
     public String getState() {
         return this.state;
     }
+    public int getClassroom(){return this.classroom;}
 
     public void setIdx(String idx) {
         this.idx = idx;
@@ -75,5 +78,5 @@ public class Course implements Serializable{
     public void setState(String state) {
         this.state = state;
     }
-
+    public void setClassroom(int classroom){this.classroom=classroom;}
 }

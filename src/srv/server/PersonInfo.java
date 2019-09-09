@@ -8,28 +8,28 @@ import dao.DataPerson;
 import srv.person.Person;
 
 public class PersonInfo {
-
+    public static ServerThread now;
     public static void run(int op){
         try {
             if(op == 1){
-                ServerThread.cout.writeInt(insert());
-                ServerThread.cout.flush();
+                now.cout.writeInt(insert());
+                now.cout.flush();
             }
             if(op == 2){
-                ServerThread.cout.writeInt(delete());
-                ServerThread.cout.flush();
+                now.cout.writeInt(delete());
+                now.cout.flush();
             }
             if(op == 3){
-                ServerThread.cout.writeObject(query());
-                ServerThread.cout.flush();
+                now.cout.writeObject(query());
+                now.cout.flush();
             }
             if (op == 4) {
-                ServerThread.cout.writeInt(update());
-                ServerThread.cout.flush();
+                now.cout.writeInt(update());
+                now.cout.flush();
             }
             if(op == 5){
-                ServerThread.cout.writeInt(isNew());
-                ServerThread.cout.flush();
+                now.cout.writeInt(isNew());
+                now.cout.flush();
             }
         }catch (Exception e){
             return;
@@ -39,7 +39,7 @@ public class PersonInfo {
     public static synchronized int insert(){
         Person person;
         try {
-            person = (Person)ServerThread.cin.readObject();
+            person = (Person)now.cin.readObject();
         }catch (Exception e){
             e.printStackTrace();
             return -3;
@@ -50,7 +50,7 @@ public class PersonInfo {
     public static synchronized int delete(){
         String eCardNumber;
         try {
-            eCardNumber = ServerThread.cin.readUTF();
+            eCardNumber = now.cin.readUTF();
         }catch (Exception e){
             e.printStackTrace();
             return -3;
@@ -61,7 +61,7 @@ public class PersonInfo {
     public static Person query(){
         String eCardNumber = "";
         try {
-            eCardNumber =  ServerThread.cin.readUTF();
+            eCardNumber =  now.cin.readUTF();
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -71,7 +71,7 @@ public class PersonInfo {
     public static synchronized int update(){
         Person person;
         try{
-            person = (Person)ServerThread.cin.readObject();
+            person = (Person)now.cin.readObject();
         }catch (Exception e){
             e.printStackTrace();
             return -3;
@@ -84,7 +84,7 @@ public class PersonInfo {
     public static int isNew(){
         String eCardNumber = "";
         try {
-            eCardNumber = ServerThread.cin.readUTF();
+            eCardNumber = now.cin.readUTF();
         }catch (Exception e){
             e.printStackTrace();
             return -3;

@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'>
+<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="syalert/syalert.min.css" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+<script src="syalert/syalert.min.js"></script>
 <html>
     <head>
         <meta charset="utf-8">
@@ -6,21 +13,22 @@
         <link rel="stylesheet" href="css/barstyle.css">
     </head>
     <body>
-        <img class="background" src="img/1.jpg" alt="">
-        <div class="menu">
+        <img class="background" src="img/2.jpg" alt="">
+        <div class="barground">
             <div class="bar">
                 <ul class="box">
-                    <li><a class="tab" id="message" href="javascript:i">信息</a> </li>
-                    <li><a class="tab" href="javascript:i">商店</a> </li>
-                    <li><a class="tab" href="javascript:i">银行</a> </li>
-                    <li><a class="tab" href="javascript:i">图书馆</a> </li>
-                    <li><a class="tab" href="javascript:i">聊天</a> </li>    
+                    <li><a class="tab" id="Message" href="javascript:i">信息</a> </li>
+                    <li><a class="tab" id="Shop" href="javascript:i">商店</a> </li>
+                    <li><a class="tab" id="Bank" href="javascript:i">银行</a> </li>
+                    <li><a class="tab" id="Book" href="javascript:i">图书馆</a> </li>
+                    <li><a class="tab" id="Chat" href="javascript:i">聊天</a> </li>    
                 </ul>
             </div>
             <a href="javascript:;" class="headpng"><img class="png" id = "head" src="?" alt="" style="cursor:hand" onclick="headpng()"></a>
         </div>
-        <div class="content">      
-            <div class = "textcontrol">
+        <div class="content">    
+            <div>  
+                <div id = "textcontrol">
                 <h1 style="text-align: center">信息修改</h1>
                 <form action="" method="get">
                     <p><label class="setfont">Name:      </label><input id="uname"  type="text" placeholder="请输入姓名" style="width: 140px" readonly/></p>
@@ -46,32 +54,394 @@
                         <input id="load" value="完成" type="button"  onsubmit=" return check"/>
                     </div>
                 </form>
+                </div>
             </div>
-        </div>
+            <div id="shop">
+                    <h1 style="font-family: Lobster" >SHOP</h1>
+                    <input type="text" id="myInput" onkeyup="ShopmyFunction()" placeholder="搜索...">
+                    <table id="myTable" >
+                        <tr>
+                            <th style="width: 16.5%;">超市</th>
+                            <th style="width: 16.5%">商品名称</th>
+                            <th style="width: 16.5%"> 价格</th>
+                            <th style="width: 16.5%"> 数量</th>
+                            <th style="width: 16.5%">购买数量</th>
+                            <th style="width: 16.5%">操作</th>
+                    
+                        </tr>
+                    </table>
+                    <div><button id="basket" class="buy">查看购物车</button></div>
+                    <div class="sy-alert sy-alert-model animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="confirm" sy-mask="true" id="alert4">
+                        <div class="sy-title">购物车</div>
+                        <div class="sy-content">
+                            <table id="myForm">
+                                <tr>
+                                    <th style="width: 20%">超市</th>
+                                    <th style="width: 20%">商品名</th>
+                                    <th style="width: 20%">价格</th>
+                                    <th style="width: 20%">数量</th>
+                                    <th style="width: 20%">操作</th>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="sy-btn">
+                            <button onClick="syalert.syhide('alert4')">取消</button>
+                            <button  id="Buy">购买</button>
+                        </div>
+                    </div>
+                
+            </div>
+
+        <div id="bank">
+                    <h1 style="text-align: center;margin-top: 30%;margin-bottom: 20%;">个人银行</h1>
+                        <div id="function_button">
+                                <div style="text-align: center">
+                                        <input id="search" class="bankbutton" value="余额" type="button"/>
+                                </div>
+                                <div style="text-align: center">
+                                         <input id="top_up" class="bankbutton" value="充值" type="button"/>
+                                </div>
+                                 <div style="text-align: center">
+                                        <input id="transfer" class="bankbutton" value="转账" type="button"/>
+                                 </div>
+                        </div>
+                        <div id="money_input">
+                            <div id="remainder">
+                                <p style="text-align: center">一卡通余额
+                                <input type="text" id="Ecardbalance" value="0.0" readonly></p>
+                                <p style="text-align: center">银行卡余额
+                                <input type="text" id="balance" value="0.0"readonly></p>
+                                <input id="search" class="checkbutton" value="余额" type="button"onclick="searchFct()"/>
+                            </div>
+                            <div id="transferB1">
+                                <p style="text-align: center">转账金额
+                                <input type="text" id="topupAmount" placeholder="请输入转账金额" /></p>
+                                <p style="text-align: center">交易密码
+                                <input type="password" id="topuppassword" placeholder="请输入交易密码" /></p>
+                                <p style="text-align: center">
+                                <input type="radio" name="toecard" id="Ecard" value="2" checked="checked"/>一卡通充值</br>
+                                <input type="radio" name="toecard" id="Card" value="0" />银行卡充值
+                                <input id="search" class="checkbutton" value="充值" type="button"onclick="topupFct()"/>
+                                
+                                </p>
+                            </div>
+                            <div id="transferB2">
+                                <p style="text-align: center">转账金额
+                                    <input type="text" id="transferAmount" value="" placeholder="请输入转账金额" /></p>
+                                <p style="text-align: center">转账对象
+                                    <input type="text" id="transferTo" value="" placeholder="请输入转账对象" /></p>
+                                <p style="text-align: center">交易密码
+                                    <input type="password" id="transferPassword" name="transferTo" placeholder="请输入交易密码" /></p>
+                                    <input id="search" class="checkbutton" value="转账" type="button"onclick="transferFct()"/>
+                            </div>
+                        </div>
+             </div>
+
+             <div id="book">
+                    <nav class="navbar navbar-inverse navbar-fixed-top">
+                            <a href="">BOOK</a>
+                        </nav>
+                            <input type="text" id="myInput" onkeyup="BookmyFunction()" placeholder="搜索...">
+                        
+                                <table class="responsive-table table" id="myTable" style="font-weight:bold">
+                        
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>书名</th>
+                                        <th>作者</th>
+                                        <th>出版社</th>
+                                        <th>类型</th>
+                                        <th> 状态</th>
+                                        <th>操作</th>
+                                    </tr>
+                        
+                        
+                                </table>
+                        <ul class="accordion-menu" style="padding: 0">
+                            <li>
+                                <div class="dropdownlink"><i class="fa fa-road" aria-hidden="true"></i> 我的书库
+                                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                                </div>
+                                <ul class="submenuItems">
+                                    <li><a >图书ID:<label id="book1" ></label><button class="myBtn" id="btn1">还书</button></a></li>
+                                    <li><a >图书ID:<label id="book2"></label><button class="myBtn" id="btn2">还书</button></a></li>
+                                    <li><a >图书ID:<label id ="book3"></label><button class="myBtn" id="btn3">还书</button></a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert0">
+                            <div class="sy-content">图书已借出！</div>
+                        </div>
+                        <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert1">
+                            <div class="sy-content">你已经借了三本书了！</div>
+                        </div>
+                        <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert2">
+                            <div class="sy-content">借书成功！</div>
+                        </div>
+                        <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert3">
+                            <div class="sy-content">还书成功！</div>
+                        </div>
+                        <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert4">
+                            <div class="sy-content">还书失败！</div>
+                        </div>
+
+            </div>
+            <div>
+                <div id="chat">
+                    <div class="container">
+                            <div class="row">
+                              <nav class="menu">
+                                <ul class="items">
+                                  <li class="item">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                  </li>
+                                  <li class="item item-active">
+                                    <i class="fa fa-commenting" aria-hidden="true"></i>
+                                  </li>
+                                </ul>
+                              </nav>
+                        
+                            <section class="discussions">
+                              <div class="discussion search">
+                                <div class="searchbar">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                    <input type="text" class="searchbar-message" placeholder="Search..."></input>
+                                </div>
+                              </div>
+                              <div class="discussion-person">
+                                  <div class="discussion message-active">
+                                    <div class="photo" style="background-image: url(https://image.noelshack.com/fichiers/2017/38/2/1505775062-1505606859-portrait-1961529-960-720.jpg);">
+                                      <div class="online"></div>
+                                    </div>
+                                    <div class="desc-contact">
+                                      <p class="name">Megan Leib</p>
+                                      <p class="message">213170228</p>
+                                    </div>
+                                    <div class="timer">12 sec</div>
+                                  </div>
+                        
+                                 <div class="discussion">
+                                   <div class="photo" style="background-image: url(http://www.boutique-uns.com/uns/185-home_01grid/polo-femme.jpg);">
+                                   </div>
+                                   <div class="desc-contact">
+                                     <p class="name">Elsie Amador</p>
+                                     <p class="message">What the f**k is going on ?</p>
+                                    </div>
+                                    <div class="timer">1 day</div>
+                                  </div>
+                        
+                              </div>
+                              </section>
+                        
+                              <section class="chat">
+                                <div class="header-chat">
+                                  <i class="icon fa fa-user-o" aria-hidden="true"></i>
+                                  <p class="name">Megan Leib</p>
+                                  <i class="icon clickable fa fa-ellipsis-h right" aria-hidden="true"></i>
+                                </div>
+                                <div class="messages-chat ">
+                                  <div class="message">
+                                    <div class="photo" style="background-image: url(https://image.noelshack.com/fichiers/2017/38/2/1505775062-1505606859-portrait-1961529-960-720.jpg);">
+                                      <div class="online"></div>
+                                    </div>
+                                    <p class="text"> Hi, how are you ? </p>
+                                  </div>
+                                  <div class="message text-only">
+                                    <p class="text"> What are you doing tonight ? Want to go take a drink ?</p>
+                                  </div>
+                                  <p class="time"> 14h58</p>
+                        
+                                  <div class="message text-only">
+                                    <div class="response">
+                                      <p class="text"> Hey Megan ! It's been a while 😃</p>
+                                    </div>
+                                  </div>
+                        
+                                  <div class="message text-only">
+                                    <div class="response">
+                                      <p class="text"> When can we meet ?</p>
+                                    </div>
+                                  </div>
+                        
+                                  <p class="response-time time"> 15h04</p>
+                        
+                                  <div class="message">
+                                    <div class="photo" style="background-image: url(https://image.noelshack.com/fichiers/2017/38/2/1505775062-1505606859-portrait-1961529-960-720.jpg);">
+                                      <div class="online"></div>
+                                    </div>
+                                    <p class="text"> 9 pm at the bar if possible 😳</p>
+                                  </div>
+                        
+                                  <p class="time"> 15h09</p>
+                                  <div class="message text-only">
+                                    <div class="response">
+                                      <p class="text"> Hey Megan ! It's been a while 😃</p>
+                                    </div>
+                                  </div>
+                                  <div class="message text-only">
+                                    <div class="response">
+                                      <p class="text"> Hey Megan ! It's been a while 😃</p>
+                                    </div>
+                                  </div>
+                                  <div class="message text-only">
+                                    <div class="response">
+                                      <p class="text"> Hey Megan ! It's been a while 😃</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="footer-chat">
+                                  <i class="icon fa fa-smile-o clickable" style="font-size:25pt;" aria-hidden="true"></i>
+                                  <input type="text" class="write-message" placeholder="Type your message here"></input>
+                                  <i class="icon send fa fa-paper-plane-o clickable" aria-hidden="true"></i>
+                                </div>
+                              </section>
+                            </div>
+                        
+                            <div class="card">
+                                <div class="top">
+                                    <svg viewBox="0 0 100 100">
+                                      <path d="m38.977 59.074c0 2.75-4.125 2.75-4.125 0s4.125-2.75 4.125 0"></path>
+                                      <path d="m60.477 59.074c0 2.75-4.125 2.75-4.125 0s4.125-2.75 4.125 0"></path>
+                                      <path d="m48.203 69.309c1.7344 0 3.1484-1.4141 3.1484-3.1484 0-0.27734-0.22266-0.5-0.5-0.5-0.27734 0-0.5 0.22266-0.5 0.5 0 1.1836-0.96484 2.1484-2.1484 2.1484s-2.1484-0.96484-2.1484-2.1484c0-0.27734-0.22266-0.5-0.5-0.5-0.27734 0-0.5 0.22266-0.5 0.5 0 1.7344 1.4141 3.1484 3.1484 3.1484z"></path>
+                                      <path d="m35.492 24.371c0.42187-0.35156 0.48047-0.98438 0.125-1.4062-0.35156-0.42188-0.98438-0.48438-1.4062-0.125-5.1602 4.3047-16.422 17.078-9.5312 42.562 0.21484 0.79688 0.85547 1.4062 1.6641 1.582 0.15625 0.035156 0.31641 0.050781 0.47266 0.050781 0.62891 0 1.2344-0.27344 1.6445-0.76562 0.82812-0.98828 2.0039-1.5391 2.793-1.8203 0.56641 1.6055 1.4766 3.3594 2.9727 4.9414 2.2852 2.4219 5.4336 3.9453 9.3867 4.5547-3.6055 4.5-3.8047 10.219-3.8086 10.484-0.011719 0.55078 0.42187 1.0078 0.97656 1.0234h0.023438c0.53906 0 0.98437-0.42969 1-0.97266 0-0.054688 0.17187-4.8711 2.9805-8.7773 0.63281 1.2852 1.7266 2.5 3.4141 2.5 1.7109 0 2.7578-1.2695 3.3398-2.6172 2.8867 3.9258 3.0586 8.8359 3.0586 8.8906 0.015625 0.54297 0.46094 0.97266 1 0.97266h0.023438c0.55078-0.015625 0.98828-0.47266 0.97656-1.0234-0.007812-0.26953-0.20703-6.0938-3.9141-10.613 7.0781-1.3086 10.406-5.4219 11.969-8.9766 1.0508 0.98828 2.75 2.1992 4.793 2.1992 0.078126 0 0.15625 0 0.23828-0.003906 0.47266-0.023438 1.5781-0.074219 3.4219-4.4219 1.1172-2.6406 2.1406-6.0117 2.8711-9.4922 4.8281-22.945-4.7852-30.457-9.1445-32.621-12.316-6.1172-22.195-3.6055-28.312-0.42188-0.48828 0.25391-0.67969 0.85938-0.42578 1.3477s0.85938 0.67969 1.3477 0.42578c5.7031-2.9688 14.934-5.3047 26.5 0.4375 7.1875 3.5703 9 11.586 9.2539 17.684 0.49609 11.93-4.2617 23.91-5.7344 25.062h-0.015626c-1.832 0-3.4102-1.5742-4.0352-2.2852 0.28906-0.99609 0.44531-1.8672 0.52734-2.5117 0.62891 0.16797 1.2812 0.27344 1.9727 0.27344 0.55469 0 1-0.44922 1-1 0-0.55078-0.44531-1-1-1-7.3203 0-10.703-13.941-10.734-14.082-0.097656-0.40625-0.4375-0.71094-0.85156-0.76172-0.43359-0.050781-0.82031 0.16406-1.0117 0.53906-1.8984 3.7188-1.4297 6.7539-0.67969 8.668-6.2383-2.2852-8.9766-8.6914-9.0078-8.7617-0.17969-0.43359-0.62891-0.68359-1.1016-0.60156-0.46094 0.082032-0.80469 0.47266-0.82422 0.94141-0.14062 3.3359 0.67188 5.75 1.5 7.3164-8.3125-2.4297-10.105-11.457-10.184-11.875-0.097656-0.51562-0.57422-0.86328-1.0898-0.8125-0.51953 0.054687-0.90625 0.50391-0.89062 1.0234 0.41406 13.465-1.8516 17.766-3.2383 19.133-0.66406 0.65625-1.1992 0.67188-1.2383 0.67188-0.53906-0.050781-1.0156 0.31641-1.0938 0.85156-0.078125 0.54688 0.29688 1.0547 0.84375 1.1328 0.03125 0.003906 0.11328 0.015625 0.23828 0.015625 0.36719 0 1.1016-0.09375 1.9414-0.66406 0.050781 0.38672 0.125 0.81641 0.21875 1.2656-1.0273 0.35156-2.6211 1.0781-3.7812 2.4648-0.015625 0.019532-0.054687 0.066406-0.15625 0.046875-0.039062-0.007812-0.13281-0.039062-0.16406-0.15234-2.1875-8.1094-5.7148-28.309 8.8867-40.496zm12.711 51.828c-1.0039 0-1.5898-1.207-1.8672-2.0117 0.48047 0.023438 0.95703 0.050781 1.4531 0.050781 0.74219 0 1.4453-0.035156 2.1289-0.082031-0.24219 0.83594-0.76172 2.043-1.7148 2.043zm-13.148-30.664c1.9531 3.6211 5.6367 7.9102 12.305 8.6992 0.43359 0.046875 0.83984-0.18359 1.0234-0.57422 0.18359-0.39062 0.089844-0.85938-0.22656-1.1523-0.074219-0.070312-1.2734-1.2227-1.9688-3.6367 2 2.6094 5.3359 5.6836 10.305 6.5664 0.42187 0.070312 0.83594-0.125 1.0469-0.49219 0.21094-0.36719 0.16406-0.82812-0.11719-1.1484-0.023437-0.027344-1.9414-2.2969-1.2891-5.8906 1.2227 3.5508 3.7461 9.2227 7.8945 11.551-0.03125 0.55859-0.14844 1.668-0.55078 3.0156-0.085937 0.13672-0.125 0.28516-0.13672 0.44531-1.3008 3.8906-5.0039 9.3281-15.547 9.3281-5.375 0-9.4414-1.418-12.086-4.2109-3.5664-3.7656-3.332-8.8477-3.332-8.8984v-0.011719c1.5898-2.7227 2.5-7.3203 2.6797-13.59z"></path>
+                                    </svg>
+                                    <div class="social-buttons">
+                                      <button><i class="material-icons">clear</i></button>
+                                    </div>
+                                    <div class="text">
+                                      <div class="name-wrapper">
+                                        <div class="name">Morgan, 22</div><i class="material-icons">check_circle</i>
+                                      </div>
+                                      <div class="title">Ant Collector</div>
+                                    </div>
+                                  </div>
+                                  <div class="bottom">
+                                    <div class="desc">Morgan has collected ants since they were six years old and now has many dozen ants but none in their pants.</div>
+                                    <div class="buttons">
+                                      <button class="like"><i class="material-icons">person</i>
+                                        <div class="height">5'4"</div>
+                                      </button>
+                                      <button class="status"><i class="material-icons">search</i>
+                                        <div class="height">Marriage</div>
+                                      </button>
+                                      <button class="horo"><i class="material-icons">share</i>
+                                        <div class="height">Capricorn</div>
+                                      </button>
+                                    </div>
+                                  </div>
+                            </div>
+                          </div>
+
+            </div>
+            </div>
+    </div>
+
+
+        <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert3">
+                <div class="sy-content">不能为负数</div>
+            </div>
+            <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert2">
+                <div class="sy-content">加入成功！</div>
+            </div>
     </body>
 
 <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
 <script>
-    document.getElementById('head').src = head.query(client.eCardNumber);
+   
+    //document.getElementById('head').src = head.query(client.eCardNumber);
+    
     $('.tab').on('click',function(){
-        var parent = $(document).find('.tagfocus');
-        parent.each(function(){
+        var focused = $(document).find('.tagfocus');
+        focused.each(function(){
             if($(this).hasClass('tagfocus'))
                 $(this).removeClass('tagfocus');
         })
 
-        var parent = $(document).find('.seen');
-        parent.each(function(){
+        
+        $(this).parent().addClass('tagfocus');
+
+        var seened = $(document).find('.seen');
+
+        seened.each(function(){
             if($(this).hasClass('seen'))
                 $(this).removeClass('seen');
         })
 
-        $(this).parent().addClass('tagfocus');
-        if($(this).attr('id')=="message")
+        if($(this).attr('id')=="Message")
         {
-            $('.textcontrol').addClass('seen');
+            
+            $('#textcontrol').addClass('seen');
+            
+    var obj = JSON.parse(personinfo.query(client.eCardNumber));
+    $("#uid").val(obj['eCardNumber']);
+    $("#uname").val(obj['name']);
+    $("#age").val(obj['age']);
+    $("#Academy").val(obj['academy']);
+    $("#birthplace").val(obj['birthplace']);
+    $("#sex").val(obj['gender']);
+    $("#identity").val(obj['state']);
+    $("#dormitory").val(obj['dormitory']);
+    $("#birth").val(obj['birthday']);
         }
-        e.stopPropagation();
+
+        if($(this).attr('id')=="Shop")
+        {
+            
+            $('#shop').addClass('seen');
+            var s =0;
+            var res = goodinfo.getAll();
+            $("#shop #myTable").empty();
+            $("#shop #myTable").append("<tr><th>超市</th><th>商品名</th> <th>价格</th><th>数量</th><th>操作</th></tr>");
+            for(var i=0;i<res.size();i++){
+            $("#shop #myTable").append("<tr><td>"+(goodinfo.getAll().elementAt(i).getTag())+"</td><td>"+(goodinfo.getAll().elementAt(i).getName())+"</td><td>"+(goodinfo.getAll().elementAt(i).getPrice())+"</td><td id='td3'>"+(goodinfo.getAll().elementAt(i).getNumber())+"</td><td>"+"<input id='numberInput' placeholder='请输入购买数量'oninput = \"value=value.replace(/[^\\d]/g,'')\" />"+"</td><td>"+"<button id='buy'class='buy'>加入购物车</button>"+"</td></tr>")}
+        }
+
+        if($(this).attr('id')=="Bank")
+        {
+            
+            $('#bank').addClass('seen');
+        }
+
+        if($(this).attr('id')=="Book")
+        {
+            
+            $('#book').addClass('seen');
+           
+            var res =bookinfo.getAll();
+            var record=bookinfo.queryrecord(client.eCardNumber);
+            for(var j=0;j<record.size();j++){
+            if($("#book1").html()==""){
+                $("#book1").html(record.elementAt(j).getBookID());
+            }else if($("#book2").html()==""){
+            $("#book2").html(record.elementAt(j).getBookID());
+            }else if($("#book3").html()==""){
+            $("#book3").html(record.elementAt(j).getBookID());
+            }
+        $("#book #myTable").empty();
+        $("#book #myTable").append("<tr><th>ID</th><th>书名</th><th>作者</th><th>出版社</th><th>类型</th><th>状态</th><th>操作</th></tr>");
+        }
+        for(var i=0;i<res.size();i++){
+        $("#book #myTable").append("<tr><td>"+(res.elementAt(i).getBookID())+"</td><td>"+(res.elementAt(i).getBookName())+"</td><td>"+(res.elementAt(i).getBookEdit())+"</td><td>"+(res.elementAt(i).getBOOK_PUB())+"</td><td>"+(res.elementAt(i).getCategory())+"</td><td>"+(res.elementAt(i).getState())+"</td><td><button id='borrow' class='myBtn'>借书</button></td></tr>")}
+            var record=bookinfo.queryrecord(client.eCardNumber);
+        }
+
+
+        
+        if($(this).attr('id')=="Chat")
+        {
+            
+            $('#chat').addClass('seen');
+            
+            //滚轮到底部
+            var scrollHeight = $(".messages-chat").prop("scrollHeight");
+            $(".messages-chat").scrollTop(scrollHeight);
+
+
+             var last = client.getDate();
+             last.setYear(-100);
+             var id = -1000;
+        }
+
     })
 
 
@@ -112,16 +482,7 @@
     })
 })
 
-    var obj = JSON.parse(personinfo.query(client.eCardNumber));
-    $("#uid").val(obj['eCardNumber']);
-    $("#uname").val(obj['name']);
-    $("#age").val(obj['age']);
-    $("#Academy").val(obj['academy']);
-    $("#birthplace").val(obj['birthplace']);
-    $("#sex").val(obj['gender']);
-    $("#identity").val(obj['state']);
-    $("#dormitory").val(obj['dormitory']);
-    $("#birth").val(obj['birthday']);
+
     function getPath(obj) {
         if (obj) {
             if (window.navigator.userAgent.indexOf("MSIE") >= 1) {
@@ -142,6 +503,574 @@
 		document.getElementById('head').src = head.query(client.eCardNumber);
     }
 
-</script>
-</html>
+   
+
+
+   $(document).on("click",'#buy',function () {
+       var count = $(this).parents("tr").find("td").eq(3).text();
+       var  number = $(this).parents("tr").find("input").val();
+       var name =$(this).parents("tr").find("td").eq(1).text();
+       var tag =$(this).parents("tr").find("td").eq(0).text();
+       var price =$(this).parents("tr").find("td").eq(2).text();
+
+       var newcount = count -number;
+       if(number < 0){
+           syalert.syopen("alert3");
+       }else if(newcount < 0){
+           syalert.syopen("alert3");
+
+       }else {
+           syalert.syopen("alert2");
+           var i = parseInt(number);
+           //goodinfo.update(name,tag,i);
+       $(this).parents("tr").find("td").eq(3).html(newcount)
+           $("#shop #myForm").append("<tr><td>"+tag+"</td><td>"+name+"</td><td>"+price+"</td><td>"+number+"</td><td>"+"<button id='delete' class='buy'>删除</button>"+"</td></tr>")
+       ;}
+      });
+
+
+    $(document).on("click",'#delete',function () {
+        $(this).parents("tr").remove();
+    })
+
+
+
+
+
+    function ShopmyFunction() {
+        // 声明变量
+        var input, filter, table, tr, td, i;
+        input =$("#shop #myInput").get(0);
+        filter = input.value.toUpperCase();
+        table=$("#shop #myTable").get(0);
+        tr = table.getElementsByTagName("tr");
+
+        // 循环表格每一行，查找匹配项
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[1];
+            if (td) {
+                if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+
+    
+    
+    $("#basket").click(function () {
+     syalert.syopen("alert4")
+    })
+
+    $(document).on("click",'#Buy',function () {
+    var price,number,name,tag,i;
+    var table = document.getElementById("myForm");
+    var tr=table.getElementsByTagName("tr");
+    alert(tr.length);
+    for(i =1;i<tr.length;i++){
+        price=tr[i].getElementsByTagName("td")[2].innerHTML.toUpperCase();
+        number=tr[i].getElementsByTagName("td")[3].innerHTML.toUpperCase();
+        name =tr[i].getElementsByTagName("td")[1].innerHTML.toUpperCase();
+        tag = tr[i].getElementsByTagName("td")[0].innerHTML.toUpperCase();
+        var h = parseInt(number);
+        goodinfo.update(name,tag,h);
+        goodinfo.consumption(client.eCardNumber,price*number);
+
+        }
+    syalert.syhide("alert4");
+    })
+
+ 
+    $('.bankbutton').on('click',function(){
+        var focused = $(document).find('.clear');
+        focused.each(function(){
+            if($(this).hasClass('clear'))
+                $(this).removeClass('clear');
+        })
+
+        if($(this).attr("id")=="search"){
+            $("#remainder").addClass("clear");
+        }
+        if($(this).attr("id")=="top_up"){
+            $("#transferB1").addClass("clear");
+        }
+        if($(this).attr("id")=="transfer"){
+            $("#transferB2").addClass("clear");
+        }
+    })
+
+
+
+    function transferFct() {
+	var y = bankinfo.query(client.eCardNumber);
+	var a = JSON.parse(y);
+	var pwd = $("#transferPassword").val();
+	var ac = parseInt($("#transferAmount").val());
+	var to = $("#transferTo").val();
+
+	if(ac==""|| isNaN(ac) || ac<0){
+		alert("请输入正确的金额数目！");
+	}
+	else{
+	    if(to == a['id']){
+	        alert("转账对象不能为自己！");
+	    }
+	    else {
+            if (pwd == a['password']) {
+                if (ac <= a['balance']) {
+                    a['transferAmount'] = ac;
+                    a['transferTo'] = to;
+
+                    bankinfo.transfer(client.eCardNumber,to,ac);
+                    alert("转账成功！");
+                } else {
+                    alert("银行卡余额不足！");
+                }
+            } else {
+                alert("密码错误！");
+            }
+        }
+	}
+    }
+
+function topupFct(){
+	var y = bankinfo.query(client.eCardNumber);
+	var a = JSON.parse(y);
+	var pwd = $("#topuppassword").val();
+	var ac = parseInt($("#topupAmount").val());
+    var m=$("input[name='toecard']:checked").val();
+    
+	if (ac==""|| isNaN(ac) || ac<0){
+		alert("请输入正确的金额数目！");
+	}
+	else {
+		if(pwd == a['password']){
+            if (m == 2) {
+                if (ac <= a['balance']) {
+                    alert("123");
+                    bankinfo.transfToEcard(client.eCardNumber, ac);
+                    alert("充值成功！");
+                }
+                else {
+                    alert("银行卡余额不足！");
+                }
+            }
+		    else if(m == 0){
+		        if (ac <= a['eCardBalance']){
+                    bankinfo.transfTocard(client.eCardNumber, ac);
+                    alert("提现成功！");
+                }
+		        else {
+		            alert("一卡通余额不足！");
+                }
+            }
+		    else
+		        alert("请选择服务！");
+		}
+		else{
+			alert("密码错误！");
+		}   
+	}
+}
+
+
+function searchFct(){
+
+	var a = bankinfo.query(client.eCardNumber);
+	var y = JSON.parse(a);
+	var bal = y['balance'];
+    var ebal = y['eCardBalance'];
+    alert(bal);
+    alert(ebal);
+	var balRun = 0;
+	var ebalRun = 0;
+	var timesRun = 0;
+	var stop = bal<ebal?ebal:bal;
+	var myVar = setInterval(function(){
+		if(balRun < bal)
+			balRun += 1;
+		if (ebalRun < ebal)
+			ebalRun += 1;
+
+		if(timesRun === stop){
+			
+			clearInterval(myVar);
+		}
+		//do whatever here..
+		$("#balance").val(balRun);
+		$("#Ecardbalance").val(ebalRun);
+	}, 2);
+}
+        
+
+   
+    $(document).on("click",'#borrow',function () {
+        var state =$(this).parents("tr").find("td").eq(5).text();
+        var ID =$(this).parents("tr").find("td").eq(0).text();
+        if($("#book1").html()!==""&&$("#book2").html()!==""&&$("#book3").html()!==""){
+            syalert.syopen("alert1");
+        } else if(state=="未借"){
+            syalert.syopen("alert2");
+            $(this).parents("tr").find("td").eq(5).html("已借");
+            var newstate=$(this).parents("tr").find("td").eq(5).text();
+          bookinfo.update(ID,state,"213171645");
+            if($("#book1").html()==""){
+                $("#book1").html(ID);
+            }else if($("#book2").html()==""){
+                $("#book2").html(ID);
+            }else if($("#book3").html()==""){
+                $("#book3").html(ID);
+            }
+
+        } else{
+            syalert.syopen("alert0");
+
+        }
+    })
+    $("#btn1").click(function () {
+        
+        alert(0);
+        var id =$("#book1").html();
+        var table,tr,td,i,state;
+
+        table =$("#book #myTable").get(0);
+        tr = table.getElementsByTagName("tr");
+        
+        alert(1);
+        if(id==""){
+            syalert.syopen("alert4")
+        }
+        for(i=1;i<tr.length;i++){
+            td=tr[i].getElementsByTagName("td")[0].innerHTML.toUpperCase();
+            state=tr[i].getElementsByTagName("td")[5].innerHTML.toUpperCase();
+        if(id==td){
+                tr[i].getElementsByTagName("td")[5].innerHTML="未借";
+                $("#book1").html("");
+                bookinfo.update(id,state,client.eCardNumber);
+            yalert.syopen("alert3");
+            }
+
+        }
+    });
+    $("#btn2").click(function () {
+        var id =$("#book2").html();
+        var table,tr,td,i,state;
+        table =$("#book #myTable").get(0);
+        tr = table.getElementsByTagName("tr");
+        if(id==""){
+            syalert.syopen("alert4");
+
+        }
+
+        for(i=1;i<tr.length;i++){
+            td=tr[i].getElementsByTagName("td")[0].innerHTML.toUpperCase();
+            state=tr[i].getElementsByTagName("td")[5].innerHTML.toUpperCase();
+            if(id==td){
+                tr[i].getElementsByTagName("td")[5].innerHTML="未借";
+                $("#book2").html("");
+                bookinfo.update(id,state,client.eCardNumber);
+                syalert.syopen("alert3");
+            }
+
+        }
+    });
+    $("#btn3").click(function () {
+        var id =$("#book3").html();
+        var table,tr,td,i,state;
+        table =$("#book #myTable").get(0);
+        tr = table.getElementsByTagName("tr");
+        if(id==""){
+            syalert.syopen("alert4");
+
+        }
+        for(i=1;i<tr.length;i++){
+            td=tr[i].getElementsByTagName("td")[0].innerHTML.toUpperCase();
+            state=tr[i].getElementsByTagName("td")[5].innerHTML.toUpperCase();
+            if(id==td){
+                tr[i].getElementsByTagName("td")[5].innerHTML="未借";
+                $("#book3").html("");
+                bookinfo.update(id,state,client.eCardNumber);
+                syalert.syopen("alert3");
+            }
+
+        }
+    });
+
+    function BookmyFunction() {
+        // 声明变量
+        var input, filter, table, tr, td, i;
+        input =$("#book #myInput").get(0);
+        filter = input.value.toUpperCase();
+        table =$("#book #myTable").get(0);
+        tr = table.getElementsByTagName("tr");
+
+        // 循环表格每一行，查找匹配项
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[1];
+            if (td) {
+                if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+    $(function() {
+        var Accordion = function(el, multiple) {
+            this.el = el || {};
+            // more then one submenu open?
+            this.multiple = multiple || false;
+
+            var dropdownlink = this.el.find('.dropdownlink');
+            dropdownlink.on('click',
+                { el: this.el, multiple: this.multiple },
+                this.dropdown);
+        };
+
+        Accordion.prototype.dropdown = function(e) {
+            var $el = e.data.el,
+                $this = $(this),
+                //this is the ul.submenuItems
+                $next = $this.next();
+
+            $next.slideToggle();
+            $this.parent().toggleClass('open');
+
+            if(!e.data.multiple) {
+                //show only one menu at the same time
+                $el.find('.submenuItems').not($next).slideUp().parent().removeClass('open');
+            }
+        }
+
+        var accordion = new Accordion($('.accordion-menu'), false);
+    })
+
+    
+
+    function judge(date1, date2){
+        if(date1.getYear() < date2.getYear()) return 1;
+        if(date1.getMonth() < date2.getMonth()) return 1;
+        if(date1.getDate() < date2.getDate()) return 1;
+        if(date1.getHours() < date2.getHours()) return 1;
+        if(date1.getMinutes() + 2 < date2.getMinutes()) return 1;
+        return 0;
+    }
+
+    function getnew(){
+        var per = $(".message-active").find(".desc-contact").find(".message").text();
+        var res = messagetrans.querynew(client.eCardNumber, per);
+        if(res.size() == 0) return;
+        for(var i = 0; i < res.size(); i++){
+            if(res.elementAt(i).getSender() == client.eCardNumber) RightInsert(res.elementAt(i).getMessage());
+            else LeftImgInsert(res.elementAt(i).getMessage(), head.query(per));
+            if (judge(last, res.elementAt(i).getTime()) == 1) {
+                last = res.elementAt(i).getTime();
+                LeftTimeInsert(last);
+           }
+        }
+    }
+
+    //点击发送
+    document.querySelector('.fa-paper-plane-o').addEventListener('click',()=> {
+      div = document.createElement("div");
+      div.className = "message text-only";
+      p = document.createElement("p");
+      p.className = "text";
+      p.innerText = document.querySelector(".write-message").value;
+      div1 = document.createElement("div");
+      div1.className = "response";
+      div1.appendChild(p);
+      div.appendChild(div1);
+      document.querySelector(".messages-chat").appendChild(div);
+
+      var str = message.getJson();
+
+      var obj = JSON.parse(str);
+      obj['sender'] = client.eCardNumber;
+      obj['receiver'] = document.querySelector(".searchbar-message").value;
+      obj['message'] = document.querySelector(".write-message").value;
+      str = JSON.stringify(obj);
+      messagetrans.insert(str);
+      document.querySelector(".write-message").value = '';
+    });
+
+
+
+    //点击选人
+    $(".discussion-person").on("click",".discussion",function() {
+      last.setYear(-100);
+      client.eCardNumber = "213171645";
+      current = document.querySelector('.message-active');
+      current.classList.remove("message-active");
+      this.classList.add("message-active");
+      Name = this.querySelector('.name').innerText;
+      $(".header-chat .name").text(Name);
+      $(".messages-chat").empty();
+
+      if(id == -1000){
+          id = setInterval('getnew()',  50);
+          getnew();
+      }
+
+      var per = $(".message-active").find(".desc-contact").find(".message").text();
+      var res = messagetrans.query(client.eCardNumber, per);
+      messagetrans.querynew(client.eCardNumber, per);
+
+      for (var i = 0; i < res.size(); i++) {
+        if (res.elementAt(i).getSender() == client.eCardNumber) RightInsert(res.elementAt(i).getMessage());
+        else LeftImgInsert(res.elementAt(i).getMessage(), head.query(per));
+        if (judge(last, res.elementAt(i).getTime()) == 1) {
+          last = res.elementAt(i).getTime();
+          LeftTimeInsert(last);
+        }
+      }
+
+
+    });
+
+    function LeftImgInsert(text,url) {
+      div = document.createElement("div");
+      div.className = "message";
+      div1 = document.createElement("div");
+      div1.className = "photo";
+      div1.style.backgroundImage = "url(" + url + ")";
+      div.appendChild(div1);
+
+      p = document.createElement("p");
+      p.className = "text";
+      p.innerText = text;
+
+      div.appendChild(p);
+
+      document.querySelector(".messages-chat").appendChild(div);
+    }
+
+    function LeftInsert(text) {
+      div = document.createElement("div");
+      div.className = "message text-only";
+      p = document.createElement("p");
+      p.className = "text";
+      p.innerText = text;
+      div.appendChild(p);
+      document.querySelector(".messages-chat").appendChild(div);
+    }
+
+    function RightInsert(text){
+      div=document.createElement("div");
+      div.className="message text-only";
+      p=document.createElement("p");
+      p.className="text";
+      p.innerText=text;
+      div1=document.createElement("div");
+      div1.className="response";
+      div1.appendChild(p);
+      div.appendChild(div1);
+      document.querySelector(".messages-chat").appendChild(div);
+    }
+
+    function LeftTimeInsert(text){
+     
+      p=document.createElement("p");
+      p.className="time";
+      p.innerText=text;
+      document.querySelector(".messages-chat").appendChild(p);
+    }
+
+    function RightTimeInsert(text){
+      p=document.createElement("p");
+      p.className="time response-time";
+      p.innerText=text;
+      document.querySelector(".messages-chat").appendChild(p);
+    }
+
+
+    function DiscussionPersonInsert(name,url,ecardnumber,time){
+        div=document.createElement("div");
+        div.className="discussion";
+        div1=document.createElement("div");
+        div1.className="photo";
+        div1.style.backgroundImage="url("+url+")";
+
+        div.appendChild(div1);
+
+        div2=document.createElement("div");
+        div2.className="desc-contact";
+
+        p1=document.createElement("p");
+        p1.className="name";
+        p1.innerText=name;
+        p2=document.createElement("p");
+        p2.className="message";
+        p2.innerText=ecardnumber;
+
+        div2.appendChild(p1);
+        div2.appendChild(p2);
+        div.appendChild(div2);
+
+        div3=document.createElement("div");
+        div3.className="timer";
+        div3.innerText=time;
+
+        div.appendChild(div3);
+        document.querySelector(".discussion-person").appendChild(div);
+        div3.click();
+    }
+
+    $(".items").on("click",".item",function(){
+      
+      current=document.querySelector('.item-active');
+      current.classList.remove("item-active");
+      this.classList.add("item-active");
+    })
+
+
+    //搜索
+    document.querySelector('.fa-search').addEventListener('click',()=>{
+      var str = personinfo.query(document.querySelector(".searchbar-message").value);
+      var per = JSON.parse(str);
+      if(per['name'] == '') {
+        alert("不存在该用户！");
+        return;
+      }
+	  if(per['eCardNumber'] == client.eCardNumber){
+		alert('不能选择自己！');
+		return;
+	  }
+      var time = new Date();
+      DiscussionPersonInsert(per['name'], head.query(document.querySelector(".searchbar-message").value), document.querySelector(".searchbar-message").value, time.getHours() + ":" + time.getMinutes());
+  });
+
+
+    //信息标签
+  document.querySelector('.fa-ellipsis-h').addEventListener('click',()=>{
+      var str = personinfo.query(document.querySelector(".searchbar-message").value);
+      var per = JSON.parse(str);
+      if(!$(".card").hasClass("inform"))
+      {
+        $(".card").addClass("inform");
+      }
+      $(".card").find(".text").find(".name").text(per['name'] + ", " + per['age']);
+      $(".card").find(".text").find(".title").text(per['academy'] + " " + per['dormitory']);
+      $(".card").find(".like").find(".height").text(per['gender']);
+      $(".card").find(".status").find(".height").text(per['state']);
+      $(".card").find(".horo").find(".height").text(per['birthplace']);
+      $(".card").find(".desc").text(per['sign']);
+
+      //DiscussionPersonInsert(name,url,ecardnumber,time);
+  })
+  
+  $(".social-buttons").on("click",".material-icons",function(){
+
+    if($(".card").hasClass("inform"))
+      {
+        $(".card").removeClass("inform");
+      }
+  })
+
+
+    </script>
+    </html>
 

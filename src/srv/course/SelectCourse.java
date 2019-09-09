@@ -13,13 +13,15 @@ public class SelectCourse implements Serializable {
     private String courseName;
     private int time;
     private String teacher;
+    private int classroom;
 
-    public SelectCourse(String e,String i,String c,int t,String teacher) {
+    public SelectCourse(String e,String i,String c,int t,String teacher,int classroom) {
         this.eCardName=e;
         this.idx=i;
         this.courseName=c;
         this.time=t;
         this.teacher=teacher;
+        this.classroom=classroom;
     }
 
 
@@ -38,6 +40,7 @@ public class SelectCourse implements Serializable {
     public String getTeacher() {
         return this.teacher;
     }
+    public int getClassroom(){return this.classroom;}
 
     public void setECardName(String eCardName) {
         this.eCardName = eCardName;
@@ -54,5 +57,5 @@ public class SelectCourse implements Serializable {
     public void setTeacher(String teacher) {
         this.teacher = teacher;
     }
-
+    public void setClassroom(int classroom){this.classroom=classroom;}
 }

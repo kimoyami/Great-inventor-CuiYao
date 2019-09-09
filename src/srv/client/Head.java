@@ -10,7 +10,7 @@ import java.io.OutputStream;
 public class Head {
 
     private static final int STARTPOS = 60;
-    private static final String DEFAULTURL = "F:\\GitHub\\Great-inventor-CuiYao\\html\\img\\timg.jpg";
+    private static final String DEFAULTURL = "../headimage/timg.jpg";
     public static int update(String eCardNumber, String url){
         Client.run();
         try {

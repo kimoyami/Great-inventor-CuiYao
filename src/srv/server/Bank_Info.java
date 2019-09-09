@@ -12,39 +12,40 @@ import srv.bank.Bankrecord;
 import java.util.Vector;
 
 public class Bank_Info {
+    public static ServerThread now;
     public static void run(int op) {
         try {
             if (op == 1) {
-                ServerThread.cout.writeInt(insert());
-                ServerThread.cout.flush();
+                now.cout.writeInt(insert());
+                now.cout.flush();
             }
             if (op == 2) {
-                ServerThread.cout.writeInt(delete());
-                ServerThread.cout.flush();
+                now.cout.writeInt(delete());
+                now.cout.flush();
             }
             if (op == 3) {
-               ServerThread.cout.writeObject(query());
-               ServerThread.cout.flush();
+               now.cout.writeObject(query());
+               now.cout.flush();
             }
             if (op == 4) {
-                ServerThread.cout.writeInt(transferToEcard());
-                ServerThread.cout.flush();
+                now.cout.writeInt(transferToEcard());
+                now.cout.flush();
             }
             if(op==5){
-                ServerThread.cout.writeInt(transfer());
-                ServerThread.cout.flush();
+                now.cout.writeInt(transfer());
+                now.cout.flush();
             }
             if(op==6){
-                ServerThread.cout.writeInt(transferTocard());
-                ServerThread.cout.flush();
+                now.cout.writeInt(transferTocard());
+                now.cout.flush();
             }
             if(op==7){
                 Vector<Bankrecord> res = queryrecord();
-                ServerThread.cout.writeInt(res.size());
+                now.cout.writeInt(res.size());
                 for (int i = 0; i < res.size(); i++) {
-                    ServerThread.cout.writeObject(res.elementAt(i));
+                    now.cout.writeObject(res.elementAt(i));
                 }
-                ServerThread.cout.flush();
+                now.cout.flush();
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -55,7 +56,7 @@ public class Bank_Info {
     public static synchronized int insert() {
         BankInfo account;
         try {
-            account = (BankInfo) ServerThread.cin.readObject();
+            account = (BankInfo) now.cin.readObject();
         } catch (Exception e) {
             e.printStackTrace();
             return -3;
@@ -66,7 +67,7 @@ public class Bank_Info {
     public static synchronized int delete() {
         BankInfo account;
         try {
-            account = (BankInfo) ServerThread.cin.readObject();
+            account = (BankInfo) now.cin.readObject();
         } catch (Exception e) {
             e.printStackTrace();
             return -3;
@@ -77,7 +78,7 @@ public class Bank_Info {
     public static BankInfo query() {
         String ID = "";
         try {
-            ID = ServerThread.cin.readUTF();
+            ID = now.cin.readUTF();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -89,9 +90,9 @@ public class Bank_Info {
         String toID;
         double change;
         try{
-            fromID=ServerThread.cin.readUTF();
-            toID=ServerThread.cin.readUTF();
-            change=ServerThread.cin.readDouble();
+            fromID=now.cin.readUTF();
+            toID=now.cin.readUTF();
+            change=now.cin.readDouble();
         }catch(Exception e){
             e.printStackTrace();
             return -3;
@@ -103,8 +104,8 @@ public class Bank_Info {
         String ID;
         double change;
         try{
-            ID=ServerThread.cin.readUTF();
-            change=ServerThread.cin.readDouble();
+            ID=now.cin.readUTF();
+            change=now.cin.readDouble();
         }catch(Exception e){
             e.printStackTrace();
             return -3;
@@ -115,8 +116,8 @@ public class Bank_Info {
         String ID;
         double change;
         try{
-            ID=ServerThread.cin.readUTF();
-            change=ServerThread.cin.readDouble();
+            ID=now.cin.readUTF();
+            change=now.cin.readDouble();
         }catch(Exception e){
             e.printStackTrace();
             return -3;
@@ -127,7 +128,7 @@ public class Bank_Info {
     public static Vector<Bankrecord> queryrecord(){
         String ID="";
         try{
-            ID=ServerThread.cin.readUTF();
+            ID=now.cin.readUTF();
         }catch(Exception e){
             e.printStackTrace();
         }

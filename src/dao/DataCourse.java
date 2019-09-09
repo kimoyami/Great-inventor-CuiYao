@@ -25,10 +25,11 @@ public class DataCourse {
     public static int insert(Course course){
         try{
         if(exist(course.getIdx(),course.getTeacher())==1){return 0;}
-        String sql="insert into course(idx,coursename,teacher,coursetime,maxpeople,remainnumber,state) " +
+
+        String sql="insert into course(idx,coursename,teacher,coursetime,maxpeople,remainnumber,state,classroom) " +
                 "values ('"+course.getIdx()+"','"+course.getCourseName()+"','"+course.getTeacher()+"'," +
                 ""+course.getCourseTime()+","+course.getMaxPeople()+","+course.getRemainNumber()+"," +
-                "'"+course.getState()+"')";
+                "'"+course.getState()+"','"+course.getClassroom()+"')";
         DataBase.s.executeUpdate(sql);
         DataBase.c.commit();
         return 1;
@@ -52,7 +53,8 @@ public class DataCourse {
             return -1;
         }
     }
-        public static Vector<Course> query(String teacher){
+
+    public static Vector<Course> query(String teacher){
             Vector<Course> res = new Vector<>();
             try{
                 String sql = "select * from course where teacher = '"+teacher+"'";
@@ -61,7 +63,8 @@ public class DataCourse {
                     Course tmp = new Course(rs.getString("idx"),
                             rs.getString("coursename"), rs.getInt("coursetime"),
                             rs.getString("teacher"), rs.getInt("maxpeople"),
-                            rs.getInt("remainnumber"),rs.getString("state"));
+                            rs.getInt("remainnumber"),rs.getString("state"),
+                            rs.getInt("classroom"));
                     res.addElement(tmp);
                 }
             }catch (Exception e){
@@ -96,7 +99,8 @@ public class DataCourse {
                 Course tmp = new Course(rs.getString("idx"),
                         rs.getString("coursename"), rs.getInt("coursetime"),
                         rs.getString("teacher"), rs.getInt("maxpeople"),
-                        rs.getInt("remainnumber"),rs.getString("state"));
+                        rs.getInt("remainnumber"),rs.getString("state"),
+                        rs.getInt("classroom"));
                 res.addElement(tmp);
             }
         }catch (Exception e){
@@ -105,16 +109,33 @@ public class DataCourse {
         return res;
     }
 
-    public static ArrayList<Integer> cuttime(int t){
-        ArrayList<Integer>list =new ArrayList<>();
-        while(t!=0){
-            int tmp=t%1000;
-            t=t/1000;
-            list.add(tmp);
-        }
-        return list;
-    }
+    public static int check(int a,int b){
+        try{
+            ArrayList<Integer> list = new ArrayList<Integer>();
+            ArrayList<Integer> list1 = new ArrayList<Integer>();
+            while(a!=0){
+                int tmp=a%1000/10;
+                a=a/1000;
+                list.add(tmp);
+            }
+            while(b!=0){
+                int tmp=b%1000/10;
+                b=b/1000;
+                list1.add(tmp);
+            }
+            int cur=0;
+            for (int i = 0; i <list.size() ; i++) {
+                for (int j = 0; j <list1.size() ; j++) {
+                    if(list1.get(j).equals(list.get(i))){cur=1;}
+                }
+            }
 
+            return cur;
+        }
+        catch(Exception e){
+            return -1;
+        }
+    }
 
     public static void main(String args[]){
             DataBase.start();

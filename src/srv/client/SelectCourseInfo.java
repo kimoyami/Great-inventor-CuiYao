@@ -9,7 +9,7 @@ import java.util.Vector;
 public class SelectCourseInfo {
     private static final int STARTPOS = 80;
 
-    public static int insert(String e,String idx,String name,int time,String teacher) {
+    public static int insert(String e,String idx,String name,int time,String teacher,int classroom) {
         Client.run();
         try {
             Client.cout.writeInt(STARTPOS + 1);
@@ -18,6 +18,7 @@ public class SelectCourseInfo {
             Client.cout.writeUTF(name);
             Client.cout.writeInt(time);
             Client.cout.writeUTF(teacher);
+            Client.cout.writeInt(classroom);
             Client.cout.flush();
             int res = Client.cin.readInt();
             Client.stop();
@@ -64,7 +65,7 @@ public class SelectCourseInfo {
     }
     
     public static void main(String args[]) {
-        int a=insert("213170004","0014","编译原理",112212,"翟玉庆");
+        int a=insert("213170005","0014","编译原理",112212,"翟玉庆",3102);
         System.out.println(a);
         }
     }
