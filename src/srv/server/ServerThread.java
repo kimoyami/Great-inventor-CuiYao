@@ -82,6 +82,11 @@ public class ServerThread extends Thread {
                     SelectCourseInfo.run(op);
                 }
                 op -= 10;
+                if (op >= 1 && op <= 10) {
+                    GradeInfo.now = this;
+                    GradeInfo.run(op);
+                }
+                op-=10;
             }
 
             cin.close();

@@ -26,8 +26,6 @@ public class DataSelectCourse {
 
     public static int insert(String e,String idx,String name,int time,String teacher,int classroom){
         try{
-
-
             if(exist(e,name)==1){return 0;}
             String sql="select * from course where idx='"+idx+"' and teacher='"+teacher+"'";
             ResultSet rs=DataBase.s.executeQuery(sql);
