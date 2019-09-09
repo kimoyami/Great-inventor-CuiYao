@@ -5,6 +5,10 @@
 </head>
 <body>
 	<div>
+        <p>当前课程
+            <input type="text" id="rname" onkeyup="f1()">
+            课程平均分
+            <input type="text" id="average" readonly></p>
 		<p>学生ID
 			<input type="text" id="studentid" placeholder="请输入学生ID"></p>
 		<p>学期
@@ -16,38 +20,62 @@
         <button id="inserttrade" onclick="inserttrade()">插入成绩</button>
 
 	</div>
-    <div>
-        <table id="myTable" border="solid">
-            <tr>
-                <th style="width: 10%">学生ID</th>
-                <th style="width: 10%">学期</th>
-                <th style="width: 10%">学生成绩</th>
-                <th style="width: 10%">课程名称</th>
-                <th style="width: 10%">老师姓名</th>
-            </tr>
-        </table>
-    </div>
+    <table id="myTable" border="solid">
+        <tr>
+            <th style="width: 10%">学生ID</th>
+            <th style="width: 10%">学期</th>
+            <th style="width: 10%">学生成绩</th>
+            <th style="width: 10%">课程名称</th>
+            <th style="width: 10%">老师姓名</th>
+        </tr>
+    </table>
     <div>
         <p>成绩区间</p>
         <p>下限
-            <input type="text" id="min" placeholder="请输入成绩下限"></p>
+            <input type="text" id="min" value="0"></p>
         <p>上限
-            <input type="text" id="max" placeholder="请输入成绩上限"></p>
+            <input type="text" id="max" value="100"></p>
         <button id="refresh" onclick="refresh()">刷新</button>
     </div>
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script type="text/javascript">
 
-		var vec = gradeinfo.querycourse("信号与系统","王世杰",0,100);
+        var vec = gradeinfo.querycourse("信号与系统", "王世杰", 0, 100);
 
-		alert(vec.elementAt(0).getCourseName());
-		for (var i = 0; i < vec.size(); i++) {
+        alert(vec.elementAt(0).getCourseName());
+        for (var i = 0; i < vec.size(); i++) {
             $("#myTable").append("<tr><td>" + vec.elementAt(i).getEcardNUmber() + "</td><td>" + vec.elementAt(i).getCourseSemeter() +
                 "</td><td>" + vec.elementAt(i).getCourseGrade() + "</td><td>" + vec.elementAt(i).getCourseName() + "</td><td>" +
                 vec.elementAt(i).getTeacher() + "</td></tr>")
         }
+        $("#average").val(gradeinfo.getAverage("信号与系统", "王世杰"))
+        $("#rname").val("信号与系统")
+
+        function f1() {
+            //var low = document.getElementById("min");
+            //var a = low.value.toUpperCase();
+            var input = document.getElementById("rname");
+            var filter = input.value.toUpperCase();
+            var table = document.getElementById("myTable");
+            var tr = table.getElementsByTagName("tr");
+            var td;
+            //var tl;
+            var i;
+            for (i = 0; i < tr.length; i++){
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td){
+                    //var subscript = tl.innerHTML.toUpperCase().indexOf(filter);
+                    if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    }
+                    else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
 		function refresh() {
-            window.location.reload();
+
         }
 		function inserttrade() {
             var idx = $("#studentid").val();
@@ -57,8 +85,8 @@
             var m = parseInt(sem);
             var n = parseInt(trade);
             gradeinfo.insert(idx, m, name, n, "王世杰");
+            alert("插入成功");
             window.location.reload();
-
         }
 
 	</script>
