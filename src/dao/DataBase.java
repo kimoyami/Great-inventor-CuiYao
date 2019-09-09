@@ -22,7 +22,7 @@ import java.util.Vector;
 import srv.person.Unsolve;
 
 public class DataBase {
-    static private final String DEFAULTURL = "F:\\Great-inventor-CuiYao\\headimage\\timg.jpg";
+    static private final String DEFAULTURL = "C:\\Users\\Administrator\\Documents\\GitHub\\Great-inventor-CuiYao\\headimage\\timg.jpg";
     static private String dbUrl = "jdbc:odbc:account";
     static private String user = "Nemo Sherry";
     static private String password = "ryhlovelyt";
@@ -47,11 +47,11 @@ public class DataBase {
 
     public static void stop(){
         try {
+            c.commit();
             s.close();
             c.close();
         }catch (Exception e){
             e.printStackTrace();
-            return;
         }
     }
 
