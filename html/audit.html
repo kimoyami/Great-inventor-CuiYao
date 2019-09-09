@@ -23,18 +23,17 @@
 	<script type="text/javascript">
 		(function (){
 		var a = login.getAll();
-		alert("1234")
+		alert(a.elementAt(0).getUsername());
 		for (var i = 0; i<5; i++){
 			var v = a.elementAt(i).getEcardname();
-
 			$("#MyTable").append("<tr><td>"+a.elementAt(i).getUsername()+"</td><td>"+a.elementAt(i).getPassword()+"</td><td>"+a.elementAt(i).getEcardname()
 				+"</td><td>"+a.elementAt(i).getSex()+"</td><td>"+a.elementAt(i).getStatus()+"</td><td>" +
 					"<input type='checkbox' name='ispass' value='"+v+"'/>"+"</td></tr>");
-		}})();
-		alert("12345")
+		}
+		})();
+
 
 	function pass() {
-		alert("123");
 		var m = document.getElementsByName("ispass");
 		for (i in m) {
 			if (m[i].checked) {
