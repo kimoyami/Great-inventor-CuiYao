@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'>
+<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="syalert/syalert.min.css" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+<script src="syalert/syalert.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Title</title>
+        <link rel="stylesheet" href="css/barstyle.css">
+    </head>
+    <body>
+        <img class="background" src="img/2.jpg" alt="">
+        <div class="barground">
+            <div class="bar">
+                <ul class="box">
+                    <li><a class="tab" id="Message" href="javascript:i">信息</a> </li>
+                    <li><a class="tab" id="Shop" href="javascript:i">商店</a> </li>
+                    <li><a class="tab" id="Book" href="javascript:i">图书馆</a> </li>
+                    <li><a class="tab" id="Chat" href="javascript:i">聊天</a> </li>  
+                    <li><a class="tab" id="" href="javascript:i">教务</a> </li>  
+                </ul>
+            </div>
+            <a href="javascript:;" class="headpng"><img class="png" id = "head" src="?" alt="" style="cursor:hand" onclick="headpng()"></a>
+        </div>
+    </body>
+</html>
+<script>
+   
+    //document.getElementById('head').src = head.query(client.eCardNumber);
+    
+    $('.tab').on('click',function(){
+        var focused = $(document).find('.tagfocus');
+        focused.each(function(){
+            if($(this).hasClass('tagfocus'))
+                $(this).removeClass('tagfocus');
+        })
+
+        
+        $(this).parent().addClass('tagfocus');
+
+        var seened = $(document).find('.seen');
+
+        seened.each(function(){
+            if($(this).hasClass('seen'))
+                $(this).removeClass('seen');
+        })
+
+        if($(this).attr('id')=="Message")
+        {
+            
+        }
+
+        if($(this).attr('id')=="Shop")
+        {
+           
+
+        }
+
+        if($(this).attr('id')=="Bank")
+        {
+            
+           
+        }
+
+        if($(this).attr('id')=="Book")
+        {
+           
+        }
+
+
+        
+        if($(this).attr('id')=="Chat")
+        {
+        }
+
+    })
+</script>
+</html>
+
