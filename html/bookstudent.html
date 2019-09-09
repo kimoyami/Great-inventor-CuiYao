@@ -90,6 +90,7 @@
     }
     for(var i=0;i<res.size();i++){
     $("#bookbody").append("<tr><td>"+(res.elementAt(i).getBookID())+"</td><td>"+(res.elementAt(i).getBookName())+"</td><td >"+(res.elementAt(i).getBookEdit())+"</td><td >"+(res.elementAt(i).getBOOK_PUB())+"</td><td >"+(res.elementAt(i).getCategory())+"</td><td >"+(res.elementAt(i).getState())+"</td><td >"+res.elementAt(i).getTime()+"</td><td>"+"<button id='borrow' class='myBtn'>借书</button></td></tr>")}
+   
     $(document).on("click",'#borrow',function () {
         var state =$(this).parents("tr").find("td").eq(5).text();
         var ID =$(this).parents("tr").find("td").eq(0).text();

@@ -6,6 +6,9 @@
 <link rel="stylesheet" href="syalert/syalert.min.css" />
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
 <script src="syalert/syalert.min.js"></script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 <html>
     <head>
         <meta charset="utf-8">
@@ -59,16 +62,18 @@
             </div>
             <div id="shop">
                     <input type="text" id="myInput" onkeyup="ShopmyFunction()" placeholder="搜索...">
-                    <table id="myTable" >
+                    <table id="myTable" class="table table-bordered">
                         <tr>
-                            <th style="width: 16.5%;">超市</th>
-                            <th style="width: 16.5%">商品名称</th>
-                            <th style="width: 16.5%"> 价格</th>
-                            <th style="width: 16.5%"> 数量</th>
-                            <th style="width: 16.5%">购买数量</th>
-                            <th style="width: 16.5%">操作</th>
+                            <th >超市</th>
+                            <th >商品名称</th>
+                            <th > 价格</th>
+                            <th> 数量</th>
+                            <th >购买数量</th>
+                            <th>详细信息</th>
+                            <th >操作</th>
                     
                         </tr>
+                    
                     </table>
                     <div><button id="basket" class="buy">查看购物车</button></div>
                     <div class="sy-alert sy-alert-model animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="confirm" sy-mask="true" id="alert4">
@@ -82,14 +87,54 @@
                                     <th style="width: 20%">数量</th>
                                     <th style="width: 20%">操作</th>
                                 </tr>
+                                <tbody id="basketbody"></tbody>
                             </table>
                         </div>
                         <div class="sy-btn">
                             <button onClick="syalert.syhide('alert4')">取消</button>
+                            <button id="cancel">清空</button>
                             <button  id="Buy">购买</button>
                         </div>
                     </div>
-                
+                    <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="shopalert3">
+                        <div class="sy-content">不能为空</div>
+                    </div>
+                    <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert3">
+                        <div class="sy-content">不能为负数</div>
+                    </div>
+                    <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert2">
+                        <div class="sy-content">加入成功！</div>
+                    </div>
+                    <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert1">
+                        <div class="sy-content">购买成功！</div>
+                    </div>
+                    <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert0">
+                        <div class="sy-content">数量为空！</div>
+                    </div>
+
+
+                    <div class="shopcard">
+                            <div class="contain">
+                                    <div class="imgBx">
+                                        <img src="image/下载.png" alt="" />
+                                    </div>
+                                    <div class="details">
+                                        <div class="context">
+                                            <h2>Nike Air Max 270<br /><span>Runing Collection</span></h2>
+                                            <p>
+                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo natus ipsum praesentium explicabo
+                                                nesciunt consequatur ea error similique cum non doloribus quis libero quam rem, cumque
+                                                aspernatur provident quibusdam deleniti?Lorem ipsum dolor, sit amet consectetur adipisicing
+                                                elit. Nihil, vero totam maiores error excepturi optio delectus sequi aspernatur tenetur tempora
+                                                amet harum at ullam dolore quas consequuntur magni laboriosam laudantium?Lorem ipsum dolor sit
+                                                itaque, nisi rerum accusantium quae officia nesciunt vero ex libero veniam quod corporis atque.
+                                            </p>
+                                            <h3>$150.99</h3>
+                                            <button>Buy now</button>
+                                        </div>
+                                    </div>
+                                </div>
+                    </div>
             </div>
 
         <div id="bank">
@@ -133,35 +178,31 @@
              <div id="book">
                     <nav class="navbar navbar-inverse navbar-fixed-top">
                         </nav>
-                        <ul class="accordion-menu" style="padding: 0">
-                                <li>
-                                    <div class="dropdownlink"><i class="fa fa-road" aria-hidden="true"></i> 我的书库
-                                        <i class="fa fa-chevron-down" aria-hidden="true"></i>
-                                    </div>
-                                    <ul class="submenuItems">
-                                        <li><a >图书ID:<label id="book1" ></label><button class="myBtn" id="btn1">还书</button></a></li>
-                                        <li><a >图书ID:<label id="book2"></label><button class="myBtn" id="btn2">还书</button></a></li>
-                                        <li><a >图书ID:<label id ="book3"></label><button class="myBtn" id="btn3">还书</button></a></li>
-                                    </ul>
-                                </li>
-                            </ul>
                             <input type="text" id="myInput" onkeyup="BookmyFunction()" placeholder="搜索...">
                         
-                                <table class="responsive-table table" id="myTable" style="font-weight:bold">
+                            <div style="width: 100%;height: 50%;overflow: scroll;">
+                                <table class="table-bordered table" id="myTable" style="font-weight:bold">
                         
                                     <tr>
-                                        <th>ID</th>
-                                        <th>书名</th>
-                                        <th>作者</th>
-                                        <th>出版社</th>
-                                        <th>类型</th>
-                                        <th> 状态</th>
-                                        <th>操作</th>
+                                        <th data-field="id">ID</th>
+                                        <th data-field="name">书名</th>
+                                        <th data-field="author">作者</th>
+                                        <th data-field="pub">出版社</th>
+                                        <th data-field="cate">类型</th>
+                                        <th data-field="state"> 状态</th>
+                                        <th>借出时间</th>
+                                        <th data-field="change">操作</th>
                                     </tr>
+                                    <tbody id="bookbody">
+                        
+                                    </tbody>
                         
                         
                                 </table>
-                      
+                        </div>
+                                <div><button class="myBtn" id="bookstore">我的书库</button>
+                                    <button class="myBtn"><a href="javascript:location.reload();">刷新</a></button>
+                                </div>
                         <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert0">
                             <div class="sy-content">图书已借出！</div>
                         </div>
@@ -177,7 +218,21 @@
                         <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert4">
                             <div class="sy-content">还书失败！</div>
                         </div>
-
+                        <div class="sy-alert sy-alert-model animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="confirm" sy-mask="true" id="bookalert">
+                            <div class="sy-title">我的书库</div>
+                            <div class="sy-content">
+                                <div class="form">
+                                    <p class="input-item">图书ID:<input type="text" id="book1" placeholder="我的图书" readonly /><button class="myBtn" id="btn1">还书</button></p>
+                                    <p class="input-item">图书ID:<input type="text" id="book2" placeholder="我的图书" readonly/><button class="myBtn" id="btn2">还书</button></p>
+                                    <p class="input-item">图书ID:<input type="text" id ="book3" placeholder="我的图书" readonly/><button class="myBtn" id="btn3">还书</button></p>
+                        
+                                </div>
+                            </div>
+                            <div class="sy-btn">
+                                <button onClick="syalert.syhide('bookalert')">取消</button>
+                                <button onClick="syalert.syhide('bookalert')">确定</button>
+                            </div>
+                        </div>
             </div>
             <div>
                 <div id="chat">
@@ -312,14 +367,13 @@
 
         if($(this).attr('id')=="Shop")
         {
-            
             $('#shop').addClass('seen');
             var s =0;
             var res = goodinfo.getAll();
             $("#shop #myTable").empty();
-            $("#shop #myTable").append("<tr><th>超市</th><th>商品名</th> <th>价格</th><th>数量</th><th>操作</th></tr>");
+            $("#shop #myTable").append("<tr><th >超市</th><th >商品名称</th> <th > 价格</th><th> 数量</th> <th >购买数量</th><th>详细信息</th><th >操作</th></tr>");
             for(var i=0;i<res.size();i++){
-            $("#shop #myTable").append("<tr><td>"+(goodinfo.getAll().elementAt(i).getTag())+"</td><td>"+(goodinfo.getAll().elementAt(i).getName())+"</td><td>"+(goodinfo.getAll().elementAt(i).getPrice())+"</td><td id='td3'>"+(goodinfo.getAll().elementAt(i).getNumber())+"</td><td>"+"<input id='numberInput' placeholder='请输入购买数量'oninput = \"value=value.replace(/[^\\d]/g,'')\" />"+"</td><td>"+"<button id='buy'class='buy'>加入购物车</button>"+"</td></tr>")}
+            $("#shop #myTable").append("<tr><td>"+(goodinfo.getAll().elementAt(i).getTag())+"</td><td>"+(goodinfo.getAll().elementAt(i).getName())+"</td><td>"+(goodinfo.getAll().elementAt(i).getPrice())+"</td><td id='td3'>"+(goodinfo.getAll().elementAt(i).getNumber())+"</td><td>"+"<input id='numberInput' placeholder='请输入购买数量'oninput = \"value=value.replace(/[^\\d]/g,'')\" />"+"</td><td><button id='msg' class='buy'>详细信息</button>"+"</td><td style='display: none'>"+res.elementAt(i).getPicturePath()+"</td><td>"+"<button id='buy'class='buy'>加入购物车</button>"+"</td></tr>")}
         }
 
         if($(this).attr('id')=="Bank")
@@ -336,19 +390,20 @@
             var res =bookinfo.getAll();
             var record=bookinfo.queryrecord(client.eCardNumber);
             for(var j=0;j<record.size();j++){
-            if($("#book1").html()==""){
-                $("#book1").html(record.elementAt(j).getBookID());
-            }else if($("#book2").html()==""){
-            $("#book2").html(record.elementAt(j).getBookID());
-            }else if($("#book3").html()==""){
-            $("#book3").html(record.elementAt(j).getBookID());
+              if($("#book1").val()==""){
+                    $("#book1").val(record.elementAt(j).getBookID());
+               }else if($("#book2").val()==""){
+                  $("#book2").val(record.elementAt(j).getBookID());
+              }else if($("#book3").val()==""){
+                 $("#book3").val(record.elementAt(j).getBookID());
+
+                 }
+
             }
-        $("#book #myTable").empty();
-        $("#book #myTable").append("<tr><th>ID</th><th>书名</th><th>作者</th><th>出版社</th><th>类型</th><th>状态</th><th>操作</th></tr>");
-        }
-        for(var i=0;i<res.size();i++){
-        $("#book #myTable").append("<tr><td>"+(res.elementAt(i).getBookID())+"</td><td>"+(res.elementAt(i).getBookName())+"</td><td>"+(res.elementAt(i).getBookEdit())+"</td><td>"+(res.elementAt(i).getBOOK_PUB())+"</td><td>"+(res.elementAt(i).getCategory())+"</td><td>"+(res.elementAt(i).getState())+"</td><td><button id='borrow' class='myBtn'>借书</button></td></tr>")}
-            var record=bookinfo.queryrecord(client.eCardNumber);
+             $("#bookbody").empty();
+            for(var i=0;i<res.size();i++){
+            $("#bookbody").append("<tr><td>"+(res.elementAt(i).getBookID())+"</td><td>"+(res.elementAt(i).getBookName())+"</td><td >"+(res.elementAt(i).getBookEdit())+"</td><td >"+(res.elementAt(i).getBOOK_PUB())+"</td><td >"+(res.elementAt(i).getCategory())+"</td><td >"+(res.elementAt(i).getState())+"</td><td >"+res.elementAt(i).getTime()+"</td><td>"+"<button id='borrow' class='myBtn'>借书</button></td></tr>")}
+   
         }
 
 
@@ -432,33 +487,43 @@
    
 
 
-   $(document).on("click",'#buy',function () {
-       var count = $(this).parents("tr").find("td").eq(3).text();
-       var  number = $(this).parents("tr").find("input").val();
-       var name =$(this).parents("tr").find("td").eq(1).text();
-       var tag =$(this).parents("tr").find("td").eq(0).text();
-       var price =$(this).parents("tr").find("td").eq(2).text();
+    $(document).on("click",'#buy',function () {
 
-       var newcount = count -number;
-       if(number < 0){
-           syalert.syopen("alert3");
-       }else if(newcount < 0){
-           syalert.syopen("alert3");
+    var count = $(this).parents("tr").find("td").eq(3).text();
+    var  number = $(this).parents("tr").find("input").val();
+    var name =$(this).parents("tr").find("td").eq(1).text();
+    var tag =$(this).parents("tr").find("td").eq(0).text();
+    var price =$(this).parents("tr").find("td").eq(2).text();
 
-       }else {
-           syalert.syopen("alert2");
-           var i = parseInt(number);
-           //goodinfo.update(name,tag,i);
-       $(this).parents("tr").find("td").eq(3).html(newcount)
-           $("#shop #myForm").append("<tr><td>"+tag+"</td><td>"+name+"</td><td>"+price+"</td><td>"+number+"</td><td>"+"<button id='delete' class='buy'>删除</button>"+"</td></tr>")
-       ;}
-      });
+    var newcount = count -number;
+    if(number==""){
+        syalert.syopen("shopalert3");
+    } else if(number < 0){
+         syalert.syopen("alert3");
+    }else if(newcount < 0){
+       syalert.syopen("alert3");
+
+    }else {
+      syalert.syopen("alert2");
+    $(this).parents("tr").find("td").eq(3).html(newcount);
+
+      $("#basketbody").append("<tr><td>"+tag+"</td><td>"+name+"</td><td>"+price+"</td><td>"+number+"</td><td>"+"<button id='delete' class='buy'>删除</button>"+"</td></tr>");
+    }
+}   );
 
 
     $(document).on("click",'#delete',function () {
         $(this).parents("tr").remove();
     })
 
+    $(document).on("click",'#msg',function () {
+        
+        if(!$(".shopcard").hasClass("on")){
+            $(".shopcard").addClass("on");
+        }
+
+
+    })
 
 
 
@@ -492,21 +557,33 @@
 
     $(document).on("click",'#Buy',function () {
     var price,number,name,tag,i;
-    table =$("#book #myTable").get(0);
+    var table = document.getElementById("basketbody");
     var tr=table.getElementsByTagName("tr");
-    alert(tr.length);
-    for(i =1;i<tr.length;i++){
+
+    for(i =0;i<tr.length;i++){
         price=tr[i].getElementsByTagName("td")[2].innerHTML.toUpperCase();
         number=tr[i].getElementsByTagName("td")[3].innerHTML.toUpperCase();
         name =tr[i].getElementsByTagName("td")[1].innerHTML.toUpperCase();
         tag = tr[i].getElementsByTagName("td")[0].innerHTML.toUpperCase();
+        if(number==""){
+             syalert.syopen("alert0")
+        }
         var h = parseInt(number);
         goodinfo.update(name,tag,h);
         goodinfo.consumption(client.eCardNumber,price*number);
 
-        }
+    }
+    $("#basketbody").empty();
+
+
+
     syalert.syhide("alert4");
-    })
+    syalert.syopen("alert1");
+})
+
+    $("#cancel").click(function () {
+        $("#basketbody").empty();
+       })
 
  
     $('.bankbutton').on('click',function(){
@@ -632,70 +709,68 @@ function searchFct(){
         
 
    
-    $(document).on("click",'#borrow',function () {
+$(document).on("click",'#borrow',function () {
         var state =$(this).parents("tr").find("td").eq(5).text();
         var ID =$(this).parents("tr").find("td").eq(0).text();
-        if($("#book1").html()!==""&&$("#book2").html()!==""&&$("#book3").html()!==""){
+        if($("#book1").val()!==""&&$("#book2").val()!==""&&$("#book3").val()!==""){
             syalert.syopen("alert1");
         } else if(state=="未借"){
             syalert.syopen("alert2");
             $(this).parents("tr").find("td").eq(5).html("已借");
             var newstate=$(this).parents("tr").find("td").eq(5).text();
           bookinfo.update(ID,state,client.eCardNumber);
-            if($("#book1").html()==""){
-                $("#book1").html(ID);
-            }else if($("#book2").html()==""){
-                $("#book2").html(ID);
-            }else if($("#book3").html()==""){
-                $("#book3").html(ID);
+            if($("#book1").val()==""){
+                $("#book1").val(ID);
+            }else if($("#book2").val()==""){
+                $("#book2").val(ID);
+            }else if($("#book3").val()==""){
+                $("#book3").val(ID);
             }
 
         } else{
             syalert.syopen("alert0");
 
         }
-    })
-    $("#btn1").click(function () {
-        
-        alert(0);
-        var id =$("#book1").html();
-        var table,tr,td,i,state;
 
-        table =$("#book #myTable").get(0);
+
+    });
+    $("#btn1").click(function () {
+        var id =$("#book1").val();
+        var table,tr,td,i,state;
+        table = document.getElementById("bookbody");
         tr = table.getElementsByTagName("tr");
-        
-        alert(1);
         if(id==""){
-            syalert.syopen("alert4")
+
+ syalert.syopen("alert4")
         }
-        for(i=1;i<tr.length;i++){
+        for(i=0;i<tr.length;i++){
             td=tr[i].getElementsByTagName("td")[0].innerHTML.toUpperCase();
             state=tr[i].getElementsByTagName("td")[5].innerHTML.toUpperCase();
         if(id==td){
                 tr[i].getElementsByTagName("td")[5].innerHTML="未借";
-                $("#book1").html("");
+                $("#book1").val("");
                 bookinfo.update(id,state,client.eCardNumber);
-            yalert.syopen("alert3");
+        syalert.syopen("alert3");
             }
 
         }
     });
     $("#btn2").click(function () {
-        var id =$("#book2").html();
+        var id =$("#book2").val();
         var table,tr,td,i,state;
-        table =$("#book #myTable").get(0);
+        table = document.getElementById("bookbody");
         tr = table.getElementsByTagName("tr");
         if(id==""){
             syalert.syopen("alert4");
 
         }
 
-        for(i=1;i<tr.length;i++){
+        for(i=0;i<tr.length;i++){
             td=tr[i].getElementsByTagName("td")[0].innerHTML.toUpperCase();
             state=tr[i].getElementsByTagName("td")[5].innerHTML.toUpperCase();
             if(id==td){
                 tr[i].getElementsByTagName("td")[5].innerHTML="未借";
-                $("#book2").html("");
+                $("#book2").val("");
                 bookinfo.update(id,state,client.eCardNumber);
                 syalert.syopen("alert3");
             }
@@ -703,26 +778,29 @@ function searchFct(){
         }
     });
     $("#btn3").click(function () {
-        var id =$("#book3").html();
+        var id =$("#book3").val();
         var table,tr,td,i,state;
-        table =$("#book #myTable").get(0);
+        table = document.getElementById("bookbody");
         tr = table.getElementsByTagName("tr");
         if(id==""){
             syalert.syopen("alert4");
 
         }
-        for(i=1;i<tr.length;i++){
+        for(i=0;i<tr.length;i++){
             td=tr[i].getElementsByTagName("td")[0].innerHTML.toUpperCase();
             state=tr[i].getElementsByTagName("td")[5].innerHTML.toUpperCase();
             if(id==td){
                 tr[i].getElementsByTagName("td")[5].innerHTML="未借";
-                $("#book3").html("");
+                $("#book3").val("");
                 bookinfo.update(id,state,client.eCardNumber);
                 syalert.syopen("alert3");
             }
 
         }
     });
+    $("#bookstore").click(function () {
+        syalert.syopen("bookalert");
+    })
 
     function BookmyFunction() {
         // 声明变量
@@ -833,8 +911,11 @@ function searchFct(){
     //点击选人
     $(".discussion-person").on("click",".discussion",function() {
       last.setYear(-100);
-      current = document.querySelector('.message-active');
-      current.classList.remove("message-active");
+      if(document.querySelector('.message-active'))
+      {
+        current = document.querySelector('.message-active');
+        current.classList.remove("message-active");
+      }
       this.classList.add("message-active");
       Name = this.querySelector('.name').innerText;
       $(".header-chat .name").text(Name);

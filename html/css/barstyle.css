@@ -302,6 +302,124 @@ li.tagfocus a::after{
     box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)
 }
 
+
+.shopcard {
+  width: 100%;
+  position: absolute;
+  margin: 0;
+  top:-15%;
+  right:0;
+  padding: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  
+}
+
+.shopcard.on{
+  display: flex;
+}
+
+.shopcard *{
+  text-align: left;
+  font-weight:bold;
+}
+.shopcard .contain {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 900px;
+  height: 600px;
+  background: #fff;
+  margin: 20px;
+}
+.shopcard .contain .imgBx {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 50%;
+  height: 100%;
+  background: #006dbc;
+}
+
+.shopcard .contain .imgBx::before {
+  content: 'Nike';
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: #000;
+  opacity: 0.1;
+  font-size: 8em;
+  font-weight: 800;
+}
+
+.shopcard .contain .imgBx img {
+  position: relative;
+  width: 700px;
+  left: -50px;
+  transform: rotate(-30deg);
+}
+.shopcard .contain .details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 40px;
+}
+
+.shopcard .contain .details h2 {
+  margin: 0;
+  padding: 0;
+  font-size: 2.5em;
+  line-height: 0.8em;
+  color: #444;
+}
+
+.shopcard .contain .details h2 span {
+  font-size: 0.4em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #999;
+}
+.shopcard .contain .details p {
+  font-weight:normal;
+  max-width: 85%;
+  margin-left: 10%;
+  color: #333;
+  font-size: 15px;
+}
+.shopcard .contain .details h3 {
+  margin: 0;
+  padding: 0;
+  font-size: 2.5em;
+  color: #a2a2a2;
+  float: left;
+}
+
+.shopcard .contain .details button {
+  background: #006dbc;
+  color: #fff;
+  border: none;
+  box-shadow: none;
+  outline: none;
+  padding: 15px 20px;
+  margin-top: 5px;
+  font-size: 16px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 600;
+  border-radius: 40px;
+  float: right;
+  cursor: pointer;
+}
+
+
 #bank{
     display: none;
     position: absolute;
