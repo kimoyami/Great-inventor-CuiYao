@@ -7,14 +7,60 @@
 	<div>
 		<p>学生ID
 			<input type="text" id="studentid" placeholder="请输入学生ID"></p>
-		<p>学生成绩
-			<input type="text" id="studenttrade" placeholder="请输入学生成绩"></p>
-
+		<p>学期
+			<input type="text" id="semester" placeholder="请输入学期"></p>
+        <p>学生成绩
+            <input type="text" id="studenttrade" placeholder="请输入学生成绩"></p>
+        <p>课程名称
+            <input type="text" id="coursename" placeholder="请输入课程名称"></p>
+        <button id="inserttrade" onclick="inserttrade()">插入成绩</button>
 
 	</div>
+    <div>
+        <table id="myTable" border="solid">
+            <tr>
+                <th style="width: 10%">学生ID</th>
+                <th style="width: 10%">学期</th>
+                <th style="width: 10%">学生成绩</th>
+                <th style="width: 10%">课程名称</th>
+                <th style="width: 10%">老师姓名</th>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <p>成绩区间</p>
+        <p>下限
+            <input type="text" id="min" placeholder="请输入成绩下限"></p>
+        <p>上限
+            <input type="text" id="max" placeholder="请输入成绩上限"></p>
+        <button id="refresh" onclick="refresh()">刷新</button>
+    </div>
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script type="text/javascript">
-		
+
+		var vec = gradeinfo.querycourse("信号与系统","王世杰",0,100);
+
+		alert(vec.elementAt(0).getCourseName());
+		for (var i = 0; i < vec.size(); i++) {
+            $("#myTable").append("<tr><td>" + vec.elementAt(i).getEcardNUmber() + "</td><td>" + vec.elementAt(i).getCourseSemeter() +
+                "</td><td>" + vec.elementAt(i).getCourseGrade() + "</td><td>" + vec.elementAt(i).getCourseName() + "</td><td>" +
+                vec.elementAt(i).getTeacher() + "</td></tr>")
+        }
+		function refresh() {
+            window.location.reload();
+        }
+		function inserttrade() {
+            var idx = $("#studentid").val();
+            var sem = $("#semester").val();
+            var trade = $("#studenttrade").val();
+            var name = $("#coursename").val();
+            var m = parseInt(sem);
+            var n = parseInt(trade);
+            gradeinfo.insert(idx, m, name, n, "王世杰");
+            window.location.reload();
+
+        }
+
 	</script>
 
 </body>

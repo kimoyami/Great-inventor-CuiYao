@@ -58,7 +58,7 @@ public class MainView {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         frame.setResizable(false);
-        browser.loadURL("F:\\GitHub\\Great-inventor-CuiYao\\html\\SelectCourse.html");
+        browser.loadURL("F:\\GitHub\\Great-inventor-CuiYao\\html\\teacher.html");
         Toolkit kit = Toolkit.getDefaultToolkit();
         Image image = kit.createImage("http://101.37.79.28/html/image/xh.jpg");
         frame.setIconImage(image);
@@ -112,6 +112,7 @@ public class MainView {
                 BookInfo bookinfo=new BookInfo();
                 CourseInfo courseinfo = new CourseInfo();
                 SelectCourseInfo selectcourseinfo = new SelectCourseInfo();
+                GradeInfo gradeinfo = new GradeInfo();
 
                 window.asObject().setProperty("personinfo", personinfo);
                 window.asObject().setProperty("person", person);
@@ -126,7 +127,7 @@ public class MainView {
                 window.asObject().setProperty("bookinfo",bookinfo);
                 window.asObject().setProperty("courseinfo",courseinfo);
                 window.asObject().setProperty("selectcourseinfo",selectcourseinfo);
-
+                window.asObject().setProperty("gradeinfo", gradeinfo);
             }
         });
     }
