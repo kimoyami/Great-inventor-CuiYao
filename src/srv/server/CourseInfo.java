@@ -10,31 +10,32 @@ import dao.DataCourse;
 import java.util.Vector;
 
 public class CourseInfo {
+    public static ServerThread now;
     public static void run(int op) {
         try {
             if (op == 1) {
-                ServerThread.cout.writeInt(insert());
-                ServerThread.cout.flush();
+                now.cout.writeInt(insert());
+                now.cout.flush();
             }
             if (op == 2) {
-                ServerThread.cout.writeInt(delete());
-                ServerThread.cout.flush();
+                now.cout.writeInt(delete());
+                now.cout.flush();
             }
             if (op == 3) {
                 Vector<Course> res = query();
-                ServerThread.cout.writeInt(res.size());
+                now.cout.writeInt(res.size());
                 for (int i = 0; i < res.size(); i++) {
-                    ServerThread.cout.writeObject(res.elementAt(i));
+                    now.cout.writeObject(res.elementAt(i));
                 }
-                ServerThread.cout.flush();
+                now.cout.flush();
             }
             if (op == 4) {
                 Vector<Course> res = getAll();
-                ServerThread.cout.writeInt(res.size());
+                now.cout.writeInt(res.size());
                 for (int i = 0; i < res.size(); i++) {
-                    ServerThread.cout.writeObject(res.elementAt(i));
+                    now.cout.writeObject(res.elementAt(i));
                 }
-                ServerThread.cout.flush();
+                now.cout.flush();
             }
         } catch (Exception e) {
             return;
@@ -44,7 +45,7 @@ public class CourseInfo {
     public static synchronized int insert() {
         Course course;
         try {
-            course = (Course) ServerThread.cin.readObject();
+            course = (Course) now.cin.readObject();
         } catch (Exception e) {
             e.printStackTrace();
             return -3;
@@ -56,8 +57,8 @@ public class CourseInfo {
         String idx;
         String teacher;
         try {
-            idx = ServerThread.cin.readUTF();
-            teacher = ServerThread.cin.readUTF();
+            idx = now.cin.readUTF();
+            teacher = now.cin.readUTF();
         } catch (Exception e) {
             e.printStackTrace();
             return -3;
@@ -68,7 +69,7 @@ public class CourseInfo {
     public static Vector<Course> query() {
         String teacher = "";
         try {
-            teacher = ServerThread.cin.readUTF();
+            teacher = now.cin.readUTF();
         } catch (Exception e) {
             e.printStackTrace();
         }

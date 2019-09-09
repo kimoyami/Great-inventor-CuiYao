@@ -8,23 +8,24 @@ import javax.xml.crypto.Data;
 import java.util.Vector;
 
 public class SelectCourseInfo {
+    public static ServerThread now;
     public static void run(int op) {
         try {
             if (op == 1) {
-                ServerThread.cout.writeInt(insert());
-                ServerThread.cout.flush();
+                now.cout.writeInt(insert());
+                now.cout.flush();
             }
             if (op == 2) {
-                ServerThread.cout.writeInt(delete());
-                ServerThread.cout.flush();
+                now.cout.writeInt(delete());
+                now.cout.flush();
             }
             if (op == 3) {
                 Vector<SelectCourse> res = query();
-                ServerThread.cout.writeInt(res.size());
+                now.cout.writeInt(res.size());
                 for (int i = 0; i < res.size(); i++) {
-                    ServerThread.cout.writeObject(res.elementAt(i));
+                    now.cout.writeObject(res.elementAt(i));
                 }
-                ServerThread.cout.flush();
+                now.cout.flush();
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -41,12 +42,12 @@ public class SelectCourseInfo {
         String teacher;
 
         try {
-            e=ServerThread.cin.readUTF();
-            idx=ServerThread.cin.readUTF();
-            name=ServerThread.cin.readUTF();
-            time=ServerThread.cin.readInt();
-            teacher=ServerThread.cin.readUTF();
-            classroom=ServerThread.cin.readInt();
+            e=now.cin.readUTF();
+            idx=now.cin.readUTF();
+            name=now.cin.readUTF();
+            time=now.cin.readInt();
+            teacher=now.cin.readUTF();
+            classroom=now.cin.readInt();
         } catch (Exception ex) {
             ex.printStackTrace();
             return -3;
@@ -58,8 +59,8 @@ public class SelectCourseInfo {
         String eCardName;
         String courseName;
         try {
-            eCardName = ServerThread.cin.readUTF();
-            courseName = ServerThread.cin.readUTF();
+            eCardName = now.cin.readUTF();
+            courseName = now.cin.readUTF();
         } catch (Exception e) {
             e.printStackTrace();
             return -4;
@@ -70,7 +71,7 @@ public class SelectCourseInfo {
     public static Vector<SelectCourse> query() {
         String id = "";
         try {
-            id = ServerThread.cin.readUTF();
+            id = now.cin.readUTF();
         } catch (Exception e) {
             e.printStackTrace();
         }

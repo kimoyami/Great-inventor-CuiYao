@@ -10,41 +10,41 @@ import srv.goods.Goods;
 import java.util.Vector;
 
 public class GoodInfo {
-
+    public static ServerThread now;
     public static void run(int op) {
         try {
             if (op == 1) {
-                ServerThread.cout.writeInt(insert());
-                ServerThread.cout.flush();
+                now.cout.writeInt(insert());
+                now.cout.flush();
             }
             if (op == 2) {
-                ServerThread.cout.writeInt(delete());
-                ServerThread.cout.flush();
+                now.cout.writeInt(delete());
+                now.cout.flush();
             }
             if (op == 3) {
                 Vector<Goods> res = query();
-                ServerThread.cout.writeInt(res.size());
+                now.cout.writeInt(res.size());
                 for (int i = 0; i < res.size(); i++) {
-                    ServerThread.cout.writeObject(res.elementAt(i));
+                    now.cout.writeObject(res.elementAt(i));
                 }
-                ServerThread.cout.flush();
+                now.cout.flush();
             }
             if (op == 4) {
                 Vector<Goods> res = getAll();
-                ServerThread.cout.writeInt(res.size());
+                now.cout.writeInt(res.size());
                 System.out.println(res.size());
                 for (int i = 0; i < res.size(); i++) {
-                    ServerThread.cout.writeObject(res.elementAt(i));
+                    now.cout.writeObject(res.elementAt(i));
                 }
-                ServerThread.cout.flush();
+                now.cout.flush();
             }
             if (op == 5) {
-                ServerThread.cout.writeInt(update());
-                ServerThread.cout.flush();
+                now.cout.writeInt(update());
+                now.cout.flush();
             }
             if (op == 6) {
-                ServerThread.cout.writeInt(consumption());
-                ServerThread.cout.flush();
+                now.cout.writeInt(consumption());
+                now.cout.flush();
             }
 
         } catch (Exception e) {
@@ -60,12 +60,12 @@ public class GoodInfo {
         String url;
         String tag;
         try {
-            idx=ServerThread.cin.readUTF();
-            cnt=ServerThread.cin.readInt();
-            goodname=ServerThread.cin.readUTF();
-            price=ServerThread.cin.readDouble();
-            url=ServerThread.cin.readUTF();
-            tag=ServerThread.cin.readUTF();
+            idx=now.cin.readUTF();
+            cnt=now.cin.readInt();
+            goodname=now.cin.readUTF();
+            price=now.cin.readDouble();
+            url=now.cin.readUTF();
+            tag=now.cin.readUTF();
         } catch (Exception e) {
             e.printStackTrace();
             return -3;
@@ -77,8 +77,8 @@ public class GoodInfo {
         String goodsname;
         String tag;
         try {
-            goodsname = ServerThread.cin.readUTF();
-            tag = ServerThread.cin.readUTF();
+            goodsname = now.cin.readUTF();
+            tag = now.cin.readUTF();
         } catch (Exception e) {
             e.printStackTrace();
             return -1;
@@ -90,7 +90,7 @@ public class GoodInfo {
     public static Vector<Goods> query() {
         String name = "";
         try {
-            name = ServerThread.cin.readUTF();
+            name = now.cin.readUTF();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -102,9 +102,9 @@ public class GoodInfo {
         String tag = "";
         int change = 0;
         try {
-            name = ServerThread.cin.readUTF();
-            tag = ServerThread.cin.readUTF();
-            change = ServerThread.cin.readInt();
+            name = now.cin.readUTF();
+            tag = now.cin.readUTF();
+            change = now.cin.readInt();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -115,8 +115,8 @@ public class GoodInfo {
         String ID = "";
         double change = 0;
         try {
-            ID = ServerThread.cin.readUTF();
-            change = ServerThread.cin.readDouble();
+            ID = now.cin.readUTF();
+            change = now.cin.readDouble();
         } catch (Exception e) {
             e.printStackTrace();
         }
