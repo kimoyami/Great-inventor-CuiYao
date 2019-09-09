@@ -16,7 +16,6 @@ public class Client {
 
     public static void run(){
         try{
-            //101.37.79.28
             socket = new Socket("localhost", 8888);
             cin = new ObjectInputStream(socket.getInputStream());
             cout = new ObjectOutputStream(socket.getOutputStream());
