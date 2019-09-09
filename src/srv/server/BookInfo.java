@@ -10,43 +10,44 @@ import srv.book.*;
 import java.util.Vector;
 
 public class BookInfo {
+    public static ServerThread now;
     public static void run(int op) {
         try {
             if (op == 1) {
-                ServerThread.cout.writeInt(insert());
-                ServerThread.cout.flush();
+                now.cout.writeInt(insert());
+                now.cout.flush();
             }
             if (op == 2) {
-                ServerThread.cout.writeInt(delete());
-                ServerThread.cout.flush();
+                now.cout.writeInt(delete());
+                now.cout.flush();
             }
             if (op == 3) {
                 Vector<Book> res =query();
-                ServerThread.cout.writeInt(res.size());
+                now.cout.writeInt(res.size());
                 for (int i = 0; i < res.size(); i++) {
-                    ServerThread.cout.writeObject(res.elementAt(i));
+                    now.cout.writeObject(res.elementAt(i));
                 }
-                ServerThread.cout.flush();
+                now.cout.flush();
             }
             if (op == 4) {
-                ServerThread.cout.writeInt(update());
-                ServerThread.cout.flush();
+                now.cout.writeInt(update());
+                now.cout.flush();
             }
             if(op==5){
                 Vector<Book> res =getAll();
-                ServerThread.cout.writeInt(res.size());
+                now.cout.writeInt(res.size());
                 for (int i = 0; i < res.size(); i++) {
-                    ServerThread.cout.writeObject(res.elementAt(i));
+                    now.cout.writeObject(res.elementAt(i));
                 }
-                ServerThread.cout.flush();
+                now.cout.flush();
             }
             if(op==6){
                 Vector<Book> res =queryrecord();
-                ServerThread.cout.writeInt(res.size());
+                now.cout.writeInt(res.size());
                 for (int i = 0; i < res.size(); i++) {
-                    ServerThread.cout.writeObject(res.elementAt(i));
+                    now.cout.writeObject(res.elementAt(i));
                 }
-                ServerThread.cout.flush();
+                now.cout.flush();
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -62,12 +63,12 @@ public class BookInfo {
         String category;
         String state;
         try {
-            idx=ServerThread.cin.readUTF();
-            name=ServerThread.cin.readUTF();
-            author=ServerThread.cin.readUTF();
-            publish=ServerThread.cin.readUTF();
-            category=ServerThread.cin.readUTF();
-            state=ServerThread.cin.readUTF();
+            idx=now.cin.readUTF();
+            name=now.cin.readUTF();
+            author=now.cin.readUTF();
+            publish=now.cin.readUTF();
+            category=now.cin.readUTF();
+            state=now.cin.readUTF();
         } catch (Exception e) {
             e.printStackTrace();
             return -3;
@@ -78,7 +79,7 @@ public class BookInfo {
     public static synchronized int delete() {
         String idx;
         try {
-           idx = ServerThread.cin.readUTF();
+           idx = now.cin.readUTF();
         } catch (Exception e) {
             return -1;
         }
@@ -88,7 +89,7 @@ public class BookInfo {
     public static Vector<Book> query() {
         String bookname = "";
         try {
-            bookname = ServerThread.cin.readUTF();
+            bookname = now.cin.readUTF();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -100,9 +101,9 @@ public class BookInfo {
         String state;
         String ecardname;
         try {
-            id = ServerThread.cin.readUTF();
-            state=ServerThread.cin.readUTF();
-            ecardname=ServerThread.cin.readUTF();
+            id = now.cin.readUTF();
+            state=now.cin.readUTF();
+            ecardname=now.cin.readUTF();
         } catch (Exception e) {
             e.printStackTrace();
             return -3;
@@ -112,7 +113,7 @@ public class BookInfo {
     public static Vector<Book> queryrecord() {
         String ecardname = "";
         try {
-            ecardname = ServerThread.cin.readUTF();
+            ecardname = now.cin.readUTF();
         } catch (Exception e) {
             e.printStackTrace();
         }

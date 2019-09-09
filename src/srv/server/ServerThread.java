@@ -8,17 +8,19 @@ package srv.server;
 import dao.DataBase;
 import dao.DataHead;
 import srv.course.SelectCourse;
+import srv.message.Message;
 
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Random;
+import java.util.Vector;
 
 public class ServerThread extends Thread {
     private static final String BASE = "C:\\Users\\Administrator\\Documents\\GitHub\\Great-inventor-CuiYao\\headimage\\";
     private Socket socket;
-    public static ObjectInputStream cin = null;
-    public static ObjectOutputStream cout = null;
+    public ObjectInputStream cin = null;
+    public ObjectOutputStream cout = null;
 
     public ServerThread(Socket socket) {
         this.socket = socket;
@@ -35,24 +37,56 @@ public class ServerThread extends Thread {
                 int op = cin.readInt();
                 if (op == -1) break;
                 if (op == -100) update();
-                if (op >= 1 && op <= 10) Login.run(op);
+                if (op >= 1 && op <= 10) {
+                    Login.now = this;
+                    Login.run(op);
+                }
                 op -= 10;
-                if (op >= 1 && op <= 10) PersonInfo.run(op);
+                if (op >= 1 && op <= 10) {
+                    PersonInfo.now = this;
+                    PersonInfo.run(op);
+                }
                 op -= 10;
-                if (op >= 1 && op <= 10) MessageTrans.run(op);
+                if (op >= 1 && op <= 10) {
+                    MessageTrans.now = this;
+                    MessageTrans.run(op);
+                }
                 op -= 10;
-                if (op >= 1 && op <= 10) BookInfo.run(op);
+                if (op >= 1 && op <= 10) {
+                    BookInfo.now = this;
+                    BookInfo.run(op);
+                }
                 op -= 10;
-                if (op >= 1 && op <= 10) Bank_Info.run(op);
+                if (op >= 1 && op <= 10) {
+                    Bank_Info.now = this;
+                    Bank_Info.run(op);
+                }
                 op -= 10;
-                if (op >= 1 && op <= 10) GoodInfo.run(op);
+                if (op >= 1 && op <= 10) {
+                    GoodInfo.now = this;
+                    GoodInfo.run(op);
+                }
                 op -= 10;
-                if (op == 1) Head.run(op);
+                if (op == 1) {
+                    Head.now = this;
+                    Head.run(op);
+                }
                 op -= 10;
-                if (op >= 1 && op <= 10) CourseInfo.run(op);
+                if (op >= 1 && op <= 10) {
+                    CourseInfo.now = this;
+                    CourseInfo.run(op);
+                }
                 op -= 10;
-                if (op >= 1 && op <= 10) SelectCourseInfo.run(op);
+                if (op >= 1 && op <= 10) {
+                    SelectCourseInfo.now = this;
+                    SelectCourseInfo.run(op);
+                }
                 op -= 10;
+                if (op >= 1 && op <= 10) {
+                    GradeInfo.now = this;
+                    GradeInfo.run(op);
+                }
+                op-=10;
             }
 
             cin.close();
@@ -92,4 +126,5 @@ public class ServerThread extends Thread {
             e.printStackTrace();
         }
     }
+
 }

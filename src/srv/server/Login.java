@@ -7,49 +7,50 @@ import dao.DataBase;
 import dao.DataPerson;
 import srv.person.Unsolve;
 
+import java.net.Socket;
 import java.util.Vector;
 
 public class Login {
-    
+    public static ServerThread now;
     public static void run(int op){
         try {
             if (op == 1) {
-                ServerThread.cout.writeInt(query());
-                ServerThread.cout.flush();
+                now.cout.writeInt(query());
+                now.cout.flush();
             } else if (op == 2) {
-                ServerThread.cout.writeInt(insert());
-                ServerThread.cout.flush();
+                now.cout.writeInt(insert());
+                now.cout.flush();
             } else if (op == 3) {
-                ServerThread.cout.writeInt(delete());
-                ServerThread.cout.flush();
+                now.cout.writeInt(delete());
+                now.cout.flush();
             } else if (op == 4) {
-                ServerThread.cout.writeInt(solve());
-                ServerThread.cout.flush();
+                now.cout.writeInt(solve());
+                now.cout.flush();
             } else if (op == 5) {
-                ServerThread.cout.writeInt(addAdmin());
-                ServerThread.cout.flush();
+                now.cout.writeInt(addAdmin());
+                now.cout.flush();
             } else if (op == 6) {
-                ServerThread.cout.writeInt(cancelAdmin());
-                ServerThread.cout.flush();
+                now.cout.writeInt(cancelAdmin());
+                now.cout.flush();
             } else if (op == 7) {
-                ServerThread.cout.writeInt(update());
-                ServerThread.cout.flush();
+                now.cout.writeInt(update());
+                now.cout.flush();
             }
             else if(op == 8){
-                ServerThread.cout.writeInt(isNew());
-                ServerThread.cout.flush();
+                now.cout.writeInt(isNew());
+                now.cout.flush();
             }
             else if(op == 9){
                 Vector<Unsolve> res = getAll();
-                ServerThread.cout.writeInt(res.size());
+                now.cout.writeInt(res.size());
                 for(int i = 0; i < res.size(); i++){
-                    ServerThread.cout.writeObject(res.elementAt(i));
+                    now.cout.writeObject(res.elementAt(i));
                 }
-                ServerThread.cout.flush();
+                now.cout.flush();
             }
             else if(op == 10){
-                ServerThread.cout.writeInt(exist());
-                ServerThread.cout.flush();
+                now.cout.writeInt(exist());
+                now.cout.flush();
             }
 
 
@@ -61,8 +62,8 @@ public class Login {
     public static int query(){
         String eCardNumber, password;
         try {
-            eCardNumber = ServerThread.cin.readUTF();
-            password = ServerThread.cin.readUTF();
+            eCardNumber = now.cin.readUTF();
+            password = now.cin.readUTF();
         }catch (Exception e){
             return -3;
         }
@@ -76,11 +77,11 @@ public class Login {
         String sex;
         String status;
         try {
-            userName = ServerThread.cin.readUTF();
-            password = ServerThread.cin.readUTF();
-            eCardNumber = ServerThread.cin.readUTF();
-            sex = ServerThread.cin.readUTF();
-            status = ServerThread.cin.readUTF();
+            userName = now.cin.readUTF();
+            password = now.cin.readUTF();
+            eCardNumber = now.cin.readUTF();
+            sex = now.cin.readUTF();
+            status = now.cin.readUTF();
         }catch (Exception e){
             e.printStackTrace();
             return -3;
@@ -91,7 +92,7 @@ public class Login {
     public static synchronized int delete(){
         String eCardNumber;
         try {
-            eCardNumber = ServerThread.cin.readUTF();
+            eCardNumber = now.cin.readUTF();
         }catch (Exception e){
             e.printStackTrace();
             return -3;
@@ -102,7 +103,7 @@ public class Login {
     public static synchronized int solve(){
         String eCardNumber;
         try {
-            eCardNumber = ServerThread.cin.readUTF();
+            eCardNumber = now.cin.readUTF();
         }catch (Exception e){
             e.printStackTrace();
             return -3;
@@ -113,7 +114,7 @@ public class Login {
     public static synchronized int addAdmin(){
         String eCardNumber;
         try {
-            eCardNumber = ServerThread.cin.readUTF();
+            eCardNumber = now.cin.readUTF();
         }catch (Exception e){
             e.printStackTrace();
             return -3;
@@ -124,7 +125,7 @@ public class Login {
     public static synchronized int cancelAdmin(){
         String eCardNumber;
         try {
-            eCardNumber = ServerThread.cin.readUTF();
+            eCardNumber = now.cin.readUTF();
         }catch (Exception e){
             e.printStackTrace();
             return -3;
@@ -139,11 +140,11 @@ public class Login {
         String sex;
         String status;
         try {
-            userName = ServerThread.cin.readUTF();
-            password = ServerThread.cin.readUTF();
-            eCardNumber = ServerThread.cin.readUTF();
-            sex = ServerThread.cin.readUTF();
-            status = ServerThread.cin.readUTF();
+            userName = now.cin.readUTF();
+            password = now.cin.readUTF();
+            eCardNumber = now.cin.readUTF();
+            sex = now.cin.readUTF();
+            status = now.cin.readUTF();
         }catch (Exception e){
             e.printStackTrace();
             return -3;
@@ -154,7 +155,7 @@ public class Login {
     public static int isNew(){
         String eCardNumber;
         try {
-            eCardNumber = ServerThread.cin.readUTF();
+            eCardNumber = now.cin.readUTF();
         }catch (Exception e){
             e.printStackTrace();
             return -3;
@@ -169,7 +170,7 @@ public class Login {
     public static int exist(){
         String eCardNumber;
         try {
-            eCardNumber = ServerThread.cin.readUTF();
+            eCardNumber = now.cin.readUTF();
         }catch (Exception e){
             e.printStackTrace();
             return -3;
