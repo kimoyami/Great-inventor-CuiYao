@@ -58,7 +58,7 @@
             </div>
             <div id="shop">
                     <h1 style="font-family: Lobster" >SHOP</h1>
-                    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="搜索...">
+                    <input type="text" id="myInput" onkeyup="ShopmyFunction()" placeholder="搜索...">
                     <table id="myTable" >
                         <tr>
                             <th style="width: 16.5%;">超市</th>
@@ -141,7 +141,7 @@
                     <nav class="navbar navbar-inverse navbar-fixed-top">
                             <a href="">BOOK</a>
                         </nav>
-                            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="搜索...">
+                            <input type="text" id="myInput" onkeyup="BookmyFunction()" placeholder="搜索...">
                         
                                 <table class="responsive-table table" id="myTable" style="font-weight:bold">
                         
@@ -537,7 +537,7 @@
 
 
 
-    function myFunction() {
+    function ShopmyFunction() {
         // 声明变量
         var input, filter, table, tr, td, i;
         input =$("#shop #myInput").get(0);
@@ -798,7 +798,7 @@ function searchFct(){
         }
     });
 
-    function myFunction() {
+    function BookmyFunction() {
         // 声明变量
         var input, filter, table, tr, td, i;
         input =$("#book #myInput").get(0);
