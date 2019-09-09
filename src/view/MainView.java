@@ -58,7 +58,7 @@ public class MainView {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         frame.setResizable(false);
-        browser.loadURL("http://101.37.79.28/html/index.html");
+        browser.loadURL("F:\\GitHub\\Great-inventor-CuiYao\\html\\SelectCourse.html");
         Toolkit kit = Toolkit.getDefaultToolkit();
         Image image = kit.createImage("http://101.37.79.28/html/image/xh.jpg");
         frame.setIconImage(image);
@@ -110,6 +110,8 @@ public class MainView {
                 Bank_Info bankinfo=new Bank_Info();
                 GoodInfo goodinfo=new GoodInfo();
                 BookInfo bookinfo=new BookInfo();
+                CourseInfo courseinfo = new CourseInfo();
+                SelectCourseInfo selectcourseinfo = new SelectCourseInfo();
 
                 window.asObject().setProperty("personinfo", personinfo);
                 window.asObject().setProperty("person", person);
@@ -122,6 +124,8 @@ public class MainView {
                 window.asObject().setProperty("bankinfo",bankinfo);
                 window.asObject().setProperty("goodinfo",goodinfo);
                 window.asObject().setProperty("bookinfo",bookinfo);
+                window.asObject().setProperty("courseinfo",courseinfo);
+                window.asObject().setProperty("selectcourseinfo",selectcourseinfo);
 
             }
         });
