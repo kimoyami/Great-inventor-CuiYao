@@ -186,7 +186,7 @@ form .select {
     position: absolute;
     overflow: hidden;
     width: 100%;
-    background: rgba(235, 235, 235);
+    background: rgb(223, 223, 223);
     box-shadow: 0 10px 15px rgba(0,0,0,.5);
     border-radius: 4px;
     top: 100%;

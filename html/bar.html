@@ -24,28 +24,29 @@
                     <li><a class="tab" id="Chat" href="javascript:i">聊天</a> </li>    
                 </ul>
             </div>
-            <a href="javascript:;" class="headpng"><img class="png" id = "head" src="?" alt="" style="cursor:hand" onclick="headpng()"></a>
+            <a href="javascript:;"  class="headpng"><img class="png" id = "head" src="?" alt="" style="cursor:hand" onclick="headpng()"></a>
         </div>
         <div class="content">    
             <div>  
                 <div id = "textcontrol">
                 <h1 style="text-align: center">信息修改</h1>
                 <form action="" method="get">
-                    <p><label class="setfont">Name:      </label><input id="uname"  type="text" placeholder="请输入姓名" style="width: 140px" readonly/></p>
-                    <p><label class="setfont">ID:        </label><input id="uid" type="text"  placeholder="请输入一卡通号" style="width: 140px" readonly/></p>
-                    <p><label class="setfont">Birthday:  </label><input id="birth" name="user_birth" type="date"  style="width: 140px" /></p>
-                    <p><label class="setfont">Age:       </label><input id="age" name ="age" type="text" placeholder="请输入年龄" style="width: 140px" readonly/></p>
-                    <p><label class="setfont">BirthPlace:</label><input id="birthplace" name="birthplace" type="text" placeholder="请输入出生地"style="width: 140px"/></p>
-                    <p><label class="setfont">Dormitory: </label><input id="dormitory" type="text" placeholder="请输入宿舍"style="width: 140px"></p>
-                    <p><label class="setfont">Academy:   </label><input id="Academy" name ="Academy" type="text" placeholder="请输入学院"style="width: 140px"/></p>
+                    <p><label class="setfont">Name:  &#160;    </label><input class="textInput" id="uname"  type="text" placeholder="请输入姓名" style="width: 89%" readonly/></p>
+                    <p><label class="setfont">ID:    &#160;    </label><input class="textInput" id="uid" type="text"  placeholder="请输入一卡通号" style="width: 93%" readonly/></p>
+                    <p><label class="setfont">Birthday:&#160;  </label><input class="textInput" id="birth" name="user_birth" type="date"  style="width: 85%" /></p>
+                    <p><label class="setfont">Age:     &#160;  </label><input class="textInput" id="age" name ="age" type="text" placeholder="请输入年龄" style="width: 91%" readonly/></p>
+                    <p><label class="setfont">BirthPlace:&#160;</label><input class="textInput" id="birthplace" name="birthplace" type="text" placeholder="请输入出生地"style="width: 83%"/></p>
+                    <p><label class="setfont">Dormitory:&#160; </label><input class="textInput" id="dormitory" type="text" placeholder="请输入宿舍"style="width: 83%"></p>
+                    <p><label class="setfont">Academy:   &#160;</label><input class="textInput" id="Academy" name ="Academy" type="text" placeholder="请输入学院"style="width: 84%"/></p>
+                    <p><label class="setfont">Introduction: &#160;  </label><input id="Introduction" name ="Introduction" type="text" placeholder="请输入个人介绍"style="width: 80%"/></p>
                     <div>
                         <label class="setfont">Sex</label>
-                        <select name ="sex" id ="sex" name="sex"  disabled>
+                        <select name ="sex" id ="sex" name="sex" style="width: 40%" disabled>
                             <option value="女">女</option>
                             <option value="男">男</option>
                         </select>
                     <label class="setfont">Identity</label>
-                    <select  class ="settext" name = "identity" id ="identity" disabled>
+                    <select  class ="settext" name = "identity" id ="identity" style="width: 40%"disabled>
                         <option value="teacher">老师</option>
                         <option value = "student">学生</option>
                     </select>
@@ -57,7 +58,6 @@
                 </div>
             </div>
             <div id="shop">
-                    <h1 style="font-family: Lobster" >SHOP</h1>
                     <input type="text" id="myInput" onkeyup="ShopmyFunction()" placeholder="搜索...">
                     <table id="myTable" >
                         <tr>
@@ -93,44 +93,37 @@
             </div>
 
         <div id="bank">
-                    <h1 style="text-align: center;margin-top: 30%;margin-bottom: 20%;">个人银行</h1>
                         <div id="function_button">
-                                <div style="text-align: center">
-                                        <input id="search" class="bankbutton" value="余额" type="button"/>
-                                </div>
-                                <div style="text-align: center">
-                                         <input id="top_up" class="bankbutton" value="充值" type="button"/>
-                                </div>
-                                 <div style="text-align: center">
-                                        <input id="transfer" class="bankbutton" value="转账" type="button"/>
-                                 </div>
+                            <input id="search" class="bankbutton" value="余额" type="button"/>
+                            <input id="top_up" class="bankbutton" value="充值" type="button"/>
+                            <input id="transfer" class="bankbutton" value="转账" type="button"/>
                         </div>
                         <div id="money_input">
                             <div id="remainder">
-                                <p style="text-align: center">一卡通余额
+                                <p style="text-align: center">一卡通余额：
                                 <input type="text" id="Ecardbalance" value="0.0" readonly></p>
-                                <p style="text-align: center">银行卡余额
+                                <p style="text-align: center">银行卡余额：
                                 <input type="text" id="balance" value="0.0"readonly></p>
                                 <input id="search" class="checkbutton" value="余额" type="button"onclick="searchFct()"/>
                             </div>
                             <div id="transferB1">
-                                <p style="text-align: center">转账金额
+                                <p style="text-align: center">转账金额：
                                 <input type="text" id="topupAmount" placeholder="请输入转账金额" /></p>
-                                <p style="text-align: center">交易密码
+                                <p style="text-align: center">交易密码：
                                 <input type="password" id="topuppassword" placeholder="请输入交易密码" /></p>
                                 <p style="text-align: center">
-                                <input type="radio" name="toecard" id="Ecard" value="2" checked="checked"/>一卡通充值</br>
-                                <input type="radio" name="toecard" id="Card" value="0" />银行卡充值
+                                <input type="radio" name="toecard" id="Ecard" value="2" checked="checked"/>一卡通充值
+                                <input type="radio" name="toecard" id="Card" value="0" />银行卡充值</br>
                                 <input id="search" class="checkbutton" value="充值" type="button"onclick="topupFct()"/>
                                 
                                 </p>
                             </div>
                             <div id="transferB2">
-                                <p style="text-align: center">转账金额
+                                <p style="text-align: center">转账金额：
                                     <input type="text" id="transferAmount" value="" placeholder="请输入转账金额" /></p>
-                                <p style="text-align: center">转账对象
+                                <p style="text-align: center">转账对象：
                                     <input type="text" id="transferTo" value="" placeholder="请输入转账对象" /></p>
-                                <p style="text-align: center">交易密码
+                                <p style="text-align: center">交易密码：
                                     <input type="password" id="transferPassword" name="transferTo" placeholder="请输入交易密码" /></p>
                                     <input id="search" class="checkbutton" value="转账" type="button"onclick="transferFct()"/>
                             </div>
@@ -139,8 +132,19 @@
 
              <div id="book">
                     <nav class="navbar navbar-inverse navbar-fixed-top">
-                            <a href="">BOOK</a>
                         </nav>
+                        <ul class="accordion-menu" style="padding: 0">
+                                <li>
+                                    <div class="dropdownlink"><i class="fa fa-road" aria-hidden="true"></i> 我的书库
+                                        <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                                    </div>
+                                    <ul class="submenuItems">
+                                        <li><a >图书ID:<label id="book1" ></label><button class="myBtn" id="btn1">还书</button></a></li>
+                                        <li><a >图书ID:<label id="book2"></label><button class="myBtn" id="btn2">还书</button></a></li>
+                                        <li><a >图书ID:<label id ="book3"></label><button class="myBtn" id="btn3">还书</button></a></li>
+                                    </ul>
+                                </li>
+                            </ul>
                             <input type="text" id="myInput" onkeyup="BookmyFunction()" placeholder="搜索...">
                         
                                 <table class="responsive-table table" id="myTable" style="font-weight:bold">
@@ -157,18 +161,7 @@
                         
                         
                                 </table>
-                        <ul class="accordion-menu" style="padding: 0">
-                            <li>
-                                <div class="dropdownlink"><i class="fa fa-road" aria-hidden="true"></i> 我的书库
-                                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
-                                </div>
-                                <ul class="submenuItems">
-                                    <li><a >图书ID:<label id="book1" ></label><button class="myBtn" id="btn1">还书</button></a></li>
-                                    <li><a >图书ID:<label id="book2"></label><button class="myBtn" id="btn2">还书</button></a></li>
-                                    <li><a >图书ID:<label id ="book3"></label><button class="myBtn" id="btn3">还书</button></a></li>
-                                </ul>
-                            </li>
-                        </ul>
+                      
                         <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert0">
                             <div class="sy-content">图书已借出！</div>
                         </div>
@@ -192,9 +185,7 @@
                             <div class="row">
                               <nav class="menu">
                                 <ul class="items">
-                                  <li class="item">
-                                    <i class="fa fa-user" aria-hidden="true"></i>
-                                  </li>
+                                  
                                   <li class="item item-active">
                                     <i class="fa fa-commenting" aria-hidden="true"></i>
                                   </li>
@@ -209,85 +200,18 @@
                                 </div>
                               </div>
                               <div class="discussion-person">
-                                  <div class="discussion message-active">
-                                    <div class="photo" style="background-image: url(https://image.noelshack.com/fichiers/2017/38/2/1505775062-1505606859-portrait-1961529-960-720.jpg);">
-                                      <div class="online"></div>
-                                    </div>
-                                    <div class="desc-contact">
-                                      <p class="name">Megan Leib</p>
-                                      <p class="message">213170228</p>
-                                    </div>
-                                    <div class="timer">12 sec</div>
-                                  </div>
-                        
-                                 <div class="discussion">
-                                   <div class="photo" style="background-image: url(http://www.boutique-uns.com/uns/185-home_01grid/polo-femme.jpg);">
-                                   </div>
-                                   <div class="desc-contact">
-                                     <p class="name">Elsie Amador</p>
-                                     <p class="message">What the f**k is going on ?</p>
-                                    </div>
-                                    <div class="timer">1 day</div>
-                                  </div>
-                        
+                                 
                               </div>
                               </section>
                         
                               <section class="chat">
                                 <div class="header-chat">
                                   <i class="icon fa fa-user-o" aria-hidden="true"></i>
-                                  <p class="name">Megan Leib</p>
+                                  <p class="name"></p>
                                   <i class="icon clickable fa fa-ellipsis-h right" aria-hidden="true"></i>
                                 </div>
-                                <div class="messages-chat ">
-                                  <div class="message">
-                                    <div class="photo" style="background-image: url(https://image.noelshack.com/fichiers/2017/38/2/1505775062-1505606859-portrait-1961529-960-720.jpg);">
-                                      <div class="online"></div>
-                                    </div>
-                                    <p class="text"> Hi, how are you ? </p>
-                                  </div>
-                                  <div class="message text-only">
-                                    <p class="text"> What are you doing tonight ? Want to go take a drink ?</p>
-                                  </div>
-                                  <p class="time"> 14h58</p>
-                        
-                                  <div class="message text-only">
-                                    <div class="response">
-                                      <p class="text"> Hey Megan ! It's been a while 😃</p>
-                                    </div>
-                                  </div>
-                        
-                                  <div class="message text-only">
-                                    <div class="response">
-                                      <p class="text"> When can we meet ?</p>
-                                    </div>
-                                  </div>
-                        
-                                  <p class="response-time time"> 15h04</p>
-                        
-                                  <div class="message">
-                                    <div class="photo" style="background-image: url(https://image.noelshack.com/fichiers/2017/38/2/1505775062-1505606859-portrait-1961529-960-720.jpg);">
-                                      <div class="online"></div>
-                                    </div>
-                                    <p class="text"> 9 pm at the bar if possible 😳</p>
-                                  </div>
-                        
-                                  <p class="time"> 15h09</p>
-                                  <div class="message text-only">
-                                    <div class="response">
-                                      <p class="text"> Hey Megan ! It's been a while 😃</p>
-                                    </div>
-                                  </div>
-                                  <div class="message text-only">
-                                    <div class="response">
-                                      <p class="text"> Hey Megan ! It's been a while 😃</p>
-                                    </div>
-                                  </div>
-                                  <div class="message text-only">
-                                    <div class="response">
-                                      <p class="text"> Hey Megan ! It's been a while 😃</p>
-                                    </div>
-                                  </div>
+                                <div class="messages-chat">
+
                                 </div>
                                 <div class="footer-chat">
                                   <i class="icon fa fa-smile-o clickable" style="font-size:25pt;" aria-hidden="true"></i>
@@ -334,7 +258,8 @@
 
             </div>
             </div>
-    </div>
+
+        </div>
 
 
         <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert3">
@@ -347,7 +272,8 @@
 
 <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
 <script>
-   
+    var last;
+    var myid;
     //document.getElementById('head').src = head.query(client.eCardNumber);
     
     $('.tab').on('click',function(){
@@ -437,9 +363,9 @@
             $(".messages-chat").scrollTop(scrollHeight);
 
 
-             var last = client.getDate();
+             last= client.getDate();
              last.setYear(-100);
-             var id = -1000;
+             myid= -1000;
         }
 
     })
@@ -566,7 +492,7 @@
 
     $(document).on("click",'#Buy',function () {
     var price,number,name,tag,i;
-    var table = document.getElementById("myForm");
+    table =$("#book #myTable").get(0);
     var tr=table.getElementsByTagName("tr");
     alert(tr.length);
     for(i =1;i<tr.length;i++){
@@ -715,7 +641,7 @@ function searchFct(){
             syalert.syopen("alert2");
             $(this).parents("tr").find("td").eq(5).html("已借");
             var newstate=$(this).parents("tr").find("td").eq(5).text();
-          bookinfo.update(ID,state,"213171645");
+          bookinfo.update(ID,state,client.eCardNumber);
             if($("#book1").html()==""){
                 $("#book1").html(ID);
             }else if($("#book2").html()==""){
@@ -870,12 +796,17 @@ function searchFct(){
                 last = res.elementAt(i).getTime();
                 LeftTimeInsert(last);
            }
+           
         }
+        
+      var scrollHeight = $(".messages-chat").prop("scrollHeight");
+      $(".messages-chat").scrollTop(scrollHeight);
     }
 
     //点击发送
     document.querySelector('.fa-paper-plane-o').addEventListener('click',()=> {
-      div = document.createElement("div");
+       
+     /* div = document.createElement("div");
       div.className = "message text-only";
       p = document.createElement("p");
       p.className = "text";
@@ -884,8 +815,7 @@ function searchFct(){
       div1.className = "response";
       div1.appendChild(p);
       div.appendChild(div1);
-      document.querySelector(".messages-chat").appendChild(div);
-
+      document.querySelector(".messages-chat").appendChild(div);*/
       var str = message.getJson();
 
       var obj = JSON.parse(str);
@@ -895,6 +825,7 @@ function searchFct(){
       str = JSON.stringify(obj);
       messagetrans.insert(str);
       document.querySelector(".write-message").value = '';
+    
     });
 
 
@@ -902,7 +833,6 @@ function searchFct(){
     //点击选人
     $(".discussion-person").on("click",".discussion",function() {
       last.setYear(-100);
-      client.eCardNumber = "213171645";
       current = document.querySelector('.message-active');
       current.classList.remove("message-active");
       this.classList.add("message-active");
@@ -910,11 +840,7 @@ function searchFct(){
       $(".header-chat .name").text(Name);
       $(".messages-chat").empty();
 
-      if(id == -1000){
-          id = setInterval('getnew()',  50);
-          getnew();
-      }
-
+     
       var per = $(".message-active").find(".desc-contact").find(".message").text();
       var res = messagetrans.query(client.eCardNumber, per);
       messagetrans.querynew(client.eCardNumber, per);
@@ -927,7 +853,14 @@ function searchFct(){
           LeftTimeInsert(last);
         }
       }
+    
+      if(myid == -1000){
+          myid = setInterval('getnew()', 1000);
+          getnew();
+      }
 
+      var scrollHeight = $(".messages-chat").prop("scrollHeight");
+            $(".messages-chat").scrollTop(scrollHeight);
 
     });
 
@@ -1015,6 +948,20 @@ function searchFct(){
         div3.innerText=time;
 
         div.appendChild(div3);
+
+        div4=document.createElement("div");
+        div4.className="clear-button";
+
+        button=document.createElement("button");
+        i=document.createElement("i");
+        i.className="material-icons";
+        i.innerText="clear";
+        button.appendChild(i);
+
+        div4.appendChild(button);
+        div.appendChild(div4);
+
+
         document.querySelector(".discussion-person").appendChild(div);
         div3.click();
     }
@@ -1041,6 +988,7 @@ function searchFct(){
 	  }
       var time = new Date();
       DiscussionPersonInsert(per['name'], head.query(document.querySelector(".searchbar-message").value), document.querySelector(".searchbar-message").value, time.getHours() + ":" + time.getMinutes());
+
   });
 
 
@@ -1070,6 +1018,11 @@ function searchFct(){
       }
   })
 
+  $(".discussions").on("click",".material-icons",function(event){
+    ($(this).parents(".discussion")).remove();
+
+    event.stopPropagation();
+})
 
     </script>
     </html>
