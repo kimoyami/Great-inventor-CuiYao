@@ -34,6 +34,8 @@ public class ServerThread extends Thread {
             DataBase.start();
 
             while (true) {
+                synchronized(new Object()){
+
                 int op = cin.readInt();
                 if (op == -1) break;
                 if (op == -100) update();
@@ -88,7 +90,7 @@ public class ServerThread extends Thread {
                 }
                 op-=10;
             }
-
+            }
             cin.close();
             cout.close();
             DataBase.stop();
