@@ -19,26 +19,24 @@
     <a href="">BOOK</a>
 </nav>
     <input type="text" id="myInput" onkeyup="myFunction()" placeholder="搜索...">
-<div style="width: 100%;height: 50%;overflow: scroll;">
-        <table class="table-bordered table" id="myTable" style="font-weight:bold">
+
+        <table class="table-bordered table" id="myTable" style="font-weight:bold"  data-pagination="true" data-page-size="5" data-side-pagination="client">
 
             <tr>
-                <th data-field="id">ID</th>
-                <th data-field="name">书名</th>
-                <th data-field="author">作者</th>
-                <th data-field="pub">出版社</th>
-                <th data-field="cate">类型</th>
-                <th data-field="state"> 状态</th>
-                <th>借出时间</th>
-                <th data-field="change">操作</th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
             </tr>
-            <tbody id="bookbody">
 
-            </tbody>
 
 
         </table>
-</div>
+
 <div><button class="myBtn" id="bookstore">我的书库</button>
     <button class="myBtn"><a href="javascript:location.reload();">刷新</a></button>
 </div>
@@ -73,8 +71,34 @@
         <button onClick="syalert.syhide('bookalert')">确定</button>
     </div>
 </div>
+<link rel="stylesheet" href="bootstrap-table.css"/>
+<script src="bootstrap-table.js"></script>
 <script>
+    $(document).ready(function () {
 
+        $("#myTable").bootstrapTable({
+            columns:[{
+                field:"id",title:"ID"
+
+            },{
+                field:"name",title:"书名"
+            },{
+                field:"author",title:"作者"
+
+            },{
+                field:"pub",title:"出版社"
+            },{
+                field:"cate",title:"类型"
+            },{
+                field:"state",title:"状态"
+            },{
+                field:"time",title:"借出时间"
+            },{
+                field:"change",title:"操作"
+            },]
+
+        });
+    });
     var res =bookinfo.getAll();
     var record=bookinfo.queryrecord("213171645");
     for(var j=0;j<record.size();j++){
@@ -89,8 +113,7 @@
 
     }
     for(var i=0;i<res.size();i++){
-    $("#bookbody").append("<tr><td>"+(res.elementAt(i).getBookID())+"</td><td>"+(res.elementAt(i).getBookName())+"</td><td >"+(res.elementAt(i).getBookEdit())+"</td><td >"+(res.elementAt(i).getBOOK_PUB())+"</td><td >"+(res.elementAt(i).getCategory())+"</td><td >"+(res.elementAt(i).getState())+"</td><td >"+res.elementAt(i).getTime()+"</td><td>"+"<button id='borrow' class='myBtn'>借书</button></td></tr>")}
-   
+    $("#myTable").append("<tr><td>"+(res.elementAt(i).getBookID())+"</td><td>"+(res.elementAt(i).getBookName())+"</td><td >"+(res.elementAt(i).getBookEdit())+"</td><td >"+(res.elementAt(i).getBOOK_PUB())+"</td><td >"+(res.elementAt(i).getCategory())+"</td><td >"+(res.elementAt(i).getState())+"</td><td >"+(res.elementAt(i).getTime()==null?"":res.elementAt(i).getTime())+"</td><td>"+"<button id='borrow' class='myBtn'>借书</button></td></tr>")}
     $(document).on("click",'#borrow',function () {
         var state =$(this).parents("tr").find("td").eq(5).text();
         var ID =$(this).parents("tr").find("td").eq(0).text();
@@ -119,13 +142,13 @@
     $("#btn1").click(function () {
         var id =$("#book1").val();
         var table,tr,td,i,state;
-        table = document.getElementById("bookbody");
+        table = document.getElementById("myTable");
         tr = table.getElementsByTagName("tr");
         if(id==""){
 
  syalert.syopen("alert4")
         }
-        for(i=0;i<tr.length;i++){
+        for(i=1;i<tr.length;i++){
             td=tr[i].getElementsByTagName("td")[0].innerHTML.toUpperCase();
             state=tr[i].getElementsByTagName("td")[5].innerHTML.toUpperCase();
         if(id==td){
@@ -140,14 +163,14 @@
     $("#btn2").click(function () {
         var id =$("#book2").val();
         var table,tr,td,i,state;
-        table = document.getElementById("bookbody");
+        table = document.getElementById("myTable");
         tr = table.getElementsByTagName("tr");
         if(id==""){
             syalert.syopen("alert4");
 
         }
 
-        for(i=0;i<tr.length;i++){
+        for(i=1;i<tr.length;i++){
             td=tr[i].getElementsByTagName("td")[0].innerHTML.toUpperCase();
             state=tr[i].getElementsByTagName("td")[5].innerHTML.toUpperCase();
             if(id==td){
@@ -162,13 +185,13 @@
     $("#btn3").click(function () {
         var id =$("#book3").val();
         var table,tr,td,i,state;
-        table = document.getElementById("bookbody");
+        table = document.getElementById("myTable");
         tr = table.getElementsByTagName("tr");
         if(id==""){
             syalert.syopen("alert4");
 
         }
-        for(i=0;i<tr.length;i++){
+        for(i=1;i<tr.length;i++){
             td=tr[i].getElementsByTagName("td")[0].innerHTML.toUpperCase();
             state=tr[i].getElementsByTagName("td")[5].innerHTML.toUpperCase();
             if(id==td){

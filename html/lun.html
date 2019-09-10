@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="box" onmouseover="stop()" onmouseout="start()">
+    <div id="red" class="slide"></div>
+    <div id="green" class="slide"></div>
+    <div id="blue" class="slide"></div>
+</div>
+
+<style type="text/css">
+    #box{
+        width:100px;
+        height:100px;
+        border:1px solid black;
+        overflow:hidden;
+        position: relative;
+    }
+    #red{
+        background-color:red;
+        width:100px;
+    }
+    #green{
+        background-color:green;
+        width:100px;
+    }
+    #blue{
+        background-color:blue;
+        width:100px;
+    }
+    .slide{
+        width:100px;
+        height:100px;
+        text-align: center;
+    }
+</style>
+<script type="text/javascript">
+    onload=function(){
+        var arr = document.getElementsByClassName("slide");
+        for(var i=0;i<arr.length;i++){
+            arr[i].style.left = i*100+"px";
+        }
+    }
+    function LeftMove(){
+        var arr = document.getElementsByClassName("slide");//获取三个子div
+        for(var i=0;i<arr.length;i++){
+            var left = parseFloat(arr[i].style.left);
+            left-=2;
+            var width = 100;//图片的宽度
+            if(left<=-width){
+                left=(arr.length-1)*width;//当图片完全走出显示框，拼接到末尾
+                clearInterval(moveId);
+            }
+            arr[i].style.left = left+"px";
+        }
+    }
+    function divInterval(){
+        moveId=setInterval(LeftMove,10);//设置一个10毫秒定时器
+    }
+
+
+    timeId=setInterval(divInterval,2000);//设置一个3秒的定时器。
+
+    function stop(){
+        clearInterval(timeId);
+    }
+    function start(){
+        clearInterval(timeId);
+        timeId=setInterval(divInterval,2000);
+    }
+
+    //页面失去焦点停止
+    onblur = function(){
+        stop();
+    }
+    //页面获取焦点时开始
+    onfocus = function(){
+        start();
+    }
+</script>
+
+</body>
+</html>
