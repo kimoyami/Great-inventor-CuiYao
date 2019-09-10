@@ -12,7 +12,8 @@ import java.util.Vector;
 
 public class Login {
     public static ServerThread now;
-    public static void run(int op){
+
+    public static void run(int op) {
         try {
             if (op == 1) {
                 now.cout.writeInt(query());
@@ -35,42 +36,43 @@ public class Login {
             } else if (op == 7) {
                 now.cout.writeInt(update());
                 now.cout.flush();
-            }
-            else if(op == 8){
+            } else if (op == 8) {
                 now.cout.writeInt(isNew());
                 now.cout.flush();
-            }
-            else if(op == 9){
+            } else if (op == 9) {
                 Vector<Unsolve> res = getAll();
                 now.cout.writeInt(res.size());
-                for(int i = 0; i < res.size(); i++){
+                for (int i = 0; i < res.size(); i++) {
                     now.cout.writeObject(res.elementAt(i));
                 }
                 now.cout.flush();
-            }
-            else if(op == 10){
+            } else if (op == 10) {
                 now.cout.writeInt(exist());
                 now.cout.flush();
             }
 
 
-        }catch (Exception e){
+        } catch (Exception e) {
             return;
         }
     }
-    
-    public static int query(){
+
+    public static int query() {
         String eCardNumber, password;
         try {
             eCardNumber = now.cin.readUTF();
             password = now.cin.readUTF();
-        }catch (Exception e){
+        } catch (Exception e) {
             return -3;
         }
-        return DataBase.query(eCardNumber, password);
+        DataBase.start();
+        int a = DataBase.query(eCardNumber, password);
+        DataBase.stop();
+
+        return a;
     }
 
-    public static synchronized int insert(){
+    public static synchronized int insert() {
         String userName;
         String password;
         String eCardNumber;
@@ -82,55 +84,72 @@ public class Login {
             eCardNumber = now.cin.readUTF();
             sex = now.cin.readUTF();
             status = now.cin.readUTF();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return -3;
         }
-        return DataBase.insert(userName, password, eCardNumber, sex, status);
+        DataBase.start();
+        int a = DataBase.insert(userName, password, eCardNumber, sex, status);
+        DataBase.stop();
+
+        return a;
     }
 
-    public static synchronized int delete(){
+    public static synchronized int delete() {
         String eCardNumber;
         try {
             eCardNumber = now.cin.readUTF();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return -3;
         }
-        return DataBase.delete(eCardNumber);
+
+        DataBase.start();
+        int a = DataBase.delete(eCardNumber);
+        DataBase.stop();
+        return a;
     }
 
-    public static synchronized int solve(){
+    public static synchronized int solve() {
         String eCardNumber;
         try {
             eCardNumber = now.cin.readUTF();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return -3;
         }
-        return DataBase.solve(eCardNumber);
+        DataBase.start();
+        int a = DataBase.solve(eCardNumber);
+        DataBase.stop();
+        return a;
     }
 
-    public static synchronized int addAdmin(){
+    public static synchronized int addAdmin() {
         String eCardNumber;
         try {
             eCardNumber = now.cin.readUTF();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return -3;
         }
-        return DataBase.addAdmin(eCardNumber);
+        DataBase.start();
+        int a = DataBase.addAdmin(eCardNumber);
+        DataBase.stop();
+        return a;
     }
 
-    public static synchronized int cancelAdmin(){
+    public static synchronized int cancelAdmin() {
         String eCardNumber;
         try {
             eCardNumber = now.cin.readUTF();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return -3;
         }
-        return DataBase.cancelAdmin(eCardNumber);
+        DataBase.start();
+        int a = DataBase.cancelAdmin(eCardNumber);
+        DataBase.stop();
+        return a;
     }
 
     public static synchronized int update() {
@@ -145,36 +164,48 @@ public class Login {
             eCardNumber = now.cin.readUTF();
             sex = now.cin.readUTF();
             status = now.cin.readUTF();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return -3;
         }
-        return DataBase.update(userName, password, eCardNumber, sex, status);
+        DataBase.start();
+        int a = DataBase.update(userName, password, eCardNumber, sex, status);
+        DataBase.stop();
+
+        return a;
     }
 
-    public static int isNew(){
+    public static int isNew() {
         String eCardNumber;
         try {
             eCardNumber = now.cin.readUTF();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return -3;
         }
-        return DataPerson.isNew(eCardNumber);
+        DataBase.start();
+        int a = DataPerson.isNew(eCardNumber);
+        DataBase.stop();
+
+        return a;
     }
 
-    public static Vector<Unsolve> getAll(){
+    public static Vector<Unsolve> getAll() {
         return DataBase.getAll();
     }
 
-    public static int exist(){
+    public static int exist() {
         String eCardNumber;
         try {
             eCardNumber = now.cin.readUTF();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return -3;
         }
-        return DataBase.exist(eCardNumber);
+        DataBase.start();
+        int a=DataBase.exist(eCardNumber);
+        DataBase.stop();
+
+        return a;
     }
 }

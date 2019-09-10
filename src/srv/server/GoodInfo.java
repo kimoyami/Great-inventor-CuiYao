@@ -4,6 +4,7 @@
 
 package srv.server;
 
+import dao.DataBase;
 import dao.DataGoods;
 import srv.goods.Goods;
 
@@ -11,6 +12,7 @@ import java.util.Vector;
 
 public class GoodInfo {
     public static ServerThread now;
+
     public static void run(int op) {
         try {
             if (op == 1) {
@@ -61,18 +63,21 @@ public class GoodInfo {
         String tag;
         String info;
         try {
-            idx=now.cin.readUTF();
-            cnt=now.cin.readInt();
-            goodname=now.cin.readUTF();
-            price=now.cin.readDouble();
-            url=now.cin.readUTF();
-            tag=now.cin.readUTF();
-            info=now.cin.readUTF();
+            idx = now.cin.readUTF();
+            cnt = now.cin.readInt();
+            goodname = now.cin.readUTF();
+            price = now.cin.readDouble();
+            url = now.cin.readUTF();
+            tag = now.cin.readUTF();
+            info = now.cin.readUTF();
         } catch (Exception e) {
             e.printStackTrace();
             return -3;
         }
-        return DataGoods.insert(idx,cnt,goodname,price,url,tag,info);
+        DataBase.start();
+        int a = DataGoods.insert(idx, cnt, goodname, price, url, tag, info);
+        DataBase.stop();
+        return a;
     }
 
     public static synchronized int delete() {
@@ -85,7 +90,11 @@ public class GoodInfo {
             e.printStackTrace();
             return -1;
         }
-        return DataGoods.delete(goodsname, tag);
+        DataBase.start();
+        int a = DataGoods.delete(goodsname, tag);
+        DataBase.stop();
+
+        return a;
     }
 
 
@@ -96,7 +105,11 @@ public class GoodInfo {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return DataGoods.query(name);
+        DataBase.start();
+        Vector<Goods> res = DataGoods.query(name);
+        DataBase.stop();
+
+        return res;
     }
 
     public static int update() {
@@ -110,7 +123,10 @@ public class GoodInfo {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return DataGoods.update(name, tag, change);
+        DataBase.start();
+        int a = DataGoods.update(name, tag, change);
+        DataBase.stop();
+        return a;
     }
 
     public static int consumption() {
@@ -122,13 +138,19 @@ public class GoodInfo {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return DataGoods.consumption(ID,change);
+        DataBase.start();
+        int a = DataGoods.consumption(ID, change);
+        DataBase.stop();
+
+        return a;
     }
 
     public static Vector<Goods> getAll() {
-        return DataGoods.getAll();
+        DataBase.start();
+        Vector<Goods> res = DataGoods.getAll();
+        DataBase.stop();
+        return res;
     }
-
 
 
 }

@@ -4,6 +4,7 @@
 
 package srv.server;
 
+import dao.DataBase;
 import dao.DataHead;
 
 public class Head {
@@ -26,7 +27,10 @@ public class Head {
         }catch (Exception e){
             e.printStackTrace();
         }
-        return DataHead.query(eCardNumber);
+        DataBase.start();
+        String a=DataHead.query(eCardNumber);
+        DataBase.stop();
+        return a;
     }
 
 }

@@ -1,5 +1,6 @@
 package srv.server;
 
+import dao.DataBase;
 import dao.DataFile;
 import srv.file.Files;
 
@@ -12,22 +13,22 @@ public class FilesTrans {
     private static final String BASE = "F:\\GitHub\\Great-inventor-CuiYao\\file\\";
     public static ServerThread now;
 
-    public static void run(int op){
+    public static void run(int op) {
         try {
-            if(op == 1) insert();
-            if(op == 2) {
+            if (op == 1) insert();
+            if (op == 2) {
                 now.cout.writeInt(delete());
                 now.cout.flush();
             }
-            if(op == 3) {
+            if (op == 3) {
                 Vector<Files> res = query();
                 now.cout.writeInt(res.size());
-                for (int i = 0 ; i < res.size(); i++) now.cout.writeObject(res.elementAt(i));
+                for (int i = 0; i < res.size(); i++) now.cout.writeObject(res.elementAt(i));
                 now.cout.flush();
             }
-            if(op == 4) download();
+            if (op == 4) download();
 
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -42,14 +43,14 @@ public class FilesTrans {
             Random random = new Random();
             String str = "zxcvbnmlkjhgfdsaqwertyuiopQWERTYUIOPASDFGHJKLZXCVBNM1234567890";
 
-            for(int i = 0; i < 20; i++){
+            for (int i = 0; i < 20; i++) {
                 int num = random.nextInt(62);
                 rand.append(str.charAt(num));
             }
 
-            for(int i = fileName.length() - 1; i >= 0; i--){
-                if(fileName.charAt(i) == '.'){
-                    for(int j = i; j < fileName.length(); j++){
+            for (int i = fileName.length() - 1; i >= 0; i--) {
+                if (fileName.charAt(i) == '.') {
+                    for (int j = i; j < fileName.length(); j++) {
                         rand.append(fileName.charAt(j));
                     }
                     break;
@@ -77,7 +78,7 @@ public class FilesTrans {
     }
 
 
-    public static void download(){
+    public static void download() {
         String url = "";
         try {
             url = now.cin.readUTF();
@@ -97,27 +98,34 @@ public class FilesTrans {
             fis.close();
             out.close();
 
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public static int delete(){
+    public static int delete() {
         String url = "";
         try {
             url = now.cin.readUTF();
             File file = new File(url);
-            if(!file.exists()) return 0;
+            if (!file.exists()) return 0;
             file.delete();
-            return DataFile.delete(url);
-        }catch (Exception e){
+            DataBase.start();
+            int a = DataFile.delete(url);
+            DataBase.stop();
+            return a;
+        } catch (Exception e) {
             e.printStackTrace();
             return -1;
         }
     }
 
-    public static Vector<Files> query(){
-        return DataFile.query();
+    public static Vector<Files> query() {
+        DataBase.start();
+        Vector<Files> res = DataFile.query();
+        DataBase.stop();
+
+        return res;
     }
 
 }

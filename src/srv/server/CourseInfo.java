@@ -4,6 +4,7 @@
 
 package srv.server;
 
+import dao.DataBase;
 import srv.course.Course;
 import dao.DataCourse;
 
@@ -11,6 +12,7 @@ import java.util.Vector;
 
 public class CourseInfo {
     public static ServerThread now;
+
     public static void run(int op) {
         try {
             if (op == 1) {
@@ -50,7 +52,10 @@ public class CourseInfo {
             e.printStackTrace();
             return -3;
         }
-        return DataCourse.insert(course);
+        DataBase.start();
+        int a = DataCourse.insert(course);
+        DataBase.stop();
+        return a;
     }
 
     public static synchronized int delete() {
@@ -63,7 +68,11 @@ public class CourseInfo {
             e.printStackTrace();
             return -3;
         }
-        return DataCourse.delete(idx, teacher);
+        DataBase.start();
+        int a = DataCourse.delete(idx, teacher);
+        DataBase.stop();
+
+        return a;
     }
 
     public static Vector<Course> query() {
@@ -73,10 +82,17 @@ public class CourseInfo {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return DataCourse.query(teacher);
+        DataBase.start();
+        Vector<Course>res=DataCourse.query(teacher);
+        DataBase.stop();
+
+        return res;
     }
 
-    public static Vector<Course> getAll(){
-        return DataCourse.getAll();
+    public static Vector<Course> getAll() {
+        DataBase.start();
+        Vector<Course>res=DataCourse.getAll();
+        DataBase.stop();
+        return res;
     }
 }

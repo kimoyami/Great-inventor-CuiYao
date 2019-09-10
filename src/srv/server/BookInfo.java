@@ -4,6 +4,7 @@
 
 package srv.server;
 
+import dao.DataBase;
 import dao.DataBooks;
 import srv.book.*;
 
@@ -73,7 +74,10 @@ public class BookInfo {
             e.printStackTrace();
             return -3;
         }
-        return DataBooks.insert(idx,name,author,publish,category,state);
+        DataBase.start();
+        int a=DataBooks.insert(idx,name,author,publish,category,state);
+        DataBase.stop();
+        return a;
     }
 
     public static synchronized int delete() {
@@ -83,7 +87,11 @@ public class BookInfo {
         } catch (Exception e) {
             return -1;
         }
-        return DataBooks.delete(idx);
+        DataBase.start();
+        int a=DataBooks.delete(idx);
+        DataBase.stop();
+
+        return a;
     }
 
     public static Vector<Book> query() {
@@ -93,7 +101,11 @@ public class BookInfo {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return DataBooks.query(bookname);
+        DataBase.start();
+        Vector<Book>res=DataBooks.query(bookname);
+        DataBase.stop();
+
+        return res;
     }
 
     public static synchronized int update() {
@@ -108,7 +120,10 @@ public class BookInfo {
             e.printStackTrace();
             return -3;
         }
-        return DataBooks.update(id,state,ecardname);
+        DataBase.start();
+        int a=DataBooks.update(id,state,ecardname);
+        DataBase.stop();
+        return a;
     }
     public static Vector<Book> queryrecord() {
         String ecardname = "";
@@ -117,15 +132,19 @@ public class BookInfo {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return DataBooks.queryrecord(ecardname);
+        DataBase.start();
+        Vector<Book>res=DataBooks.queryrecord(ecardname);
+        DataBase.stop();
+        return res;
     }
 
 
 
     public static Vector<Book>getAll(){
-        return DataBooks.getAll();
+        DataBase.start();
+        Vector<Book>res=DataBooks.getAll();
+        DataBase.stop();
+        return res;
     }
-
-
 
 }
