@@ -84,7 +84,7 @@ public class CourseInfo {
     }
 
     public static void main(String args[]){
-        int a=insert(new Course("0015","aaa",534,"aa",100,
+        int a = insert(new Course("0015","aaa",534,"aa",100,
                 100,"未满",3102)) ;
         System.out.println(a);
         Vector<Course>res= getAll();

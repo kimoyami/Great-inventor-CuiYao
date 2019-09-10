@@ -54,11 +54,12 @@ public class MainView {
         int x = (screenSize.width - frame.getWidth()) / 2;
         int y = (screenSize.height - frame.getHeight()) / 2;
         frame.setLocation(x, y);
-        frame.setSize(3 * screenSize.width / 4, 27 * screenSize.width/ 64);
+        frame.setSize(97*screenSize.width/100, 9 * screenSize.width/ 16);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         frame.setResizable(false);
-        browser.loadURL("http://101.37.79.28/html/index.html");
+        //http://101.37.79.28/html/index.html
+        browser.loadURL("C:\\Users\\崔峣\\Desktop\\test\\Great-inventor-CuiYao\\html\\index.html");
         Toolkit kit = Toolkit.getDefaultToolkit();
         Image image = kit.createImage("http://101.37.79.28/html/image/xh.jpg");
         frame.setIconImage(image);
@@ -90,7 +91,7 @@ public class MainView {
 
             @Override
             public void onDocumentLoadedInMainFrame(LoadEvent loadEvent) {
-                browser.setZoomLevel(-2.2);
+                browser.setZoomLevel(-0.5);
             }
         });
         browser.addScriptContextListener(new ScriptContextAdapter() {

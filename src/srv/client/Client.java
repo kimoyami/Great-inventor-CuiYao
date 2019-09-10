@@ -19,7 +19,6 @@ public class Client {
             socket = new Socket("localhost", 8888);
             cin = new ObjectInputStream(socket.getInputStream());
             cout = new ObjectOutputStream(socket.getOutputStream());
-
         }catch (IOException e){
             e.printStackTrace();
         }
