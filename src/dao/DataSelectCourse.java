@@ -35,12 +35,15 @@ public class DataSelectCourse {
                 return -3;
             }//判断能否继续选择
 
-            sql="select * from selectcourse where ecardname='"+name+"'";
+            sql="select * from selectcourse where ecardname='"+e+"'";
             rs= DataBase.s.executeQuery(sql);
             int cur=0;
+            rs.next();
             while(rs.next()){
                 int a=rs.getInt("coursetime");
+                System.out.println("a="+a);
                 cur=check(a,time);
+                System.out.println("cur="+cur);
                 if(cur==1){break;}
             }
 
@@ -147,10 +150,11 @@ public class DataSelectCourse {
         return res;
     }
 
-
     public static void main(String args[]){
         DataBase.start();
-        int a=insert("213170003","0014","编译原理",112212,"翟玉庆",2101);
+        int a=insert("213171645","0013","123",112,"高振宁",123);
+        System.out.println(a);
+
         DataBase.stop();
     }
 }
