@@ -6,6 +6,9 @@
 <link rel="stylesheet" href="syalert/syalert.min.css" />
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
 <script src="syalert/syalert.min.js"></script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 <html>
     <head>
         <meta charset="utf-8">
@@ -24,28 +27,29 @@
                     <li><a class="tab" id="Chat" href="javascript:i">聊天</a> </li>    
                 </ul>
             </div>
-            <a href="javascript:;" class="headpng"><img class="png" id = "head" src="?" alt="" style="cursor:hand" onclick="headpng()"></a>
+            <a href="javascript:;"  class="headpng"><img class="png" id = "head" src="?" alt="" style="cursor:hand" onclick="headpng()"></a>
         </div>
         <div class="content">    
             <div>  
                 <div id = "textcontrol">
                 <h1 style="text-align: center">信息修改</h1>
                 <form action="" method="get">
-                    <p><label class="setfont">Name:      </label><input id="uname"  type="text" placeholder="请输入姓名" style="width: 140px" readonly/></p>
-                    <p><label class="setfont">ID:        </label><input id="uid" type="text"  placeholder="请输入一卡通号" style="width: 140px" readonly/></p>
-                    <p><label class="setfont">Birthday:  </label><input id="birth" name="user_birth" type="date"  style="width: 140px" /></p>
-                    <p><label class="setfont">Age:       </label><input id="age" name ="age" type="text" placeholder="请输入年龄" style="width: 140px" readonly/></p>
-                    <p><label class="setfont">BirthPlace:</label><input id="birthplace" name="birthplace" type="text" placeholder="请输入出生地"style="width: 140px"/></p>
-                    <p><label class="setfont">Dormitory: </label><input id="dormitory" type="text" placeholder="请输入宿舍"style="width: 140px"></p>
-                    <p><label class="setfont">Academy:   </label><input id="Academy" name ="Academy" type="text" placeholder="请输入学院"style="width: 140px"/></p>
+                    <p><label class="setfont">Name:  &#160;    </label><input class="textInput" id="uname"  type="text" placeholder="请输入姓名" style="width: 89%" readonly/></p>
+                    <p><label class="setfont">ID:    &#160;    </label><input class="textInput" id="uid" type="text"  placeholder="请输入一卡通号" style="width: 93%" readonly/></p>
+                    <p><label class="setfont">Birthday:&#160;  </label><input class="textInput" id="birth" name="user_birth" type="date"  style="width: 85%" /></p>
+                    <p><label class="setfont">Age:     &#160;  </label><input class="textInput" id="age" name ="age" type="text" placeholder="请输入年龄" style="width: 91%" readonly/></p>
+                    <p><label class="setfont">BirthPlace:&#160;</label><input class="textInput" id="birthplace" name="birthplace" type="text" placeholder="请输入出生地"style="width: 83%"/></p>
+                    <p><label class="setfont">Dormitory:&#160; </label><input class="textInput" id="dormitory" type="text" placeholder="请输入宿舍"style="width: 83%"></p>
+                    <p><label class="setfont">Academy:   &#160;</label><input class="textInput" id="Academy" name ="Academy" type="text" placeholder="请输入学院"style="width: 84%"/></p>
+                    <p><label class="setfont">Introduction: &#160;  </label><input id="Introduction" name ="Introduction" type="text" placeholder="请输入个人介绍"style="width: 80%"/></p>
                     <div>
                         <label class="setfont">Sex</label>
-                        <select name ="sex" id ="sex" name="sex"  disabled>
+                        <select name ="sex" id ="sex" name="sex" style="width: 40%" disabled>
                             <option value="女">女</option>
                             <option value="男">男</option>
                         </select>
                     <label class="setfont">Identity</label>
-                    <select  class ="settext" name = "identity" id ="identity" disabled>
+                    <select  class ="settext" name = "identity" id ="identity" style="width: 40%"disabled>
                         <option value="teacher">老师</option>
                         <option value = "student">学生</option>
                     </select>
@@ -57,18 +61,19 @@
                 </div>
             </div>
             <div id="shop">
-                    <h1 style="font-family: Lobster" >SHOP</h1>
                     <input type="text" id="myInput" onkeyup="ShopmyFunction()" placeholder="搜索...">
-                    <table id="myTable" >
+                    <table id="myTable" class="table table-bordered">
                         <tr>
-                            <th style="width: 16.5%;">超市</th>
-                            <th style="width: 16.5%">商品名称</th>
-                            <th style="width: 16.5%"> 价格</th>
-                            <th style="width: 16.5%"> 数量</th>
-                            <th style="width: 16.5%">购买数量</th>
-                            <th style="width: 16.5%">操作</th>
+                            <th >超市</th>
+                            <th >商品名称</th>
+                            <th > 价格</th>
+                            <th> 数量</th>
+                            <th >购买数量</th>
+                            <th>详细信息</th>
+                            <th >操作</th>
                     
                         </tr>
+                    
                     </table>
                     <div><button id="basket" class="buy">查看购物车</button></div>
                     <div class="sy-alert sy-alert-model animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="confirm" sy-mask="true" id="alert4">
@@ -82,55 +87,88 @@
                                     <th style="width: 20%">数量</th>
                                     <th style="width: 20%">操作</th>
                                 </tr>
+                                <tbody id="basketbody"></tbody>
                             </table>
                         </div>
                         <div class="sy-btn">
                             <button onClick="syalert.syhide('alert4')">取消</button>
+                            <button id="cancel">清空</button>
                             <button  id="Buy">购买</button>
                         </div>
                     </div>
-                
+                    <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="shopalert3">
+                        <div class="sy-content">不能为空</div>
+                    </div>
+                    <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert3">
+                        <div class="sy-content">不能为负数</div>
+                    </div>
+                    <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert2">
+                        <div class="sy-content">加入成功！</div>
+                    </div>
+                    <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert1">
+                        <div class="sy-content">购买成功！</div>
+                    </div>
+                    <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert0">
+                        <div class="sy-content">数量为空！</div>
+                    </div>
+
+
+                    <div class="shopcard">
+                            <div class="contain">
+                                    <div class="imgBx">
+                                        <img src="image/下载.png" alt="" />
+                                    </div>
+                                    <div class="details">
+                                        <div class="context">
+                                            <h2>Nike Air Max 270<br /><span>Runing Collection</span></h2>
+                                            <p>
+                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo natus ipsum praesentium explicabo
+                                                nesciunt consequatur ea error similique cum non doloribus quis libero quam rem, cumque
+                                                aspernatur provident quibusdam deleniti?Lorem ipsum dolor, sit amet consectetur adipisicing
+                                                elit. Nihil, vero totam maiores error excepturi optio delectus sequi aspernatur tenetur tempora
+                                                amet harum at ullam dolore quas consequuntur magni laboriosam laudantium?Lorem ipsum dolor sit
+                                                itaque, nisi rerum accusantium quae officia nesciunt vero ex libero veniam quod corporis atque.
+                                            </p>
+                                            <h3>$150.99</h3>
+                                            <button>Buy now</button>
+                                        </div>
+                                    </div>
+                                </div>
+                    </div>
             </div>
 
         <div id="bank">
-                    <h1 style="text-align: center;margin-top: 30%;margin-bottom: 20%;">个人银行</h1>
                         <div id="function_button">
-                                <div style="text-align: center">
-                                        <input id="search" class="bankbutton" value="余额" type="button"/>
-                                </div>
-                                <div style="text-align: center">
-                                         <input id="top_up" class="bankbutton" value="充值" type="button"/>
-                                </div>
-                                 <div style="text-align: center">
-                                        <input id="transfer" class="bankbutton" value="转账" type="button"/>
-                                 </div>
+                            <input id="search" class="bankbutton" value="余额" type="button"/>
+                            <input id="top_up" class="bankbutton" value="充值" type="button"/>
+                            <input id="transfer" class="bankbutton" value="转账" type="button"/>
                         </div>
                         <div id="money_input">
                             <div id="remainder">
-                                <p style="text-align: center">一卡通余额
+                                <p style="text-align: center">一卡通余额：
                                 <input type="text" id="Ecardbalance" value="0.0" readonly></p>
-                                <p style="text-align: center">银行卡余额
+                                <p style="text-align: center">银行卡余额：
                                 <input type="text" id="balance" value="0.0"readonly></p>
                                 <input id="search" class="checkbutton" value="余额" type="button"onclick="searchFct()"/>
                             </div>
                             <div id="transferB1">
-                                <p style="text-align: center">转账金额
+                                <p style="text-align: center">转账金额：
                                 <input type="text" id="topupAmount" placeholder="请输入转账金额" /></p>
-                                <p style="text-align: center">交易密码
+                                <p style="text-align: center">交易密码：
                                 <input type="password" id="topuppassword" placeholder="请输入交易密码" /></p>
                                 <p style="text-align: center">
-                                <input type="radio" name="toecard" id="Ecard" value="2" checked="checked"/>一卡通充值</br>
-                                <input type="radio" name="toecard" id="Card" value="0" />银行卡充值
+                                <input type="radio" name="toecard" id="Ecard" value="2" checked="checked"/>一卡通充值
+                                <input type="radio" name="toecard" id="Card" value="0" />银行卡充值</br>
                                 <input id="search" class="checkbutton" value="充值" type="button"onclick="topupFct()"/>
                                 
                                 </p>
                             </div>
                             <div id="transferB2">
-                                <p style="text-align: center">转账金额
+                                <p style="text-align: center">转账金额：
                                     <input type="text" id="transferAmount" value="" placeholder="请输入转账金额" /></p>
-                                <p style="text-align: center">转账对象
+                                <p style="text-align: center">转账对象：
                                     <input type="text" id="transferTo" value="" placeholder="请输入转账对象" /></p>
-                                <p style="text-align: center">交易密码
+                                <p style="text-align: center">交易密码：
                                     <input type="password" id="transferPassword" name="transferTo" placeholder="请输入交易密码" /></p>
                                     <input id="search" class="checkbutton" value="转账" type="button"onclick="transferFct()"/>
                             </div>
@@ -139,36 +177,32 @@
 
              <div id="book">
                     <nav class="navbar navbar-inverse navbar-fixed-top">
-                            <a href="">BOOK</a>
                         </nav>
                             <input type="text" id="myInput" onkeyup="BookmyFunction()" placeholder="搜索...">
                         
-                                <table class="responsive-table table" id="myTable" style="font-weight:bold">
+                            <div style="width: 100%;height: 50%;overflow: scroll;">
+                                <table class="table-bordered table" id="myTable" style="font-weight:bold">
                         
                                     <tr>
-                                        <th>ID</th>
-                                        <th>书名</th>
-                                        <th>作者</th>
-                                        <th>出版社</th>
-                                        <th>类型</th>
-                                        <th> 状态</th>
-                                        <th>操作</th>
+                                        <th data-field="id">ID</th>
+                                        <th data-field="name">书名</th>
+                                        <th data-field="author">作者</th>
+                                        <th data-field="pub">出版社</th>
+                                        <th data-field="cate">类型</th>
+                                        <th data-field="state"> 状态</th>
+                                        <th>借出时间</th>
+                                        <th data-field="change">操作</th>
                                     </tr>
+                                    <tbody id="bookbody">
+                        
+                                    </tbody>
                         
                         
                                 </table>
-                        <ul class="accordion-menu" style="padding: 0">
-                            <li>
-                                <div class="dropdownlink"><i class="fa fa-road" aria-hidden="true"></i> 我的书库
-                                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                        </div>
+                                <div><button class="myBtn" id="bookstore">我的书库</button>
+                                    <button class="myBtn"><a href="javascript:location.reload();">刷新</a></button>
                                 </div>
-                                <ul class="submenuItems">
-                                    <li><a >图书ID:<label id="book1" ></label><button class="myBtn" id="btn1">还书</button></a></li>
-                                    <li><a >图书ID:<label id="book2"></label><button class="myBtn" id="btn2">还书</button></a></li>
-                                    <li><a >图书ID:<label id ="book3"></label><button class="myBtn" id="btn3">还书</button></a></li>
-                                </ul>
-                            </li>
-                        </ul>
                         <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert0">
                             <div class="sy-content">图书已借出！</div>
                         </div>
@@ -184,7 +218,21 @@
                         <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert4">
                             <div class="sy-content">还书失败！</div>
                         </div>
-
+                        <div class="sy-alert sy-alert-model animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="confirm" sy-mask="true" id="bookalert">
+                            <div class="sy-title">我的书库</div>
+                            <div class="sy-content">
+                                <div class="form">
+                                    <p class="input-item">图书ID:<input type="text" id="book1" placeholder="我的图书" readonly /><button class="myBtn" id="btn1">还书</button></p>
+                                    <p class="input-item">图书ID:<input type="text" id="book2" placeholder="我的图书" readonly/><button class="myBtn" id="btn2">还书</button></p>
+                                    <p class="input-item">图书ID:<input type="text" id ="book3" placeholder="我的图书" readonly/><button class="myBtn" id="btn3">还书</button></p>
+                        
+                                </div>
+                            </div>
+                            <div class="sy-btn">
+                                <button onClick="syalert.syhide('bookalert')">取消</button>
+                                <button onClick="syalert.syhide('bookalert')">确定</button>
+                            </div>
+                        </div>
             </div>
             <div>
                 <div id="chat">
@@ -192,9 +240,7 @@
                             <div class="row">
                               <nav class="menu">
                                 <ul class="items">
-                                  <li class="item">
-                                    <i class="fa fa-user" aria-hidden="true"></i>
-                                  </li>
+                                  
                                   <li class="item item-active">
                                     <i class="fa fa-commenting" aria-hidden="true"></i>
                                   </li>
@@ -209,85 +255,18 @@
                                 </div>
                               </div>
                               <div class="discussion-person">
-                                  <div class="discussion message-active">
-                                    <div class="photo" style="background-image: url(https://image.noelshack.com/fichiers/2017/38/2/1505775062-1505606859-portrait-1961529-960-720.jpg);">
-                                      <div class="online"></div>
-                                    </div>
-                                    <div class="desc-contact">
-                                      <p class="name">Megan Leib</p>
-                                      <p class="message">213170228</p>
-                                    </div>
-                                    <div class="timer">12 sec</div>
-                                  </div>
-                        
-                                 <div class="discussion">
-                                   <div class="photo" style="background-image: url(http://www.boutique-uns.com/uns/185-home_01grid/polo-femme.jpg);">
-                                   </div>
-                                   <div class="desc-contact">
-                                     <p class="name">Elsie Amador</p>
-                                     <p class="message">What the f**k is going on ?</p>
-                                    </div>
-                                    <div class="timer">1 day</div>
-                                  </div>
-                        
+                                 
                               </div>
                               </section>
                         
                               <section class="chat">
                                 <div class="header-chat">
                                   <i class="icon fa fa-user-o" aria-hidden="true"></i>
-                                  <p class="name">Megan Leib</p>
+                                  <p class="name"></p>
                                   <i class="icon clickable fa fa-ellipsis-h right" aria-hidden="true"></i>
                                 </div>
-                                <div class="messages-chat ">
-                                  <div class="message">
-                                    <div class="photo" style="background-image: url(https://image.noelshack.com/fichiers/2017/38/2/1505775062-1505606859-portrait-1961529-960-720.jpg);">
-                                      <div class="online"></div>
-                                    </div>
-                                    <p class="text"> Hi, how are you ? </p>
-                                  </div>
-                                  <div class="message text-only">
-                                    <p class="text"> What are you doing tonight ? Want to go take a drink ?</p>
-                                  </div>
-                                  <p class="time"> 14h58</p>
-                        
-                                  <div class="message text-only">
-                                    <div class="response">
-                                      <p class="text"> Hey Megan ! It's been a while 😃</p>
-                                    </div>
-                                  </div>
-                        
-                                  <div class="message text-only">
-                                    <div class="response">
-                                      <p class="text"> When can we meet ?</p>
-                                    </div>
-                                  </div>
-                        
-                                  <p class="response-time time"> 15h04</p>
-                        
-                                  <div class="message">
-                                    <div class="photo" style="background-image: url(https://image.noelshack.com/fichiers/2017/38/2/1505775062-1505606859-portrait-1961529-960-720.jpg);">
-                                      <div class="online"></div>
-                                    </div>
-                                    <p class="text"> 9 pm at the bar if possible 😳</p>
-                                  </div>
-                        
-                                  <p class="time"> 15h09</p>
-                                  <div class="message text-only">
-                                    <div class="response">
-                                      <p class="text"> Hey Megan ! It's been a while 😃</p>
-                                    </div>
-                                  </div>
-                                  <div class="message text-only">
-                                    <div class="response">
-                                      <p class="text"> Hey Megan ! It's been a while 😃</p>
-                                    </div>
-                                  </div>
-                                  <div class="message text-only">
-                                    <div class="response">
-                                      <p class="text"> Hey Megan ! It's been a while 😃</p>
-                                    </div>
-                                  </div>
+                                <div class="messages-chat">
+
                                 </div>
                                 <div class="footer-chat">
                                   <i class="icon fa fa-smile-o clickable" style="font-size:25pt;" aria-hidden="true"></i>
@@ -334,7 +313,8 @@
 
             </div>
             </div>
-    </div>
+
+        </div>
 
 
         <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert3">
@@ -347,7 +327,8 @@
 
 <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
 <script>
-   
+    var last;
+    var myid;
     //document.getElementById('head').src = head.query(client.eCardNumber);
     
     $('.tab').on('click',function(){
@@ -386,14 +367,13 @@
 
         if($(this).attr('id')=="Shop")
         {
-            
             $('#shop').addClass('seen');
             var s =0;
             var res = goodinfo.getAll();
             $("#shop #myTable").empty();
-            $("#shop #myTable").append("<tr><th>超市</th><th>商品名</th> <th>价格</th><th>数量</th><th>操作</th></tr>");
+            $("#shop #myTable").append("<tr><th >超市</th><th >商品名称</th> <th > 价格</th><th> 数量</th> <th >购买数量</th><th>详细信息</th><th >操作</th></tr>");
             for(var i=0;i<res.size();i++){
-            $("#shop #myTable").append("<tr><td>"+(goodinfo.getAll().elementAt(i).getTag())+"</td><td>"+(goodinfo.getAll().elementAt(i).getName())+"</td><td>"+(goodinfo.getAll().elementAt(i).getPrice())+"</td><td id='td3'>"+(goodinfo.getAll().elementAt(i).getNumber())+"</td><td>"+"<input id='numberInput' placeholder='请输入购买数量'oninput = \"value=value.replace(/[^\\d]/g,'')\" />"+"</td><td>"+"<button id='buy'class='buy'>加入购物车</button>"+"</td></tr>")}
+            $("#shop #myTable").append("<tr><td>"+(goodinfo.getAll().elementAt(i).getTag())+"</td><td>"+(goodinfo.getAll().elementAt(i).getName())+"</td><td>"+(goodinfo.getAll().elementAt(i).getPrice())+"</td><td id='td3'>"+(goodinfo.getAll().elementAt(i).getNumber())+"</td><td>"+"<input id='numberInput' placeholder='请输入购买数量'oninput = \"value=value.replace(/[^\\d]/g,'')\" />"+"</td><td><button id='msg' class='buy'>详细信息</button>"+"</td><td style='display: none'>"+res.elementAt(i).getPicturePath()+"</td><td>"+"<button id='buy'class='buy'>加入购物车</button>"+"</td></tr>")}
         }
 
         if($(this).attr('id')=="Bank")
@@ -410,19 +390,20 @@
             var res =bookinfo.getAll();
             var record=bookinfo.queryrecord(client.eCardNumber);
             for(var j=0;j<record.size();j++){
-            if($("#book1").html()==""){
-                $("#book1").html(record.elementAt(j).getBookID());
-            }else if($("#book2").html()==""){
-            $("#book2").html(record.elementAt(j).getBookID());
-            }else if($("#book3").html()==""){
-            $("#book3").html(record.elementAt(j).getBookID());
+              if($("#book1").val()==""){
+                    $("#book1").val(record.elementAt(j).getBookID());
+               }else if($("#book2").val()==""){
+                  $("#book2").val(record.elementAt(j).getBookID());
+              }else if($("#book3").val()==""){
+                 $("#book3").val(record.elementAt(j).getBookID());
+
+                 }
+
             }
-        $("#book #myTable").empty();
-        $("#book #myTable").append("<tr><th>ID</th><th>书名</th><th>作者</th><th>出版社</th><th>类型</th><th>状态</th><th>操作</th></tr>");
-        }
-        for(var i=0;i<res.size();i++){
-        $("#book #myTable").append("<tr><td>"+(res.elementAt(i).getBookID())+"</td><td>"+(res.elementAt(i).getBookName())+"</td><td>"+(res.elementAt(i).getBookEdit())+"</td><td>"+(res.elementAt(i).getBOOK_PUB())+"</td><td>"+(res.elementAt(i).getCategory())+"</td><td>"+(res.elementAt(i).getState())+"</td><td><button id='borrow' class='myBtn'>借书</button></td></tr>")}
-            var record=bookinfo.queryrecord(client.eCardNumber);
+             $("#bookbody").empty();
+            for(var i=0;i<res.size();i++){
+            $("#bookbody").append("<tr><td>"+(res.elementAt(i).getBookID())+"</td><td>"+(res.elementAt(i).getBookName())+"</td><td >"+(res.elementAt(i).getBookEdit())+"</td><td >"+(res.elementAt(i).getBOOK_PUB())+"</td><td >"+(res.elementAt(i).getCategory())+"</td><td >"+(res.elementAt(i).getState())+"</td><td >"+res.elementAt(i).getTime()+"</td><td>"+"<button id='borrow' class='myBtn'>借书</button></td></tr>")}
+   
         }
 
 
@@ -437,9 +418,9 @@
             $(".messages-chat").scrollTop(scrollHeight);
 
 
-             var last = client.getDate();
+             last= client.getDate();
              last.setYear(-100);
-             var id = -1000;
+             myid= -1000;
         }
 
     })
@@ -506,33 +487,43 @@
    
 
 
-   $(document).on("click",'#buy',function () {
-       var count = $(this).parents("tr").find("td").eq(3).text();
-       var  number = $(this).parents("tr").find("input").val();
-       var name =$(this).parents("tr").find("td").eq(1).text();
-       var tag =$(this).parents("tr").find("td").eq(0).text();
-       var price =$(this).parents("tr").find("td").eq(2).text();
+    $(document).on("click",'#buy',function () {
 
-       var newcount = count -number;
-       if(number < 0){
-           syalert.syopen("alert3");
-       }else if(newcount < 0){
-           syalert.syopen("alert3");
+    var count = $(this).parents("tr").find("td").eq(3).text();
+    var  number = $(this).parents("tr").find("input").val();
+    var name =$(this).parents("tr").find("td").eq(1).text();
+    var tag =$(this).parents("tr").find("td").eq(0).text();
+    var price =$(this).parents("tr").find("td").eq(2).text();
 
-       }else {
-           syalert.syopen("alert2");
-           var i = parseInt(number);
-           //goodinfo.update(name,tag,i);
-       $(this).parents("tr").find("td").eq(3).html(newcount)
-           $("#shop #myForm").append("<tr><td>"+tag+"</td><td>"+name+"</td><td>"+price+"</td><td>"+number+"</td><td>"+"<button id='delete' class='buy'>删除</button>"+"</td></tr>")
-       ;}
-      });
+    var newcount = count -number;
+    if(number==""){
+        syalert.syopen("shopalert3");
+    } else if(number < 0){
+         syalert.syopen("alert3");
+    }else if(newcount < 0){
+       syalert.syopen("alert3");
+
+    }else {
+      syalert.syopen("alert2");
+    $(this).parents("tr").find("td").eq(3).html(newcount);
+
+      $("#basketbody").append("<tr><td>"+tag+"</td><td>"+name+"</td><td>"+price+"</td><td>"+number+"</td><td>"+"<button id='delete' class='buy'>删除</button>"+"</td></tr>");
+    }
+}   );
 
 
     $(document).on("click",'#delete',function () {
         $(this).parents("tr").remove();
     })
 
+    $(document).on("click",'#msg',function () {
+        
+        if(!$(".shopcard").hasClass("on")){
+            $(".shopcard").addClass("on");
+        }
+
+
+    })
 
 
 
@@ -566,21 +557,33 @@
 
     $(document).on("click",'#Buy',function () {
     var price,number,name,tag,i;
-    var table = document.getElementById("myForm");
+    var table = document.getElementById("basketbody");
     var tr=table.getElementsByTagName("tr");
-    alert(tr.length);
-    for(i =1;i<tr.length;i++){
+
+    for(i =0;i<tr.length;i++){
         price=tr[i].getElementsByTagName("td")[2].innerHTML.toUpperCase();
         number=tr[i].getElementsByTagName("td")[3].innerHTML.toUpperCase();
         name =tr[i].getElementsByTagName("td")[1].innerHTML.toUpperCase();
         tag = tr[i].getElementsByTagName("td")[0].innerHTML.toUpperCase();
+        if(number==""){
+             syalert.syopen("alert0")
+        }
         var h = parseInt(number);
         goodinfo.update(name,tag,h);
         goodinfo.consumption(client.eCardNumber,price*number);
 
-        }
+    }
+    $("#basketbody").empty();
+
+
+
     syalert.syhide("alert4");
-    })
+    syalert.syopen("alert1");
+})
+
+    $("#cancel").click(function () {
+        $("#basketbody").empty();
+       })
 
  
     $('.bankbutton').on('click',function(){
@@ -706,70 +709,68 @@ function searchFct(){
         
 
    
-    $(document).on("click",'#borrow',function () {
+$(document).on("click",'#borrow',function () {
         var state =$(this).parents("tr").find("td").eq(5).text();
         var ID =$(this).parents("tr").find("td").eq(0).text();
-        if($("#book1").html()!==""&&$("#book2").html()!==""&&$("#book3").html()!==""){
+        if($("#book1").val()!==""&&$("#book2").val()!==""&&$("#book3").val()!==""){
             syalert.syopen("alert1");
         } else if(state=="未借"){
             syalert.syopen("alert2");
             $(this).parents("tr").find("td").eq(5).html("已借");
             var newstate=$(this).parents("tr").find("td").eq(5).text();
-          bookinfo.update(ID,state,"213171645");
-            if($("#book1").html()==""){
-                $("#book1").html(ID);
-            }else if($("#book2").html()==""){
-                $("#book2").html(ID);
-            }else if($("#book3").html()==""){
-                $("#book3").html(ID);
+          bookinfo.update(ID,state,client.eCardNumber);
+            if($("#book1").val()==""){
+                $("#book1").val(ID);
+            }else if($("#book2").val()==""){
+                $("#book2").val(ID);
+            }else if($("#book3").val()==""){
+                $("#book3").val(ID);
             }
 
         } else{
             syalert.syopen("alert0");
 
         }
-    })
-    $("#btn1").click(function () {
-        
-        alert(0);
-        var id =$("#book1").html();
-        var table,tr,td,i,state;
 
-        table =$("#book #myTable").get(0);
+
+    });
+    $("#btn1").click(function () {
+        var id =$("#book1").val();
+        var table,tr,td,i,state;
+        table = document.getElementById("bookbody");
         tr = table.getElementsByTagName("tr");
-        
-        alert(1);
         if(id==""){
-            syalert.syopen("alert4")
+
+ syalert.syopen("alert4")
         }
-        for(i=1;i<tr.length;i++){
+        for(i=0;i<tr.length;i++){
             td=tr[i].getElementsByTagName("td")[0].innerHTML.toUpperCase();
             state=tr[i].getElementsByTagName("td")[5].innerHTML.toUpperCase();
         if(id==td){
                 tr[i].getElementsByTagName("td")[5].innerHTML="未借";
-                $("#book1").html("");
+                $("#book1").val("");
                 bookinfo.update(id,state,client.eCardNumber);
-            yalert.syopen("alert3");
+        syalert.syopen("alert3");
             }
 
         }
     });
     $("#btn2").click(function () {
-        var id =$("#book2").html();
+        var id =$("#book2").val();
         var table,tr,td,i,state;
-        table =$("#book #myTable").get(0);
+        table = document.getElementById("bookbody");
         tr = table.getElementsByTagName("tr");
         if(id==""){
             syalert.syopen("alert4");
 
         }
 
-        for(i=1;i<tr.length;i++){
+        for(i=0;i<tr.length;i++){
             td=tr[i].getElementsByTagName("td")[0].innerHTML.toUpperCase();
             state=tr[i].getElementsByTagName("td")[5].innerHTML.toUpperCase();
             if(id==td){
                 tr[i].getElementsByTagName("td")[5].innerHTML="未借";
-                $("#book2").html("");
+                $("#book2").val("");
                 bookinfo.update(id,state,client.eCardNumber);
                 syalert.syopen("alert3");
             }
@@ -777,26 +778,29 @@ function searchFct(){
         }
     });
     $("#btn3").click(function () {
-        var id =$("#book3").html();
+        var id =$("#book3").val();
         var table,tr,td,i,state;
-        table =$("#book #myTable").get(0);
+        table = document.getElementById("bookbody");
         tr = table.getElementsByTagName("tr");
         if(id==""){
             syalert.syopen("alert4");
 
         }
-        for(i=1;i<tr.length;i++){
+        for(i=0;i<tr.length;i++){
             td=tr[i].getElementsByTagName("td")[0].innerHTML.toUpperCase();
             state=tr[i].getElementsByTagName("td")[5].innerHTML.toUpperCase();
             if(id==td){
                 tr[i].getElementsByTagName("td")[5].innerHTML="未借";
-                $("#book3").html("");
+                $("#book3").val("");
                 bookinfo.update(id,state,client.eCardNumber);
                 syalert.syopen("alert3");
             }
 
         }
     });
+    $("#bookstore").click(function () {
+        syalert.syopen("bookalert");
+    })
 
     function BookmyFunction() {
         // 声明变量
@@ -870,12 +874,17 @@ function searchFct(){
                 last = res.elementAt(i).getTime();
                 LeftTimeInsert(last);
            }
+           
         }
+        
+      var scrollHeight = $(".messages-chat").prop("scrollHeight");
+      $(".messages-chat").scrollTop(scrollHeight);
     }
 
     //点击发送
     document.querySelector('.fa-paper-plane-o').addEventListener('click',()=> {
-      div = document.createElement("div");
+       
+     /* div = document.createElement("div");
       div.className = "message text-only";
       p = document.createElement("p");
       p.className = "text";
@@ -884,8 +893,7 @@ function searchFct(){
       div1.className = "response";
       div1.appendChild(p);
       div.appendChild(div1);
-      document.querySelector(".messages-chat").appendChild(div);
-
+      document.querySelector(".messages-chat").appendChild(div);*/
       var str = message.getJson();
 
       var obj = JSON.parse(str);
@@ -895,6 +903,7 @@ function searchFct(){
       str = JSON.stringify(obj);
       messagetrans.insert(str);
       document.querySelector(".write-message").value = '';
+    
     });
 
 
@@ -902,19 +911,17 @@ function searchFct(){
     //点击选人
     $(".discussion-person").on("click",".discussion",function() {
       last.setYear(-100);
-      client.eCardNumber = "213171645";
-      current = document.querySelector('.message-active');
-      current.classList.remove("message-active");
+      if(document.querySelector('.message-active'))
+      {
+        current = document.querySelector('.message-active');
+        current.classList.remove("message-active");
+      }
       this.classList.add("message-active");
       Name = this.querySelector('.name').innerText;
       $(".header-chat .name").text(Name);
       $(".messages-chat").empty();
 
-      if(id == -1000){
-          id = setInterval('getnew()',  50);
-          getnew();
-      }
-
+     
       var per = $(".message-active").find(".desc-contact").find(".message").text();
       var res = messagetrans.query(client.eCardNumber, per);
       messagetrans.querynew(client.eCardNumber, per);
@@ -927,7 +934,14 @@ function searchFct(){
           LeftTimeInsert(last);
         }
       }
+    
+      if(myid == -1000){
+          myid = setInterval('getnew()', 1000);
+          getnew();
+      }
 
+      var scrollHeight = $(".messages-chat").prop("scrollHeight");
+            $(".messages-chat").scrollTop(scrollHeight);
 
     });
 
@@ -1015,6 +1029,20 @@ function searchFct(){
         div3.innerText=time;
 
         div.appendChild(div3);
+
+        div4=document.createElement("div");
+        div4.className="clear-button";
+
+        button=document.createElement("button");
+        i=document.createElement("i");
+        i.className="material-icons";
+        i.innerText="clear";
+        button.appendChild(i);
+
+        div4.appendChild(button);
+        div.appendChild(div4);
+
+
         document.querySelector(".discussion-person").appendChild(div);
         div3.click();
     }
@@ -1041,6 +1069,7 @@ function searchFct(){
 	  }
       var time = new Date();
       DiscussionPersonInsert(per['name'], head.query(document.querySelector(".searchbar-message").value), document.querySelector(".searchbar-message").value, time.getHours() + ":" + time.getMinutes());
+
   });
 
 
@@ -1070,6 +1099,11 @@ function searchFct(){
       }
   })
 
+  $(".discussions").on("click",".material-icons",function(event){
+    ($(this).parents(".discussion")).remove();
+
+    event.stopPropagation();
+})
 
     </script>
     </html>

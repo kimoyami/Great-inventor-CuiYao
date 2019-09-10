@@ -18,7 +18,7 @@ import java.util.Vector;
 
 public class ServerThread extends Thread {
     private static final String BASE = "C:\\Users\\Administrator\\Documents\\GitHub\\Great-inventor-CuiYao\\headimage\\";
-    private Socket socket;
+    public Socket socket;
     public ObjectInputStream cin = null;
     public ObjectOutputStream cout = null;
 
@@ -34,6 +34,8 @@ public class ServerThread extends Thread {
             DataBase.start();
 
             while (true) {
+                synchronized(new Object()){
+
                 int op = cin.readInt();
                 if (op == -1) break;
                 if (op == -100) update();
@@ -86,9 +88,14 @@ public class ServerThread extends Thread {
                     GradeInfo.now = this;
                     GradeInfo.run(op);
                 }
-                op-=10;
+                op -= 10;
+                if(op >= 1 && op <= 10){
+                    FilesTrans.now = this;
+                    FilesTrans.run(op);
+                }
+                op -= 10;
             }
-
+            }
             cin.close();
             cout.close();
             DataBase.stop();
