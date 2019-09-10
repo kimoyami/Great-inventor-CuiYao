@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e9e75e62-ef5d-482f-bdce-fa8ea2706755" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/bar.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/bar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/html/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/index.html.bak" beforeDir="false" afterPath="$PROJECT_DIR$/html/index.html.bak" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dao/account.accdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/account.accdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dao/account.laccdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/account.laccdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/srv/client/SelectCourseInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/srv/client/SelectCourseInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/srv/server/SelectCourseInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/srv/server/SelectCourseInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/srv/server/FilesTrans.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/srv/server/FilesTrans.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,41 +31,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/srv/client/Client.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="18" column="42" selection-start-line="18" selection-start-column="42" selection-end-line="18" selection-end-column="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/view/MainView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1430">
-              <caret line="61" column="1" selection-start-line="61" selection-start-column="1" selection-end-line="61" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dao/DataCourse.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-208">
-              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/dao/DataSelectCourse.java">
+        <entry file="file://$PROJECT_DIR$/src/srv/server/GradeInfo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
-              <caret line="50" column="39" selection-start-line="50" selection-start-column="33" selection-end-line="50" selection-end-column="40" />
-              <folding>
-                <element signature="e#0#5874#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-1222">
+              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -122,7 +86,6 @@
         <option value="$PROJECT_DIR$/src/srv/server/Server.java" />
         <option value="$PROJECT_DIR$/src/srv/server/BookInfo.java" />
         <option value="$PROJECT_DIR$/src/srv/server/CourseInfo.java" />
-        <option value="$PROJECT_DIR$/src/srv/server/GoodInfo.java" />
         <option value="$PROJECT_DIR$/src/srv/server/Head.java" />
         <option value="$PROJECT_DIR$/src/srv/server/MessageTrans.java" />
         <option value="$PROJECT_DIR$/src/srv/server/PersonInfo.java" />
@@ -131,7 +94,6 @@
         <option value="$PROJECT_DIR$/src/srv/server/File.java" />
         <option value="$PROJECT_DIR$/src/srv/server/Files.java" />
         <option value="$PROJECT_DIR$/src/dao/DataFile.java" />
-        <option value="$PROJECT_DIR$/src/srv/server/FilesTrans.java" />
         <option value="$PROJECT_DIR$/src/srv/client/FilesTrans.java" />
         <option value="$PROJECT_DIR$/src/srv/client/Head.java" />
         <option value="$PROJECT_DIR$/src/srv/server/ServerThread.java" />
@@ -141,6 +103,8 @@
         <option value="$PROJECT_DIR$/src/dao/DataBase.java" />
         <option value="$PROJECT_DIR$/src/srv/server/SelectCourseInfo.java" />
         <option value="$PROJECT_DIR$/src/srv/client/SelectCourseInfo.java" />
+        <option value="$PROJECT_DIR$/src/srv/server/FilesTrans.java" />
+        <option value="$PROJECT_DIR$/src/srv/server/GoodInfo.java" />
       </list>
     </option>
   </component>
@@ -174,7 +138,14 @@
               <item name="Great-inventor-CuiYao" type="b2602c69:ProjectViewProjectNode" />
               <item name="Great-inventor-CuiYao" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
+              <item name="srv" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Great-inventor-CuiYao" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Great-inventor-CuiYao" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="srv" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -304,18 +275,18 @@
       <workItem from="1568047196673" duration="6366000" />
       <workItem from="1568083794631" duration="1488000" />
       <workItem from="1568144440779" duration="1434000" />
-      <workItem from="1568145906052" duration="3636000" />
+      <workItem from="1568145906052" duration="5514000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88807000" />
+    <option name="totallyTimeSpent" value="90685000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49919486" visible="true" weight="0.24360341" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49919486" visible="true" weight="0.24360341" />
       <window_info id="Structure" order="1" sideWeight="0.50080514" side_tool="true" weight="0.2553305" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -324,7 +295,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2535211" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.2535211" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39869988" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -417,13 +388,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/srv/bank/Bank.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/srv/book/Book.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="78">
@@ -463,13 +427,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/srv/server/MessageThread.java" />
-    <entry file="file://$PROJECT_DIR$/src/srv/server/Bank_Info.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="60" column="27" selection-start-line="60" selection-start-column="27" selection-end-line="60" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/view/ImagePreview.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-744">
@@ -488,20 +445,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="104">
           <caret line="11" column="34" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/srv/server/CourseInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1336">
-          <caret line="73" column="31" selection-start-line="73" selection-start-column="31" selection-end-line="73" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/srv/server/GoodInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="537">
-          <caret line="123" column="4" selection-start-line="123" selection-start-column="4" selection-end-line="123" selection-end-column="4" />
         </state>
       </provider>
     </entry>
@@ -659,18 +602,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/srv/server/FilesTrans.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-162">
-          <caret line="96" selection-start-line="96" selection-end-line="96" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3483#3484#0" expanded="true" />
-            <element signature="e#3522#3523#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/srv/client/Login.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="372">
@@ -740,13 +671,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/srv/server/BookInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1950">
-          <caret line="81" selection-start-line="81" selection-end-line="81" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/srv/client/SelectCourseInfo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="381">
@@ -799,10 +723,55 @@
     <entry file="file://$PROJECT_DIR$/src/dao/DataSelectCourse.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="338">
-          <caret line="50" column="39" selection-start-line="50" selection-start-column="33" selection-end-line="50" selection-end-column="40" />
+          <caret line="50" column="39" selection-start-line="50" selection-start-column="39" selection-end-line="50" selection-end-column="39" />
           <folding>
             <element signature="e#0#5874#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/srv/server/Bank_Info.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2158">
+          <caret line="60" column="27" selection-start-line="60" selection-start-column="27" selection-end-line="60" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/srv/server/BookInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1283">
+          <caret line="81" selection-start-line="81" selection-end-line="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/srv/server/CourseInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-503">
+          <caret line="60" column="23" lean-forward="true" selection-start-line="60" selection-start-column="23" selection-end-line="60" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/srv/server/FilesTrans.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-205">
+          <caret line="105" column="31" selection-start-line="105" selection-start-column="31" selection-end-line="105" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/srv/server/GoodInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2747">
+          <caret line="114" column="18" selection-start-line="114" selection-start-column="18" selection-end-line="114" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/srv/server/GradeInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1222">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
         </state>
       </provider>
     </entry>

@@ -10,7 +10,7 @@ import java.util.Random;
 import java.util.Vector;
 
 public class FilesTrans {
-    private static final String BASE = "F:\\GitHub\\Great-inventor-CuiYao\\file\\";
+    private static final String BASE = "C:\\Users\\Administrator\\Documents\\GitHub\\Great-inventor-CuiYao\\file\\";
     public static ServerThread now;
 
     public static void run(int op) {
@@ -103,7 +103,7 @@ public class FilesTrans {
         }
     }
 
-    public static int delete() {
+    public static synchronized int delete() {
         String url = "";
         try {
             url = now.cin.readUTF();
