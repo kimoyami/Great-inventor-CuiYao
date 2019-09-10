@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选课系统</title>
+</head>
+<body>
+<div style="text-align: center">
+    <div>
+        <input type="button" value="测试" id="search_btn" onclick="addTr()">
+    </div>
+    <div>
+        <h1 align="center"><b><em>
+            <caption>选课系统</caption>
+        </em></b></h1>
+    </div>
+    <div>
+        <table  id="AllCourse" style="color:#000000" width="928" border="1" align="center">
+            <tr>
+                <th width="100">课程号</th>
+                <th width="100">课程名</th>
+                <th width="100">导师</th>
+                <th width="100">时间</td>
+                <th width="100">地点</th>
+                <th width="100">选择</th>
+            </tr>
+        </table>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+
+
+        var vec = courseinfo.getAll();
+        alert("12")
+        for (var i = 0; i<vec.size(); i++) {
+            $("#AllCourse").append("<tr><td>"+vec.elementAt(i).getIdx()+"</td><td>" + vec.elementAt(i).getCourseName() + "</td><td>" + vec.elementAt(i).getTeacher() + "</td><td>" +
+                vec.elementAt(i).getCourseTime() + "</td><td>" + vec.elementAt(i).getClassroom() + "</td><td>" +
+                "<button id='select'>选课</button>" + "</td></tr>");
+        }
+
+
+
+    $(document).on("click", '#select',function () {
+    {
+        alert("1")
+        var idx = $(this).parents("tr").find("td").eq(0).text();
+        var name = $(this).parents("tr").find("td").eq(1).text();
+        var teacher = $(this).parents("tr").find("td").eq(2).text();
+        var ctime = $(this).parents("tr").find("td").eq(3).text();
+        var room = $(this).parents("tr").find("td").eq(4).text();
+        var n = parseInt(ctime);
+        var m = parseInt(room);
+        alert("123")
+        alert(idx);
+        alert(ctime);
+        selectcourseinfo.insert("213171645", idx, name, n,teacher,m);
+        alert("成功");
+    }})
+
+    /*
+    function addTr() {
+        var vec = courseinfo.getAll();
+        var funcArr = [];
+
+        for (var i = 0; i<vec.size(); i++){
+            var idx = vec.elementAt(i).getIdx();
+            $("#AllCourse").append("<tr><td>"+vec.elementAt(i).getCourseName()+"</td><td>"+vec.elementAt(i).getCourseTime()+"</td><td>"+
+                vec.elementAt(i).getCourseTime()+"</td><td>"+vec.elementAt(i).getClassroom()+"</td><td>"+
+                "<button id='"+vec.elementAt(i).getIdx()+"' onclick='"+idx+"()'>选课</button>"+"</td></tr>");
+            funcArr[i] = function idx() {
+                alert("idx");
+                selectcourseinfo.insert("213171645", idx, vec.elementAt(i).getCourseName(), vec.elementAt(i).getCourseTime(),
+                    vec.elementAt(i).getCourseTime(), vec.elementAt(i).getClassroom());
+                alert("成功")
+            }
+        }
+    }
+    */
+/*
+    function addTr() {
+
+        var vec = courseinfo.getAll();
+        //alert(vec.elementAt(0).getCourseName());
+        alert("12");
+        var idx = new Array();
+        var btnarray = new Array();
+        //var a = 0;
+        alert(vec.elementAt(0).getCourseName());
+        alert("0");
+        for (var i = 0; i < vec.size(); i++) {
+            var tabel = document.getElementById("AllCourse");
+            var tr = document.createElement("tr");
+            var td0 = document.createElement("td");
+            var td1 = document.createElement("td");
+            var td2 = document.createElement("td");
+            var td3 = document.createElement("td");
+            var td4 = document.createElement("td");
+            var text0 = document.createTextNode(vec.elementAt(i).getCourseName());
+            var text1 = document.createTextNode(vec.elementAt(i).getTeacher());
+            var text2 = document.createTextNode(vec.elementAt(i).getCourseTime());
+            var text3 = document.createTextNode("vec.elementAt(i).getClassroom()");
+            //vec.elementAt(i).getClassroom()
+            idx[i] = vec.elementAt(i).getIdx();
+            var e = "213171645";
+            var a = vec.elementAt(i).getIdx();
+            var b = vec.elementAt(i).getCourseName();
+            var c = vec.elementAt(i).getCourseTime();
+            var d = vec.elementAt(i).getTeacher();
+            btnarray[i] = document.createElement("button");
+            //alert('hhh');
+            var t = document.createTextNode("选课");
+            btnarray[i].appendChild(t);
+            td0.appendChild(text0);
+            td1.appendChild(text1);
+            td2.appendChild(text2);
+            td3.appendChild(text3);
+            td4.appendChild(btnarray[i]);
+            tr.appendChild(td0);
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+            tr.appendChild(td3);
+            tr.appendChild(td4);
+            tabel.appendChild(tr);
+            //btnarray[i] = btn;
+            btnarray[i].onclick = function () {
+                alert("测试");
+                alert(i);
+                //var e = "213171645";
+                //var b =$(this).parent("td1").text();
+                //alert(b);
+                selectCourseinfo.insert(e, a, b, c, d);
+                alert("000");
+            };
+
+            //alert(idx);
+            //alert("0");
+            btnarray[0].onclick = function () {
+            alert("测试");
+            //var e = "213171645";
+            var b = this.parentElement("td1");
+            alert(b);
+            //selectCourseinfo.insert(e,a,b,c,d);
+        };
+        }
+    }
+*/
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>教师用户界面</title>
+</head>
+<body>
+    <form>
+        <select name="area" id="area">
+            <option value="0">--选择课程--</option>
+        </select>
+    </form>
+	<div>
+        <p>当前课程
+            <input type="text" id="rname">
+	</div>
+    <table id="myTable" border="solid">
+        <tr>
+            <th style="width: 10%">学生ID</th>
+            <th style="width: 10%">学期</th>
+            <th style="width: 10%">学生成绩</th>
+            <th style="width: 10%">输入成绩</th>
+            <th style="width: 10%">添加</th>
+        </tr>
+    </table>
+    <div>
+        <p></p>
+        <p>成绩区间</p>
+        <p>下限
+            <input type="text" id="min" value=""></p>
+        <p>上限
+            <input type="text" id="max" value=""></p>
+        <button id="refresh" onclick="refresh()">刷新</button>
+        <p>课程平均分
+            <input type="text" id="average"></p>
+    </div>
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript">
+        var vec = gradeinfo.querycourse("信号与系统", "王世杰", 0, 100);
+        alert(vec.elementAt(0).getCourseName());
+
+        var a = courseinfo.query("明凯");
+        alert(a.elementAt(0).getCourseName())
+
+        var id = new Array(1,2);
+        var value = new Array();
+        for (var t=0;t<a.size();t++)
+            value[t] = a.elementAt(t).getCourseName();
+
+        var select = document.getElementById("area");
+        select.length = 1;
+        select.options[0].selected = true;
+        for(var x = 0;x<id.length;x++){
+            var option = document.createElement("option");
+            option.setAttribute("value",id[x]);
+            option.appendChild(document.createTextNode(value[x]));
+            select.appendChild(option);
+        }
+
+        /*
+                var vec = gradeinfo.querycourse("信号与系统", "王世杰", 0, 100);
+
+                alert(vec.elementAt(0).getCourseName());
+                for (var i = 0; i < vec.size(); i++) {
+                    $("#myTable").append("<tr><td>" + vec.elementAt(i).getEcardNUmber() + "</td><td>" + vec.elementAt(i).getCourseSemeter() +
+                        "</td><td>" + vec.elementAt(i).getCourseGrade() + "</td><td>" + vec.elementAt(i).getCourseName() + "</td><td>" +
+                        vec.elementAt(i).getTeacher() + "</td></tr>")
+                }
+                $("#average").val(gradeinfo.getAverage("信号与系统", "王世杰"))
+                $("#rname").val("信号与系统")
+        */
+ /*       function f1() {
+            //var low = document.getElementById("min");
+            //var a = low.value.toUpperCase();
+            var input = document.getElementById("rname");
+            var filter = input.value.toUpperCase();
+            var table = document.getElementById("myTable");
+            var tr = table.getElementsByTagName("tr");
+            var td;
+            //var tl;
+            var i;
+            for (i = 0; i < tr.length; i++){
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td){
+                    //var subscript = tl.innerHTML.toUpperCase().indexOf(filter);
+                    if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    }
+                    else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+        */
+
+		function refresh() {
+            var sum = delAll();
+
+            var coursename = $("#area").val();
+            var low = parseInt($("#min").val());
+            var top = parseInt($("#max").val());
+            if (low>top)
+                alert("下限不能高于上限")
+            var vec = gradeinfo.querycourse(coursename, "王世杰", low, top)
+
+            for (var i = 0; i<vec.size(); i++){
+                if (vec.elementAt(i).getCourseGrade()<low || vec.elementAt(i).getCourseGrade()>top)
+                    continue;
+                else{
+                    var k = vec.elementAt(i).getEcardNUmber();
+                    $("#myTable").append("<tr><td>" + vec.elementAt(i).getEcardNUmber() + "</td><td>" + vec.elementAt(i).getCourseSemeter() +
+                        "</td><td>" + vec.elementAt(i).getCourseGrade() + "</td><td>" +
+                        "<input type='text' id='"+k+"'>"+"</td><td>"
+                        +"<button id='select'>添加</button>" + "</td></tr>")
+                }
+            }
+            //getAverage(String coursename, String teacher)
+            var avr = gradeinfo.getAverage(coursename, "王世杰")
+            $("#average").val(avr)
+        }
+
+        $(document).on("click", '#select',function () {
+            {
+
+                alert("1")
+                var idx = $(this).parents("tr").find("td").eq(0).text();
+                var semeter = $(this).parents("tr").find("td").eq(1).text();
+                var m = parseInt(semeter);
+                alert("2")
+                //var grade = $(this).parents("tr").find("td").eq(1).text();
+                var grade = document.getElementById(idx).value;
+                var n = parseInt(grade);
+                var cname = $("#area").val();
+
+                alert("123");
+                alert(idx)
+                alert(m)
+                alert(cname)
+                alert(n)
+                var a=gradeinfo.insert(idx, m, cname, n, "王世杰");
+                alert(a);
+                alert("成功");
+
+
+            }})
+
+        function delAll() {
+            var tab = document.getElementById('myTable');
+            for (var r = tab.rows.length - 1; r >= 1; r--) {
+                tab.deleteRow(r);
+            }
+        }
+
+/*
+		function inserttrade() {
+            var idx = $("#studentid").val();
+            var sem = $("#semester").val();
+            var trade = $("#studenttrade").val();
+            var name = $("#coursename").val();
+            var m = parseInt(sem);
+            var n = parseInt(trade);
+            gradeinfo.insert(idx, m, name, n, "王世杰");
+            alert("插入成功");
+
+        }
+*/
+	</script>
+
+</body>
+</html>
