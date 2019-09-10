@@ -122,6 +122,11 @@ public class DataCourse {
 
     public static void main(String args[]){
             DataBase.start();
+        Vector<Course>res= query("王世杰");
+
+        for (int i = 0; i <res.size() ; i++) {
+            System.out.println(res.elementAt(i).getCourseName());
+        }
             DataBase.stop();
     }
 }

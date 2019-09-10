@@ -4,44 +4,44 @@
 	<title>教师用户界面</title>
 </head>
 <body>
-    <form>
+    <form style="text-align: center">
         <select name="area" id="area">
             <option value="0">--选择课程--</option>
         </select>
     </form>
-	<div>
-        <p>当前课程
-            <input type="text" id="rname">
-	</div>
-    <table id="myTable" border="solid">
-        <tr>
-            <th style="width: 10%">学生ID</th>
-            <th style="width: 10%">学期</th>
-            <th style="width: 10%">学生成绩</th>
-            <th style="width: 10%">输入成绩</th>
-            <th style="width: 10%">添加</th>
-        </tr>
-    </table>
-    <div>
+    <div style="text-align: center">
+        <table id="myTable" border="solid">
+            <tr>
+                <th style="width: 10%">学生ID</th>
+                <th style="width: 10%">学期</th>
+                <th style="width: 10%">学生成绩</th>
+                <th style="width: 10%">输入成绩</th>
+                <th style="width: 10%">添加</th>
+            </tr>
+        </table>
+    </div>
+    <div style="text-align: center">
         <p></p>
         <p>成绩区间</p>
         <p>下限
-            <input type="text" id="min" value=""></p>
+            <input type="text" id="min" value="0"></p>
         <p>上限
-            <input type="text" id="max" value=""></p>
+            <input type="text" id="max" value="100"></p>
         <button id="refresh" onclick="refresh()">刷新</button>
         <p>课程平均分
             <input type="text" id="average"></p>
     </div>
+
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
 	<script type="text/javascript">
         var vec = gradeinfo.querycourse("信号与系统", "王世杰", 0, 100);
-        alert(vec.elementAt(0).getCourseName());
 
-        var a = courseinfo.query("明凯");
-        alert(a.elementAt(0).getCourseName())
+        var a = courseinfo.query("王世杰");
 
-        var id = new Array(1,2);
+        var id = new Array;
+        for (var t=0;t<a.size();t++)
+            id[t] = a.elementAt(t).getCourseName();
         var value = new Array();
         for (var t=0;t<a.size();t++)
             value[t] = a.elementAt(t).getCourseName();
@@ -56,42 +56,6 @@
             select.appendChild(option);
         }
 
-        /*
-                var vec = gradeinfo.querycourse("信号与系统", "王世杰", 0, 100);
-
-                alert(vec.elementAt(0).getCourseName());
-                for (var i = 0; i < vec.size(); i++) {
-                    $("#myTable").append("<tr><td>" + vec.elementAt(i).getEcardNUmber() + "</td><td>" + vec.elementAt(i).getCourseSemeter() +
-                        "</td><td>" + vec.elementAt(i).getCourseGrade() + "</td><td>" + vec.elementAt(i).getCourseName() + "</td><td>" +
-                        vec.elementAt(i).getTeacher() + "</td></tr>")
-                }
-                $("#average").val(gradeinfo.getAverage("信号与系统", "王世杰"))
-                $("#rname").val("信号与系统")
-        */
- /*       function f1() {
-            //var low = document.getElementById("min");
-            //var a = low.value.toUpperCase();
-            var input = document.getElementById("rname");
-            var filter = input.value.toUpperCase();
-            var table = document.getElementById("myTable");
-            var tr = table.getElementsByTagName("tr");
-            var td;
-            //var tl;
-            var i;
-            for (i = 0; i < tr.length; i++){
-                td = tr[i].getElementsByTagName("td")[0];
-                if (td){
-                    //var subscript = tl.innerHTML.toUpperCase().indexOf(filter);
-                    if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-                        tr[i].style.display = "";
-                    }
-                    else {
-                        tr[i].style.display = "none";
-                    }
-                }
-            }
-        }
-        */
 
 		function refresh() {
             var sum = delAll();
@@ -121,27 +85,19 @@
 
         $(document).on("click", '#select',function () {
             {
-
-                alert("1")
                 var idx = $(this).parents("tr").find("td").eq(0).text();
                 var semeter = $(this).parents("tr").find("td").eq(1).text();
                 var m = parseInt(semeter);
-                alert("2")
+
                 //var grade = $(this).parents("tr").find("td").eq(1).text();
                 var grade = document.getElementById(idx).value;
                 var n = parseInt(grade);
                 var cname = $("#area").val();
 
-                alert("123");
-                alert(idx)
-                alert(m)
-                alert(cname)
-                alert(n)
-                var a=gradeinfo.insert(idx, m, cname, n, "王世杰");
-                alert(a);
+                //update(String ecardname,String coursename,int grade)
+                gradeinfo.update(idx, cname, n);
+
                 alert("成功");
-
-
             }})
 
         function delAll() {
@@ -150,21 +106,58 @@
                 tab.deleteRow(r);
             }
         }
-
-/*
-		function inserttrade() {
-            var idx = $("#studentid").val();
-            var sem = $("#semester").val();
-            var trade = $("#studenttrade").val();
-            var name = $("#coursename").val();
-            var m = parseInt(sem);
-            var n = parseInt(trade);
-            gradeinfo.insert(idx, m, name, n, "王世杰");
-            alert("插入成功");
-
-        }
-*/
 	</script>
+
+<style type="text/css">
+    body {
+        background: -webkit-linear-gradient(left, #25c481, #25b7c4);
+        background: linear-gradient(to right, #25c481, #25b7c4);
+        font-family: 'Roboto', sans-serif;
+    }
+
+    table {
+        opacity: 20%;
+        font-family: 'Open Sans', Helvetica;
+        color: white;
+        border:2px solid #FFF;
+        border-collapse : collapse;
+        position: center;
+    }
+    table tr {
+        border:2px solid #FFF;
+        border-collapse : collapse;
+    }
+    table th, table td {
+        border:2px solid #FFF;
+        border-collapse : collapse;
+    }
+
+    .days, .time {
+        opacity: 20%;
+        color: white;
+    //background: #34495e;
+        text-transform: uppercase;
+        font-size: 0.6em;
+        text-align: center;
+    }
+    .days{
+        font-size: 1em;
+    }
+    .time {
+        width: 3em !important;
+        font-size: 1em;
+    }
+
+    .Back{
+        margin-top: 40px;
+        padding: 10px;
+        clear: left;
+        text-align: center;
+        font-size: 10px;
+        font-family: arial;
+        color: #fff;
+    }
+</style>
 
 </body>
 </html>

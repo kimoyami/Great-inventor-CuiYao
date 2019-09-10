@@ -43,6 +43,10 @@ public class GradeInfo {
                 now.cout.writeDouble(getAverage());
                 now.cout.flush();
             }
+            if(op==7){
+                now.cout.writeInt(update());
+                now.cout.flush();
+            }
         } catch (Exception e) {
             return;
         }
@@ -131,4 +135,21 @@ public class GradeInfo {
         }
         return DataGrade.getAverage(coursename, teacher);
     }
+
+    public static int update(){
+        String ecardname;
+        String coursename;
+        int grade;
+        try{
+            ecardname=now.cin.readUTF();
+            coursename=now.cin.readUTF();
+            grade=now.cin.readInt();
+        }catch(Exception e){
+            e.printStackTrace();
+            return -1;
+        }
+        return DataGrade.update(ecardname,coursename,grade);
+
+    }
+
 }

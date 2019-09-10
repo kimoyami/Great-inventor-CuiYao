@@ -24,7 +24,6 @@ public class DataGrade {
     public static int insert(String ecardname, int semester, String coursename, int coursegrade, String teacher) {
         try {
             int a = exist(coursename, ecardname);
-            System.out.println("a=" + a);
             if (exist(coursename, ecardname) == 1) {
                 return 0;
             }
@@ -36,6 +35,19 @@ public class DataGrade {
             DataBase.c.commit();
             return 1;
         } catch (Exception e) {
+            e.printStackTrace();
+            return -1;
+        }
+    }
+
+    public static int update(String ecardname,String coursename,int grade){
+        try{
+            if(exist(coursename,ecardname)!=1){return 0;}
+            String sql="update grade set coursegrade="+grade+" where ecardname='"+ecardname+"' and coursename='"+coursename+"'";
+            DataBase.s.executeUpdate(sql);
+            DataBase.c.commit();
+            return 1;
+        }catch(Exception e){
             e.printStackTrace();
             return -1;
         }
@@ -137,7 +149,10 @@ public class DataGrade {
 
     public static void main(String args[]) {
         DataBase.start();
-
+        int a=insert("213170001",18191,"信号与系统",100,"王世杰");
+        System.out.println(a);
+        int b=update("213170001","信号与系统",10);
+        System.out.println(b);
         DataBase.stop();
     }
 }
