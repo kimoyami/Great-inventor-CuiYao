@@ -5,30 +5,20 @@
 </head>
 <body>
 	<div>
-		<p>学生ID
-			<input type="text" id="studentid" placeholder="请输入学生ID"></p>
-		<p>学期
-			<input type="text" id="semester" placeholder="请输入学期"></p>
-        <p>学生成绩
-            <input type="text" id="studenttrade" placeholder="请输入学生成绩"></p>
-        <p>课程名称
-            <input type="text" id="coursename" placeholder="请输入课程名称"></p>
-        <button id="inserttrade" onclick="inserttrade()">插入成绩</button>
-
+        <p>当前课程
+            <input type="text" id="rname">
 	</div>
     <table id="myTable" border="solid">
         <tr>
             <th style="width: 10%">学生ID</th>
             <th style="width: 10%">学期</th>
             <th style="width: 10%">学生成绩</th>
-            <th style="width: 10%">课程名称</th>
-            <th style="width: 10%">老师姓名</th>
+            <th style="width: 10%">输入成绩</th>
+            <th style="width: 10%">添加</th>
         </tr>
     </table>
     <div>
         <p></p>
-        <p>当前课程
-            <input type="text" id="rname">
         <p>成绩区间</p>
         <p>下限
             <input type="text" id="min" value=""></p>
@@ -41,8 +31,8 @@
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script type="text/javascript">
         var vec = gradeinfo.querycourse("信号与系统", "王世杰", 0, 100);
-
         alert(vec.elementAt(0).getCourseName());
+
 /*
         var vec = gradeinfo.querycourse("信号与系统", "王世杰", 0, 100);
 
@@ -80,7 +70,6 @@
         }
         */
 
-
 		function refresh() {
             var sum = delAll();
 
@@ -95,9 +84,11 @@
                 if (vec.elementAt(i).getCourseGrade()<low || vec.elementAt(i).getCourseGrade()>top)
                     continue;
                 else{
+                    var k = vec.elementAt(i).getEcardNUmber();
                     $("#myTable").append("<tr><td>" + vec.elementAt(i).getEcardNUmber() + "</td><td>" + vec.elementAt(i).getCourseSemeter() +
-                        "</td><td>" + vec.elementAt(i).getCourseGrade() + "</td><td>" + vec.elementAt(i).getCourseName() + "</td><td>" +
-                        vec.elementAt(i).getTeacher() + "</td></tr>")
+                        "</td><td>" + vec.elementAt(i).getCourseGrade() + "</td><td>" +
+                        "<input type='text' id='"+k+"'>"+"</td><td>"
+                        +"<button id='select'>添加</button>" + "</td></tr>")
                 }
             }
             //getAverage(String coursename, String teacher)
@@ -105,26 +96,51 @@
             $("#average").val(avr)
         }
 
+        $(document).on("click", '#select',function () {
+            {
+
+                alert("1")
+                var idx = $(this).parents("tr").find("td").eq(0).text();
+                var semeter = $(this).parents("tr").find("td").eq(1).text();
+                var m = parseInt(semeter);
+                alert("2")
+                //var grade = $(this).parents("tr").find("td").eq(1).text();
+                var grade = document.getElementById(idx).value;
+                var n = parseInt(grade);
+                var cname = $("#rname").val();
+
+                alert("123");
+                alert(idx)
+                alert(m)
+                alert(cname)
+                alert(n)
+                var a=gradeinfo.insert(idx, m, cname, n, "王世杰");
+                alert(a);
+                alert("成功");
+
+
+            }})
+
         function delAll() {
-            var tab=document.getElementById('myTable');
-            for(var r=tab.rows.length-1;r>=1;r--) {
+            var tab = document.getElementById('myTable');
+            for (var r = tab.rows.length - 1; r >= 1; r--) {
                 tab.deleteRow(r);
             }
         }
 
+/*
 		function inserttrade() {
             var idx = $("#studentid").val();
             var sem = $("#semester").val();
-            var grade = $("#studenttrade").val();
+            var trade = $("#studenttrade").val();
             var name = $("#coursename").val();
             var m = parseInt(sem);
-            var n = parseInt(grade);
-            var a=gradeinfo.insert(idx, m, name, n, "王世杰");
-            alert(a);
+            var n = parseInt(trade);
+            gradeinfo.insert(idx, m, name, n, "王世杰");
             alert("插入成功");
 
         }
-
+*/
 	</script>
 
 </body>
