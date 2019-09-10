@@ -547,7 +547,7 @@
 <script>
     var last;
     var myid;
-    //document.getElementById('head').src = head.query(client.eCardNumber);
+    document.getElementById('head').src = head.query(client.eCardNumber);
     
     $('.tab').on('click',function(){
         var focused = $(document).find('.tagfocus');
@@ -951,10 +951,8 @@
               y['gender'] = $("#sex").val();
               y['academy'] = $("#Academy").val();
               y['state'] = $("#identity").val();
-              alert(y['state']);
               y['sign'] = $("#Introduction").val();
               x = JSON.stringify(y);
-              alert(x);
               personinfo.update(x);
           }
     })
@@ -1414,13 +1412,12 @@ $(document).on("click",'#borrow',function () {
         else LeftImgInsert(res.elementAt(i).getMessage(), head.query(per));
         if (judge(last, res.elementAt(i).getTime()) == 1) {
           last = res.elementAt(i).getTime();
-          if(res.elementAt(i).getSender() == client.eCardNumber) RightTimeInsert(last);
           else LeftTimeInsert(last);
         }
       }
     
       if(myid == -1000){
-          myid = setInterval('getnew()', 1000);
+          myid = setInterval('getnew()', 2000);
           getnew();
       }
 

@@ -6,9 +6,13 @@
 <link rel="stylesheet" href="syalert/syalert.min.css" />
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
 <script src="syalert/syalert.min.js"></script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 <html>
     <head>
         <meta charset="utf-8">
+
         <title>Title</title>
         <link rel="stylesheet" href="css/barstyle.css">
     </head>
@@ -17,11 +21,13 @@
         <div class="barground">
             <div class="bar">
                 <ul class="box">
+                    <li class="tagfocus"><a class="tab" id="Main" href="javascript:i">主页</a> </li>
                     <li><a class="tab" id="Message" href="javascript:i">信息</a> </li>
                     <li><a class="tab" id="Shop" href="javascript:i">商店</a> </li>
                     <li><a class="tab" id="Bank" href="javascript:i">银行</a> </li>
                     <li><a class="tab" id="Book" href="javascript:i">图书馆</a> </li>
-                    <li><a class="tab" id="Chat" href="javascript:i">聊天</a> </li>    
+                    <li><a class="tab" id="Chat" href="javascript:i">聊天</a> </li>
+                    <li><a class="tab" id="education" href="javascript:i">教务</a> </li>
                 </ul>
             </div>
             <a href="javascript:;"  class="headpng"><img class="png" id = "head" src="?" alt="" style="cursor:hand" onclick="headpng()"></a>
@@ -47,8 +53,8 @@
                         </select>
                     <label class="setfont">Identity</label>
                     <select  class ="settext" name = "identity" id ="identity" style="width: 40%"disabled>
-                        <option value="teacher">老师</option>
-                        <option value = "student">学生</option>
+                        <option value="老师">老师</option>
+                        <option value = "学生">学生</option>
                     </select>
                     <p></p>
                     <div style="text-align: center">
@@ -57,21 +63,54 @@
                 </form>
                 </div>
             </div>
+            <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="msgalert0">
+                <div class="sy-content">生日不能为空</div>
+            </div>
+            <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="msgalert1">
+                <div class="sy-content">请输入出生地</div>
+            </div>
+            <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="msgalert2">
+                <div class="sy-content">请输入出宿舍</div>
+            </div>
+            <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="msgalert3">
+                <div class="sy-content">请输入出学院</div>
+            </div>
+            <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="msgalert4">
+                <div class="sy-content">请输入个人简介</div>
+            </div>
+
+            <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="msgalert5">
+                <div class="sy-content">你的信息已成功更改</div>
+            </div>
+            <div id="MainFrame" class="seen">
+                <div>
+                    <iframe class="page" src="pngindex.html"
+                            frameborder="0"
+                            scrolling="0"
+                    ></iframe>
+
+                </div>
+
+
+
+            </div>
             <div id="shop">
                     <input type="text" id="myInput" onkeyup="ShopmyFunction()" placeholder="搜索...">
-                    <table id="myTable" >
+                    <table id="myTable" class="table table-bordered">
                         <tr>
-                            <th style="width: 16.5%;">超市</th>
-                            <th style="width: 16.5%">商品名称</th>
-                            <th style="width: 16.5%"> 价格</th>
-                            <th style="width: 16.5%"> 数量</th>
-                            <th style="width: 16.5%">购买数量</th>
-                            <th style="width: 16.5%">操作</th>
+                            <th >超市</th>
+                            <th >商品名称</th>
+                            <th > 价格</th>
+                            <th> 数量</th>
+                            <th >购买数量</th>
+                            <th>详细信息</th>
+                            <th >操作</th>
                     
                         </tr>
+                    
                     </table>
                     <div><button id="basket" class="buy">查看购物车</button></div>
-                    <div class="sy-alert sy-alert-model animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="confirm" sy-mask="true" id="alert4">
+                    <div class="sy-alert sy-alert-model animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="confirm" sy-mask="true" id="shopalert4">
                         <div class="sy-title">购物车</div>
                         <div class="sy-content">
                             <table id="myForm">
@@ -82,14 +121,59 @@
                                     <th style="width: 20%">数量</th>
                                     <th style="width: 20%">操作</th>
                                 </tr>
+                                <tbody id="basketbody"></tbody>
                             </table>
                         </div>
                         <div class="sy-btn">
-                            <button onClick="syalert.syhide('alert4')">取消</button>
+                            <button onClick="syalert.syhide('shopalert4')">取消</button>
+                            <button id="cancel">清空</button>
                             <button  id="Buy">购买</button>
                         </div>
                     </div>
-                
+                    <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="shopalert5">
+                        <div class="sy-content">不能为空</div>
+                    </div>
+                    <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="shopalert3">
+                        <div class="sy-content">不能为负数</div>
+                    </div>
+                    <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="shopalert2">
+                        <div class="sy-content">加入成功！</div>
+                    </div>
+                    <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="shopalert1">
+                        <div class="sy-content">购买成功！</div>
+                    </div>
+                    <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="shopalert0">
+                        <div class="sy-content">数量为空！</div>
+                    </div>
+
+
+                    <div class="shopcard">
+                            <div class="contain">
+                                    <div class="imgBx">
+                                        <img src="image/下载.png" alt="" />
+                                    </div>
+                                    <div class="details">
+                                            <div class="shopcard-clear">
+                                                    <button><i class="material-icons">clear</i></button>
+                                                </div>
+                                        <div class="context">
+                                        
+                                                
+                                            <h2>Nike Air Max 270</h2>
+                                            <p>
+                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo natus ipsum praesentium explicabo
+                                                nesciunt consequatur ea error similique cum non doloribus quis libero quam rem, cumque
+                                                aspernatur provident quibusdam deleniti?Lorem ipsum dolor, sit amet consectetur adipisicing
+                                                elit. Nihil, vero totam maiores error excepturi optio delectus sequi aspernatur tenetur tempora
+                                                amet harum at ullam dolore quas consequuntur magni laboriosam laudantium?Lorem ipsum dolor sit
+                                                itaque, nisi rerum accusantium quae officia nesciunt vero ex libero veniam quod corporis atque.
+                                            </p>
+                                            <h3>$150.99</h3>
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+                    </div>
             </div>
 
         <div id="bank">
@@ -128,56 +212,96 @@
                                     <input id="search" class="checkbutton" value="转账" type="button"onclick="transferFct()"/>
                             </div>
                         </div>
+            <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="bankalert0">
+                <div class="sy-content">"请输入正确的金额数目！"</div>
+            </div>
+            <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="bankalert1">
+                <div class="sy-content">"转账对象不能为自己！"</div>
+            </div>
+
+            <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="bankalert2">
+                <div class="sy-content">"转账成功！"</div>
+            </div>
+            <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="bankalert3">
+                <div class="sy-content">"银行卡余额不足！"</div>
+            </div>
+            <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="bankalert4">
+            <div class="sy-content">"密码错误！"</div>
+        </div>
+            <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="bankalert5">
+                <div class="sy-content">"充值成功！"</div>
+            </div>
+            <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="bankalert6">
+                <div class="sy-content">"提现成功"</div>
+            </div>
+            <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="bankalert7">
+                <div class="sy-content">"一卡通余额不足"</div>
+            </div>
+            <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="bankalert8">
+                <div class="sy-content">"请选择服务"</div>
+            </div>
+
+            <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="bankalert9">
+                <div class="sy-content">"不能为空"</div>
+            </div>
              </div>
 
              <div id="book">
                     <nav class="navbar navbar-inverse navbar-fixed-top">
                         </nav>
-                        <ul class="accordion-menu" style="padding: 0">
-                                <li>
-                                    <div class="dropdownlink"><i class="fa fa-road" aria-hidden="true"></i> 我的书库
-                                        <i class="fa fa-chevron-down" aria-hidden="true"></i>
-                                    </div>
-                                    <ul class="submenuItems">
-                                        <li><a >图书ID:<label id="book1" ></label><button class="myBtn" id="btn1">还书</button></a></li>
-                                        <li><a >图书ID:<label id="book2"></label><button class="myBtn" id="btn2">还书</button></a></li>
-                                        <li><a >图书ID:<label id ="book3"></label><button class="myBtn" id="btn3">还书</button></a></li>
-                                    </ul>
-                                </li>
-                            </ul>
                             <input type="text" id="myInput" onkeyup="BookmyFunction()" placeholder="搜索...">
                         
-                                <table class="responsive-table table" id="myTable" style="font-weight:bold">
+
+                                <table class="table-bordered table" id="bookTable" style="font-weight:bold" data-pagination="true" data-page-size="10" data-side-pagination="client">
                         
                                     <tr>
-                                        <th>ID</th>
-                                        <th>书名</th>
-                                        <th>作者</th>
-                                        <th>出版社</th>
-                                        <th>类型</th>
-                                        <th> 状态</th>
-                                        <th>操作</th>
+                                        <th></th>
+                                        <th ></th>
+                                        <th></th>
+                                        <th ></th>
+                                        <th ></th>
+                                        <th ></th>
+                                        <th></th>
+                                        <th></th>
                                     </tr>
+
                         
                         
                                 </table>
-                      
-                        <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert0">
+
+                                <div><button class="myBtn" id="bookstore">我的书库</button>
+                                    <button class="myBtn"><a href="javascript:location.reload();">刷新</a></button>
+                                </div>
+                        <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="bookalert0">
                             <div class="sy-content">图书已借出！</div>
                         </div>
-                        <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert1">
+                        <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="bookalert1">
                             <div class="sy-content">你已经借了三本书了！</div>
                         </div>
-                        <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert2">
+                        <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="bookalert2">
                             <div class="sy-content">借书成功！</div>
                         </div>
-                        <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert3">
+                        <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="bookalert3">
                             <div class="sy-content">还书成功！</div>
                         </div>
-                        <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert4">
+                        <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="bookalert4">
                             <div class="sy-content">还书失败！</div>
                         </div>
-
+                        <div class="sy-alert sy-alert-model animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="confirm" sy-mask="true" id="bookalert">
+                            <div class="sy-title">我的书库</div>
+                            <div class="sy-content">
+                                <div class="form">
+                                    <p class="input-item">图书ID:<input type="text" id="book1" placeholder="我的图书" readonly /><button class="myBtn" id="btn1">还书</button></p>
+                                    <p class="input-item">图书ID:<input type="text" id="book2" placeholder="我的图书" readonly/><button class="myBtn" id="btn2">还书</button></p>
+                                    <p class="input-item">图书ID:<input type="text" id ="book3" placeholder="我的图书" readonly/><button class="myBtn" id="btn3">还书</button></p>
+                        
+                                </div>
+                            </div>
+                            <div class="sy-btn">
+                                <button onClick="syalert.syhide('bookalert')">取消</button>
+                                <button onClick="syalert.syhide('bookalert')">确定</button>
+                            </div>
+                        </div>
             </div>
             <div>
                 <div id="chat">
@@ -255,9 +379,155 @@
                                   </div>
                             </div>
                           </div>
+                    <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="chatalert0">
+                    <div class="sy-content">不存在该用户！</div>
+                </div>
+                    <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="chatalert1">
+                        <div class="sy-content">不能选择自己！</div>
+                    </div>
 
             </div>
             </div>
+<div id="educationbar">
+    <button id="selectCourse" class="myBtn eduBtn" onclick="selectCourse()">选课</button>
+    <button id="checkSchedule" class="myBtn eduBtn" onclick="checkSchedule()">查看课表</button>
+    <button id="viewResults"  class="myBtn eduBtn"  onclick="viewResults()">查看成绩</button>
+
+<div id="selectC">
+    <section>
+        <!--for demo wrap-->
+        <h1 align="center"><b><em>
+            <caption>选课系统</caption>
+        </em></b></h1>
+        <div class="tbl-header" align="center">
+            <table  id="AllCourse" style="color:#000000" width="928" border="1" align="center">
+                <tr>
+                    <th width="100">课程号</th>
+                    <th width="100">课程名</th>
+                    <th width="100">导师</th>
+                    <th width="100">时间</td>
+                    <th width="100">地点</th>
+                    <th width="100">选择</th>
+                </tr>
+            </table>
+        </div>
+        <div class="tbl-content" align="center">
+            <table id="Course" cellpadding="0" cellspacing="0" border="0" align="center" >
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</div>
+    <div id="timeT">
+        <div class='tab'>
+            <h1 align="center"><b><em>
+                <caption>课程表</caption>
+            </em></b></h1>
+            <div align="center" style="color: white">
+                <p>用户身份:</p>
+                <p id="useridentify"></p>
+            </div>
+            <table class="table" align="center" style="text-align: center" >
+                <tr class='days'>
+                    <th width="50"></th>
+                    <th width="50"></th>
+                    <th width="120">周一</th>
+                    <th width="120">周二</th>
+                    <th width="120">周三</th>
+                    <th width="120">周四</th>
+                    <th width="120">周五</th>
+                </tr>
+                <tr>
+                    <td rowspan="5">上午</td>
+                    <td class='time'>1</td>
+                    <td rowspan="5" id="115" height="160"></td>
+                    <td rowspan="5" id="215"></td>
+                    <td rowspan="5" id="315"></td>
+                    <td rowspan="5" id="415"></td>
+                    <td rowspan="5" id="515"></td>
+                </tr>
+                <tr>
+                    <td class='time'>2</td>
+                </tr>
+                <tr>
+                    <td class='time'>3</td>
+                </tr>
+                <tr>
+                    <td class='time'>4</td>
+                </tr>
+                <tr>
+                    <td class='time'>5</td>
+                </tr>
+                <tr>
+                    <td colspan="8" align="center"><b>午休</b></td>
+                </tr>
+                <tr>
+                    <td rowspan="5">下午</td>
+                    <td class="time">6</td>
+                    <td rowspan="5" id="160" height="160"></td>
+                    <td rowspan="5" id="260"></td>
+                    <td rowspan="5" id="360"></td>
+                    <td rowspan="5" id="460"></td>
+                    <td rowspan="5" id="560"></td>
+                </tr>
+                <tr>
+                    <td class="time">7</td>
+                </tr>
+                <tr>
+                    <td class="time">8</td>
+                </tr>
+                <tr>
+                    <td class="time">9</td>
+                </tr>
+                <tr>
+                    <td class="time">10</td>
+                </tr>
+            </table>
+
+        </div>
+
+    </div>
+    <div id="scoreS">
+        <section>
+            <!--for demo wrap-->
+            <h1 align="center"><b><em>
+                <caption>成绩查询</caption>
+            </em></b></h1>
+            <div class="tbl-header">
+                <table  id="allCourse" style="color:#000000" width="928" border="1" align="center">
+                    <tr>
+                        <th width="100">学期</th>
+                        <th width="100">课程名</th>
+                        <th width="100">成绩</th>
+                    </tr>
+                </table>
+            </div>
+            <div class="tbl-content">
+                <table id="Grade" cellpadding="0" cellspacing="0" border="0">
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </div>
+    <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="edualert0">
+        <div class="sy-content">选课成功</div>
+    </div>
+    <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="edualert1">
+        <div class="sy-content">改课已选</div>
+    </div>
+    <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="edualert2">
+        <div class="sy-content">选课冲突</div>
+    </div>
+    <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="edualert3">
+        <div class="sy-content">改课已满</div>
+    </div>
+    <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="edualert4">
+        <div class="sy-content">退课成功</div>
+    </div>
+</div>
 
         </div>
 
@@ -269,12 +539,15 @@
                 <div class="sy-content">加入成功！</div>
             </div>
     </body>
-
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="bootstrap-table.css"/>
+    <script src="bootstrap-table.js"></script>
+
 <script>
     var last;
     var myid;
-    //document.getElementById('head').src = head.query(client.eCardNumber);
+    document.getElementById('head').src = head.query(client.eCardNumber);
     
     $('.tab').on('click',function(){
         var focused = $(document).find('.tagfocus');
@@ -292,6 +565,10 @@
             if($(this).hasClass('seen'))
                 $(this).removeClass('seen');
         })
+        if($(this).attr('id')=="Main")
+        {
+            $('#MainFrame').addClass('seen');
+        }
 
         if($(this).attr('id')=="Message")
         {
@@ -308,18 +585,18 @@
     $("#identity").val(obj['state']);
     $("#dormitory").val(obj['dormitory']);
     $("#birth").val(obj['birthday']);
+    $("#Introduction").val(obj['sign']);
         }
 
         if($(this).attr('id')=="Shop")
         {
-            
             $('#shop').addClass('seen');
             var s =0;
             var res = goodinfo.getAll();
             $("#shop #myTable").empty();
-            $("#shop #myTable").append("<tr><th>超市</th><th>商品名</th> <th>价格</th><th>数量</th><th>操作</th></tr>");
+            $("#shop #myTable").append("<tr><th >超市</th><th >商品名称</th> <th > 价格</th><th> 数量</th> <th >购买数量</th><th>详细信息</th><th >操作</th></tr>");
             for(var i=0;i<res.size();i++){
-            $("#shop #myTable").append("<tr><td>"+(goodinfo.getAll().elementAt(i).getTag())+"</td><td>"+(goodinfo.getAll().elementAt(i).getName())+"</td><td>"+(goodinfo.getAll().elementAt(i).getPrice())+"</td><td id='td3'>"+(goodinfo.getAll().elementAt(i).getNumber())+"</td><td>"+"<input id='numberInput' placeholder='请输入购买数量'oninput = \"value=value.replace(/[^\\d]/g,'')\" />"+"</td><td>"+"<button id='buy'class='buy'>加入购物车</button>"+"</td></tr>")}
+            $("#shop #myTable").append("<tr><td>"+(goodinfo.getAll().elementAt(i).getTag())+"</td><td>"+(goodinfo.getAll().elementAt(i).getName())+"</td><td>"+(goodinfo.getAll().elementAt(i).getPrice())+"</td><td id='td3'>"+(goodinfo.getAll().elementAt(i).getNumber())+"</td><td>"+"<input id='numberInput' placeholder='请输入购买数量'oninput = \"value=value.replace(/[^\\d]/g,'')\" />"+"</td><td><button id='msg' class='buy'>详细信息</button>"+"</td><td style='display: none'>"+res.elementAt(i).getPicturePath()+"</td><td>"+"<button id='buy'class='buy'>加入购物车</button>"+"</td></tr>")}
         }
 
         if($(this).attr('id')=="Bank")
@@ -330,25 +607,10 @@
 
         if($(this).attr('id')=="Book")
         {
-            
             $('#book').addClass('seen');
-           
-            var res =bookinfo.getAll();
-            var record=bookinfo.queryrecord(client.eCardNumber);
-            for(var j=0;j<record.size();j++){
-            if($("#book1").html()==""){
-                $("#book1").html(record.elementAt(j).getBookID());
-            }else if($("#book2").html()==""){
-            $("#book2").html(record.elementAt(j).getBookID());
-            }else if($("#book3").html()==""){
-            $("#book3").html(record.elementAt(j).getBookID());
-            }
-        $("#book #myTable").empty();
-        $("#book #myTable").append("<tr><th>ID</th><th>书名</th><th>作者</th><th>出版社</th><th>类型</th><th>状态</th><th>操作</th></tr>");
-        }
-        for(var i=0;i<res.size();i++){
-        $("#book #myTable").append("<tr><td>"+(res.elementAt(i).getBookID())+"</td><td>"+(res.elementAt(i).getBookName())+"</td><td>"+(res.elementAt(i).getBookEdit())+"</td><td>"+(res.elementAt(i).getBOOK_PUB())+"</td><td>"+(res.elementAt(i).getCategory())+"</td><td>"+(res.elementAt(i).getState())+"</td><td><button id='borrow' class='myBtn'>借书</button></td></tr>")}
-            var record=bookinfo.queryrecord(client.eCardNumber);
+
+
+
         }
 
 
@@ -367,31 +629,319 @@
              last.setYear(-100);
              myid= -1000;
         }
+        if($(this).attr('id')=="education"){
+            $('#educationbar').addClass('seen');
+            $(window).on("load resize ", function() {
 
+                var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
+                $('.tbl-header').css({'padding-right':scrollWidth});
+            }).resize();
+            var vec = courseInfo.getAll();
+            var time = new Array();
+            var cr = new Array();
+            for (var i = 0; i<vec.size(); i++) {
+                time[i] = vec.elementAt(i).getCourseTime();
+                cr[i] = vec.elementAt(i).getClassroom();
+                var b = vec.elementAt(i).getCourseTime();
+                var c = b % 1000;
+                var d = 0;
+                var e = 0;
+
+                if (Math.floor(b / 1000) != 0) {
+                    d = (Math.floor(b / 1000)) % 1000;
+                    if (Math.floor(b / 1000000) != 0) {
+                        e = (Math.floor(b / 1000000)) % 1000;
+                    }
+                }
+
+                if (e != 0) {
+                    $("#Course").append("<tr><td>" + vec.elementAt(i).getIdx() + "</td><td>" + vec.elementAt(i).getCourseName() + "</td><td>" + vec.elementAt(i).getTeacher() + "</td><td>" +
+                        "周" + Math.floor(e / 100) + "[" + Math.floor(e / 10) % 10 + "-" + e % 10 + "]" + "<br/>" + "周" + Math.floor(d / 100) + "[" + Math.floor(d / 10) % 10 + "-" + d % 10 + "]" + "<br/>" + "周" + Math.floor(c / 100) + "[" + Math.floor(c / 10) % 10 + "-" + c % 10 + "]" + "<br/>"
+                        + "</td><td>" + "J" + Math.floor(vec.elementAt(i).getClassroom() / 1000) + "-" + vec.elementAt(i).getClassroom() % 1000 + "<br/>" + "</td><td>" +
+                        "<button id='select' class='MyBtn' >选课</button>" + "</td></tr>"
+                    )
+                } else if (d != 0) {
+                    $("#Course").append("<tr><td>" + vec.elementAt(i).getIdx() + "</td><td>" + vec.elementAt(i).getCourseName() + "</td><td>" + vec.elementAt(i).getTeacher() + "</td><td>" +
+                        "周" + Math.floor(d / 100) + "[" + Math.floor(d / 10) % 10 + "-" + d % 10 + "]" + "<br/>" + "周" + Math.floor(c / 100) + "[" + Math.floor(c / 10) % 10 + "-" + c % 10 + "]" + "<br/>" +
+                        "</td><td>" + "J" + Math.floor(vec.elementAt(i).getClassroom() / 1000) + "-" + vec.elementAt(i).getClassroom() % 1000 + "<br/>" + "</td><td>" +
+                        "<button id='select'class='MyBtn' >选课</button>" + "</td></tr>"
+                    )
+                }
+
+                else{
+                    $("#Course").append("<tr><td>" + vec.elementAt(i).getIdx() + "</td><td>" + vec.elementAt(i).getCourseName() + "</td><td>" + vec.elementAt(i).getTeacher() + "</td><td>" +
+                        "周" + Math.floor(c / 100) + "[" + Math.floor(c / 10) % 10 + "-" + c % 10 + "]" + "<br/>"+
+                        "</td><td>" + "J" + Math.floor(vec.elementAt(i).getClassroom() / 1000) + "-" + vec.elementAt(i).getClassroom() % 1000 + "<br/>" + "</td><td>" +
+                        "<button id='select' class='MyBtn' >选课</button>" + "</td></tr>"
+                    );
+                }
+
+            }
+            $(document).on("click", '#select',function () {
+                {
+                    var idx = $(this).parents("tr").find("td").eq(0).text();
+                    var name = $(this).parents("tr").find("td").eq(1).text();
+                    var teacher = $(this).parents("tr").find("td").eq(2).text();
+                    //var ctime = $(this).parents("tr").find("td").eq(3).text();
+                    //var room = $(this).parents("tr").find("td").eq(4).text();
+                    var i = parseInt(idx);
+                    var ctime = time[i-1];
+                    var room = cr[i-1];
+                    var n = parseInt(ctime);
+                    var m = parseInt(room);
+                    if($(this).text() == "选课") {
+                        var a =selectCourseinfo.insert(client.eCardNumber, idx, name, n, teacher, m);
+                        if(a==1){
+                          syalert.syopen("edualert0")
+                            $(this).text("退课");}
+                        else if(a==-2){
+                            syalert.syopen("edualert2")
+                        }
+                        else if(a==-3){
+                            syalert.syopen("edualert3")
+                        }
+                        else if(a==0)
+                        {
+                            syalert.syopen("edualert1");
+                            $(this).text("退课");
+                        }
+                    }
+                    else if($(this).text() == "退课") {
+                        selectCourseinfo.delete(client.eCardNumber, name,teacher);
+                       syalert.syopen("edualert4");
+                        $(this).text("选课");
+                    }
+                }})
+
+
+        }
+
+    })
+    window.onload = function () {
+//var x = client.eCardNumber;
+//alert(x);
+        var x = client.eCardNumber;
+        var str = personinfo.query(x);
+        var obj = JSON.parse(str);
+//alert("用户存在");//跳转
+        var a = document.getElementById("useridentify");
+        a.innerHTML = obj['state'];
+        var y0 = document.getElementById("115");
+        var y1 = document.getElementById("215");
+        var y2 = document.getElementById("315");
+        var y3 = document.getElementById("415");
+        var y4 = document.getElementById("515");
+        var y5 = document.getElementById("160");
+        var y6 = document.getElementById("260");
+        var y7 = document.getElementById("360");
+        var y8 = document.getElementById("460");
+        var y9 = document.getElementById("560");
+        var vec = selectCourseinfo.query(x);
+//alert(vec.elementAt(0).getCourseName());
+        for (var i = 0; i <vec.size() ; i++){
+
+            var b = vec.elementAt(i).getTime();
+            var c = b%1000;
+            var d = 0;
+            var e = 0;
+            if(Math.floor(b/1000) !==0){
+                d = (Math.floor(b/1000))%1000;
+                if(Math.floor(b/1000000)!==0){
+                    e = (Math.floor(b/1000000))%1000;
+                }
+            }
+//alert(c);
+            if(c !==0){
+                if((c==112)||(c==113)||(c==134)||(c==135)){
+                    y0.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>"+"J"+Math.floor(vec.elementAt(i).getClassroom()/1000)+"-"+vec.elementAt(i).getClassroom()%1000+"<br/>";
+                }
+                if((c==212)||(c==213)||(c==234)||(c==235)){
+                    y1.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>"+"J"+Math.floor(vec.elementAt(i).getClassroom()/1000)+"-"+vec.elementAt(i).getClassroom()%1000+"<br/>";
+                }
+                if((c==312)||(c==313)||(c==334)||(c==335)){
+                    y2.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>"+"J"+Math.floor(vec.elementAt(i).getClassroom()/1000)+"-"+vec.elementAt(i).getClassroom()%1000+"<br/>";
+                }
+                if((c==412)||(c==413)||(c==434)||(c==435)){
+                    y3.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>"+"J"+Math.floor(vec.elementAt(i).getClassroom()/1000)+"-"+vec.elementAt(i).getClassroom()%1000+"<br/>";
+                }
+                if((c==512)||(c==513)||(c==534)||(c==535)){
+                    y4.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>"+"J"+Math.floor(vec.elementAt(i).getClassroom()/1000)+"-"+vec.elementAt(i).getClassroom()%1000+"<br/>";
+                }
+                if((c==167)||(c==168)||(c==189)||(c==180)){
+                    y5.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>"+"J"+Math.floor(vec.elementAt(i).getClassroom()/1000)+"-"+vec.elementAt(i).getClassroom()%1000+"<br/>";
+                }
+                if((c==267)||(c==268)||(c==289)||(c==280)){
+                    y6.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>"+"J"+Math.floor(vec.elementAt(i).getClassroom()/1000)+"-"+vec.elementAt(i).getClassroom()%1000+"<br/>";
+                }
+                if((c==367)||(c==368)||(c==389)||(c==380)){
+                    y7.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>"+"J"+Math.floor(vec.elementAt(i).getClassroom()/1000)+"-"+vec.elementAt(i).getClassroom()%1000+"<br/>";
+                }
+                if((c==467)||(c==468)||(c==489)||(c==480)){
+                    y8.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>"+"J"+Math.floor(vec.elementAt(i).getClassroom()/1000)+"-"+vec.elementAt(i).getClassroom()%1000+"<br/>";
+                }
+                if((c==567)||(c==568)||(c==589)||(c==580)){
+                    y9.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>"+"J"+Math.floor(vec.elementAt(i).getClassroom()/1000)+"-"+vec.elementAt(i).getClassroom()%1000+"<br/>";
+                }
+            }
+            if(d !==0) {
+                if ((d == 112) || (d == 113) || (d == 134) || (d == 135)) {
+                    y0.innerHTML += vec.elementAt(i).getCourseName() + "[" + Math.floor(c / 10) % 10 + "-" + c % 10 + "]" + "<br/>" + "J" + Math.floor(vec.elementAt(i).getClassroom() / 1000) + "-" + vec.elementAt(i).getClassroom() % 1000 + "<br/>";
+                }
+                if ((d == 212) || (d == 213) || (d == 234) || (d == 235)) {
+                    y1.innerHTML += vec.elementAt(i).getCourseName() + "[" + Math.floor(c / 10) % 10 + "-" + c % 10 + "]" + "<br/>" + "J" + Math.floor(vec.elementAt(i).getClassroom() / 1000) + "-" + vec.elementAt(i).getClassroom() % 1000 + "<br/>";
+                }
+                if ((d == 312) || (d == 313) || (d == 334) || (d == 335)) {
+                    y2.innerHTML += vec.elementAt(i).getCourseName() + "[" + Math.floor(c / 10) % 10 + "-" + c % 10 + "]" + "<br/>" + "J" + Math.floor(vec.elementAt(i).getClassroom() / 1000) + "-" + vec.elementAt(i).getClassroom() % 1000 + "<br/>";
+                }
+                if ((d == 412) || (d == 413) || (d == 434) || (d == 435)) {
+                    y3.innerHTML += vec.elementAt(i).getCourseName() + "[" + Math.floor(c / 10) % 10 + "-" + c % 10 + "]" + "<br/>" + "J" + Math.floor(vec.elementAt(i).getClassroom() / 1000) + "-" + vec.elementAt(i).getClassroom() % 1000 + "<br/>";
+                }
+                if ((d == 512) || (d == 513) || (d == 534) || (d == 535)) {
+                    y4.innerHTML += vec.elementAt(i).getCourseName() + "[" + Math.floor(c / 10) % 10 + "-" + c % 10 + "]" + "<br/>" + "J" + Math.floor(vec.elementAt(i).getClassroom() / 1000) + "-" + vec.elementAt(i).getClassroom() % 1000 + "<br/>";
+                }
+                if ((d == 167) || (d == 168) || (d == 189) || (d == 180)) {
+                    y5.innerHTML += vec.elementAt(i).getCourseName() + "[" + Math.floor(c / 10) % 10 + "-" + c % 10 + "]" + "<br/>" + "J" + Math.floor(vec.elementAt(i).getClassroom() / 1000) + "-" + vec.elementAt(i).getClassroom() % 1000 + "<br/>";
+                }
+                if ((d == 267) || (d == 268) || (d == 289) || (d == 280)) {
+                    y6.innerHTML += vec.elementAt(i).getCourseName() + "[" + Math.floor(c / 10) % 10 + "-" + c % 10 + "]" + "<br/>" + "J" + Math.floor(vec.elementAt(i).getClassroom() / 1000) + "-" + vec.elementAt(i).getClassroom() % 1000 + "<br/>";
+                }
+                if ((d == 367) || (d == 368) || (d == 389) || (d == 380)) {
+                    y7.innerHTML += vec.elementAt(i).getCourseName() + "[" + Math.floor(c / 10) % 10 + "-" + c % 10 + "]" + "<br/>" + "J" + Math.floor(vec.elementAt(i).getClassroom() / 1000) + "-" + vec.elementAt(i).getClassroom() % 1000 + "<br/>";
+                }
+                if ((d == 467) || (d == 468) || (d == 489) || (d == 480)) {
+                    y8.innerHTML += vec.elementAt(i).getCourseName() + "[" + Math.floor(c / 10) % 10 + "-" + c % 10 + "]" + "<br/>" + "J" + Math.floor(vec.elementAt(i).getClassroom() / 1000) + "-" + vec.elementAt(i).getClassroom() % 1000 + "<br/>";
+                }
+                if ((d == 567) || (d == 568) || (d == 589) || (d == 580)) {
+                    y9.innerHTML += vec.elementAt(i).getCourseName() + "[" + Math.floor(c / 10) % 10 + "-" + c % 10 + "]" + "<br/>" + "J" + Math.floor(vec.elementAt(i).getClassroom() / 1000) + "-" + vec.elementAt(i).getClassroom() % 1000 + "<br/>";
+                }
+            }
+            if(e !==0){
+                if((e==112)||(e==113)||(e==134)||(e==135)){
+                    y0.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>"+"J"+Math.floor(vec.elementAt(i).getClassroom()/1000)+"-"+vec.elementAt(i).getClassroom()%1000+"<br/>";
+                }
+            }
+            if((e==212)||(e==213)||(e==234)||(e==235)){
+                y1.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>"+"J"+Math.floor(vec.elementAt(i).getClassroom()/1000)+"-"+vec.elementAt(i).getClassroom()%1000+"<br/>";
+            }
+            if((e==312)||(e==313)||(e==334)||(e==335)){
+                y2.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>"+"J"+Math.floor(vec.elementAt(i).getClassroom()/1000)+"-"+vec.elementAt(i).getClassroom()%1000+"<br/>";
+            }
+            if((e==412)||(e==413)||(e==434)||(e==435)){
+                y3.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>"+"J"+Math.floor(vec.elementAt(i).getClassroom()/1000)+"-"+vec.elementAt(i).getClassroom()%1000+"<br/>";
+            }
+            if((e==512)||(e==513)||(e==534)||(e==535)){
+                y4.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>"+"J"+Math.floor(vec.elementAt(i).getClassroom()/1000)+"-"+vec.elementAt(i).getClassroom()%1000+"<br/>";
+            }
+            if((e==167)||(e==168)||(e==189)||(e==180)){
+                y5.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>"+"J"+Math.floor(vec.elementAt(i).getClassroom()/1000)+"-"+vec.elementAt(i).getClassroom()%1000+"<br/>";
+            }
+            if((e==267)||(e==268)||(e==289)||(e==280)){
+                y6.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>"+"J"+Math.floor(vec.elementAt(i).getClassroom()/1000)+"-"+vec.elementAt(i).getClassroom()%1000+"<br/>";
+            }
+            if((e==367)||(e==368)||(e==389)||(e==380)){
+                y7.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>"+"J"+Math.floor(vec.elementAt(i).getClassroom()/1000)+"-"+vec.elementAt(i).getClassroom()%1000+"<br/>";
+            }
+            if((e==467)||(e==468)||(e==489)||(e==480)){
+                y8.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>"+"J"+Math.floor(vec.elementAt(i).getClassroom()/1000)+"-"+vec.elementAt(i).getClassroom()%1000+"<br/>";
+            }
+            if((e==567)||(e==568)||(e==589)||(e==580)){
+                y9.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>"+"J"+Math.floor(vec.elementAt(i).getClassroom()/1000)+"-"+vec.elementAt(i).getClassroom()%1000+"<br/>";
+            }
+        }
+
+    }
+
+
+        var e =client.eCardNumber;
+        var vec = gradeInfo.getAll(e);
+        for (var i = 0; i <vec.size() ; i++){
+            var tabel = document.getElementById("Grade");
+            var tr = document.createElement("tr");
+            var td0 = document.createElement("td");
+            var td1 = document.createElement("td");
+            var td2 = document.createElement("td");
+            var a = vec.elementAt(i).getCourseSemeter();
+            var text0 = document.createTextNode(Math.floor(a/1000)+"-"+Math.floor(a/10)%100+"-"+a%10);
+            var text1 = document.createTextNode(vec.elementAt(i).getCourseName());
+            var text2 = document.createTextNode(vec.elementAt(i).getCourseGrade());
+            td0.appendChild(text0);
+            td1.appendChild(text1);
+            td2.appendChild(text2);
+            tr.appendChild(td0);
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+            tabel.appendChild(tr);
+        }
+
+
+
+    $(document).ready(function () {
+        $("#bookTable").bootstrapTable({
+            columns:[{
+                field:"id",title:"ID"
+
+            },{
+                field:"name",title:"书名"
+            },{
+                field:"author",title:"作者"
+
+            },{
+                field:"pub",title:"出版社"
+            },{
+                field:"cate",title:"类型"
+            },{
+                field:"state",title:"状态"
+            },{
+                field:"time",title:"借出时间"
+            },{
+                field:"change",title:"操作"
+            },]
+
+        });
     })
 
 
+    var res =bookinfo.getAll();
+    var record=bookinfo.queryrecord(client.eCardNumber);
+    for(var j=0;j<record.size();j++){
+        if($("#book1").val()==""){
+            $("#book1").val(record.elementAt(j).getBookID());
+        }else if($("#book2").val()==""){
+            $("#book2").val(record.elementAt(j).getBookID());
+        }else if($("#book3").val()==""){
+            $("#book3").val(record.elementAt(j).getBookID());
+
+        }
+
+    }
+
+    for(var i=0;i<res.size();i++){
+        $("#bookTable").append("<tr><td>"+(res.elementAt(i).getBookID())+"</td><td>"+(res.elementAt(i).getBookName())+"</td><td >"+(res.elementAt(i).getBookEdit())+"</td><td >"+(res.elementAt(i).getBOOK_PUB())+"</td><td >"+(res.elementAt(i).getCategory())+"</td><td >"+(res.elementAt(i).getState())+"</td><td >"+(res.elementAt(i).getTime()==null?"":res.elementAt(i).getTime())+"</td><td>"+"<button id='borrow' class='myBtn'>借书</button></td></tr>")}
 
     $(document).ready(function () {
     $("#load").click(function () {
          if($("#birth").val()==""){
               check = false;
-            alert("生日不能为空");
+            syalert.syopen("msgalert0");
 
         }else if($("#birthplace").val()==""){
               check = false;
-            alert("请输入出生地");
+            syalert.syopen("msgalert1");
           }else if($("#dormitory").val()==""){
               check = false;
-            alert("请输入宿舍");
+            syalert.syopen("msgalert2");
           }
           else if($("#Academy").val()==""){
               check = false;
-            alert("请输入学院");
+            syalert.syopen("msgalert3");
 
-        } else{
+        } else if($("#Introduction").val() == ""){
+            check = false;
+            syalert.syopen("msgalert4");
+         }
+          else{
              check = true;
-			  alert("你的信息已成功更改！");
+			  syalert.syopen("msgalert5");
               let t = $("#birth").val();
               x = personinfo.query(client.eCardNumber);
 			  let y = JSON.parse(x);
@@ -399,12 +949,12 @@
               y['birthplace'] = $("#birthplace").val();
               y['dormitory'] = $("#dormitory").val();
               y['gender'] = $("#sex").val();
-              y['academy'] = $("#Academy").val()
+              y['academy'] = $("#Academy").val();
               y['state'] = $("#identity").val();
+              y['sign'] = $("#Introduction").val();
               x = JSON.stringify(y);
               personinfo.update(x);
           }
-    window.location.href = '../html/bar.html';
     })
 })
 
@@ -432,33 +982,44 @@
    
 
 
-   $(document).on("click",'#buy',function () {
-       var count = $(this).parents("tr").find("td").eq(3).text();
-       var  number = $(this).parents("tr").find("input").val();
-       var name =$(this).parents("tr").find("td").eq(1).text();
-       var tag =$(this).parents("tr").find("td").eq(0).text();
-       var price =$(this).parents("tr").find("td").eq(2).text();
+    $(document).on("click",'#buy',function () {
 
-       var newcount = count -number;
-       if(number < 0){
-           syalert.syopen("alert3");
-       }else if(newcount < 0){
-           syalert.syopen("alert3");
+    var count = $(this).parents("tr").find("td").eq(3).text();
+    var  number = $(this).parents("tr").find("input").val();
+    var name =$(this).parents("tr").find("td").eq(1).text();
+    var tag =$(this).parents("tr").find("td").eq(0).text();
+    var price =$(this).parents("tr").find("td").eq(2).text();
 
-       }else {
-           syalert.syopen("alert2");
-           var i = parseInt(number);
-           //goodinfo.update(name,tag,i);
-       $(this).parents("tr").find("td").eq(3).html(newcount)
-           $("#shop #myForm").append("<tr><td>"+tag+"</td><td>"+name+"</td><td>"+price+"</td><td>"+number+"</td><td>"+"<button id='delete' class='buy'>删除</button>"+"</td></tr>")
-       ;}
-      });
+    var newcount = count -number;
+    if(number==""){
+        syalert.syopen("shopalert5");
+    } else if(number < 0){
+         syalert.syopen("shopalert3");
+    }else if(newcount < 0){
+       syalert.syopen("shopalert3");
+
+    }else {
+      syalert.syopen("shopalert2");
+    $(this).parents("tr").find("td").eq(3).html(newcount);
+
+      $("#basketbody").append("<tr><td>"+tag+"</td><td>"+name+"</td><td>"+price+"</td><td>"+number+"</td><td>"+"<button id='delete' class='buy'>删除</button>"+"</td></tr>");
+    }
+}   );
 
 
     $(document).on("click",'#delete',function () {
         $(this).parents("tr").remove();
     })
 
+    $(document).on("click",'#msg',function () {
+        
+        if(!$(".shopcard").hasClass("on")){
+            $(".shopcard").addClass("on");
+        }
+
+        $(".shopcard .context h2").text($(this).parents("tr").find("td").eq(1).text());
+        $(".shopcard .context h3").text("￥"+$(this).parents("tr").find("td").eq(2).text());
+    })
 
 
 
@@ -487,27 +1048,44 @@
     
     
     $("#basket").click(function () {
-     syalert.syopen("alert4")
+     syalert.syopen("shopalert4")
     })
 
     $(document).on("click",'#Buy',function () {
     var price,number,name,tag,i;
-    table =$("#book #myTable").get(0);
+    var table = document.getElementById("basketbody");
     var tr=table.getElementsByTagName("tr");
-    alert(tr.length);
-    for(i =1;i<tr.length;i++){
+
+    for(i =0;i<tr.length;i++){
         price=tr[i].getElementsByTagName("td")[2].innerHTML.toUpperCase();
         number=tr[i].getElementsByTagName("td")[3].innerHTML.toUpperCase();
         name =tr[i].getElementsByTagName("td")[1].innerHTML.toUpperCase();
         tag = tr[i].getElementsByTagName("td")[0].innerHTML.toUpperCase();
+        if(number==""){
+             syalert.syopen("shopalert0")
+        }
         var h = parseInt(number);
         goodinfo.update(name,tag,h);
         goodinfo.consumption(client.eCardNumber,price*number);
 
-        }
-    syalert.syhide("alert4");
-    })
+    }
+    $("#basketbody").empty();
 
+
+
+    syalert.syhide("shopalert4");
+    syalert.syopen("shopalert1");
+})
+
+    $("#cancel").click(function () {
+        $("#basketbody").empty();
+       })
+
+    $(".shopcard-clear").on("click",".material-icons",function(event){
+        $(".shopcard").removeClass("on");
+
+    event.stopPropagation();
+    })
  
     $('.bankbutton').on('click',function(){
         var focused = $(document).find('.clear');
@@ -537,12 +1115,15 @@
 	var to = $("#transferTo").val();
 
 	if(ac==""|| isNaN(ac) || ac<0){
-		alert("请输入正确的金额数目！");
+		syalert.syopen("bankalert0")
 	}
 	else{
 	    if(to == a['id']){
-	        alert("转账对象不能为自己！");
-	    }
+	       syalert.syopen("bankalert1")
+	    }else if(to==""){
+	        syalert.syopen("bankalert9")
+        }
+
 	    else {
             if (pwd == a['password']) {
                 if (ac <= a['balance']) {
@@ -550,12 +1131,12 @@
                     a['transferTo'] = to;
 
                     bankinfo.transfer(client.eCardNumber,to,ac);
-                    alert("转账成功！");
+                    syalert.syopen("bankalert2")
                 } else {
-                    alert("银行卡余额不足！");
+                    syalert.syopen("bankalert3")
                 }
             } else {
-                alert("密码错误！");
+                syalert.syopen("bankalert4")
             }
         }
 	}
@@ -569,34 +1150,42 @@ function topupFct(){
     var m=$("input[name='toecard']:checked").val();
     
 	if (ac==""|| isNaN(ac) || ac<0){
-		alert("请输入正确的金额数目！");
+		syalert.syopen("bankalert0")
 	}
 	else {
 		if(pwd == a['password']){
             if (m == 2) {
                 if (ac <= a['balance']) {
-                    alert("123");
+
                     bankinfo.transfToEcard(client.eCardNumber, ac);
-                    alert("充值成功！");
+                    alert(123);
+                    syalert.syopen("bankalert5")
                 }
                 else {
-                    alert("银行卡余额不足！");
+
+                    syalert.syopen("bankalert3")
                 }
             }
 		    else if(m == 0){
+
 		        if (ac <= a['eCardBalance']){
+
                     bankinfo.transfTocard(client.eCardNumber, ac);
-                    alert("提现成功！");
+
+                    syalert.syopen("bankalert6");
                 }
 		        else {
-		            alert("一卡通余额不足！");
+
+		            syalert.syopen("bankalert7");
                 }
             }
 		    else
-		        alert("请选择服务！");
+
+		        syalert.syopen("bankalert8");
 		}
 		else{
-			alert("密码错误！");
+
+			syalert.syopen("bankalert4");
 		}   
 	}
 }
@@ -608,8 +1197,6 @@ function searchFct(){
 	var y = JSON.parse(a);
 	var bal = y['balance'];
     var ebal = y['eCardBalance'];
-    alert(bal);
-    alert(ebal);
 	var balRun = 0;
 	var ebalRun = 0;
 	var timesRun = 0;
@@ -632,104 +1219,105 @@ function searchFct(){
         
 
    
-    $(document).on("click",'#borrow',function () {
+$(document).on("click",'#borrow',function () {
         var state =$(this).parents("tr").find("td").eq(5).text();
         var ID =$(this).parents("tr").find("td").eq(0).text();
-        if($("#book1").html()!==""&&$("#book2").html()!==""&&$("#book3").html()!==""){
-            syalert.syopen("alert1");
+        if($("#book1").val()!==""&&$("#book2").val()!==""&&$("#book3").val()!==""){
+            syalert.syopen("bookalert1");
         } else if(state=="未借"){
-            syalert.syopen("alert2");
+            syalert.syopen("bookalert2");
             $(this).parents("tr").find("td").eq(5).html("已借");
             var newstate=$(this).parents("tr").find("td").eq(5).text();
           bookinfo.update(ID,state,client.eCardNumber);
-            if($("#book1").html()==""){
-                $("#book1").html(ID);
-            }else if($("#book2").html()==""){
-                $("#book2").html(ID);
-            }else if($("#book3").html()==""){
-                $("#book3").html(ID);
+            if($("#book1").val()==""){
+                $("#book1").val(ID);
+            }else if($("#book2").val()==""){
+                $("#book2").val(ID);
+            }else if($("#book3").val()==""){
+                $("#book3").val(ID);
             }
 
         } else{
-            syalert.syopen("alert0");
+            syalert.syopen("bookalert0");
 
         }
-    })
+
+
+    });
     $("#btn1").click(function () {
-        
-        alert(0);
-        var id =$("#book1").html();
+        var id =$("#book1").val();
         var table,tr,td,i,state;
-
-        table =$("#book #myTable").get(0);
+        table = $("#bookTable").get(0);
         tr = table.getElementsByTagName("tr");
-        
-        alert(1);
         if(id==""){
-            syalert.syopen("alert4")
+
+ syalert.syopen("bookalert4")
         }
-        for(i=1;i<tr.length;i++){
+        for(i=0;i<tr.length;i++){
             td=tr[i].getElementsByTagName("td")[0].innerHTML.toUpperCase();
             state=tr[i].getElementsByTagName("td")[5].innerHTML.toUpperCase();
         if(id==td){
                 tr[i].getElementsByTagName("td")[5].innerHTML="未借";
-                $("#book1").html("");
+                $("#book1").val("");
                 bookinfo.update(id,state,client.eCardNumber);
-            yalert.syopen("alert3");
+        syalert.syopen("bookalert3");
             }
 
         }
     });
     $("#btn2").click(function () {
-        var id =$("#book2").html();
+        var id =$("#book2").val();
         var table,tr,td,i,state;
-        table =$("#book #myTable").get(0);
+        table = $("#bookTable").get(0);
         tr = table.getElementsByTagName("tr");
         if(id==""){
-            syalert.syopen("alert4");
+            syalert.syopen("bookalert4");
 
         }
 
-        for(i=1;i<tr.length;i++){
+        for(i=0;i<tr.length;i++){
             td=tr[i].getElementsByTagName("td")[0].innerHTML.toUpperCase();
             state=tr[i].getElementsByTagName("td")[5].innerHTML.toUpperCase();
             if(id==td){
                 tr[i].getElementsByTagName("td")[5].innerHTML="未借";
-                $("#book2").html("");
+                $("#book2").val("");
                 bookinfo.update(id,state,client.eCardNumber);
-                syalert.syopen("alert3");
+                syalert.syopen("bookalert3");
             }
 
         }
     });
     $("#btn3").click(function () {
-        var id =$("#book3").html();
+        var id =$("#book3").val();
         var table,tr,td,i,state;
-        table =$("#book #myTable").get(0);
+        table = $("#bookTable").get(0);
         tr = table.getElementsByTagName("tr");
         if(id==""){
-            syalert.syopen("alert4");
+            syalert.syopen("bookalert4");
 
         }
-        for(i=1;i<tr.length;i++){
+        for(i=0;i<tr.length;i++){
             td=tr[i].getElementsByTagName("td")[0].innerHTML.toUpperCase();
             state=tr[i].getElementsByTagName("td")[5].innerHTML.toUpperCase();
             if(id==td){
                 tr[i].getElementsByTagName("td")[5].innerHTML="未借";
-                $("#book3").html("");
+                $("#book3").val("");
                 bookinfo.update(id,state,client.eCardNumber);
-                syalert.syopen("alert3");
+                syalert.syopen("bookalert3");
             }
 
         }
     });
+    $("#bookstore").click(function () {
+        syalert.syopen("bookalert");
+    })
 
     function BookmyFunction() {
         // 声明变量
         var input, filter, table, tr, td, i;
         input =$("#book #myInput").get(0);
         filter = input.value.toUpperCase();
-        table =$("#book #myTable").get(0);
+        table =$("#bookTable").get(0);
         tr = table.getElementsByTagName("tr");
 
         // 循环表格每一行，查找匹配项
@@ -744,35 +1332,6 @@ function searchFct(){
             }
         }
     }
-    $(function() {
-        var Accordion = function(el, multiple) {
-            this.el = el || {};
-            // more then one submenu open?
-            this.multiple = multiple || false;
-
-            var dropdownlink = this.el.find('.dropdownlink');
-            dropdownlink.on('click',
-                { el: this.el, multiple: this.multiple },
-                this.dropdown);
-        };
-
-        Accordion.prototype.dropdown = function(e) {
-            var $el = e.data.el,
-                $this = $(this),
-                //this is the ul.submenuItems
-                $next = $this.next();
-
-            $next.slideToggle();
-            $this.parent().toggleClass('open');
-
-            if(!e.data.multiple) {
-                //show only one menu at the same time
-                $el.find('.submenuItems').not($next).slideUp().parent().removeClass('open');
-            }
-        }
-
-        var accordion = new Accordion($('.accordion-menu'), false);
-    })
 
     
 
@@ -821,7 +1380,7 @@ function searchFct(){
       var obj = JSON.parse(str);
       obj['sender'] = client.eCardNumber;
       obj['receiver'] = document.querySelector(".searchbar-message").value;
-      obj['message'] = document.querySelector(".write-message").value;
+      obj['message'] = document.querySelector(".write-message").value;  
       str = JSON.stringify(obj);
       messagetrans.insert(str);
       document.querySelector(".write-message").value = '';
@@ -833,14 +1392,14 @@ function searchFct(){
     //点击选人
     $(".discussion-person").on("click",".discussion",function() {
       last.setYear(-100);
-	  alert(myid);
-      current = document.querySelector('.message-active');
-      current.classList.remove("message-active");
+      if(document.querySelector('.message-active'))
+      {
+        current = document.querySelector('.message-active');
+        current.classList.remove("message-active");
+      }
       this.classList.add("message-active");
-	  alert('zzz');
       Name = this.querySelector('.name').innerText;
-      alert('qqq');
-	  $(".header-chat .name").text(Name);
+      $(".header-chat .name").text(Name);
       $(".messages-chat").empty();
 
      
@@ -853,7 +1412,7 @@ function searchFct(){
         else LeftImgInsert(res.elementAt(i).getMessage(), head.query(per));
         if (judge(last, res.elementAt(i).getTime()) == 1) {
           last = res.elementAt(i).getTime();
-          LeftTimeInsert(last);
+          else LeftTimeInsert(last);
         }
       }
     
@@ -982,11 +1541,11 @@ function searchFct(){
       var str = personinfo.query(document.querySelector(".searchbar-message").value);
       var per = JSON.parse(str);
       if(per['name'] == '') {
-        alert("不存在该用户！");
+        syalert.syopen("chatalert0");
         return;
       }
 	  if(per['eCardNumber'] == client.eCardNumber){
-		alert('不能选择自己！');
+		syalert.syopen("chatalert1");
 		return;
 	  }
       var time = new Date();
@@ -1001,6 +1560,7 @@ function searchFct(){
       var per = JSON.parse(str);
       if(!$(".card").hasClass("inform"))
       {
+
         $(".card").addClass("inform");
       }
       $(".card").find(".text").find(".name").text(per['name'] + ", " + per['age']);
@@ -1026,6 +1586,26 @@ function searchFct(){
 
     event.stopPropagation();
 })
+$(".eduBtn").on('click',function () {
+    var focused=$(document).find('.clear');
+    focused.each(function () {
+        if($(this).hasClass('clear')){
+            $(this).removeClass('clear');
+        }
+
+    })
+    if($(this).attr("id")=="selectCourse"){
+        $("#selectC").addClass("clear");
+    }
+    if($(this).attr("id")=="checkSchedule"){
+        $("#timeT").addClass("clear");
+    }if($(this).attr('id')=="viewResults"){
+        $("#scoreS").addClass("clear");
+    }
+
+})
+        //var information = client.eCardNumber;
+
 
     </script>
     </html>

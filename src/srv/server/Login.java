@@ -91,7 +91,6 @@ public class Login {
         DataBase.start();
         int a = DataBase.insert(userName, password, eCardNumber, sex, status);
         DataBase.stop();
-
         return a;
     }
 

@@ -87,6 +87,15 @@
     <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert10">
         <div class="sy-content">身份必须明确</div>
     </div>
+	<div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert11">
+        <div class="sy-content">提交注册成功</div>
+    </div>
+	<div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert12">
+        <div class="sy-content">该一卡通已注册，正待审核</div>
+    </div>
+	<div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert13">
+        <div class="sy-content">该一卡通已存在</div>
+    </div>
 </body>
 
 <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
@@ -125,19 +134,13 @@
         if(res == 3) syalert.syopen("alert3");
         if(res == 1 || res == 4)
         {
-        client.eCardNumber = x;
-        if(res==1)
-        {
-            window.location.href = '../html/bar.html';
-        }
-        else if(res==4)
-        {
-            window.location.href = '../html/barAdmi.html';
-        }
-        if(login.isNew(x) == 1) {
-            window.location.href = '../html/student.html';
-            alert("新用户请完善信息！");
-        }
+            client.eCardNumber = x;
+            if(login.isNew(x) == 1) {
+                window.location.href = '../html/bar.html';
+				syalert.syopen("alert4");
+            }
+            else if(res == 1) window.location.href = '../html/bar.html';
+			else window.location.href = '../html/barAdmi.html'
         }
     }
 
@@ -147,8 +150,8 @@
         var Ecardnumber=$("#Ecardnumber").val();
         var Password=$("#Password").val();
         var Repeat=$("#Repeat").val();
-        var Sex=$("#Sex").val();
-        var Status=$("#Status").val();
+        var Sex= ($("#Sex").val() == 'Male' ? '男' : '女');
+        var Status=($("#Status").val() == 'Student' ? '学生' : '老师');
         if(Password!=Repeat) syalert.syopen("alert5");
         else if(Ecardnumber=="") syalert.syopen("alert6");
         else if(Username=="") syalert.syopen("alert7");
@@ -157,11 +160,9 @@
         else if(Status=="")  syalert.syopen("alert10");
         else{
             var ans = login.insert(Username,Password, Ecardnumber, Sex, Status);
-            var res;
-            if(ans == 0)res = "提交注册成功！";
-            else if(ans == 2) res = "该一卡通已注册，正待审核！";
-            else if(ans == 1) res = "该一卡通已存在";
-            alert(res);
+            if(ans == 0)syalert.syopen("alert11");
+            else if(ans == 2) syalert.syopen("alert12");
+            else if(ans == 1) syalert.syopen("alert13");
         }
     }
 

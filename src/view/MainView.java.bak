@@ -59,7 +59,11 @@ public class MainView {
         frame.setVisible(true);
         frame.setResizable(false);
         //http://101.37.79.28/html/index.html
-        browser.loadURL("F://GitHub/Great-inventor-CuiYao/html/index.html");
+<<<<<<< Updated upstream
+        browser.loadURL("E:\\Github\\SEU\\Great-inventor-CuiYao\\html\\index.html");
+=======
+        browser.loadURL("http://101.37.79.28/html/index.html");
+>>>>>>> Stashed changes
         Toolkit kit = Toolkit.getDefaultToolkit();
         Image image = kit.createImage("http://101.37.79.28/html/image/xh.jpg");
         frame.setIconImage(image);
@@ -91,7 +95,7 @@ public class MainView {
 
             @Override
             public void onDocumentLoadedInMainFrame(LoadEvent loadEvent) {
-                browser.setZoomLevel(-0.47);
+                browser.setZoomLevel(-0.5);
             }
         });
         browser.addScriptContextListener(new ScriptContextAdapter() {
@@ -127,11 +131,8 @@ public class MainView {
                 window.asObject().setProperty("goodinfo",goodinfo);
                 window.asObject().setProperty("bookinfo",bookinfo);
                 window.asObject().setProperty("gradeInfo",gradeinfo);
-                window.asObject().setProperty("gradeinfo",gradeinfo);
                 window.asObject().setProperty("courseInfo",courseinfo);
-                window.asObject().setProperty("courseinfo",courseinfo);
                 window.asObject().setProperty("selectCourseinfo",selectcourseinfo);
-                window.asObject().setProperty("selectcourseinfo",selectcourseinfo);
             }
         });
     }
