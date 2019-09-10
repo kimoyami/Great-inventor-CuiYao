@@ -1,0 +1,40 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery响应式卡片轮播切换代码 - 站长素材</title>
+
+<link rel="stylesheet" type="text/css" href="css/pngstyle.css" />
+
+</head>
+<body style="background:transparent;">
+
+<div id="banner">
+	<div id="carousel">
+		<img src="images/4.jpg" data-url="#">
+		<img src="images/5.jpg" data-url="#">
+		<img src="images/2.jpg" data-url="#">
+	</div>
+</div>
+
+<script src="js/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/slider.js" type="text/javascript" charset="utf-8"></script>
+<script>
+	$(function() {
+		$('#carousel').carousel({
+			curDisplay: 0, //默认索引
+			autoPlay: true, //是否自动播放
+			interval: 3000 //间隔时间
+		});
+	});
+</script>
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<h1 style="text-align: center;">最新动态</h1>
+<p><a href="https://jwc.seu.edu.cn/2019/0910/c23284a285525/page.htm" target="_blank">东南大学在2019年(第12届)中国大学生计算机设计大赛中再创佳绩</a></p>
+<p><a href="https://jwc.seu.edu.cn/2019/0505/c21676a271349/page.htm" target="_blank">东南大学举行在线开放课程、虚拟仿真实验教学项目建设工作推进会</a></p>
+<p><a href="https://jwc.seu.edu.cn/2019/0702/c23285a280342/page.htm" target="_blank">电子科技大学公共管理学院詹恂教授等一行来我校调研</a></p>
+<p><a href="https://jwc.seu.edu.cn/2019/0702/c23285a280341/page.htm" target="_blank">中南大学本科生院处长毛毳一行来我校调研</a></p>
+<p><a href="https://jwc.seu.edu.cn/2019/0611/c23285a277269/page.htm" target="_blank">我校举办2019年本科生出国（境）交流学习行前培训会</a></p>
+</div>
+</body>
+</html>

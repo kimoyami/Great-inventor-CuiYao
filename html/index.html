@@ -54,14 +54,10 @@
     $('#login').click(function(){
         $('.switch span').removeClass('active');
         $(this).addClass('active');
-
         $(this).parents('.content').removeClass('signup');
         $(this).parents('.content').addClass('login');
-
         $('form button').text('LOGIN')
-
     })
-
     $('Button').click(function(){
         if($('form button').text()=='LOGIN')
         {
@@ -94,15 +90,12 @@
             {
                 window.location.href = '../html/barAdmi.html';
             }
-
-
             if(login.isNew(x) == 1) {
                 window.location.href = '../html/student.html';  
                 alert("新用户请完善信息！");
             }
         }
     }
-
     function SignupClick()
     {
         var Username=$("#Username").val();
@@ -126,34 +119,27 @@
             alert(res);
         }
     }
-
     $('#signup').click(function(){
         $('.switch span').removeClass('active');
         $(this).addClass('active');
-
         $(this).parents('.content').removeClass('login');
         $(this).parents('.content').addClass('signup');
-
         $('form button').text('SIGNUP');
     })
-
     $('.input input').on('focus',function(){
         $(this).parent().addClass('focus');
         
         e.stopPropagation();
     })
-
     $('#Ecardnumber').on('input propertychange',function(){
         var url = head.query($("#Ecardnumber").val());
         $('.png').attr('src', url);
     })
-
     $('.input input').on('blur',function(){
         if($(this).val() === '')
             $(this).parent().removeClass('focus');
             
     })
-
     $('.select').on('click', '.placeholder', function(e) {
         var parent = $(this).closest('.select');
         if (!parent.hasClass('is-open')) {

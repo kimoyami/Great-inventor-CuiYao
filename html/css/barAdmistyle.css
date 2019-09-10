@@ -132,6 +132,23 @@ background: rgba(235, 235, 235,0.85);
 text-align: left;
 }
 
+#MainFrame{
+  display: none;
+  position: absolute;
+  width: 100%;
+  padding:3rem;
+  text-align: center;
+}
+
+#MainFrame .page{
+  top:-5%;
+  left:0;
+  position: absolute;
+  width: 100%;
+  height: 730px;
+  
+}
+
 #shop{
   display: none;
   position: absolute;
@@ -141,7 +158,218 @@ text-align: left;
   text-align: center;
 }
 
+#check{
+  display: none;
+  position: absolute;
+  width: 100%;
+  padding:3rem;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+}
 
+
+#check *{
+  text-align: center;
+}
+
+#check table {
+  border:solid;
+  margin:0 auto;
+  background: -webkit-linear-gradient(left, #25c481, #25b7c4);
+  background: linear-gradient(to right, #25c481, #25b7c4);
+  opacity: 20%;
+  font-family: 'Open Sans', Helvetica;
+  color: white;
+  border:2px solid #FFF;
+  border-collapse : collapse;
+  position: center;
+}
+#check table tr {
+  border:2px solid #FFF;
+  border-collapse : collapse;
+}
+#check table th,#check table td {
+  border:2px solid #FFF;
+  border-collapse : collapse;
+}
+
+#check #pass{
+  border:none;
+  outline: none;
+  margin: 1rem 0 0;
+  width: 30%;
+  height: 3rem;
+  border-radius: 0.6rem;
+  background: linear-gradient(90deg,rgb(181, 154, 254),rgb(245, 189, 253) );
+  box-shadow: 0 0 8px rgb(181, 154, 254);
+  cursor: pointer;
+  color:white;
+}
+
+#eduadmin{
+  display: none;
+  position: absolute;
+  width: 100%;
+  right: 30%;
+  padding:3rem;
+  background-image: url(image/1019.jpg);
+  background-repeat:no-repeat ;
+  background-size: cover;
+  padding-top: 0%;
+  background-position: center;
+}
+
+
+#eduadmin .edu-button{
+  border:none;
+  outline: none;
+  margin: 2rem 1rem 0;
+  width: 10rem;
+  height: 3rem;
+  border-radius: 0.6rem;
+  background: linear-gradient(90deg,rgb(181, 154, 254),rgb(245, 189, 253) );
+  box-shadow: 0 0 8px rgb(181, 154, 254);
+  cursor: pointer;
+  color:white;
+}
+
+#eduadmin #edumain{
+}
+
+#eduadmin .Grade 
+{
+  display: none;
+  position: absolute;
+  left: 43%;
+  width: 70%;
+
+  margin: 2rem auto;
+  font-family: 'Roboto', sans-serif;
+  
+}
+
+#eduadmin .TimeTable
+{
+  display: none;
+  position: absolute;
+  left: 43%;
+  width: 70%;
+
+  margin: 2rem auto;
+  font-family: 'Roboto', sans-serif;
+}
+
+#eduadmin .TimeTable.open,
+#eduadmin .Grade.open{
+  display: inline;
+
+}
+
+#eduadmin .TimeTable h1{
+  font-size: 30px;
+  color: rgb(0, 0, 0);
+  text-transform: uppercase;
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+
+#eduadmin .TimeTable table {
+  opacity: 20%;
+  font-family: 'Open Sans', Helvetica;
+  color: rgb(0, 0, 0);
+  border:2px solid rgb(0, 0, 0);
+  border-collapse : collapse;
+}
+#eduadmin .TimeTable table tr {
+  border:2px solid rgb(0, 0, 0);
+  border-collapse : collapse;
+}
+#eduadmin .TimeTable table th, #eduadmin .TimeTable table td {
+  border:2px solid rgb(0, 0, 0);
+  border-collapse : collapse;
+}
+
+#eduadmin .TimeTable .days, #eduadmin .TimeTable .time {
+  opacity: 20%;
+  color: rgb(0, 0, 0);
+
+  text-transform: uppercase;
+  font-size: 0.6em;
+  text-align: center;
+}
+#eduadmin .TimeTable .days{
+  font-size: 1em;
+}
+#eduadmin .TimeTable .time {
+  width: 3em !important;
+  font-size: 1em;
+}
+
+#eduadmin .TimeTable .Back{
+  margin-top: 40px;
+  padding: 10px;
+  clear: left;
+  text-align: center;
+  font-size: 10px;
+  font-family: arial;
+  color: rgb(0, 0, 0);
+}
+
+
+#eduadmin .Grade select{
+  margin: 2rem;
+}
+
+#eduadmin .Grade table {
+  opacity: 20%;
+  margin:0 auto;
+  font-family: 'Open Sans', Helvetica;
+  color: rgb(0, 0, 0);
+  border:2px solid rgb(0, 0, 0);
+  border-collapse : collapse;
+  position: center;
+}
+#eduadmin .Grade table tr {
+  border:2px solid rgb(0, 0, 0);
+  border-collapse : collapse;
+}
+#eduadmin .Grade table th,#eduadmin .Grade table td {
+  border:2px solid rgb(0, 0, 0);
+  border-collapse : collapse;
+}
+
+#eduadmin .Grade .days,#eduadmin .Grade .time {
+  opacity: 20%;
+  color: white;
+  text-transform: uppercase;
+  font-size: 0.6em;
+  text-align: center;
+}
+#eduadmin .Grade .days{
+  font-size: 1em;
+}
+#eduadmin .Grade .time {
+  width: 3em !important;
+  font-size: 1em;
+}
+
+#eduadmin .Grade .Back{
+  margin-top: 40px;
+  padding: 10px;
+  clear: left;
+  text-align: center;
+  font-size: 10px;
+  font-family: arial;
+  color: #fff;
+}
+
+
+
+#eduadmin.seen,
+#check.seen,
+#MainFrame.seen,
 #book.seen,
 #bank.seen,
 #shop.seen,
@@ -525,7 +753,7 @@ text-decoration: none;
 }
 
 
-#book {
+#book{
 display: none;
 position: absolute;
 left:5%;

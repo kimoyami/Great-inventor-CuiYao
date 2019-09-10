@@ -19,12 +19,14 @@
         <div class="barground">
                 <div class="bar">
                     <ul class="box">
+                        <li class="tagfocus"><a class="tab" id="Main" href="javascript:i">主页</a> </li>
                         <li><a class="tab" id="Message" href="javascript:i">信息</a> </li>
                         <li><a class="tab" id="Shop" href="javascript:i">商店</a> </li>
                         <li><a class="tab" id="Bank" href="javascript:i">银行</a> </li>
                         <li><a class="tab" id="Book" href="javascript:i">图书馆</a> </li>
                         <li><a class="tab" id="Chat" href="javascript:i">聊天</a> </li>    
                         <li><a class="tab" id="EduAdmin" href="javascript:i">教务</a></li>
+                        <li><a class="tab" id="Check" href="javascript:i">审核</a></li>
                     </ul>
                 </div>
                 <a href="javascript:;" class="headpng"><img class="png" id = "head" src="?" alt="" style="cursor:hand" onclick="headpng()"></a>
@@ -68,7 +70,114 @@
 
 
                 </div>
-                
+
+                <div id="MainFrame" class="seen">
+                   <div>
+                        <iframe class="page" src="pngindex.html"
+                        frameborder="0"
+                        scrolling="0"
+                        ></iframe>
+
+                   </div>
+
+
+
+                </div>
+                <div id="eduadmin">
+                    <button class="edu-button" id="coursetable" onclick="coursetable()">查询课表</button>
+                    <button class="edu-button" id="gradetable" onclick="gradetable()">查看成绩及录入</button>
+                    <div id="edumain">
+                        <div class="TimeTable">
+                                      <table class="table" align="center" style="text-align: center" >
+                                        <tr class='days'>
+                                          <th></th>
+                                          <th></th>
+                                          <th width="120">周一</th>
+                                          <th width="120">周二</th>
+                                          <th width="120">周三</th>
+                                          <th width="120">周四</th>
+                                          <th width="120">周五</th>
+                                        </tr>
+                                        <tr>
+                                          <td rowspan="5">上午</td>
+                                          <td class='time'>1</td>
+                                          <td rowspan="5" id="115" height="160"></td>
+                                          <td rowspan="5" id="215"></td>
+                                          <td rowspan="5" id="315"></td>
+                                          <td rowspan="5" id="415"></td>
+                                          <td rowspan="5" id="515"></td>
+                                        </tr>
+                                        <tr>
+                                          <td class='time'>2</td>
+                                        </tr>
+                                        <tr>
+                                          <td class='time'>3</td>
+                                        </tr>
+                                        <tr>
+                                          <td class='time'>4</td>
+                                        </tr>
+                                        <tr>
+                                          <td class='time'>5</td>
+                                        </tr>
+                                        <tr>
+                                          <td colspan="8" align="center"><b>午休</b></td>
+                                        </tr>
+                                        <tr>
+                                          <td rowspan="5">下午</td>
+                                          <td class="time">6</td>
+                                          <td rowspan="5" id="160" height="160"></td>
+                                          <td rowspan="5" id="260"></td>
+                                          <td rowspan="5" id="360"></td>
+                                          <td rowspan="5" id="460"></td>
+                                          <td rowspan="5" id="560"></td>
+                                        </tr>
+                                        <tr>
+                                          <td class="time">7</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="time">8</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="time">9</td>
+                                        </tr>
+                                        <tr>
+                                          <td class="time">10</td>
+                                        </tr>
+                                      </table>
+                     </div>
+                     <div class="Grade">
+                                    <form style="text-align: center">
+                                        <select name="area" id="area">
+                                            <option value="0">--选择课程--</option>
+                                        </select>
+                                    </form>
+                                    <p align="center">课程平均分
+                                        <input type="text" id="average"></p>
+                                    <div style="text-align: center">
+                                        <table id="myTable" border="solid" align="center">
+                                            <tr>
+                                                <th style="width: 10%">学生ID</th>
+                                                <th style="width: 10%">学期</th>
+                                                <th style="width: 10%">学生成绩</th>
+                                                <th style="width: 10%">输入成绩</th>
+                                                <th style="width: 10%">添加</th>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div style="text-align: center">
+                                        <p></p>
+                                        <p>成绩区间</p>
+                                        <p>下限
+                                            <input type="text" id="min" value="0"></p>
+                                        <p>上限
+                                            <input type="text" id="max" value="100"></p>
+                                        <button id="refresh" onclick="refresh()">查看成绩</button>
+                                
+                                    </div>
+                        </div>
+                    </div>
+
+                </div>
                 <div id="shop">
                         <input type="text" id="myInput" onkeyup="ShopmyFunction()" placeholder="搜索...">
                         <div style="width: 100%;height: 50%;overflow: scroll;">
@@ -154,7 +263,7 @@
         <button onClick="syalert.syhide('alert7')">取消</button>
         <button id="addup">确定</button>
     </div>
-</div>
+                        </div>
                         <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert3">
                             <div class="sy-content">不能为负数</div>
                         </div>
@@ -338,7 +447,7 @@
     </div>
 </div>
                 
-                </div>
+            </div>
                 <div>
                         <div id="chat">
                                 <div class="container">
@@ -418,6 +527,25 @@
             
                         </div>
                 </div>
+                <div id="check">
+                    <div>
+                            <table id="MyTable" >
+                                    <tr>
+                                        <th style="width: 10%; align-self: center;">用户姓名</th>
+                                        <th style="width: 10%; align-self: center;">交易密码</th>
+                                        <th style="width: 10%; align-self: center;">一卡通号</th>
+                                        <th style="width: 10%; align-self: center;">性别</th>
+                                        <th style="width: 10%; align-self: center;">身份</th>
+                                        <th style="width: 10%; align-self: center;">通过审核</th>
+                                    </tr>
+                                </table>
+                                <div id="checkTable">
+                                    <button id="pass" onclick="pass()">通过</button>
+                                </div>
+        
+                    </div>
+
+                </div>
             </div>
 
             
@@ -425,6 +553,195 @@
     </body>
 </html>
 <script>
+            var x = client.eCardNumber;
+            var str = personinfo.query(x);
+            var obj = JSON.parse(str);
+            
+            //alert("用户存在");//跳转
+                
+            var y0 = document.getElementById("115");
+            var y1 = document.getElementById("215");
+            var y2 = document.getElementById("315");
+            var y3 = document.getElementById("415");
+            var y4 = document.getElementById("515");
+            var y5 = document.getElementById("160");
+            var y6 = document.getElementById("260");
+            var y7 = document.getElementById("360");
+            var y8 = document.getElementById("460");
+            var y9 = document.getElementById("560");
+
+            var per= personinfo.query(client.eCardNumber);
+            var sss = JSON.parse(per);
+            var vec = courseinfo.query(sss['name']);
+
+        //alert(vec.elementAt(0).getCourseName());
+            for (var i = 0; i <vec.size() ; i++){
+
+                var b = vec.elementAt(i).getCourseTime();
+                var c = b%1000;
+                var d = 0;
+                var e = 0;
+                if(Math.floor(b/1000) !==0){
+                    d = (Math.floor(b/1000))%1000;
+            if(Math.floor(b/1000000)!==0){
+                    e = (Math.floor(b/1000000))%1000;
+            }
+                }
+//alert(c);
+if(c !==0){
+if((c==112)||(c==113)||(c==134)||(c==135)){
+y0.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>"+"J"+Math.floor(vec.elementAt(i).getClassroom()/1000)+"-"+vec.elementAt(i).getClassroom()%1000+"<br/>";
+}
+if((c==212)||(c==213)||(c==234)||(c==235)){
+y1.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>"+"J"+Math.floor(vec.elementAt(i).getClassroom()/1000)+"-"+vec.elementAt(i).getClassroom()%1000+"<br/>";
+}
+if((c==312)||(c==313)||(c==334)||(c==335)){
+y2.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>"+"J"+Math.floor(vec.elementAt(i).getClassroom()/1000)+"-"+vec.elementAt(i).getClassroom()%1000+"<br/>";
+}
+if((c==412)||(c==413)||(c==434)||(c==435)){
+y3.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>"+"J"+Math.floor(vec.elementAt(i).getClassroom()/1000)+"-"+vec.elementAt(i).getClassroom()%1000+"<br/>";
+}
+if((c==512)||(c==513)||(c==534)||(c==535)){
+y4.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>"+"J"+Math.floor(vec.elementAt(i).getClassroom()/1000)+"-"+vec.elementAt(i).getClassroom()%1000+"<br/>";
+}
+if((c==167)||(c==168)||(c==189)||(c==180)){
+y5.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>"+"J"+Math.floor(vec.elementAt(i).getClassroom()/1000)+"-"+vec.elementAt(i).getClassroom()%1000+"<br/>";
+}
+if((c==267)||(c==268)||(c==289)||(c==280)){
+y6.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>"+"J"+Math.floor(vec.elementAt(i).getClassroom()/1000)+"-"+vec.elementAt(i).getClassroom()%1000+"<br/>";
+}
+if((c==367)||(c==368)||(c==389)||(c==380)){
+y7.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>"+"J"+Math.floor(vec.elementAt(i).getClassroom()/1000)+"-"+vec.elementAt(i).getClassroom()%1000+"<br/>";
+}
+if((c==467)||(c==468)||(c==489)||(c==480)){
+y8.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>"+"J"+Math.floor(vec.elementAt(i).getClassroom()/1000)+"-"+vec.elementAt(i).getClassroom()%1000+"<br/>";
+}
+if((c==567)||(c==568)||(c==589)||(c==580)){
+y9.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>"+"J"+Math.floor(vec.elementAt(i).getClassroom()/1000)+"-"+vec.elementAt(i).getClassroom()%1000+"<br/>";
+}
+}
+if(d !==0) {
+if ((d == 112) || (d == 113) || (d == 134) || (d == 135)) {
+y0.innerHTML += vec.elementAt(i).getCourseName() + "[" + Math.floor(c / 10) % 10 + "-" + c % 10 + "]" + "<br/>" + "J" + Math.floor(vec.elementAt(i).getClassroom() / 1000) + "-" + vec.elementAt(i).getClassroom() % 1000 + "<br/>";
+}
+if ((d == 212) || (d == 213) || (d == 234) || (d == 235)) {
+y1.innerHTML += vec.elementAt(i).getCourseName() + "[" + Math.floor(c / 10) % 10 + "-" + c % 10 + "]" + "<br/>" + "J" + Math.floor(vec.elementAt(i).getClassroom() / 1000) + "-" + vec.elementAt(i).getClassroom() % 1000 + "<br/>";
+}
+if ((d == 312) || (d == 313) || (d == 334) || (d == 335)) {
+y2.innerHTML += vec.elementAt(i).getCourseName() + "[" + Math.floor(c / 10) % 10 + "-" + c % 10 + "]" + "<br/>" + "J" + Math.floor(vec.elementAt(i).getClassroom() / 1000) + "-" + vec.elementAt(i).getClassroom() % 1000 + "<br/>";
+}
+if ((d == 412) || (d == 413) || (d == 434) || (d == 435)) {
+y3.innerHTML += vec.elementAt(i).getCourseName() + "[" + Math.floor(c / 10) % 10 + "-" + c % 10 + "]" + "<br/>" + "J" + Math.floor(vec.elementAt(i).getClassroom() / 1000) + "-" + vec.elementAt(i).getClassroom() % 1000 + "<br/>";
+}
+if ((d == 512) || (d == 513) || (d == 534) || (d == 535)) {
+y4.innerHTML += vec.elementAt(i).getCourseName() + "[" + Math.floor(c / 10) % 10 + "-" + c % 10 + "]" + "<br/>" + "J" + Math.floor(vec.elementAt(i).getClassroom() / 1000) + "-" + vec.elementAt(i).getClassroom() % 1000 + "<br/>";
+}
+if ((d == 167) || (d == 168) || (d == 189) || (d == 180)) {
+y5.innerHTML += vec.elementAt(i).getCourseName() + "[" + Math.floor(c / 10) % 10 + "-" + c % 10 + "]" + "<br/>" + "J" + Math.floor(vec.elementAt(i).getClassroom() / 1000) + "-" + vec.elementAt(i).getClassroom() % 1000 + "<br/>";
+}
+if ((d == 267) || (d == 268) || (d == 289) || (d == 280)) {
+y6.innerHTML += vec.elementAt(i).getCourseName() + "[" + Math.floor(c / 10) % 10 + "-" + c % 10 + "]" + "<br/>" + "J" + Math.floor(vec.elementAt(i).getClassroom() / 1000) + "-" + vec.elementAt(i).getClassroom() % 1000 + "<br/>";
+}
+if ((d == 367) || (d == 368) || (d == 389) || (d == 380)) {
+y7.innerHTML += vec.elementAt(i).getCourseName() + "[" + Math.floor(c / 10) % 10 + "-" + c % 10 + "]" + "<br/>" + "J" + Math.floor(vec.elementAt(i).getClassroom() / 1000) + "-" + vec.elementAt(i).getClassroom() % 1000 + "<br/>";
+}
+if ((d == 467) || (d == 468) || (d == 489) || (d == 480)) {
+y8.innerHTML += vec.elementAt(i).getCourseName() + "[" + Math.floor(c / 10) % 10 + "-" + c % 10 + "]" + "<br/>" + "J" + Math.floor(vec.elementAt(i).getClassroom() / 1000) + "-" + vec.elementAt(i).getClassroom() % 1000 + "<br/>";
+}
+if ((d == 567) || (d == 568) || (d == 589) || (d == 580)) {
+y9.innerHTML += vec.elementAt(i).getCourseName() + "[" + Math.floor(c / 10) % 10 + "-" + c % 10 + "]" + "<br/>" + "J" + Math.floor(vec.elementAt(i).getClassroom() / 1000) + "-" + vec.elementAt(i).getClassroom() % 1000 + "<br/>";
+}
+}
+if(e !==0){
+if((e==112)||(e==113)||(e==134)||(e==135)){
+y0.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>"+"J"+Math.floor(vec.elementAt(i).getClassroom()/1000)+"-"+vec.elementAt(i).getClassroom()%1000+"<br/>";
+}
+}
+if((e==212)||(e==213)||(e==234)||(e==235)){
+y1.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>"+"J"+Math.floor(vec.elementAt(i).getClassroom()/1000)+"-"+vec.elementAt(i).getClassroom()%1000+"<br/>";
+}
+if((e==312)||(e==313)||(e==334)||(e==335)){
+y2.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>"+"J"+Math.floor(vec.elementAt(i).getClassroom()/1000)+"-"+vec.elementAt(i).getClassroom()%1000+"<br/>";
+}
+if((e==412)||(e==413)||(e==434)||(e==435)){
+y3.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>"+"J"+Math.floor(vec.elementAt(i).getClassroom()/1000)+"-"+vec.elementAt(i).getClassroom()%1000+"<br/>";
+}
+if((e==512)||(e==513)||(e==534)||(e==535)){
+y4.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>"+"J"+Math.floor(vec.elementAt(i).getClassroom()/1000)+"-"+vec.elementAt(i).getClassroom()%1000+"<br/>";
+}
+if((e==167)||(e==168)||(e==189)||(e==180)){
+y5.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>"+"J"+Math.floor(vec.elementAt(i).getClassroom()/1000)+"-"+vec.elementAt(i).getClassroom()%1000+"<br/>";
+}
+if((e==267)||(e==268)||(e==289)||(e==280)){
+y6.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>"+"J"+Math.floor(vec.elementAt(i).getClassroom()/1000)+"-"+vec.elementAt(i).getClassroom()%1000+"<br/>";
+}
+if((e==367)||(e==368)||(e==389)||(e==380)){
+y7.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>"+"J"+Math.floor(vec.elementAt(i).getClassroom()/1000)+"-"+vec.elementAt(i).getClassroom()%1000+"<br/>";
+}
+if((e==467)||(e==468)||(e==489)||(e==480)){
+y8.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>"+"J"+Math.floor(vec.elementAt(i).getClassroom()/1000)+"-"+vec.elementAt(i).getClassroom()%1000+"<br/>";
+}
+if((e==567)||(e==568)||(e==589)||(e==580)){
+y9.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>"+"J"+Math.floor(vec.elementAt(i).getClassroom()/1000)+"-"+vec.elementAt(i).getClassroom()%1000+"<br/>";
+}
+}
+
+
+
+var a = vec;
+
+var id = new Array;
+for (var t=0;t<a.size();t++)
+    id[t] = a.elementAt(t).getCourseName();
+var value = new Array();
+for (var t=0;t<a.size();t++)
+    value[t] = a.elementAt(t).getCourseName();
+
+var select = document.getElementById("area");
+select.length = 1;
+select.options[0].selected = true;
+
+for(var x = 0;x<id.length;x++){
+    var option = document.createElement("option");
+    option.setAttribute("value",id[x]);
+    option.appendChild(document.createTextNode(value[x]));
+    select.appendChild(option);
+}
+
+
+
+
+
+
+        function coursetable(){
+            if(!$("#eduadmin .TimeTable").hasClass("open")){
+			    $("#eduadmin .TimeTable").addClass("open");
+                if($("#eduadmin .Grade").hasClass("open"))
+                    $("#eduadmin .Grade").removeClass("open");
+            }
+		}
+
+		function gradetable(){
+			
+            if(!$("#eduadmin .Grade").hasClass("open")){
+			    $("#eduadmin .Grade").addClass("open");
+                if($("#eduadmin .TimeTable").hasClass("open"))
+                    $("#eduadmin .TimeTable").removeClass("open");
+            }
+		}
+
+
+    function pass() {
+		var m = document.getElementsByName("ispass");
+		for (i in m) {
+			if (m[i].checked) {
+				login.solve(m[i].value);
+				alert(m[i].value+"审核通过！");
+			}
+		}
+	}
+
+
    var last;
     var myid;
    
@@ -466,6 +783,11 @@
             if($(this).hasClass('seen'))
                 $(this).removeClass('seen');
         })
+
+        if($(this).attr('id')=="Main")
+        {
+            $('#MainFrame').addClass('seen');
+        }
 
         if($(this).attr('id')=="Message")
         {
@@ -528,7 +850,11 @@
             $("#book #myTable").append("<tr><td>"+(res.elementAt(i).getBookID())+"</td><td>"+(res.elementAt(i).getBookName())+"</td><td >"+(res.elementAt(i).getBookEdit())+"</td><td >"+(res.elementAt(i).getBOOK_PUB())+"</td><td >"+(res.elementAt(i).getCategory())+"</td><td >"+(res.elementAt(i).getState())+"</td><td >"+res.elementAt(i).getTime()+"</td><td>"+"<button id='borrow' class='myBtn'>借书</button></td></tr>")}
    }
 
-
+        if($(this).attr('id')=="EduAdmin")
+        {
+            
+            $('#eduadmin').addClass('seen');
+            }
         
         if($(this).attr('id')=="Chat")
         {
@@ -543,10 +869,74 @@
              last.setYear(-100);
              myid= -1000;
         }
+        if($(this).attr('id')=="Check"){
+            $('#check').addClass('seen');
+            var a = login.getAll();
+            
+            $("#check #MyTable").empty();
+            $("#check #MyTable").append("<tr><th style='width: 10%; align-self: center;'>用户姓名</th><th style='width: 10%; align-self: center;'>交易密码</th><th style='width: 10%; align-self: center;'>一卡通号</th><th style='width: 10%; align-self: center;'>性别</th> <th style='width: 10%; align-self: center;'>身份</th><th style='width: 10%; align-self: center;'>通过审核</th></tr>");
+		    for (var i = 0; i<5; i++){
+			var v = a.elementAt(i).getEcardname();
 
+			$("#check #MyTable").append("<tr><td>"+a.elementAt(i).getUsername()+"</td><td>"+a.elementAt(i).getPassword()+"</td><td>"+a.elementAt(i).getEcardname()
+				+"</td><td>"+a.elementAt(i).getSex()+"</td><td>"+a.elementAt(i).getStatus()+"</td><td>" +
+					"<input type='checkbox' name='ispass' value='"+v+"'/>"+"</td></tr>");
+		}
+        }
 
     })
      
+
+    function refresh() {
+    var sum = delAll();
+    var coursename = $("#area").val();
+    var low = parseInt($("#min").val());
+    var top = parseInt($("#max").val());
+    var per= personinfo.query(client.eCardNumber);
+    var sss = JSON.parse(per);
+    if (low>top)
+        alert("下限不能高于上限")
+    var vec = gradeinfo.querycourse(coursename,sss['name'], low, top);
+    for (var i = 0; i<vec.size(); i++){
+        if (vec.elementAt(i).getCourseGrade()<low || vec.elementAt(i).getCourseGrade()>top)
+            continue;
+        else{
+            var k = vec.elementAt(i).getEcardNUmber();
+            $("#myTable").append("<tr><td>" + vec.elementAt(i).getEcardNUmber() + "</td><td>" + vec.elementAt(i).getCourseSemeter() +
+                "</td><td>" + vec.elementAt(i).getCourseGrade() + "</td><td>" +
+                "<input type='text' id='"+k+"'>"+"</td><td>"
+                +"<button id='select'>添加</button>" + "</td></tr>")
+        }
+    }
+    //getAverage(String coursename, String teacher)
+    var avr = gradeinfo.getAverage(coursename, sss['name'])
+    $("#average").val(avr)
+}
+
+$(document).on("click", '#select',function () {
+    {
+        var idx = $(this).parents("tr").find("td").eq(0).text();
+        var semeter = $(this).parents("tr").find("td").eq(1).text();
+        var m = parseInt(semeter);
+
+        //var grade = $(this).parents("tr").find("td").eq(1).text();
+        var grade = document.getElementById(idx).value;
+        var n = parseInt(grade);
+        var cname = $("#area").val();
+
+        //update(String ecardname,String coursename,int grade)
+        gradeinfo.update(idx, cname, n);
+
+        alert("成功");
+    }})
+
+function delAll() {
+    var tab =$("#eduadmin #myTable").get(0);
+    for (var r = tab.rows.length - 1; r >= 1; r--) {
+        tab.deleteRow(r);
+    }
+
+}
     $(document).ready(function () {
     $("#load").click(function () {
          if($("#birth").val()==""){
@@ -1259,6 +1649,8 @@ function searchFct(){
 
     event.stopPropagation();
 })
+
+
 
 </script>
 </html>
