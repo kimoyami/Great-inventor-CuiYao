@@ -4,6 +4,11 @@
 	<title>教师用户界面</title>
 </head>
 <body>
+    <form>
+        <select name="area" id="area">
+            <option value="0">--选择课程--</option>
+        </select>
+    </form>
 	<div>
         <p>当前课程
             <input type="text" id="rname">
@@ -33,18 +38,36 @@
         var vec = gradeinfo.querycourse("信号与系统", "王世杰", 0, 100);
         alert(vec.elementAt(0).getCourseName());
 
-/*
-        var vec = gradeinfo.querycourse("信号与系统", "王世杰", 0, 100);
+        var a = courseinfo.query("明凯");
+        alert(a.elementAt(0).getCourseName())
 
-        alert(vec.elementAt(0).getCourseName());
-        for (var i = 0; i < vec.size(); i++) {
-            $("#myTable").append("<tr><td>" + vec.elementAt(i).getEcardNUmber() + "</td><td>" + vec.elementAt(i).getCourseSemeter() +
-                "</td><td>" + vec.elementAt(i).getCourseGrade() + "</td><td>" + vec.elementAt(i).getCourseName() + "</td><td>" +
-                vec.elementAt(i).getTeacher() + "</td></tr>")
+        var id = new Array(1,2);
+        var value = new Array();
+        for (var t=0;t<a.size();t++)
+            value[t] = a.elementAt(t).getCourseName();
+
+        var select = document.getElementById("area");
+        select.length = 1;
+        select.options[0].selected = true;
+        for(var x = 0;x<id.length;x++){
+            var option = document.createElement("option");
+            option.setAttribute("value",id[x]);
+            option.appendChild(document.createTextNode(value[x]));
+            select.appendChild(option);
         }
-        $("#average").val(gradeinfo.getAverage("信号与系统", "王世杰"))
-        $("#rname").val("信号与系统")
-*/
+
+        /*
+                var vec = gradeinfo.querycourse("信号与系统", "王世杰", 0, 100);
+
+                alert(vec.elementAt(0).getCourseName());
+                for (var i = 0; i < vec.size(); i++) {
+                    $("#myTable").append("<tr><td>" + vec.elementAt(i).getEcardNUmber() + "</td><td>" + vec.elementAt(i).getCourseSemeter() +
+                        "</td><td>" + vec.elementAt(i).getCourseGrade() + "</td><td>" + vec.elementAt(i).getCourseName() + "</td><td>" +
+                        vec.elementAt(i).getTeacher() + "</td></tr>")
+                }
+                $("#average").val(gradeinfo.getAverage("信号与系统", "王世杰"))
+                $("#rname").val("信号与系统")
+        */
  /*       function f1() {
             //var low = document.getElementById("min");
             //var a = low.value.toUpperCase();
@@ -73,7 +96,7 @@
 		function refresh() {
             var sum = delAll();
 
-            var coursename = $("#rname").val();
+            var coursename = $("#area").val();
             var low = parseInt($("#min").val());
             var top = parseInt($("#max").val());
             if (low>top)
@@ -107,7 +130,7 @@
                 //var grade = $(this).parents("tr").find("td").eq(1).text();
                 var grade = document.getElementById(idx).value;
                 var n = parseInt(grade);
-                var cname = $("#rname").val();
+                var cname = $("#area").val();
 
                 alert("123");
                 alert(idx)
