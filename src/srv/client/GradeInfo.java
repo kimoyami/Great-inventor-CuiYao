@@ -114,7 +114,28 @@ public class GradeInfo {
             return -4;
         }
     }
+    public static int update(String ecardname,String coursename,int grade){
+        Client.run();
+        try{
+            Client.cout.writeInt(STARTPOS+7);
+            Client.cout.writeUTF(ecardname);
+            Client.cout.writeUTF(coursename);
+            Client.cout.writeInt(grade);
+            Client.cout.flush();
+            int res=Client.cin.readInt();
+            Client.stop();
+            return res;
+        }catch(Exception e){
+            e.printStackTrace();
+            Client.stop();
+            return -4;
+        }
+    }
 
+
+    public static void main(String args[]) {
+        int a=update("213170001","信号与系统",20);
+    }
 }
 /*
 * int a=insert("213170009",19201,"软件实践",96,"王世杰");
