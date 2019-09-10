@@ -124,7 +124,7 @@ public class ServerThread extends Thread {
                 fos.write(buf, 0, len);
             }
             fos.flush();
-            url = "../headimage/" + fileName.toString() + ".jpg";
+            url = "http://101.37.79.28/headimage/" + fileName.toString() + ".jpg";
             cout.writeInt(DataHead.update(eCardNumber, url));
             cout.flush();
             fos.close();

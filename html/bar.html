@@ -363,6 +363,7 @@
     $("#identity").val(obj['state']);
     $("#dormitory").val(obj['dormitory']);
     $("#birth").val(obj['birthday']);
+    $("#Introduction").val(obj['sign']);
         }
 
         if($(this).attr('id')=="Shop")
@@ -444,7 +445,11 @@
               check = false;
             alert("请输入学院");
 
-        } else{
+        } else if($("#Introduction").val() == ""){
+            check = false;
+            alert("请输入学院");
+         }
+          else{
              check = true;
 			  alert("你的信息已成功更改！");
               let t = $("#birth").val();
@@ -456,10 +461,12 @@
               y['gender'] = $("#sex").val();
               y['academy'] = $("#Academy").val()
               y['state'] = $("#identity").val();
+              y['sign'] = $("#Introduction").val();
               x = JSON.stringify(y);
+              alert(x);
               personinfo.update(x);
           }
-    window.location.href = '../html/bar.html';
+        window.location.href = '../html/bar.html';
     })
 })
 
@@ -931,7 +938,8 @@ $(document).on("click",'#borrow',function () {
         else LeftImgInsert(res.elementAt(i).getMessage(), head.query(per));
         if (judge(last, res.elementAt(i).getTime()) == 1) {
           last = res.elementAt(i).getTime();
-          LeftTimeInsert(last);
+          if(res.elementAt(i).getSender() == client.eCardNumber) RightTimeInsert(last);
+          else LeftTimeInsert(last);
         }
       }
     
@@ -1079,6 +1087,7 @@ $(document).on("click",'#borrow',function () {
       var per = JSON.parse(str);
       if(!$(".card").hasClass("inform"))
       {
+
         $(".card").addClass("inform");
       }
       $(".card").find(".text").find(".name").text(per['name'] + ", " + per['age']);
