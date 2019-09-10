@@ -128,6 +128,22 @@ public class GoodInfo {
         }
     }
 
+    public static int getCount(String name){
+        Client.run();
+        try {
+            Client.cout.writeInt(STARTPOS + 7);
+            Client.cout.writeUTF(name);
+            Client.cout.flush();
+            int res = Client.cin.readInt();
+            Client.stop();
+            return res;
+        }catch (Exception e){
+            Client.stop();
+            e.printStackTrace();
+            return -3;
+        }
+    }
+
     public static void main(String args[]){
 
 

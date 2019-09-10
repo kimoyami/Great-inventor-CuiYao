@@ -289,6 +289,10 @@
                         <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="shopalert3">
                             <div class="sy-content">不能为负数</div>
                         </div>
+						</div>
+                        <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="shopalert10">
+                            <div class="sy-content">购买失败</div>
+                        </div>
                         <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="shopalert2">
                             <div class="sy-content">加入成功！</div>
                         </div>
@@ -486,6 +490,9 @@
 </div>
     <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert6">
         <div class="sy-content">删除成功！</div>
+    </div>
+	<div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="bookalert5">
+        <div class="sy-content">借书失败！</div>
     </div>
 <div class="sy-alert sy-alert-model animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="confirm" sy-mask="true" id="bookalert">
     <div class="sy-title">我的书库</div>
@@ -1166,22 +1173,38 @@ $("#basket").click(function () {
     var table =$("#shop #myForm").get(0);
     var tr=table.getElementsByTagName("tr");
 
-    for(i =1;i<tr.length;i++){
+    var flag = 1;
+	alert("111");
+	for(i = 1;i < tr.length;i++){
+		alert(i);
+		name =tr[i].getElementsByTagName("td")[1].innerHTML.toUpperCase();
+		alert(i);
+        number=tr[i].getElementsByTagName("td")[3].innerHTML.toUpperCase();
+		alert(i);
+        if(parseInt(number) > goodinfo.getCount(name)){
+             syalert.syopen("shopalert10")
+			 flag = 0;
+			 break;
+        }
+    }
+	alert("222");
+
+	if(flag == 1){
+    for(i = 0;i < tr.length;i++){
         price=tr[i].getElementsByTagName("td")[2].innerHTML.toUpperCase();
         number=tr[i].getElementsByTagName("td")[3].innerHTML.toUpperCase();
         name =tr[i].getElementsByTagName("td")[1].innerHTML.toUpperCase();
         tag = tr[i].getElementsByTagName("td")[0].innerHTML.toUpperCase();
-        if(number==""){
-             syalert.syopen("shopalert0")
-        }
         var h = parseInt(number);
         goodinfo.update(name,tag,h);
-        goodinfo.consumption(client.eCardNumber,price*number);
-
+		goodinfo.consumption(client.eCardNumber,price*number);
+		}
+		syalert.syhide("shopalert4");
+		syalert.syopen("shopalert1");
+	}
+    $("#basketbody").empty();
     }
-    syalert.syhide("shopalert4");
-    syalert.syopen("shopalert1");
-    })
+	)
 
     $("#cancel").click(function () {
         $("#basketbody").empty();
@@ -1321,18 +1344,21 @@ function searchFct(){
         if($("#book1").val()!==""&&$("#book2").val()!==""&&$("#book3").val()!==""){
             syalert.syopen("alert1");
         } else if(state=="未借"){
-            syalert.syopen("alert2");
-            $(this).parents("tr").find("td").eq(5).html("已借");
-            var newstate=$(this).parents("tr").find("td").eq(5).text();
-          bookinfo.update(ID,state,client.eCardNumber);
-            if($("#book1").val()==""){
+            if(bookinfo.getState(ID) == 0){
+				syalert.syopen("alert2");
+				$(this).parents("tr").find("td").eq(5).html("已借");
+				var newstate=$(this).parents("tr").find("td").eq(5).text();
+				bookinfo.update(ID,state,client.eCardNumber);
+				 if($("#book1").val()==""){
                 $("#book1").val(ID);
-            }else if($("#book2").val()==""){
+				}else if($("#book2").val()==""){
                 $("#book2").val(ID);
-            }else if($("#book3").val()==""){
+				}else if($("#book3").val()==""){
                 $("#book3").val(ID);
-            }
-
+				}
+			}
+			else syalert.syopen("bookalert5");
+           
         } else{
             syalert.syopen("alert0");
 
@@ -1386,7 +1412,7 @@ function searchFct(){
         if(id==td){
                 tr[i].getElementsByTagName("td")[5].innerHTML="未借";
                 $("#book1").val("");
-                bookinfo.update(id,state,"213171645");
+                bookinfo.update(id,state,client.eCardNumber);
         syalert.syopen("alert3");
             }
 
@@ -1410,7 +1436,7 @@ function searchFct(){
             if(id==td){
                 tr[i].getElementsByTagName("td")[5].innerHTML="未借";
                 $("#book2").val("");
-                bookinfo.update(id,state,"213171645");
+                bookinfo.update(id,state, client.eCardNumber);
                 syalert.syopen("alert3");
             }
 
@@ -1431,7 +1457,7 @@ function searchFct(){
             if(id==td){
                 tr[i].getElementsByTagName("td")[5].innerHTML="未借";
                 $("#book3").val("");
-                bookinfo.update(id,state,"213171645");
+                bookinfo.update(id,state,client.eCardNumber);
                 syalert.syopen("alert3");
             }
 

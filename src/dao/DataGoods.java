@@ -128,6 +128,18 @@ public class DataGoods {
         }
     }
 
+    public static int getCount(String name){
+        try {
+            String sql = "select cnt from goods where goodsname = '"+name+"'";
+            ResultSet rs = DataBase.s.executeQuery(sql);
+            if(!rs.next()) return 0;
+            return rs.getInt("cnt");
+        }catch (Exception e){
+            e.printStackTrace();;
+            return -1;
+        }
+    }
+
     public static void main(String args[]) {
         DataBase.start();
         int a=consumption("213170001",100);

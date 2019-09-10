@@ -289,6 +289,10 @@
                         <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="shopalert3">
                             <div class="sy-content">不能为负数</div>
                         </div>
+						</div>
+                        <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="shopalert10">
+                            <div class="sy-content">购买失败</div>
+                        </div>
                         <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="shopalert2">
                             <div class="sy-content">加入成功！</div>
                         </div>
@@ -1169,22 +1173,34 @@ $("#basket").click(function () {
     var table =$("#shop #myForm").get(0);
     var tr=table.getElementsByTagName("tr");
 
-    for(i =1;i<tr.length;i++){
+    var flag = 1;
+	for(i = 1;i < tr.length;i++){
+		name =tr[i].getElementsByTagName("td")[1].innerHTML.toUpperCase();
+        number=tr[i].getElementsByTagName("td")[3].innerHTML.toUpperCase();
+        if(parseInt(number) > goodinfo.getCount(name)){
+             syalert.syopen("shopalert10")
+			 flag = 0;
+			 break;
+        }
+    }
+	
+
+	if(flag == 1){
+    for(i = 1;i < tr.length;i++){
         price=tr[i].getElementsByTagName("td")[2].innerHTML.toUpperCase();
         number=tr[i].getElementsByTagName("td")[3].innerHTML.toUpperCase();
         name =tr[i].getElementsByTagName("td")[1].innerHTML.toUpperCase();
         tag = tr[i].getElementsByTagName("td")[0].innerHTML.toUpperCase();
-        if(number==""){
-             syalert.syopen("shopalert0")
-        }
         var h = parseInt(number);
         goodinfo.update(name,tag,h);
-        goodinfo.consumption(client.eCardNumber,price*number);
-
+		goodinfo.consumption(client.eCardNumber,price*number);
+		}
+		syalert.syhide("shopalert4");
+		syalert.syopen("shopalert1");
+	}
+    $("#basketbody").empty();
     }
-    syalert.syhide("shopalert4");
-    syalert.syopen("shopalert1");
-    })
+	)
 
     $("#cancel").click(function () {
         $("#basketbody").empty();

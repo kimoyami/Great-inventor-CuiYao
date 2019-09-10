@@ -48,6 +48,10 @@ public class GoodInfo {
                 now.cout.writeInt(consumption());
                 now.cout.flush();
             }
+            if(op == 7){
+                now.cout.writeInt(getCount());
+                now.cout.flush();
+            }
 
         } catch (Exception e) {
             return;
@@ -152,5 +156,18 @@ public class GoodInfo {
         return res;
     }
 
+    public static int getCount(){
+        String name = "";
+        try {
+            name = now.cin.readUTF();
+        }catch (Exception e){
+            e.printStackTrace();
+            return -1;
+        }
+        DataBase.start();
+        int res = DataGoods.getCount(name);
+        DataBase.stop();
+        return res;
+    }
 
 }
