@@ -91,7 +91,7 @@ public class MainView {
 
             @Override
             public void onDocumentLoadedInMainFrame(LoadEvent loadEvent) {
-                browser.setZoomLevel(-0.5);
+                browser.setZoomLevel(-0.47);
             }
         });
         browser.addScriptContextListener(new ScriptContextAdapter() {

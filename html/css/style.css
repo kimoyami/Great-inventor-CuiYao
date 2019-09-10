@@ -11,6 +11,7 @@ body{
 }
 
 .container{
+    left:-12%;
     position: relative;
     width: 75rem;
     
@@ -114,7 +115,7 @@ form .input{
 }
 
 .login #forget{
-    top:35%£»
+    top:35%ï¿½ï¿½
 }
 
 
