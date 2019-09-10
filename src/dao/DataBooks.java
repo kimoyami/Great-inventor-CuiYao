@@ -134,7 +134,7 @@ public class DataBooks {
     public static Vector<Book>getAll(){
         Vector<Book> res=new Vector<>();
         try{
-            String sql="select * from books";
+            String sql="select * from books order by idx";
             ResultSet rs=DataBase.s.executeQuery(sql);
             while(rs.next()){
                 Book book=new Book(rs.getString("idx"),rs.getString("bookname"),
