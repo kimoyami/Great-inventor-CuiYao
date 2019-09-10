@@ -6,7 +6,7 @@
 <body>
 	<div>
         <p>当前课程
-            <input type="text" id="rname" onkeyup="f1()">
+            <input type="text" id="rname">
             课程平均分
             <input type="text" id="average" readonly></p>
 		<p>学生ID
@@ -32,14 +32,14 @@
     <div>
         <p>成绩区间</p>
         <p>下限
-            <input type="text" id="min" value="0"></p>
+            <input type="text" id="min" value=""></p>
         <p>上限
-            <input type="text" id="max" value="100"></p>
+            <input type="text" id="max" value=""></p>
         <button id="refresh" onclick="refresh()">刷新</button>
     </div>
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script type="text/javascript">
-
+/*
         var vec = gradeinfo.querycourse("信号与系统", "王世杰", 0, 100);
 
         alert(vec.elementAt(0).getCourseName());
@@ -50,8 +50,8 @@
         }
         $("#average").val(gradeinfo.getAverage("信号与系统", "王世杰"))
         $("#rname").val("信号与系统")
-
-        function f1() {
+*/
+ /*       function f1() {
             //var low = document.getElementById("min");
             //var a = low.value.toUpperCase();
             var input = document.getElementById("rname");
@@ -74,9 +74,35 @@
                 }
             }
         }
-		function refresh() {
+        */
+        var aaa = gradeinfo.querycourse("信号与系统", "王世杰", 0, 100);
+        alert("123")
 
+		function refresh() {
+            var sum = delAll();
+
+            var coursename = $("#rname").val();
+            var low = parseInt($("#min").val());
+            var top = parseInt($("#max").val());
+            var vec = gradeinfo.querycourse(coursename, "王世杰", low, top)
+
+            for (var i = 0; i<vec.size(); i++){
+                if (vec.elementAt(i).getCourseGrade()<low || vec.elementAt(i).getCourseGrade()>top)
+                    continue;
+                else{
+                    $("#myTable").append("<tr><td>" + vec.elementAt(i).getEcardNUmber() + "</td><td>" + vec.elementAt(i).getCourseSemeter() +
+                        "</td><td>" + vec.elementAt(i).getCourseGrade() + "</td><td>" + vec.elementAt(i).getCourseName() + "</td><td>" +
+                        vec.elementAt(i).getTeacher() + "</td></tr>")
+                }
+            }
         }
+function delAll() {
+    var tab=document.getElementById('myTable');
+    for(var r=tab.rows.length-1;r>=1;r--) {
+        tab.deleteRow(r);
+    }
+}
+
 		function inserttrade() {
             var idx = $("#studentid").val();
             var sem = $("#semester").val();
