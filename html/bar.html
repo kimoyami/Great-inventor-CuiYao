@@ -21,6 +21,7 @@
         <div class="barground">
             <div class="bar">
                 <ul class="box">
+                    <li class="tagfocus"><a class="tab" id="Main" href="javascript:i">主页</a> </li>
                     <li><a class="tab" id="Message" href="javascript:i">信息</a> </li>
                     <li><a class="tab" id="Shop" href="javascript:i">商店</a> </li>
                     <li><a class="tab" id="Bank" href="javascript:i">银行</a> </li>
@@ -80,6 +81,18 @@
 
             <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="msgalert5">
                 <div class="sy-content">你的信息已成功更改</div>
+            </div>
+            <div id="MainFrame" class="seen">
+                <div>
+                    <iframe class="page" src="pngindex.html"
+                            frameborder="0"
+                            scrolling="0"
+                    ></iframe>
+
+                </div>
+
+
+
             </div>
             <div id="shop">
                     <input type="text" id="myInput" onkeyup="ShopmyFunction()" placeholder="搜索...">
@@ -367,8 +380,8 @@
                             </div>
                           </div>
                     <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="chatalert0">
-                        <div class="sy-content">不存在该用户！</div>
-                    </div>
+                    <div class="sy-content">不存在该用户！</div>
+                </div>
                     <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="chatalert1">
                         <div class="sy-content">不能选择自己！</div>
                     </div>
@@ -552,6 +565,10 @@
             if($(this).hasClass('seen'))
                 $(this).removeClass('seen');
         })
+        if($(this).attr('id')=="Main")
+        {
+            $('#MainFrame').addClass('seen');
+        }
 
         if($(this).attr('id')=="Message")
         {

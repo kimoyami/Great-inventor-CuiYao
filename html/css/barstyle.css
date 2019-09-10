@@ -1433,4 +1433,23 @@ li.tagfocus a::after{
     color: #000;
     border-bottom: solid 1px rgba(255,255,255,0.1);
 }
+#MainFrame.seen{
+    display: block;
+}
 
+#MainFrame{
+    display: none;
+    position: absolute;
+    width: 100%;
+    padding:3rem;
+    text-align: center;
+}
+
+#MainFrame .page{
+    top:-5%;
+    left:0;
+    position: absolute;
+    width: 100%;
+    height: 730px;
+
+}
