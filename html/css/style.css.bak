@@ -115,7 +115,7 @@ form .input{
 }
 
 .login #forget{
-    top:35%;
+    top: 35%;
 }
 
 

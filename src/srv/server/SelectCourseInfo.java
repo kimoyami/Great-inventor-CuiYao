@@ -27,6 +27,10 @@ public class SelectCourseInfo {
                 }
                 now.cout.flush();
             }
+            if(op == 4){
+                now.cout.writeInt(exist());
+                now.cout.flush();
+            }
         } catch (Exception e) {
             e.printStackTrace();
             return;
@@ -89,6 +93,22 @@ public class SelectCourseInfo {
         Vector<SelectCourse>res=DataSelectCourse.query(id);
         DataBase.stop();
 
+        return res;
+    }
+
+    public static int exist(){
+        String eCardName = "";
+        String courName = "";
+        try {
+            eCardName = now.cin.readUTF();
+            courName = now.cin.readUTF();
+        }catch (Exception e){
+            e.printStackTrace();
+            return -1;
+        }
+        DataBase.start();
+        int res = DataSelectCourse.exist(eCardName, courName);
+        DataBase.stop();
         return res;
     }
 

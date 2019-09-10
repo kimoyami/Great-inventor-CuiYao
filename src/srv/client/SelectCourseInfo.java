@@ -64,6 +64,23 @@ public class SelectCourseInfo {
         }
         return res;
     }
+
+    public static int exist(String eCardName, String CourseName){
+        Client.run();
+        try {
+            Client.cout.writeInt(STARTPOS + 4);
+            Client.cout.writeUTF(eCardName);
+            Client.cout.writeUTF(CourseName);
+            Client.cout.flush();
+            int res = Client.cin.readInt();
+            Client.stop();
+            return res;
+        }catch (Exception e){
+            Client.stop();
+            e.printStackTrace();
+            return -2;
+        }
+    }
     
     public static void main(String args[]) {
         int a=delete("213170004","编译原理","翟玉庆");

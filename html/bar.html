@@ -591,7 +591,7 @@
         if($(this).attr('id')=="Shop")
         {
             $('#shop').addClass('seen');
-            var s =0;
+            var s = 0;
             var res = goodinfo.getAll();
             $("#shop #myTable").empty();
             $("#shop #myTable").append("<tr><th >超市</th><th >商品名称</th> <th > 价格</th><th> 数量</th> <th >购买数量</th><th>详细信息</th><th >操作</th></tr>");
@@ -655,25 +655,46 @@
                 }
 
                 if (e != 0) {
+                    if(selectcourseinfo.exist(client.eCardNumber, vec.elementAt(i).getCourseName()) == 0)
                     $("#Course").append("<tr><td>" + vec.elementAt(i).getIdx() + "</td><td>" + vec.elementAt(i).getCourseName() + "</td><td>" + vec.elementAt(i).getTeacher() + "</td><td>" +
                         "周" + Math.floor(e / 100) + "[" + Math.floor(e / 10) % 10 + "-" + e % 10 + "]" + "<br/>" + "周" + Math.floor(d / 100) + "[" + Math.floor(d / 10) % 10 + "-" + d % 10 + "]" + "<br/>" + "周" + Math.floor(c / 100) + "[" + Math.floor(c / 10) % 10 + "-" + c % 10 + "]" + "<br/>"
                         + "</td><td>" + "J" + Math.floor(vec.elementAt(i).getClassroom() / 1000) + "-" + vec.elementAt(i).getClassroom() % 1000 + "<br/>" + "</td><td>" +
                         "<button id='select' class='MyBtn' >选课</button>" + "</td></tr>"
                     )
+                    else
+                        $("#Course").append("<tr><td>" + vec.elementAt(i).getIdx() + "</td><td>" + vec.elementAt(i).getCourseName() + "</td><td>" + vec.elementAt(i).getTeacher() + "</td><td>" +
+                            "周" + Math.floor(e / 100) + "[" + Math.floor(e / 10) % 10 + "-" + e % 10 + "]" + "<br/>" + "周" + Math.floor(d / 100) + "[" + Math.floor(d / 10) % 10 + "-" + d % 10 + "]" + "<br/>" + "周" + Math.floor(c / 100) + "[" + Math.floor(c / 10) % 10 + "-" + c % 10 + "]" + "<br/>"
+                            + "</td><td>" + "J" + Math.floor(vec.elementAt(i).getClassroom() / 1000) + "-" + vec.elementAt(i).getClassroom() % 1000 + "<br/>" + "</td><td>" +
+                            "<button id='select' class='MyBtn' >退课</button>" + "</td></tr>"
+                        )
                 } else if (d != 0) {
+                    if(selectcourseinfo.exist(client.eCardNumber, vec.elementAt(i).getCourseName()) == 0)
                     $("#Course").append("<tr><td>" + vec.elementAt(i).getIdx() + "</td><td>" + vec.elementAt(i).getCourseName() + "</td><td>" + vec.elementAt(i).getTeacher() + "</td><td>" +
                         "周" + Math.floor(d / 100) + "[" + Math.floor(d / 10) % 10 + "-" + d % 10 + "]" + "<br/>" + "周" + Math.floor(c / 100) + "[" + Math.floor(c / 10) % 10 + "-" + c % 10 + "]" + "<br/>" +
                         "</td><td>" + "J" + Math.floor(vec.elementAt(i).getClassroom() / 1000) + "-" + vec.elementAt(i).getClassroom() % 1000 + "<br/>" + "</td><td>" +
                         "<button id='select'class='MyBtn' >选课</button>" + "</td></tr>"
                     )
+                    else
+                        $("#Course").append("<tr><td>" + vec.elementAt(i).getIdx() + "</td><td>" + vec.elementAt(i).getCourseName() + "</td><td>" + vec.elementAt(i).getTeacher() + "</td><td>" +
+                            "周" + Math.floor(d / 100) + "[" + Math.floor(d / 10) % 10 + "-" + d % 10 + "]" + "<br/>" + "周" + Math.floor(c / 100) + "[" + Math.floor(c / 10) % 10 + "-" + c % 10 + "]" + "<br/>" +
+                            "</td><td>" + "J" + Math.floor(vec.elementAt(i).getClassroom() / 1000) + "-" + vec.elementAt(i).getClassroom() % 1000 + "<br/>" + "</td><td>" +
+                            "<button id='select'class='MyBtn' >退课</button>" + "</td></tr>"
+                        )
                 }
 
                 else{
+                    if(selectcourseinfo.exist(client.eCardNumber, vec.elementAt(i).getCourseName()) == 0)
                     $("#Course").append("<tr><td>" + vec.elementAt(i).getIdx() + "</td><td>" + vec.elementAt(i).getCourseName() + "</td><td>" + vec.elementAt(i).getTeacher() + "</td><td>" +
                         "周" + Math.floor(c / 100) + "[" + Math.floor(c / 10) % 10 + "-" + c % 10 + "]" + "<br/>"+
                         "</td><td>" + "J" + Math.floor(vec.elementAt(i).getClassroom() / 1000) + "-" + vec.elementAt(i).getClassroom() % 1000 + "<br/>" + "</td><td>" +
                         "<button id='select' class='MyBtn' >选课</button>" + "</td></tr>"
-                    );
+                    )
+                    else
+                        $("#Course").append("<tr><td>" + vec.elementAt(i).getIdx() + "</td><td>" + vec.elementAt(i).getCourseName() + "</td><td>" + vec.elementAt(i).getTeacher() + "</td><td>" +
+                            "周" + Math.floor(c / 100) + "[" + Math.floor(c / 10) % 10 + "-" + c % 10 + "]" + "<br/>"+
+                            "</td><td>" + "J" + Math.floor(vec.elementAt(i).getClassroom() / 1000) + "-" + vec.elementAt(i).getClassroom() % 1000 + "<br/>" + "</td><td>" +
+                            "<button id='select' class='MyBtn' >退课</button>" + "</td></tr>"
+                        );
                 }
 
             }
@@ -711,19 +732,18 @@
                        syalert.syopen("edualert4");
                         $(this).text("选课");
                     }
+                    getTimeTable()
                 }})
 
 
         }
 
     })
-    window.onload = function () {
-//var x = client.eCardNumber;
-//alert(x);
+
+    function getTimeTable() {
         var x = client.eCardNumber;
         var str = personinfo.query(x);
         var obj = JSON.parse(str);
-//alert("用户存在");//跳转
         var a = document.getElementById("useridentify");
         a.innerHTML = obj['state'];
         var y0 = document.getElementById("115");
@@ -736,6 +756,16 @@
         var y7 = document.getElementById("360");
         var y8 = document.getElementById("460");
         var y9 = document.getElementById("560");
+        y0.innerHTML = "";
+        y1.innerHTML = "";
+        y2.innerHTML = "";
+        y3.innerHTML = "";
+        y4.innerHTML = "";
+        y5.innerHTML = "";
+        y6.innerHTML = "";
+        y7.innerHTML = "";
+        y8.innerHTML = "";
+        y9.innerHTML = "";
         var vec = selectCourseinfo.query(x);
 //alert(vec.elementAt(0).getCourseName());
         for (var i = 0; i <vec.size() ; i++){
@@ -848,8 +878,8 @@
                 y9.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>"+"J"+Math.floor(vec.elementAt(i).getClassroom()/1000)+"-"+vec.elementAt(i).getClassroom()%1000+"<br/>";
             }
         }
-
     }
+    window.onload = getTimeTable();
 
 
         var e =client.eCardNumber;
@@ -1412,7 +1442,7 @@ $(document).on("click",'#borrow',function () {
         else LeftImgInsert(res.elementAt(i).getMessage(), head.query(per));
         if (judge(last, res.elementAt(i).getTime()) == 1) {
           last = res.elementAt(i).getTime();
-          else LeftTimeInsert(last);
+          LeftTimeInsert(last);
         }
       }
     

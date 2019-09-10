@@ -127,7 +127,6 @@
         var x = document.getElementById('Ecardnumber').value;
         var y = document.getElementById('Password').value;
         var res = login.query(x, y);
-        alert(res);
         if(res == 0) syalert.syopen("alert0");
         if(res == 1 || res == 4) syalert.syopen("alert1");
         if(res == 2) syalert.syopen("alert2");

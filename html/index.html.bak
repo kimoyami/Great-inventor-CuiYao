@@ -134,21 +134,6 @@
         if(res == 3) syalert.syopen("alert3");
         if(res == 1 || res == 4)
         {
-<<<<<<< Updated upstream
-        client.eCardNumber = x;
-        if(res==1)
-        {
-            window.location.href = '../html/bar.html';
-        }
-        else if(res==4)
-        {
-            window.location.href = '../html/barAdmi.html';
-        }
-        if(login.isNew(x) == 1) {
-            window.location.href = '../html/student.html';
-            alert("新用户请完善信息！");
-        }
-=======
             client.eCardNumber = x;
             if(login.isNew(x) == 1) {
                 window.location.href = '../html/bar.html';
@@ -156,7 +141,6 @@
             }
             else if(res == 1) window.location.href = '../html/bar.html';
 			else window.location.href = '../html/barAdmi.html'
->>>>>>> Stashed changes
         }
     }
 
