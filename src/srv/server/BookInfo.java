@@ -50,6 +50,10 @@ public class BookInfo {
                 }
                 now.cout.flush();
             }
+            if(op == 7){
+                now.cout.writeInt(getState());
+                now.cout.flush();
+            }
         } catch (Exception e) {
             e.printStackTrace();
             return;
@@ -143,6 +147,20 @@ public class BookInfo {
     public static Vector<Book>getAll(){
         DataBase.start();
         Vector<Book>res=DataBooks.getAll();
+        DataBase.stop();
+        return res;
+    }
+
+    public static synchronized int getState(){
+        String ID = "";
+        try {
+            ID = now.cin.readUTF();
+        }catch (Exception e){
+            e.printStackTrace();
+            return -2;
+        }
+        DataBase.start();
+        int res = DataBooks.getState(ID);
         DataBase.stop();
         return res;
     }

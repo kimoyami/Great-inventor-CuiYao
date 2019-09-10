@@ -148,6 +148,19 @@ public class DataBooks {
         return res;
     }
 
+    public static int getState(String ID){
+        try {
+            String sql = "select state from books where idx = '"+ID+"'";
+            ResultSet rs = DataBase.s.executeQuery(sql);
+            rs.next();
+            if(rs.getString("state").equals("已借")) return 1;
+            return 0;
+        }catch (Exception e){
+            e.printStackTrace();
+            return -1;
+        }
+    }
+
 
     public static void main(String []args){
         DataBase.start();

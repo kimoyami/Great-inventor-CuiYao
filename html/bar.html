@@ -287,6 +287,9 @@
                         <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="bookalert4">
                             <div class="sy-content">还书失败！</div>
                         </div>
+						<div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="bookalert5">
+                            <div class="sy-content">借书失败！</div>
+                        </div>
                         <div class="sy-alert sy-alert-model animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="confirm" sy-mask="true" id="bookalert">
                             <div class="sy-title">我的书库</div>
                             <div class="sy-content">
@@ -1255,10 +1258,13 @@ $(document).on("click",'#borrow',function () {
         if($("#book1").val()!==""&&$("#book2").val()!==""&&$("#book3").val()!==""){
             syalert.syopen("bookalert1");
         } else if(state=="未借"){
-            syalert.syopen("bookalert2");
-            $(this).parents("tr").find("td").eq(5).html("已借");
-            var newstate=$(this).parents("tr").find("td").eq(5).text();
-          bookinfo.update(ID,state,client.eCardNumber);
+			if(bookinfo.getState(ID) == 0){
+				syalert.syopen("bookalert2");
+				$(this).parents("tr").find("td").eq(5).html("已借");
+				var newstate=$(this).parents("tr").find("td").eq(5).text();
+				bookinfo.update(ID,state,client.eCardNumber);
+			}
+			else syalert.syopen("bookalert5");
             if($("#book1").val()==""){
                 $("#book1").val(ID);
             }else if($("#book2").val()==""){

@@ -125,7 +125,21 @@ public class BookInfo {
         return res;
     }
 
-
+    public static int getState(String ID){
+        Client.run();
+        try {
+            Client.cout.writeInt(STARTPOS + 7);
+            Client.cout.writeUTF(ID);
+            Client.cout.flush();
+            int res = Client.cin.readInt();
+            Client.stop();
+            return res;
+        }catch (Exception e){
+            e.printStackTrace();
+            Client.stop();
+            return -3;
+        }
+    }
 
 
     public static void main(String args[]){
