@@ -30,12 +30,13 @@ public class SelectCourseInfo {
         }
     }
 
-    public static int delete(String eCardName, String courseName) {
+    public static int delete(String eCardName, String courseName,String teacher) {
         Client.run();
         try {
             Client.cout.writeInt(STARTPOS + 2);
             Client.cout.writeUTF(eCardName);
             Client.cout.writeUTF(courseName);
+            Client.cout.writeUTF(teacher);
             Client.cout.flush();
             int res = Client.cin.readInt();
             Client.stop();
@@ -65,7 +66,7 @@ public class SelectCourseInfo {
     }
     
     public static void main(String args[]) {
-        int a=insert("213170005","0014","编译原理",112212,"翟玉庆",3102);
+        int a=delete("213170004","编译原理","翟玉庆");
         System.out.println(a);
         }
     }

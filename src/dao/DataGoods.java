@@ -23,12 +23,12 @@ public class DataGoods {
         }
     }
 
-    public static int insert(String idx,int cnt,String goodname,double price,String url,String tag) {
+    public static int insert(String idx,int cnt,String goodname,double price,String url,String tag,String info) {
         try {
             if(exist(goodname,tag) == 1) return 0;
-            String sql = "insert into goods(idx, cnt, goodsname, price, url, tag) " +
+            String sql = "insert into goods(idx, cnt, goodsname, price, url, tag,info) " +
                     "values ('" + idx+ "', "+ cnt +", " +
-                    "'"+goodname+"', "+price+", '"+url+"', '"+tag+"')";
+                    "'"+goodname+"', "+price+", '"+url+"', '"+tag+"','"+info+"')";
             DataBase.s.executeUpdate(sql);
             DataBase.c.commit();
             return 1;
@@ -57,7 +57,8 @@ public class DataGoods {
             ResultSet rs = DataBase.s.executeQuery(sql);
             while(rs.next()){
                 Goods tmp = new Goods(rs.getString(2), rs.getInt(3), rs.getString(4),
-                        rs.getDouble(5), rs.getString(6), rs.getString(7));
+                        rs.getDouble(5), rs.getString(6), rs.getString(7),
+                        rs.getString("info"));
                 res.addElement(tmp);
             }
         }catch (Exception e){
@@ -73,7 +74,8 @@ public class DataGoods {
             ResultSet rs=DataBase.s.executeQuery(sql);
             while(rs.next()){
                 Goods tmp = new Goods(rs.getString(2), rs.getInt(3), rs.getString(4),
-                        rs.getDouble(5), rs.getString(6), rs.getString(7));
+                        rs.getDouble(5), rs.getString(6), rs.getString(7),
+                        rs.getString("info"));
                 res.addElement(tmp);
             }
         }catch(Exception e){

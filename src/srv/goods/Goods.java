@@ -12,15 +12,17 @@ public class Goods implements Serializable {
     private String name;
     private String picturePath;
     private String tag;//0=tianping,1=zhongchao
+    private String info;
 
 
-    public Goods(String ID,int number,String name,double price, String picturePath,String tag) {
+    public Goods(String ID,int number,String name,double price, String picturePath,String tag,String Info) {
             this.tag=tag;
             this.ID=ID;
             this.name=name;
             this.number=number;
             this.picturePath=picturePath;
             this.price=price;
+            this.info=Info;
     }
 
     public String getID() {
@@ -39,6 +41,7 @@ public class Goods implements Serializable {
     public String getTag() {
         return this.tag;
     }
+    public String getInfo(){return this.info;}
 
     public void setID(String ID) {
         this.ID = ID;
@@ -56,5 +59,5 @@ public class Goods implements Serializable {
         this.picturePath = picturePath;
     }
     public void setTag(String tag){this.tag=tag;};
-
+    public void setInfo(String info){this.info=info;}
 }

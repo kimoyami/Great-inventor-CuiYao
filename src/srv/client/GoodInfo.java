@@ -14,7 +14,7 @@ import java.util.Vector;
 public class GoodInfo {
     private static final int STARTPOS = 50;
 
-    public static int insert(String idx,int cnt,String goodname,double price,String url,String tag) {
+    public static int insert(String idx,int cnt,String goodname,double price,String url,String tag,String info) {
         Client.run();
         try {
             Client.cout.writeInt(STARTPOS + 1);
@@ -24,6 +24,7 @@ public class GoodInfo {
             Client.cout.writeDouble(price);
             Client.cout.writeUTF(url);
             Client.cout.writeUTF(tag);
+            Client.cout.writeUTF(info);
             Client.cout.flush();
             int res = Client.cin.readInt();
             Client.stop();
@@ -125,14 +126,14 @@ public class GoodInfo {
             Client.stop();
             return -4;
         }
-
     }
 
     public static void main(String args[]){
 
-        int b=delete("yb","中超");
 
-        System.out.println(b);
+            int a=insert("0010",100,"ryh",10,"we","中超","123");
+
+        System.out.println(a);
 
     }
 

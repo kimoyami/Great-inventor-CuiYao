@@ -34,6 +34,8 @@ public class ServerThread extends Thread {
             DataBase.start();
 
             while (true) {
+                synchronized(new Object()){
+
                 int op = cin.readInt();
                 if (op == -1) break;
                 if (op == -100) update();
@@ -93,7 +95,7 @@ public class ServerThread extends Thread {
                 }
                 op -= 10;
             }
-
+            }
             cin.close();
             cout.close();
             DataBase.stop();
@@ -122,7 +124,7 @@ public class ServerThread extends Thread {
                 fos.write(buf, 0, len);
             }
             fos.flush();
-            url = "../headimage/" + fileName.toString() + ".jpg";
+            url = "http://101.37.79.28/headimage/" + fileName.toString() + ".jpg";
             cout.writeInt(DataHead.update(eCardNumber, url));
             cout.flush();
             fos.close();

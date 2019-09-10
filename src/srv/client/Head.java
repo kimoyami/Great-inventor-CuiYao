@@ -10,7 +10,7 @@ import java.io.OutputStream;
 public class Head {
 
     private static final int STARTPOS = 60;
-    private static final String DEFAULTURL = "../headimage/timg.jpg";
+    private static final String DEFAULTURL = "http://101.37.79.28/headimage/timg.jpg";
     public static int update(String eCardNumber, String url){
         Client.run();
         try {
