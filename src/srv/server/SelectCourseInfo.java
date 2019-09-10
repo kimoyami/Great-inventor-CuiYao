@@ -58,14 +58,16 @@ public class SelectCourseInfo {
     public static synchronized int delete() {
         String eCardName;
         String courseName;
+        String teacher;
         try {
             eCardName = now.cin.readUTF();
             courseName = now.cin.readUTF();
+            teacher=now.cin.readUTF();
         } catch (Exception e) {
             e.printStackTrace();
             return -4;
         }
-        return DataSelectCourse.delete(eCardName, courseName);
+        return DataSelectCourse.delete(eCardName, courseName,teacher);
     }
 
     public static Vector<SelectCourse> query() {

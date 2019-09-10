@@ -46,6 +46,7 @@ public class DataCourse {
                 return 0;
             }
             String sql = "delete from course where idx='" + idx + "' and teacher='" + teacher + "'";
+
             DataBase.s.executeUpdate(sql);
             DataBase.c.commit();
             return 1;
