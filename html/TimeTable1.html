@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>课程表</title>
+  <link rel="stylesheet" href="./TimeTable1.css">
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!-- / College Timetable -->
+<div class='tab'>
+  <h1 align="center"><b><em>
+    <caption>课程表</caption>
+  </em></b></h1>
+  <div align="center" style="color: white">
+    <p>用户身份:</p>
+    <p id="useridentify"></p>
+  </div>
+  <table class="table" align="center" style="text-align: center" >
+    <tr class='days'>
+      <th></th>
+      <th></th>
+      <th width="120">周一</th>
+      <th width="120">周二</th>
+      <th width="120">周三</th>
+      <th width="120">周四</th>
+      <th width="120">周五</th>
+    </tr>
+    <tr>
+      <td rowspan="5">上午</td>
+      <td class='time'>1</td>
+      <td rowspan="5" id="115" height="160"></td>
+      <td rowspan="5" id="215"></td>
+      <td rowspan="5" id="315"></td>
+      <td rowspan="5" id="415"></td>
+      <td rowspan="5" id="515"></td>
+    </tr>
+    <tr>
+      <td class='time'>2</td>
+    </tr>
+    <tr>
+      <td class='time'>3</td>
+    </tr>
+    <tr>
+      <td class='time'>4</td>
+    </tr>
+    <tr>
+      <td class='time'>5</td>
+    </tr>
+    <tr>
+      <td colspan="8" align="center"><b>午休</b></td>
+    </tr>
+    <tr>
+      <td rowspan="5">下午</td>
+      <td class="time">6</td>
+      <td rowspan="5" id="160" height="160"></td>
+      <td rowspan="5" id="260"></td>
+      <td rowspan="5" id="360"></td>
+      <td rowspan="5" id="460"></td>
+      <td rowspan="5" id="560"></td>
+    </tr>
+    <tr>
+      <td class="time">7</td>
+    </tr>
+    <tr>
+      <td class="time">8</td>
+    </tr>
+    <tr>
+      <td class="time">9</td>
+    </tr>
+    <tr>
+      <td class="time">10</td>
+    </tr>
+  </table>
+  <div class="Back" align="center">
+    <button id="back" onclick="Back()">返回</button>
+  </div>
+</div>
+<!-- partial -->
+<script>
+window.onload = function () {
+//var x = client.eCardNumber;
+//alert(x);
+var x = "213171645";
+var str = personinfo.query(x);
+var obj = JSON.parse(str);
+//alert("用户存在");//跳转
+var a = document.getElementById("useridentify");
+a.innerHTML = obj['state'];
+var y0 = document.getElementById("115");
+var y1 = document.getElementById("215");
+var y2 = document.getElementById("315");
+var y3 = document.getElementById("415");
+var y4 = document.getElementById("515");
+var y5 = document.getElementById("160");
+var y6 = document.getElementById("260");
+var y7 = document.getElementById("360");
+var y8 = document.getElementById("460");
+var y9 = document.getElementById("560");
+var vec = selectCourseinfo.query(x);
+//alert(vec.elementAt(0).getCourseName());
+for (var i = 0; i <vec.size() ; i++){
+
+var b = vec.elementAt(i).getTime();
+var c = b%1000;
+var d = 0;
+var e = 0;
+if(Math.floor(b/1000) !==0){
+d = (Math.floor(b/1000))%1000;
+if(Math.floor(b/1000000)!==0){
+e = (Math.floor(b/1000000))%1000;
+}
+}
+//alert(c);
+if(c !==0){
+if((c==112)||(c==113)||(c==134)||(c==135)){
+y0.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>"+"J"+Math.floor(vec.elementAt(i).getClassroom()/1000)+"-"+vec.elementAt(i).getClassroom()%1000+"<br/>";
+}
+if((c==212)||(c==213)||(c==234)||(c==235)){
+y1.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>"+"J"+Math.floor(vec.elementAt(i).getClassroom()/1000)+"-"+vec.elementAt(i).getClassroom()%1000+"<br/>";
+}
+if((c==312)||(c==313)||(c==334)||(c==335)){
+y2.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>"+"J"+Math.floor(vec.elementAt(i).getClassroom()/1000)+"-"+vec.elementAt(i).getClassroom()%1000+"<br/>";
+}
+if((c==412)||(c==413)||(c==434)||(c==435)){
+y3.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>"+"J"+Math.floor(vec.elementAt(i).getClassroom()/1000)+"-"+vec.elementAt(i).getClassroom()%1000+"<br/>";
+}
+if((c==512)||(c==513)||(c==534)||(c==535)){
+y4.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>"+"J"+Math.floor(vec.elementAt(i).getClassroom()/1000)+"-"+vec.elementAt(i).getClassroom()%1000+"<br/>";
+}
+if((c==167)||(c==168)||(c==189)||(c==180)){
+y5.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>"+"J"+Math.floor(vec.elementAt(i).getClassroom()/1000)+"-"+vec.elementAt(i).getClassroom()%1000+"<br/>";
+}
+if((c==267)||(c==268)||(c==289)||(c==280)){
+y6.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>"+"J"+Math.floor(vec.elementAt(i).getClassroom()/1000)+"-"+vec.elementAt(i).getClassroom()%1000+"<br/>";
+}
+if((c==367)||(c==368)||(c==389)||(c==380)){
+y7.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>"+"J"+Math.floor(vec.elementAt(i).getClassroom()/1000)+"-"+vec.elementAt(i).getClassroom()%1000+"<br/>";
+}
+if((c==467)||(c==468)||(c==489)||(c==480)){
+y8.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>"+"J"+Math.floor(vec.elementAt(i).getClassroom()/1000)+"-"+vec.elementAt(i).getClassroom()%1000+"<br/>";
+}
+if((c==567)||(c==568)||(c==589)||(c==580)){
+y9.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>"+"J"+Math.floor(vec.elementAt(i).getClassroom()/1000)+"-"+vec.elementAt(i).getClassroom()%1000+"<br/>";
+}
+}
+if(d !==0) {
+if ((d == 112) || (d == 113) || (d == 134) || (d == 135)) {
+y0.innerHTML += vec.elementAt(i).getCourseName() + "[" + Math.floor(c / 10) % 10 + "-" + c % 10 + "]" + "<br/>" + "J" + Math.floor(vec.elementAt(i).getClassroom() / 1000) + "-" + vec.elementAt(i).getClassroom() % 1000 + "<br/>";
+}
+if ((d == 212) || (d == 213) || (d == 234) || (d == 235)) {
+y1.innerHTML += vec.elementAt(i).getCourseName() + "[" + Math.floor(c / 10) % 10 + "-" + c % 10 + "]" + "<br/>" + "J" + Math.floor(vec.elementAt(i).getClassroom() / 1000) + "-" + vec.elementAt(i).getClassroom() % 1000 + "<br/>";
+}
+if ((d == 312) || (d == 313) || (d == 334) || (d == 335)) {
+y2.innerHTML += vec.elementAt(i).getCourseName() + "[" + Math.floor(c / 10) % 10 + "-" + c % 10 + "]" + "<br/>" + "J" + Math.floor(vec.elementAt(i).getClassroom() / 1000) + "-" + vec.elementAt(i).getClassroom() % 1000 + "<br/>";
+}
+if ((d == 412) || (d == 413) || (d == 434) || (d == 435)) {
+y3.innerHTML += vec.elementAt(i).getCourseName() + "[" + Math.floor(c / 10) % 10 + "-" + c % 10 + "]" + "<br/>" + "J" + Math.floor(vec.elementAt(i).getClassroom() / 1000) + "-" + vec.elementAt(i).getClassroom() % 1000 + "<br/>";
+}
+if ((d == 512) || (d == 513) || (d == 534) || (d == 535)) {
+y4.innerHTML += vec.elementAt(i).getCourseName() + "[" + Math.floor(c / 10) % 10 + "-" + c % 10 + "]" + "<br/>" + "J" + Math.floor(vec.elementAt(i).getClassroom() / 1000) + "-" + vec.elementAt(i).getClassroom() % 1000 + "<br/>";
+}
+if ((d == 167) || (d == 168) || (d == 189) || (d == 180)) {
+y5.innerHTML += vec.elementAt(i).getCourseName() + "[" + Math.floor(c / 10) % 10 + "-" + c % 10 + "]" + "<br/>" + "J" + Math.floor(vec.elementAt(i).getClassroom() / 1000) + "-" + vec.elementAt(i).getClassroom() % 1000 + "<br/>";
+}
+if ((d == 267) || (d == 268) || (d == 289) || (d == 280)) {
+y6.innerHTML += vec.elementAt(i).getCourseName() + "[" + Math.floor(c / 10) % 10 + "-" + c % 10 + "]" + "<br/>" + "J" + Math.floor(vec.elementAt(i).getClassroom() / 1000) + "-" + vec.elementAt(i).getClassroom() % 1000 + "<br/>";
+}
+if ((d == 367) || (d == 368) || (d == 389) || (d == 380)) {
+y7.innerHTML += vec.elementAt(i).getCourseName() + "[" + Math.floor(c / 10) % 10 + "-" + c % 10 + "]" + "<br/>" + "J" + Math.floor(vec.elementAt(i).getClassroom() / 1000) + "-" + vec.elementAt(i).getClassroom() % 1000 + "<br/>";
+}
+if ((d == 467) || (d == 468) || (d == 489) || (d == 480)) {
+y8.innerHTML += vec.elementAt(i).getCourseName() + "[" + Math.floor(c / 10) % 10 + "-" + c % 10 + "]" + "<br/>" + "J" + Math.floor(vec.elementAt(i).getClassroom() / 1000) + "-" + vec.elementAt(i).getClassroom() % 1000 + "<br/>";
+}
+if ((d == 567) || (d == 568) || (d == 589) || (d == 580)) {
+y9.innerHTML += vec.elementAt(i).getCourseName() + "[" + Math.floor(c / 10) % 10 + "-" + c % 10 + "]" + "<br/>" + "J" + Math.floor(vec.elementAt(i).getClassroom() / 1000) + "-" + vec.elementAt(i).getClassroom() % 1000 + "<br/>";
+}
+}
+if(e !==0){
+if((e==112)||(e==113)||(e==134)||(e==135)){
+y0.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>"+"J"+Math.floor(vec.elementAt(i).getClassroom()/1000)+"-"+vec.elementAt(i).getClassroom()%1000+"<br/>";
+}
+}
+if((e==212)||(e==213)||(e==234)||(e==235)){
+y1.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>"+"J"+Math.floor(vec.elementAt(i).getClassroom()/1000)+"-"+vec.elementAt(i).getClassroom()%1000+"<br/>";
+}
+if((e==312)||(e==313)||(e==334)||(e==335)){
+y2.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>"+"J"+Math.floor(vec.elementAt(i).getClassroom()/1000)+"-"+vec.elementAt(i).getClassroom()%1000+"<br/>";
+}
+if((e==412)||(e==413)||(e==434)||(e==435)){
+y3.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>"+"J"+Math.floor(vec.elementAt(i).getClassroom()/1000)+"-"+vec.elementAt(i).getClassroom()%1000+"<br/>";
+}
+if((e==512)||(e==513)||(e==534)||(e==535)){
+y4.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>"+"J"+Math.floor(vec.elementAt(i).getClassroom()/1000)+"-"+vec.elementAt(i).getClassroom()%1000+"<br/>";
+}
+if((e==167)||(e==168)||(e==189)||(e==180)){
+y5.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>"+"J"+Math.floor(vec.elementAt(i).getClassroom()/1000)+"-"+vec.elementAt(i).getClassroom()%1000+"<br/>";
+}
+if((e==267)||(e==268)||(e==289)||(e==280)){
+y6.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>"+"J"+Math.floor(vec.elementAt(i).getClassroom()/1000)+"-"+vec.elementAt(i).getClassroom()%1000+"<br/>";
+}
+if((e==367)||(e==368)||(e==389)||(e==380)){
+y7.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>"+"J"+Math.floor(vec.elementAt(i).getClassroom()/1000)+"-"+vec.elementAt(i).getClassroom()%1000+"<br/>";
+}
+if((e==467)||(e==468)||(e==489)||(e==480)){
+y8.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>"+"J"+Math.floor(vec.elementAt(i).getClassroom()/1000)+"-"+vec.elementAt(i).getClassroom()%1000+"<br/>";
+}
+if((e==567)||(e==568)||(e==589)||(e==580)){
+y9.innerHTML +=  vec.elementAt(i).getCourseName() + "["+ Math.floor(c/10)%10+"-"+c%10+"]"+"<br/>"+"J"+Math.floor(vec.elementAt(i).getClassroom()/1000)+"-"+vec.elementAt(i).getClassroom()%1000+"<br/>";
+}
+}
+
+}
+function Back()
+{
+window.location.href="bar.html";
+}
+
+
+
+
+</script>
+</body>
+
+</html>
