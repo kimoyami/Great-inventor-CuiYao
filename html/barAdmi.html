@@ -24,6 +24,7 @@
                         <li><a class="tab" id="Bank" href="javascript:i">银行</a> </li>
                         <li><a class="tab" id="Book" href="javascript:i">图书馆</a> </li>
                         <li><a class="tab" id="Chat" href="javascript:i">聊天</a> </li>    
+                        <li><a class="tab" id="EduAdmin" href="javascript:i">教务</a></li>
                     </ul>
                 </div>
                 <a href="javascript:;" class="headpng"><img class="png" id = "head" src="?" alt="" style="cursor:hand" onclick="headpng()"></a>
@@ -32,6 +33,34 @@
             <div class="content">  
                 <div>
                     <div id = "textcontrol">
+                            <h1 style="text-align: center">信息修改</h1>
+                            <form action="" method="get">
+                                <p><label class="setfont">Name:  &#160;    </label><input class="textInput" id="uname"  type="text" placeholder="请输入姓名" style="width: 89%" readonly/></p>
+                                <p><label class="setfont">ID:    &#160;    </label><input class="textInput" id="uid" type="text"  placeholder="请输入一卡通号" style="width: 93%" readonly/></p>
+                                <p><label class="setfont">Birthday:&#160;  </label><input class="textInput" id="birth" name="user_birth" type="date"  style="width: 85%" /></p>
+                                <p><label class="setfont">Age:     &#160;  </label><input class="textInput" id="age" name ="age" type="text" placeholder="请输入年龄" style="width: 91%" readonly/></p>
+                                <p><label class="setfont">BirthPlace:&#160;</label><input class="textInput" id="birthplace" name="birthplace" type="text" placeholder="请输入出生地"style="width: 83%"/></p>
+                                <p><label class="setfont">Dormitory:&#160; </label><input class="textInput" id="dormitory" type="text" placeholder="请输入宿舍"style="width: 83%"></p>
+                                <p><label class="setfont">Academy:   &#160;</label><input class="textInput" id="Academy" name ="Academy" type="text" placeholder="请输入学院"style="width: 84%"/></p>
+                                <p><label class="setfont">Introduction: &#160;  </label><input id="Introduction" name ="Introduction" type="text" placeholder="请输入个人介绍"style="width: 80%"/></p>
+                                <div>
+                                    <label class="setfont">Sex</label>
+                                    <select name ="sex" id ="sex" name="sex" style="width: 40%" disabled>
+                                        <option value="女">女</option>
+                                        <option value="男">男</option>
+                                    </select>
+                                <label class="setfont">Identity</label>
+                                <select  class ="settext" name = "identity" id ="identity" style="width: 40%"disabled>
+                                    <option value="teacher">老师</option>
+                                    <option value = "student">学生</option>
+                                </select>
+                                <p></p>
+                                <div style="text-align: center">
+                                    <input id="load" value="完成" type="button"  onsubmit=" return check"/>
+                                </div>
+                            </form>
+
+
 
 
                     </div>
@@ -41,46 +70,53 @@
                 </div>
                 
                 <div id="shop">
-                        <h1 style="font-family: Lobster">SHOP</h1>
                         <input type="text" id="myInput" onkeyup="ShopmyFunction()" placeholder="搜索...">
-                        <table id="myTable" >
-                            <tr>
-                                <th style="width:16.5%;">超市</th>
-                                <th style="width: 16.5%">商品名称</th>
-                                <th style="width: 16.5%"> 价格</th>
-                                <th style="width: 16.5%"> 数量</th>
-                                <th style="width: 16.5%">购买数量</th>
-                                <th style="width: 16.5%">操作</th>
-                        
-                            </tr>
+                        <div style="width: 100%;height: 50%;overflow: scroll;">
+                        <table id="myTable" class="table table-bordered" >
+                                <tr>
+                                        <th >超市</th>
+                                        <th >商品名称</th>
+                                        <th > 价格</th>
+                                        <th> 数量</th>
+                                        <th >购买数量</th>
+                                        <th>详细信息</th>
+                                        <th >操作</th>
+                                
+                                    </tr>
                         
                         </table>
+                    </div>
                         <div><button id="basket" class="buy">查看购物车</button>
                             <button id="add" class="buy">添加商品</button>
                             <button id ="delete" class="buy">删除商品</button>
                             <button class="buy"><a href="javascript:location.reload();">刷新</a></button>
                         </div>
+                        
                         <div class="sy-alert sy-alert-model animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="confirm" sy-mask="true" id="alert4">
-                            <div class="sy-title">购物车</div>
-                            <div class="sy-content">
-                                <table id="myForm">
-                                    <tr>
-                                        <th style="width: 20%">超市</th>
-                                        <th style="width: 20%">商品名</th>
-                                        <th style="width: 20%">价格</th>
-                                        <th style="width: 20%">数量</th>
-                                        <th style="width: 20%">操作</th>
-                                    </tr>
-                        
-                        
-                                    
-                                </table>
+                                <div class="sy-title">购物车</div>
+                                <div class="sy-content">
+                                    <table id="myForm">
+                                        <tr>
+                                            <th style="width: 20%">超市</th>
+                                            <th style="width: 20%">商品名</th>
+                                            <th style="width: 20%">价格</th>
+                                            <th style="width: 20%">数量</th>
+                                            <th style="width: 20%">操作</th>
+                                        </tr>
+                                        <tbody id="basketbody">
+                            
+                                        </tbody>
+                            
+                                        
+                                    </table>
+                                </div>
+                                <div class="sy-btn">
+                                    <button onClick="syalert.syhide('alert4')">取消</button>
+                                    <button id="cancel">清空</button>
+                                    <button  id="Buy">购买</button>
+                                </div>
                             </div>
-                            <div class="sy-btn">
-                                <button onClick="syalert.syhide('alert4')">取消</button>
-                                <button  id="Buy">购买</button>
-                            </div>
-                        </div>
+
                         <div class="sy-alert sy-alert-model animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="confirm" sy-mask="true" id="alert5">
                             <div class="sy-title">删除商品</div>
                             <div class="sy-content">
@@ -100,25 +136,25 @@
                             </div>
                         </div>
                         <div class="sy-alert sy-alert-model animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="confirm" sy-mask="true" id="alert7">
-                            <div class="sy-title">用户注册</div>
-                            <div class="sy-content">
-                                <div class="form">
-                                    <p class="input-item"><input type="text" id="addID" placeholder="请输入ID号" /></p>
-                                    <p class="input-item"><input type="text" id="addnumber" placeholder="请输入数量" oninput = "value=value.replace(/[^\d]/g,'')" /></p>
-                                    <p class="input-item"><input type="text" id="addname" placeholder="请输入商品名" /></p>
-                                    <p class="input-item"><input type="text" id="addprice" placeholder="请输入价格" oninput = "value=value.replace(/[^\d]/g,'')" /></p>
-                                    <p class="input-item"><input type="text"  id="addurl" placeholder="请输入url" /></p>
-                                    <select id="shopname0" style="width: 100%;padding: 5px">
-                                        <option>天平</option>
-                                        <option>中超</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="sy-btn">
-                                <button onClick="syalert.syhide('alert7')">取消</button>
-                                <button id="addup">确定</button>
-                            </div>
+                        <div class="sy-title">添加商品</div>
+                        <div class="sy-content">
+                        <div class="form">
+                        <p class="input-item"><input type="text" id="addID" placeholder="请输入ID号" /></p>
+                        <p class="input-item"><input type="text" id="addnumber" placeholder="请输入数量" oninput = "value=value.replace(/[^\d]/g,'')" /></p>
+                        <p class="input-item"><input type="text" id="addname" placeholder="请输入商品名" /></p>
+                        <p class="input-item"><input type="text" id="addprice" placeholder="请输入价格" oninput = "value=value.replace(/[^\d]/g,'')" /></p>
+                        <p class="input-item"><input type="text"  id="addurl" placeholder="请输入url" /></p>
+                                <select id="shopname0" style="width: 100%;padding: 5px">
+                            <option>天平</option>
+                             <option>中超</option>
+                                </select>
                         </div>
+                </div>
+    <div class="sy-btn">
+        <button onClick="syalert.syhide('alert7')">取消</button>
+        <button id="addup">确定</button>
+    </div>
+</div>
                         <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert3">
                             <div class="sy-content">不能为负数</div>
                         </div>
@@ -138,99 +174,169 @@
                             <div class="sy-content">添加成功！</div>
                         </div>
 
-                </div>
+                        <div class="shopcard">
+                                <div class="contain">
+                                        <div class="imgBx">
+                                            <img src="image/下载.png" alt="" />
+                                        </div>
+                                        <div class="details">
+                                                <div class="shopcard-clear">
+                                                        <button><i class="material-icons">clear</i></button>
+                                                    </div>
+                                            <div class="context">
+                                            
+                                                    
+                                                <h2>Nike Air Max 270</h2>
+                                                <p>
+                                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo natus ipsum praesentium explicabo
+                                                    nesciunt consequatur ea error similique cum non doloribus quis libero quam rem, cumque
+                                                    aspernatur provident quibusdam deleniti?Lorem ipsum dolor, sit amet consectetur adipisicing
+                                                    elit. Nihil, vero totam maiores error excepturi optio delectus sequi aspernatur tenetur tempora
+                                                    amet harum at ullam dolore quas consequuntur magni laboriosam laudantium?Lorem ipsum dolor sit
+                                                    itaque, nisi rerum accusantium quae officia nesciunt vero ex libero veniam quod corporis atque.
+                                                </p>
+                                                <h3>$150.99</h3>
+                                               
+                                            </div>
+                                        </div>
+                                    </div>
+                        </div>
 
+                </div>
+                <div id="bank">
+                        <div id="function_button">
+                            <input id="search" class="bankbutton" value="余额" type="button"/>
+                            <input id="top_up" class="bankbutton" value="充值" type="button"/>
+                            <input id="transfer" class="bankbutton" value="转账" type="button"/>
+                        </div>
+                        <div id="money_input">
+                            <div id="remainder">
+                                <p style="text-align: center">一卡通余额：
+                                <input type="text" id="Ecardbalance" value="0.0" readonly></p>
+                                <p style="text-align: center">银行卡余额：
+                                <input type="text" id="balance" value="0.0"readonly></p>
+                                <input id="search" class="checkbutton" value="余额" type="button"onclick="searchFct()"/>
+                            </div>
+                            <div id="transferB1">
+                                <p style="text-align: center">转账金额：
+                                <input type="text" id="topupAmount" placeholder="请输入转账金额" /></p>
+                                <p style="text-align: center">交易密码：
+                                <input type="password" id="topuppassword" placeholder="请输入交易密码" /></p>
+                                <p style="text-align: center">
+                                <input type="radio" name="toecard" id="Ecard" value="2" checked="checked"/>一卡通充值
+                                <input type="radio" name="toecard" id="Card" value="0" />银行卡充值</br>
+                                <input id="search" class="checkbutton" value="充值" type="button"onclick="topupFct()"/>
+                                
+                                </p>
+                            </div>
+                            <div id="transferB2">
+                                <p style="text-align: center">转账金额：
+                                    <input type="text" id="transferAmount" value="" placeholder="请输入转账金额" /></p>
+                                <p style="text-align: center">转账对象：
+                                    <input type="text" id="transferTo" value="" placeholder="请输入转账对象" /></p>
+                                <p style="text-align: center">交易密码：
+                                    <input type="password" id="transferPassword" name="transferTo" placeholder="请输入交易密码" /></p>
+                                    <input id="search" class="checkbutton" value="转账" type="button"onclick="transferFct()"/>
+                            </div>
+                        </div>
+             </div>
                 <div id="book">
-                        <nav class="navbar navbar-inverse navbar-fixed-top">
-                                <a href="">BOOK</a>
-                            </nav>
-                                <input type="text" id="myInput" onkeyup="BookmyFunction()" placeholder="搜索...">
-                            
-                                    <table class="responsive-table table" id="myTable" style="font-weight:bold">
-                            
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>书名</th>
-                                            <th>作者</th>
-                                            <th>出版社</th>
-                                            <th>类型</th>
-                                            <th> 状态</th>
-                                            <th>操作</th>
-                                        </tr>
-                            
-                            
-                                    </table>
-                            <div><button class="myBtn" id="addbook">添加图书</button>
-                                <button class="myBtn" id="deletebook">删除图书</button>
-                                <button class="myBtn" ><a href="javascript:location.reload();">刷新</a></button>
-                            </div>
-                            <ul class="accordion-menu" style="padding: 0">
-                                <li>
-                                    <div class="dropdownlink"><i class="fa fa-road" aria-hidden="true"></i> 我的书库
-                                        <i class="fa fa-chevron-down" aria-hidden="true"></i>
-                                    </div>
-                                    <ul class="submenuItems">
-                                        <li><a >图书ID:<label id="book1" ></label><button class="myBtn" id="btn1">还书</button></a></li>
-                                        <li><a >图书ID:<label id="book2"></label><button class="myBtn" id="btn2">还书</button></a></li>
-                                        <li><a >图书ID:<label id ="book3"></label><button class="myBtn" id="btn3">还书</button></a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                            <div class="sy-alert sy-alert-model animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="confirm" sy-mask="true" id="alert7">
-                                <div class="sy-title">图书删除</div>
-                                <div class="sy-content">
-                                    <div class="form">
-                                        <p class="input-item"><input type="text" id="bookid" placeholder="请输入图书编号" /></p>
-                                    </div>
-                                </div>
-                                <div class="sy-btn">
-                                    <button onClick="syalert.syhide('alert7')">取消</button>
-                                    <button id="delete">确定</button>
-                                </div>
-                            </div>
-                            <div class="sy-alert sy-alert-model animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="confirm" sy-mask="true" id="alert8">
-                                <div class="sy-title">图书添加</div>
-                                <div class="sy-content">
-                                    <div class="form">
-                                        <p class="input-item"><input type="text" id ="idx"placeholder="请输入图书编号" /></p>
-                                        <p class="input-item"><input type="text" id="bookname" placeholder="请输入书名" /></p>
-                                        <p class="input-item"><input type="text"  id="author" placeholder="请输入作者" /></p>
-                                        <p class="input-item"><input type="text"  id="pub" placeholder="请输入出版社" /></p>
-                                        <p class="input-item"><input type="text"  id="category" placeholder="请输入种类" /></p>
-                                        <p class="input-item">
-                                            <select id="state" style="width: 100%;padding: 5px">
-                                                <option>已借</option>
-                                                <option>未借</option>
-                                            </select>
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="sy-btn">
-                                    <button onClick="syalert.syhide('alert8')">取消</button>
-                                    <button id="add">确定</button>
-                                </div>
-                            </div>
-                            <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert0">
-                                <div class="sy-content">图书已借出！</div>
-                            </div>
-                            <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert1">
-                                <div class="sy-content">你已经借了三本书了！</div>
-                            </div>
-                            <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert2">
-                                <div class="sy-content">借书成功！</div>
-                            </div>
-                            <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert3">
-                                <div class="sy-content">还书成功！</div>
-                            </div>
-                            <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert4">
-                                <div class="sy-content">还书失败！</div>
-                            </div>
-                                <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert5">
-                                    <div class="sy-content">添加成功！</div>
-                            </div>
-                                <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert6">
-                                    <div class="sy-content">删除成功！</div>
-                                </div>    
+                       
+    <input type="text" id="myInput" onkeyup="BookmyFunction()" placeholder="搜索...">
+<div style="width: 100%;height: 50%;overflow: scroll;">
+        <table class="table-bordered table" id="myTable" style="font-weight:bold">
+
+            <tr>
+                <th>ID</th>
+                <th>书名</th>
+                <th>作者</th>
+                <th>出版社</th>
+                <th>类型</th>
+                <th> 状态</th>
+                <th>借出时间</th>
+                <th>操作</th>
+            </tr>
+
+
+        </table>
+</div>
+<div>
+    <button class="myBtn" id="bookstore">我的书库</button>
+    <button class="myBtn" id="addbook">添加图书</button>
+    <button class="myBtn" id="deletebook">删除图书</button>
+    <button class="myBtn" ><a href="javascript:location.reload();">刷新</a></button>
+</div>
+
+<div class="sy-alert sy-alert-model animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="confirm" sy-mask="true" id="alert7">
+    <div class="sy-title">图书删除</div>
+    <div class="sy-content">
+        <div class="form">
+            <p class="input-item"><input type="text" id="bookid" placeholder="请输入图书编号" /></p>
+        </div>
+    </div>
+    <div class="sy-btn">
+        <button onClick="syalert.syhide('alert7')">取消</button>
+        <button id="delete">确定</button>
+    </div>
+</div>
+<div class="sy-alert sy-alert-model animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="confirm" sy-mask="true" id="alert8">
+    <div class="sy-title">图书添加</div>
+    <div class="sy-content">
+        <div class="form">
+            <p class="input-item"><input type="text" id ="idx"placeholder="请输入图书编号" /></p>
+            <p class="input-item"><input type="text" id="bookname" placeholder="请输入书名" /></p>
+            <p class="input-item"><input type="text"  id="author" placeholder="请输入作者" /></p>
+            <p class="input-item"><input type="text"  id="pub" placeholder="请输入出版社" /></p>
+            <p class="input-item"><input type="text"  id="category" placeholder="请输入种类" /></p>
+            <p class="input-item">
+                <select id="state" style="width: 100%;padding: 5px">
+                    <option>已借</option>
+                    <option>未借</option>
+                </select>
+            </p>
+        </div>
+    </div>
+    <div class="sy-btn">
+        <button onClick="syalert.syhide('alert8')">取消</button>
+        <button id="add">确定</button>
+    </div>
+</div>
+<div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert0">
+    <div class="sy-content">图书已借出！</div>
+</div>
+<div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert1">
+    <div class="sy-content">你已经借了三本书了！</div>
+</div>
+<div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert2">
+    <div class="sy-content">借书成功！</div>
+</div>
+<div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert3">
+    <div class="sy-content">还书成功！</div>
+</div>
+<div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert4">
+    <div class="sy-content">还书失败！</div>
+</div>
+    <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert5">
+        <div class="sy-content">添加成功！</div>
+</div>
+    <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert6">
+        <div class="sy-content">删除成功！</div>
+    </div>
+<div class="sy-alert sy-alert-model animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="confirm" sy-mask="true" id="bookalert">
+    <div class="sy-title">我的书库</div>
+    <div class="sy-content">
+        <div class="form">
+            <p class="input-item">图书ID:<input type="text" id="book1" placeholder="我的图书" readonly /><button class="myBtn" id="btn1">还书</button></p>
+            <p class="input-item">图书ID:<input type="text" id="book2" placeholder="我的图书" readonly/><button class="myBtn" id="btn2">还书</button></p>
+            <p class="input-item">图书ID:<input type="text" id ="book3" placeholder="我的图书" readonly/><button class="myBtn" id="btn3">还书</button></p>
+
+        </div>
+    </div>
+    <div class="sy-btn">
+        <button onClick="syalert.syhide('bookalert')">取消</button>
+        <button onClick="syalert.syhide('bookalert')">确定</button>
+    </div>
+</div>
                 
                 </div>
                 <div>
@@ -239,9 +345,7 @@
                                         <div class="row">
                                           <nav class="menu">
                                             <ul class="items">
-                                              <li class="item">
-                                                <i class="fa fa-user" aria-hidden="true"></i>
-                                              </li>
+                                              
                                               <li class="item item-active">
                                                 <i class="fa fa-commenting" aria-hidden="true"></i>
                                               </li>
@@ -256,85 +360,18 @@
                                             </div>
                                           </div>
                                           <div class="discussion-person">
-                                              <div class="discussion message-active">
-                                                <div class="photo" style="background-image: url(https://image.noelshack.com/fichiers/2017/38/2/1505775062-1505606859-portrait-1961529-960-720.jpg);">
-                                                  <div class="online"></div>
-                                                </div>
-                                                <div class="desc-contact">
-                                                  <p class="name">Megan Leib</p>
-                                                  <p class="message">213170228</p>
-                                                </div>
-                                                <div class="timer">12 sec</div>
-                                              </div>
-                                    
-                                             <div class="discussion">
-                                               <div class="photo" style="background-image: url(http://www.boutique-uns.com/uns/185-home_01grid/polo-femme.jpg);">
-                                               </div>
-                                               <div class="desc-contact">
-                                                 <p class="name">Elsie Amador</p>
-                                                 <p class="message">What the f**k is going on ?</p>
-                                                </div>
-                                                <div class="timer">1 day</div>
-                                              </div>
-                                    
+                                             
                                           </div>
                                           </section>
                                     
                                           <section class="chat">
                                             <div class="header-chat">
                                               <i class="icon fa fa-user-o" aria-hidden="true"></i>
-                                              <p class="name">Megan Leib</p>
+                                              <p class="name"></p>
                                               <i class="icon clickable fa fa-ellipsis-h right" aria-hidden="true"></i>
                                             </div>
-                                            <div class="messages-chat ">
-                                              <div class="message">
-                                                <div class="photo" style="background-image: url(https://image.noelshack.com/fichiers/2017/38/2/1505775062-1505606859-portrait-1961529-960-720.jpg);">
-                                                  <div class="online"></div>
-                                                </div>
-                                                <p class="text"> Hi, how are you ? </p>
-                                              </div>
-                                              <div class="message text-only">
-                                                <p class="text"> What are you doing tonight ? Want to go take a drink ?</p>
-                                              </div>
-                                              <p class="time"> 14h58</p>
-                                    
-                                              <div class="message text-only">
-                                                <div class="response">
-                                                  <p class="text"> Hey Megan ! It's been a while 😃</p>
-                                                </div>
-                                              </div>
-                                    
-                                              <div class="message text-only">
-                                                <div class="response">
-                                                  <p class="text"> When can we meet ?</p>
-                                                </div>
-                                              </div>
-                                    
-                                              <p class="response-time time"> 15h04</p>
-                                    
-                                              <div class="message">
-                                                <div class="photo" style="background-image: url(https://image.noelshack.com/fichiers/2017/38/2/1505775062-1505606859-portrait-1961529-960-720.jpg);">
-                                                  <div class="online"></div>
-                                                </div>
-                                                <p class="text"> 9 pm at the bar if possible 😳</p>
-                                              </div>
-                                    
-                                              <p class="time"> 15h09</p>
-                                              <div class="message text-only">
-                                                <div class="response">
-                                                  <p class="text"> Hey Megan ! It's been a while 😃</p>
-                                                </div>
-                                              </div>
-                                              <div class="message text-only">
-                                                <div class="response">
-                                                  <p class="text"> Hey Megan ! It's been a while 😃</p>
-                                                </div>
-                                              </div>
-                                              <div class="message text-only">
-                                                <div class="response">
-                                                  <p class="text"> Hey Megan ! It's been a while 😃</p>
-                                                </div>
-                                              </div>
+                                            <div class="messages-chat">
+            
                                             </div>
                                             <div class="footer-chat">
                                               <i class="icon fa fa-smile-o clickable" style="font-size:25pt;" aria-hidden="true"></i>
@@ -388,6 +425,8 @@
     </body>
 </html>
 <script>
+   var last;
+    var myid;
    
     //document.getElementById('head').src = head.query(client.eCardNumber);
     function getPath(obj) {
@@ -431,50 +470,68 @@
         if($(this).attr('id')=="Message")
         {
             
+            $('#textcontrol').addClass('seen');
+            
+    var obj = JSON.parse(personinfo.query(client.eCardNumber));
+    $("#uid").val(obj['eCardNumber']);
+    $("#uname").val(obj['name']);
+    $("#age").val(obj['age']);
+    $("#Academy").val(obj['academy']);
+    $("#birthplace").val(obj['birthplace']);
+    $("#sex").val(obj['gender']);
+    $("#identity").val(obj['state']);
+    $("#dormitory").val(obj['dormitory']);
+    $("#birth").val(obj['birthday']);
         }
 
         if($(this).attr('id')=="Shop")
         {
             $('#shop').addClass('seen');
             var s =0;
-             var res = goodinfo.getAll();
-             $("#shop #myTable").empty();
+            var res = goodinfo.getAll();
+            $("#shop #myTable").empty();
+            $("#shop #myTable").append("<tr><th >超市</th><th >商品名称</th> <th > 价格</th><th> 数量</th> <th >购买数量</th><th>详细信息</th><th >操作</th></tr>");
             for(var i=0;i<res.size();i++){
-            $("#shop #myTable").append("<tr><td>"+(goodinfo.getAll().elementAt(i).getTag())+"</td><td>"+(goodinfo.getAll().elementAt(i).getName())+"</td><td>"+(goodinfo.getAll().elementAt(i).getPrice())+"</td><td id='td3'>"+(goodinfo.getAll().elementAt(i).getNumber())+"</td><td>"+"<input id='numberInput' placeholder='请输入购买数量'oninput = \"value=value.replace(/[^\\d]/g,'')\" />"+"</td><td>"+"<button id='buy'class='buy'>加入购物车</button>"+"</td></tr>")}
+            $("#shop #myTable").append("<tr><td>"+(goodinfo.getAll().elementAt(i).getTag())+"</td><td>"+(goodinfo.getAll().elementAt(i).getName())+"</td><td>"+(goodinfo.getAll().elementAt(i).getPrice())+"</td><td id='td3'>"+(goodinfo.getAll().elementAt(i).getNumber())+"</td><td>"+"<input id='numberInput' placeholder='请输入购买数量'oninput = \"value=value.replace(/[^\\d]/g,'')\" />"+"</td><td><button id='msg' class='buy'>详细信息</button>"+"</td><td style='display: none'>"+res.elementAt(i).getPicturePath()+"</td><td>"+"<button id='buy'class='buy'>加入购物车</button>"+"</td></tr>")}
         }
 
         if($(this).attr('id')=="Bank")
         {
             
-            var res =bookinfo.getAll();
-            var record=bookinfo.queryrecord(client.eCardNumber);
+            $('#bank').addClass('seen');
         }
+
 
         if($(this).attr('id')=="Book")
         {
             $('#book').addClass('seen');
-           var res =bookinfo.getAll();
+           
+            var res =bookinfo.getAll();
             var record=bookinfo.queryrecord(client.eCardNumber);
-            for(var j=0;j<record.size();j++){
-            if($("#book1").html()==""){
-            $("#book1").html(record.elementAt(j).getBookID());
-            }else if($("#book2").html()==""){
-            $("#book2").html(record.elementAt(j).getBookID());
-            }else if($("#book3").html()==""){
-            $("#book3").html(record.elementAt(j).getBookID());
+            for(var j=0;j<record.size();j++){  
+              if($("#book1").val()==""){
+                    $("#book1").val(record.elementAt(j).getBookID());
+               }else if($("#book2").val()==""){
+                  $("#book2").val(record.elementAt(j).getBookID());
+              }else if($("#book3").val()==""){
+                 $("#book3").val(record.elementAt(j).getBookID());
 
-                }
+                 }
 
-                    }       
-             for(var i=0;i<res.size();i++){
-                    $("#shop #myTable").append("<tr><td>"+(res.elementAt(i).getBookID())+"</td><td>"+(res.elementAt(i).getBookName())+"</td><td>"+(res.elementAt(i).getBookEdit())+"</td><td>"+(res.elementAt(i).getBOOK_PUB())+"</td><td>"+(res.elementAt(i).getCategory())+"</td><td>"+(res.elementAt(i).getState())+"</td><td><button id='borrow' class='myBtn'>借书</button></td></tr>")}
-        }
+            }
+
+            
+             $("#book #myTable").empty();
+
+             $("#book #myTable").append("<tr> <th>ID</th><th>书名</th><th>作者</th><th>出版社</th><th>类型</th><th> 状态</th><th>借出时间</th><th>操作</th></tr>");
+            for(var i=0;i<res.size();i++){
+            $("#book #myTable").append("<tr><td>"+(res.elementAt(i).getBookID())+"</td><td>"+(res.elementAt(i).getBookName())+"</td><td >"+(res.elementAt(i).getBookEdit())+"</td><td >"+(res.elementAt(i).getBOOK_PUB())+"</td><td >"+(res.elementAt(i).getCategory())+"</td><td >"+(res.elementAt(i).getState())+"</td><td >"+res.elementAt(i).getTime()+"</td><td>"+"<button id='borrow' class='myBtn'>借书</button></td></tr>")}
+   }
 
 
         
         if($(this).attr('id')=="Chat")
         {
-            
             $('#chat').addClass('seen');
             
             //滚轮到底部
@@ -482,40 +539,78 @@
             $(".messages-chat").scrollTop(scrollHeight);
 
 
-             var last = client.getDate();
+             last= client.getDate();
              last.setYear(-100);
-             var id = -1000;
+             myid= -1000;
         }
 
 
-        
-     
-
-
-   $(document).on("click",'#buy',function () {
-
-       var count = $(this).parents("tr").find("td").eq(3).text();
-       var  number = $(this).parents("tr").find("input").val();
-       var name =$(this).parents("tr").find("td").eq(1).text();
-       var tag =$(this).parents("tr").find("td").eq(0).text();
-       var price =$(this).parents("tr").find("td").eq(2).text();
-
-       var newcount = count -number;
-       if(number < 0){
-           syalert.syopen("alert3");
-       }else if(newcount < 0){
-           syalert.syopen("alert3");
-
-       }else {
-           syalert.syopen("alert2");
-       $(this).parents("tr").find("td").eq(3).html(newcount);
-
-           $("#shop #myForm").append("<tr><td>"+tag+"</td><td>"+name+"</td><td>"+price+"</td><td>"+number+"</td><td>"+"<button id='delete' class='buy'>删除</button>"+"</td></tr>");
-       }
-      });
-    $(document).on("click",'#delete',function () {
-    $(this).parents("tr").remove();
     })
+     
+    $(document).ready(function () {
+    $("#load").click(function () {
+         if($("#birth").val()==""){
+              check = false;
+            alert("生日不能为空");
+
+        }else if($("#birthplace").val()==""){
+              check = false;
+            alert("请输入出生地");
+          }else if($("#dormitory").val()==""){
+              check = false;
+            alert("请输入宿舍");
+          }
+          else if($("#Academy").val()==""){
+              check = false;
+            alert("请输入学院");
+
+        } else{
+             check = true;
+			  alert("你的信息已成功更改！");
+              let t = $("#birth").val();
+              x = personinfo.query(client.eCardNumber);
+			  let y = JSON.parse(x);
+              y['birthday'] = t;
+              y['birthplace'] = $("#birthplace").val();
+              y['dormitory'] = $("#dormitory").val();
+              y['gender'] = $("#sex").val();
+              y['academy'] = $("#Academy").val()
+              y['state'] = $("#identity").val();
+              x = JSON.stringify(y);
+              personinfo.update(x);
+          }
+    window.location.href = '../html/bar.html';
+    })
+})
+
+
+
+        $(document).on("click",'#buy',function () {
+
+var count = $(this).parents("tr").find("td").eq(3).text();
+var  number = $(this).parents("tr").find("input").val();
+var name =$(this).parents("tr").find("td").eq(1).text();
+var tag =$(this).parents("tr").find("td").eq(0).text();
+var price =$(this).parents("tr").find("td").eq(2).text();
+
+var newcount = count -number;
+if(number < 0){
+    syalert.syopen("alert3");
+}else if(newcount < 0){
+    syalert.syopen("alert3");
+
+}else {
+    syalert.syopen("alert2");
+$(this).parents("tr").find("td").eq(3).html(newcount);
+
+    $("#basketbody").append("<tr><td>"+tag+"</td><td>"+name+"</td><td>"+price+"</td><td>"+number+"</td><td>"+"<button id='delete' class='buy'>删除</button>"+"</td></tr>");
+}
+});
+   
+$(document).on("click",'#delete',function () {
+        $(this).parents("tr").remove();
+    })
+
 
     function ShopmyFunction() {
         // 声明变量
@@ -537,6 +632,18 @@
             }
         }
     }
+
+
+    $(document).on("click",'#msg',function () {
+        
+        if(!$(".shopcard").hasClass("on")){
+            $(".shopcard").addClass("on");
+        }
+
+        $(".shopcard .context h2").text($(this).parents("tr").find("td").eq(1).text());
+        $(".shopcard .context h3").text("￥"+$(this).parents("tr").find("td").eq(2).text());
+    })
+
 
 $("#basket").click(function () {
     syalert.syopen("alert4")
@@ -586,33 +693,161 @@ $("#basket").click(function () {
         }
         var h = parseInt(number);
         goodinfo.update(name,tag,h);
-        goodinfo.consumption("213170001",price*number);
+        goodinfo.consumption(client.eCardNumber,price*number);
 
     }
     syalert.syhide("alert4");
     syalert.syopen("alert1");
     })
 
+    $("#cancel").click(function () {
+        $("#basketbody").empty();
+})
 
+$(".shopcard-clear").on("click",".material-icons",function(event){
+        $(".shopcard").removeClass("on");
+
+    event.stopPropagation();
     })
+    
+    $('.bankbutton').on('click',function(){
+        var focused = $(document).find('.clear');
+        focused.each(function(){
+            if($(this).hasClass('clear'))
+                $(this).removeClass('clear');
+        })
+
+        if($(this).attr("id")=="search"){
+            $("#remainder").addClass("clear");
+        }
+        if($(this).attr("id")=="top_up"){
+            $("#transferB1").addClass("clear");
+        }
+        if($(this).attr("id")=="transfer"){
+            $("#transferB2").addClass("clear");
+        }
+    })
+
+
+
+    function transferFct() {
+	var y = bankinfo.query(client.eCardNumber);
+	var a = JSON.parse(y);
+	var pwd = $("#transferPassword").val();
+	var ac = parseInt($("#transferAmount").val());
+	var to = $("#transferTo").val();
+
+	if(ac==""|| isNaN(ac) || ac<0){
+		alert("请输入正确的金额数目！");
+	}
+	else{
+	    if(to == a['id']){
+	        alert("转账对象不能为自己！");
+	    }
+	    else {
+            if (pwd == a['password']) {
+                if (ac <= a['balance']) {
+                    a['transferAmount'] = ac;
+                    a['transferTo'] = to;
+
+                    bankinfo.transfer(client.eCardNumber,to,ac);
+                    alert("转账成功！");
+                } else {
+                    alert("银行卡余额不足！");
+                }
+            } else {
+                alert("密码错误！");
+            }
+        }
+	}
+    }
+
+function topupFct(){
+	var y = bankinfo.query(client.eCardNumber);
+	var a = JSON.parse(y);
+	var pwd = $("#topuppassword").val();
+	var ac = parseInt($("#topupAmount").val());
+    var m=$("input[name='toecard']:checked").val();
+    
+	if (ac==""|| isNaN(ac) || ac<0){
+		alert("请输入正确的金额数目！");
+	}
+	else {
+		if(pwd == a['password']){
+            if (m == 2) {
+                if (ac <= a['balance']) {
+                    alert("123");
+                    bankinfo.transfToEcard(client.eCardNumber, ac);
+                    alert("充值成功！");
+                }
+                else {
+                    alert("银行卡余额不足！");
+                }
+            }
+		    else if(m == 0){
+		        if (ac <= a['eCardBalance']){
+                    bankinfo.transfTocard(client.eCardNumber, ac);
+                    alert("提现成功！");
+                }
+		        else {
+		            alert("一卡通余额不足！");
+                }
+            }
+		    else
+		        alert("请选择服务！");
+		}
+		else{
+			alert("密码错误！");
+		}   
+	}
+}
+
+
+function searchFct(){
+
+	var a = bankinfo.query(client.eCardNumber);
+	var y = JSON.parse(a);
+	var bal = y['balance'];
+    var ebal = y['eCardBalance'];
+    alert(bal);
+    alert(ebal);
+	var balRun = 0;
+	var ebalRun = 0;
+	var timesRun = 0;
+	var stop = bal<ebal?ebal:bal;
+	var myVar = setInterval(function(){
+		if(balRun < bal)
+			balRun += 1;
+		if (ebalRun < ebal)
+			ebalRun += 1;
+
+		if(timesRun === stop){
+			
+			clearInterval(myVar);
+		}
+		//do whatever here..
+		$("#balance").val(balRun);
+		$("#Ecardbalance").val(ebalRun);
+	}, 2);
+}
 
 
     $(document).on("click",'#borrow',function () {
         var state =$(this).parents("tr").find("td").eq(5).text();
         var ID =$(this).parents("tr").find("td").eq(0).text();
-        if($("#book1").html()!==""&&$("#book2").html()!==""&&$("#book3").html()!==""){
+        if($("#book1").val()!==""&&$("#book2").val()!==""&&$("#book3").val()!==""){
             syalert.syopen("alert1");
         } else if(state=="未借"){
             syalert.syopen("alert2");
             $(this).parents("tr").find("td").eq(5).html("已借");
             var newstate=$(this).parents("tr").find("td").eq(5).text();
           bookinfo.update(ID,state,client.eCardNumber);
-            if($("#book1").html()==""){
-                $("#book1").html(ID);
-            }else if($("#book2").html()==""){
-                $("#book2").html(ID);
-            }else if($("#book3").html()==""){
-                $("#book3").html(ID);
+            if($("#book1").val()==""){
+                $("#book1").val(ID);
+            }else if($("#book2").val()==""){
+                $("#book2").val(ID);
+            }else if($("#book3").val()==""){
+                $("#book3").val(ID);
             }
 
         } else{
@@ -654,7 +889,7 @@ $("#basket").click(function () {
     })
 
     $("#btn1").click(function () {
-        var id =$("#book1").html();
+        var id =$("#book1").val();
         var table,tr,td,i,state;
         table =$("#book #myTable").get(0);
         tr = table.getElementsByTagName("tr");
@@ -667,16 +902,17 @@ $("#basket").click(function () {
             state=tr[i].getElementsByTagName("td")[5].innerHTML.toUpperCase();
         if(id==td){
                 tr[i].getElementsByTagName("td")[5].innerHTML="未借";
-                $("#book1").html("");
-                bookinfo.update(id,state,client.eCardNumber);
+                $("#book1").val("");
+                bookinfo.update(id,state,"213171645");
         syalert.syopen("alert3");
             }
 
         }
+
     });
 
     $("#btn2").click(function () {
-        var id =$("#book2").html();
+        var id =$("#book2").val();
         var table,tr,td,i,state;
         table =$("#book #myTable").get(0);
         tr = table.getElementsByTagName("tr");
@@ -690,15 +926,15 @@ $("#basket").click(function () {
             state=tr[i].getElementsByTagName("td")[5].innerHTML.toUpperCase();
             if(id==td){
                 tr[i].getElementsByTagName("td")[5].innerHTML="未借";
-                $("#book2").html("");
-                bookinfo.update(id,state,client.eCardNumber);
+                $("#book2").val("");
+                bookinfo.update(id,state,"213171645");
                 syalert.syopen("alert3");
             }
 
         }
     });
     $("#btn3").click(function () {
-        var id =$("#book3").html();
+        var id =$("#book3").val();
         var table,tr,td,i,state;
         table =$("#book #myTable").get(0);
         tr = table.getElementsByTagName("tr");
@@ -711,19 +947,23 @@ $("#basket").click(function () {
             state=tr[i].getElementsByTagName("td")[5].innerHTML.toUpperCase();
             if(id==td){
                 tr[i].getElementsByTagName("td")[5].innerHTML="未借";
-                $("#book3").html("");
-                bookinfo.update(id,state,client.eCardNumber);
+                $("#book3").val("");
+                bookinfo.update(id,state,"213171645");
                 syalert.syopen("alert3");
             }
 
         }
     });
+    
+    $("#bookstore").click(function () {
+        syalert.syopen("bookalert");
+    })
 
     function BookmyFunction() {
         // 声明变量
         var input, filter, table, tr, td, i;
         input =$("#book #myInput").get(0);
-        filter = input.value.toUpperCase(); 
+        filter = input.value.toUpperCase();
         table =$("#book #myTable").get(0);
         tr = table.getElementsByTagName("tr");
 
@@ -769,10 +1009,7 @@ $("#basket").click(function () {
         var accordion = new Accordion($('.accordion-menu'), false);
     })
 
-
-    
-
-   function judge(date1, date2){
+    function judge(date1, date2){
         if(date1.getYear() < date2.getYear()) return 1;
         if(date1.getMonth() < date2.getMonth()) return 1;
         if(date1.getDate() < date2.getDate()) return 1;
@@ -792,12 +1029,17 @@ $("#basket").click(function () {
                 last = res.elementAt(i).getTime();
                 LeftTimeInsert(last);
            }
+           
         }
+        
+      var scrollHeight = $(".messages-chat").prop("scrollHeight");
+      $(".messages-chat").scrollTop(scrollHeight);
     }
 
     //点击发送
     document.querySelector('.fa-paper-plane-o').addEventListener('click',()=> {
-      div = document.createElement("div");
+       
+     /* div = document.createElement("div");
       div.className = "message text-only";
       p = document.createElement("p");
       p.className = "text";
@@ -806,17 +1048,17 @@ $("#basket").click(function () {
       div1.className = "response";
       div1.appendChild(p);
       div.appendChild(div1);
-      document.querySelector(".messages-chat").appendChild(div);
-
+      document.querySelector(".messages-chat").appendChild(div);*/
       var str = message.getJson();
 
       var obj = JSON.parse(str);
       obj['sender'] = client.eCardNumber;
       obj['receiver'] = document.querySelector(".searchbar-message").value;
-      obj['message'] = document.querySelector(".write-message").value;
+      obj['message'] = document.querySelector(".write-message").value;  
       str = JSON.stringify(obj);
       messagetrans.insert(str);
       document.querySelector(".write-message").value = '';
+    
     });
 
 
@@ -824,19 +1066,17 @@ $("#basket").click(function () {
     //点击选人
     $(".discussion-person").on("click",".discussion",function() {
       last.setYear(-100);
-      client.eCardNumber = "213171645";
-      current = document.querySelector('.message-active');
-      current.classList.remove("message-active");
+      if(document.querySelector('.message-active'))
+      {
+        current = document.querySelector('.message-active');
+        current.classList.remove("message-active");
+      }
       this.classList.add("message-active");
       Name = this.querySelector('.name').innerText;
       $(".header-chat .name").text(Name);
       $(".messages-chat").empty();
 
-      if(id == -1000){
-          id = setInterval('getnew()',  50);
-          getnew();
-      }
-
+     
       var per = $(".message-active").find(".desc-contact").find(".message").text();
       var res = messagetrans.query(client.eCardNumber, per);
       messagetrans.querynew(client.eCardNumber, per);
@@ -849,7 +1089,14 @@ $("#basket").click(function () {
           LeftTimeInsert(last);
         }
       }
+    
+      if(myid == -1000){
+          myid = setInterval('getnew()', 1000);
+          getnew();
+      }
 
+      var scrollHeight = $(".messages-chat").prop("scrollHeight");
+            $(".messages-chat").scrollTop(scrollHeight);
 
     });
 
@@ -937,6 +1184,20 @@ $("#basket").click(function () {
         div3.innerText=time;
 
         div.appendChild(div3);
+
+        div4=document.createElement("div");
+        div4.className="clear-button";
+
+        button=document.createElement("button");
+        i=document.createElement("i");
+        i.className="material-icons";
+        i.innerText="clear";
+        button.appendChild(i);
+
+        div4.appendChild(button);
+        div.appendChild(div4);
+
+
         document.querySelector(".discussion-person").appendChild(div);
         div3.click();
     }
@@ -963,6 +1224,7 @@ $("#basket").click(function () {
 	  }
       var time = new Date();
       DiscussionPersonInsert(per['name'], head.query(document.querySelector(".searchbar-message").value), document.querySelector(".searchbar-message").value, time.getHours() + ":" + time.getMinutes());
+
   });
 
 
@@ -991,6 +1253,12 @@ $("#basket").click(function () {
         $(".card").removeClass("inform");
       }
   })
+
+  $(".discussions").on("click",".material-icons",function(event){
+    ($(this).parents(".discussion")).remove();
+
+    event.stopPropagation();
+})
 
 </script>
 </html>

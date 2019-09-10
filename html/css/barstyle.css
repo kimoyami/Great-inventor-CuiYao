@@ -318,6 +318,33 @@ li.tagfocus a::after{
   
 }
 
+.shopcard .shopcard-clear{
+  display: block;
+  position: relative;
+  left:100%;
+  bottom:53%;
+}
+
+
+.shopcard .shopcard-clear button{
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+.shopcard .shopcard-clear button:focus {
+  outline: 0;
+}
+
+.shopcard .shopcard-clear button i {
+  
+  font-size: 1rem;
+  color: #000000;
+}
+
+.shopcard .shopcard-clear button:hover i {
+  color: #006dbc;
+}
+
 .shopcard.on{
   display: flex;
 }
@@ -347,7 +374,6 @@ li.tagfocus a::after{
 }
 
 .shopcard .contain .imgBx::before {
-  content: 'Nike';
   position: absolute;
   top: 20px;
   left: 20px;
@@ -374,7 +400,7 @@ li.tagfocus a::after{
 }
 
 .shopcard .contain .details h2 {
-  margin: 0;
+  margin-bottom: 10%;
   padding: 0;
   font-size: 2.5em;
   line-height: 0.8em;
@@ -390,7 +416,7 @@ li.tagfocus a::after{
 .shopcard .contain .details p {
   font-weight:normal;
   max-width: 85%;
-  margin-left: 10%;
+  margin-left: 5%;
   color: #333;
   font-size: 15px;
 }
@@ -399,10 +425,10 @@ li.tagfocus a::after{
   padding: 0;
   font-size: 2.5em;
   color: #a2a2a2;
-  float: left;
+  float: right;
 }
 
-.shopcard .contain .details button {
+.shopcard .contain .details .context button {
   background: #006dbc;
   color: #fff;
   border: none;

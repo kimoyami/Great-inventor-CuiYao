@@ -119,8 +119,13 @@
                                         <img src="image/下载.png" alt="" />
                                     </div>
                                     <div class="details">
+                                            <div class="shopcard-clear">
+                                                    <button><i class="material-icons">clear</i></button>
+                                                </div>
                                         <div class="context">
-                                            <h2>Nike Air Max 270<br /><span>Runing Collection</span></h2>
+                                        
+                                                
+                                            <h2>Nike Air Max 270</h2>
                                             <p>
                                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo natus ipsum praesentium explicabo
                                                 nesciunt consequatur ea error similique cum non doloribus quis libero quam rem, cumque
@@ -130,7 +135,7 @@
                                                 itaque, nisi rerum accusantium quae officia nesciunt vero ex libero veniam quod corporis atque.
                                             </p>
                                             <h3>$150.99</h3>
-                                            <button>Buy now</button>
+                                           
                                         </div>
                                     </div>
                                 </div>
@@ -522,7 +527,8 @@
             $(".shopcard").addClass("on");
         }
 
-
+        $(".shopcard .context h2").text($(this).parents("tr").find("td").eq(1).text());
+        $(".shopcard .context h3").text("￥"+$(this).parents("tr").find("td").eq(2).text());
     })
 
 
@@ -585,6 +591,11 @@
         $("#basketbody").empty();
        })
 
+    $(".shopcard-clear").on("click",".material-icons",function(event){
+        $(".shopcard").removeClass("on");
+
+    event.stopPropagation();
+    })
  
     $('.bankbutton').on('click',function(){
         var focused = $(document).find('.clear');
@@ -899,7 +910,7 @@ $(document).on("click",'#borrow',function () {
       var obj = JSON.parse(str);
       obj['sender'] = client.eCardNumber;
       obj['receiver'] = document.querySelector(".searchbar-message").value;
-      obj['message'] = document.querySelector(".write-message").value;
+      obj['message'] = document.querySelector(".write-message").value;  
       str = JSON.stringify(obj);
       messagetrans.insert(str);
       document.querySelector(".write-message").value = '';
