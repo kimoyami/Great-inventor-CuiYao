@@ -1264,7 +1264,7 @@ $(document).on("click",'#borrow',function () {
 				var newstate=$(this).parents("tr").find("td").eq(5).text();
 				bookinfo.update(ID,state,client.eCardNumber);
 			}
-			else bookalert5
+			else syalert.syopen("bookalert5");
             if($("#book1").val()==""){
                 $("#book1").val(ID);
             }else if($("#book2").val()==""){

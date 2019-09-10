@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e9e75e62-ef5d-482f-bdce-fa8ea2706755" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/html/bar.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/bar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/bar.html.bak" beforeDir="false" afterPath="$PROJECT_DIR$/html/bar.html.bak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/DataBooks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/DataBooks.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/srv/client/BookInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/srv/client/BookInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/srv/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/srv/client/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/srv/server/BookInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/srv/server/BookInfo.java" afterDir="false" />
-    </list>
+    <list default="true" id="e9e75e62-ef5d-482f-bdce-fa8ea2706755" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,8 +57,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/dao/DataBooks.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-266">
-              <caret line="156" column="21" lean-forward="true" selection-start-line="156" selection-start-column="21" selection-end-line="156" selection-end-column="21" />
+            <state relative-caret-position="124">
+              <caret line="156" column="20" selection-start-line="156" selection-start-column="20" selection-end-line="156" selection-end-column="20" />
               <folding>
                 <element signature="e#0#5195#0" expanded="true" />
               </folding>
@@ -141,9 +134,9 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-2093" />
-    <option name="y" value="83" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-2502" />
+    <option name="y" value="9" />
     <option name="width" value="2420" />
     <option name="height" value="1107" />
   </component>
@@ -334,18 +327,18 @@
       <workItem from="1568047196673" duration="6366000" />
       <workItem from="1568083794631" duration="1488000" />
       <workItem from="1568144440779" duration="1434000" />
-      <workItem from="1568145906052" duration="7488000" />
+      <workItem from="1568145906052" duration="8268000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="92659000" />
+    <option name="totallyTimeSpent" value="93439000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1927" y="-1" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49919486" visible="true" weight="0.3067114" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49919486" visible="true" weight="0.3067114" />
       <window_info id="Structure" order="1" sideWeight="0.50080514" side_tool="true" weight="0.2553305" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -354,7 +347,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.33144477" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33144477" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39869988" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -829,8 +822,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/dao/DataBooks.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-266">
-          <caret line="156" column="21" lean-forward="true" selection-start-line="156" selection-start-column="21" selection-end-line="156" selection-end-column="21" />
+        <state relative-caret-position="124">
+          <caret line="156" column="20" selection-start-line="156" selection-start-column="20" selection-end-line="156" selection-end-column="20" />
           <folding>
             <element signature="e#0#5195#0" expanded="true" />
           </folding>

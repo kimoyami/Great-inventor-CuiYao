@@ -487,6 +487,9 @@
     <div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert6">
         <div class="sy-content">删除成功！</div>
     </div>
+	<div class="sy-alert sy-alert-tips animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="bookalert5">
+        <div class="sy-content">借书失败！</div>
+    </div>
 <div class="sy-alert sy-alert-model animated" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="confirm" sy-mask="true" id="bookalert">
     <div class="sy-title">我的书库</div>
     <div class="sy-content">
@@ -1321,18 +1324,21 @@ function searchFct(){
         if($("#book1").val()!==""&&$("#book2").val()!==""&&$("#book3").val()!==""){
             syalert.syopen("alert1");
         } else if(state=="未借"){
-            syalert.syopen("alert2");
-            $(this).parents("tr").find("td").eq(5).html("已借");
-            var newstate=$(this).parents("tr").find("td").eq(5).text();
-          bookinfo.update(ID,state,client.eCardNumber);
-            if($("#book1").val()==""){
+            if(bookinfo.getState(ID) == 0){
+				syalert.syopen("alert2");
+				$(this).parents("tr").find("td").eq(5).html("已借");
+				var newstate=$(this).parents("tr").find("td").eq(5).text();
+				bookinfo.update(ID,state,client.eCardNumber);
+				 if($("#book1").val()==""){
                 $("#book1").val(ID);
-            }else if($("#book2").val()==""){
+				}else if($("#book2").val()==""){
                 $("#book2").val(ID);
-            }else if($("#book3").val()==""){
+				}else if($("#book3").val()==""){
                 $("#book3").val(ID);
-            }
-
+				}
+			}
+			else syalert.syopen("bookalert5");
+           
         } else{
             syalert.syopen("alert0");
 
@@ -1386,7 +1392,7 @@ function searchFct(){
         if(id==td){
                 tr[i].getElementsByTagName("td")[5].innerHTML="未借";
                 $("#book1").val("");
-                bookinfo.update(id,state,"213171645");
+                bookinfo.update(id,state,client.eCardNumber);
         syalert.syopen("alert3");
             }
 
@@ -1410,7 +1416,7 @@ function searchFct(){
             if(id==td){
                 tr[i].getElementsByTagName("td")[5].innerHTML="未借";
                 $("#book2").val("");
-                bookinfo.update(id,state,"213171645");
+                bookinfo.update(id,state, client.eCardNumber);
                 syalert.syopen("alert3");
             }
 
@@ -1431,7 +1437,7 @@ function searchFct(){
             if(id==td){
                 tr[i].getElementsByTagName("td")[5].innerHTML="未借";
                 $("#book3").val("");
-                bookinfo.update(id,state,"213171645");
+                bookinfo.update(id,state,client.eCardNumber);
                 syalert.syopen("alert3");
             }
 
