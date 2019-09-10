@@ -59,7 +59,7 @@ public class MainView {
         frame.setVisible(true);
         frame.setResizable(false);
         //http://101.37.79.28/html/index.html
-        browser.loadURL("C:\\Users\\崔峣\\Desktop\\test\\Great-inventor-CuiYao\\html\\index.html");
+        browser.loadURL("E:\\Github\\SEU\\Great-inventor-CuiYao\\html\\index.html");
         Toolkit kit = Toolkit.getDefaultToolkit();
         Image image = kit.createImage("http://101.37.79.28/html/image/xh.jpg");
         frame.setIconImage(image);
@@ -126,9 +126,9 @@ public class MainView {
                 window.asObject().setProperty("bankinfo",bankinfo);
                 window.asObject().setProperty("goodinfo",goodinfo);
                 window.asObject().setProperty("bookinfo",bookinfo);
-                window.asObject().setProperty("gradeinfo",gradeinfo);
-                window.asObject().setProperty("courseinfo",courseinfo);
-                window.asObject().setProperty("selectcourseinfo",selectcourseinfo);
+                window.asObject().setProperty("gradeInfo",gradeinfo);
+                window.asObject().setProperty("courseInfo",courseinfo);
+                window.asObject().setProperty("selectCourseinfo",selectcourseinfo);
             }
         });
     }
