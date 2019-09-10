@@ -6,7 +6,7 @@
 </head>
 
 <body>
-	<table id="MyTable" border="solid">
+	<table id="MyTable" border="solid" align="center">
 		<tr>
 			<th style="width: 10%; align-self: center;">用户姓名</th>
 			<th style="width: 10%; align-self: center;">交易密码</th>
@@ -16,12 +16,16 @@
 			<th style="width: 10%; align-self: center;">通过审核</th>
 		</tr>
 	</table>
-	<button id="pass" onclick="pass()">通过</button>
+	<div align="center">
+		<button id="pass" onclick="pass()">通过</button>
+	</div>
+
 
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
 	<script type="text/javascript">
-		(function (){
+		(function () {
+		alert("1")
 		var a = login.getAll();
 		alert(a.elementAt(0).getUsername());
 		for (var i = 0; i<5; i++){
@@ -31,6 +35,7 @@
 					"<input type='checkbox' name='ispass' value='"+v+"'/>"+"</td></tr>");
 		}
 		})();
+
 
 
 	function pass() {
@@ -46,7 +51,28 @@
 	</script>
 
 	<style type="text/css">
-		
+		body {
+			background: -webkit-linear-gradient(left, #25c481, #25b7c4);
+			background: linear-gradient(to right, #25c481, #25b7c4);
+			font-family: 'Roboto', sans-serif;
+		}
+
+		table {
+			opacity: 20%;
+			font-family: 'Open Sans', Helvetica;
+			color: white;
+			border:2px solid #FFF;
+			border-collapse : collapse;
+			position: center;
+		}
+		table tr {
+			border:2px solid #FFF;
+			border-collapse : collapse;
+		}
+		table th, table td {
+			border:2px solid #FFF;
+			border-collapse : collapse;
+		}
 	</style>
 </body>
 </html>

@@ -1,0 +1,60 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400);
+h1{
+  font-size: 30px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+
+body {
+  background: -webkit-linear-gradient(left, #25c481, #25b7c4);
+  background: linear-gradient(to right, #25c481, #25b7c4);
+  font-family: 'Roboto', sans-serif;
+}
+
+
+
+table {
+  opacity: 20%;
+  font-family: 'Open Sans', Helvetica;
+  color: white;
+  border:2px solid #FFF;
+  border-collapse : collapse;
+}
+table tr {
+  border:2px solid #FFF;
+  border-collapse : collapse;
+}
+table th, table td {
+  border:2px solid #FFF;
+  border-collapse : collapse;
+}
+
+.days, .time {
+  opacity: 20%;
+  color: white;
+//background: #34495e;
+  text-transform: uppercase;
+  font-size: 0.6em;
+  text-align: center;
+}
+.days{
+  font-size: 1em;
+}
+.time {
+  width: 3em !important;
+  font-size: 1em;
+}
+
+.Back{
+  margin-top: 40px;
+  padding: 10px;
+  clear: left;
+  text-align: center;
+  font-size: 10px;
+  font-family: arial;
+  color: #fff;
+}

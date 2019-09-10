@@ -201,7 +201,7 @@ public class DataBase {
                 ResultSet rs = DataBase.s.executeQuery(sql);
                 while (rs.next()) {
                     Unsolve tmp = new Unsolve(rs.getString("username"), rs.getString("password"),
-                            rs.getString("ecardname"), rs.getString("sex"),
+                            rs.getString("ecardnumber"), rs.getString("sex"),
                             rs.getString("status"));
                     res.addElement(tmp);
                 }
