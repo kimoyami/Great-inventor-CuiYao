@@ -52,7 +52,11 @@ public class SelectCourseInfo {
             ex.printStackTrace();
             return -3;
         }
-        return DataSelectCourse.insert(e,idx,name,time,teacher,classroom);
+        DataBase.start();
+        int a=DataSelectCourse.insert(e,idx,name,time,teacher,classroom);
+        DataBase.stop();
+
+        return a;
     }
 
     public static synchronized int delete() {
@@ -67,7 +71,11 @@ public class SelectCourseInfo {
             e.printStackTrace();
             return -4;
         }
-        return DataSelectCourse.delete(eCardName, courseName,teacher);
+        DataBase.start();
+        int a=DataSelectCourse.delete(eCardName, courseName,teacher);
+
+        DataBase.stop();
+        return a;
     }
 
     public static Vector<SelectCourse> query() {
@@ -77,7 +85,11 @@ public class SelectCourseInfo {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return DataSelectCourse.query(id);
+        DataBase.start();
+        Vector<SelectCourse>res=DataSelectCourse.query(id);
+        DataBase.stop();
+
+        return res;
     }
 
 }

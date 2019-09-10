@@ -35,7 +35,6 @@ public class ServerThread extends Thread {
 
             while (true) {
                 synchronized(new Object()){
-
                 int op = cin.readInt();
                 if (op == -1) break;
                 if (op == -100) update();

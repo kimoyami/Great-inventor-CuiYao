@@ -4,6 +4,7 @@ Arthor: kimoyami
 
 package srv.server;
 
+import dao.DataBase;
 import dao.DataPerson;
 import srv.person.Person;
 
@@ -44,7 +45,11 @@ public class PersonInfo {
             e.printStackTrace();
             return -3;
         }
-        return DataPerson.insert(person);
+        DataBase.start();
+        int a=DataPerson.insert(person);
+        DataBase.stop();
+
+        return a;
     }
 
     public static synchronized int delete(){
@@ -55,7 +60,10 @@ public class PersonInfo {
             e.printStackTrace();
             return -3;
         }
-        return DataPerson.delete(eCardNumber);
+        DataBase.start();
+        int a=DataPerson.delete(eCardNumber);
+        DataBase.stop();
+        return a;
     }
 
     public static Person query(){
@@ -65,7 +73,12 @@ public class PersonInfo {
         }catch (Exception e){
             e.printStackTrace();
         }
-        return DataPerson.query(eCardNumber);
+        DataBase.start();
+        Person person=DataPerson.query(eCardNumber);
+        DataBase.stop();
+
+
+        return person;
     }
 
     public static synchronized int update(){
@@ -76,7 +89,10 @@ public class PersonInfo {
             e.printStackTrace();
             return -3;
         }
-        return DataPerson.update(person);
+        DataBase.start();
+        int a=DataPerson.update(person);
+        DataBase.stop();
+        return a;
     }
 
 
@@ -89,7 +105,10 @@ public class PersonInfo {
             e.printStackTrace();
             return -3;
         }
-        return DataPerson.isNew(eCardNumber);
+        DataBase.start();
+        int a=DataPerson.isNew(eCardNumber);
+        DataBase.stop();
+        return a;
     }
 
 }

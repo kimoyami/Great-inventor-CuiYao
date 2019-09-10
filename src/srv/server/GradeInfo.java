@@ -1,5 +1,6 @@
 package srv.server;
 
+import dao.DataBase;
 import dao.DataGrade;
 import org.omg.CORBA.TCKind;
 import srv.course.Grade;
@@ -69,7 +70,10 @@ public class GradeInfo {
             e.printStackTrace();
             return -3;
         }
-        return DataGrade.insert(ecardname, semester, coursename, coursegrade, teacher);
+        DataBase.start();
+        int a=DataGrade.insert(ecardname, semester, coursename, coursegrade, teacher);
+        DataBase.stop();
+        return a;
     }
 
     public static synchronized int delete() {
@@ -82,7 +86,10 @@ public class GradeInfo {
             e.printStackTrace();
             return -3;
         }
-        return DataGrade.delete(eCardName, courseName);
+        DataBase.start();
+        int a=DataGrade.delete(eCardName, courseName);
+        DataBase.stop();
+        return a;
     }
 
     public static int querygrade() {
@@ -95,7 +102,11 @@ public class GradeInfo {
             e.printStackTrace();
             return -3;
         }
-        return DataGrade.querygrade(ecardname, coursename);
+        DataBase.start();
+        int a=DataGrade.querygrade(ecardname, coursename);
+        DataBase.stop();
+
+        return a;
     }
 
     public static Vector<Grade> querycourse() {
@@ -111,7 +122,11 @@ public class GradeInfo {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return DataGrade.querycourse(coursename, teacher, grade0, grade1);
+        DataBase.start();
+        Vector<Grade>res=DataGrade.querycourse(coursename, teacher, grade0, grade1);
+        DataBase.stop();
+
+        return res;
     }
 
     public static Vector<Grade> getAll() {
@@ -121,7 +136,10 @@ public class GradeInfo {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return DataGrade.getAll(ecardname);
+        DataBase.start();
+        Vector<Grade>res=DataGrade.getAll(ecardname);
+        DataBase.stop();
+        return res;
     }
 
     public static double getAverage() {
@@ -133,7 +151,10 @@ public class GradeInfo {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return DataGrade.getAverage(coursename, teacher);
+        DataBase.start();
+        double a=DataGrade.getAverage(coursename, teacher);
+        DataBase.stop();
+        return a;
     }
 
     public static int update(){
@@ -148,7 +169,10 @@ public class GradeInfo {
             e.printStackTrace();
             return -1;
         }
-        return DataGrade.update(ecardname,coursename,grade);
+        DataBase.start();
+        int a=DataGrade.update(ecardname,coursename,grade);
+        DataBase.stop();
+        return a;
 
     }
 

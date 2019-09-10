@@ -5,6 +5,7 @@
 //
 package srv.server;
 
+import dao.DataBase;
 import dao.DataMessage;
 import srv.message.Message;
 
@@ -53,7 +54,11 @@ public class MessageTrans {
             e.printStackTrace();
             return -3;
         }
-        return DataMessage.insert(message);
+        DataBase.start();
+        int a=DataMessage.insert(message);
+        DataBase.stop();
+
+        return a;
     }
 
     public static synchronized int delete(){
@@ -64,7 +69,11 @@ public class MessageTrans {
             e.printStackTrace();
             return -3;
         }
-        return DataMessage.delete(message);
+        DataBase.start();
+        int a=DataMessage.delete(message);
+        DataBase.stop();
+
+        return a;
     }
 
     public static Vector<Message> query(){
@@ -75,7 +84,11 @@ public class MessageTrans {
         }catch (Exception e){
             e.printStackTrace();
         }
-        return DataMessage.query(sender, receiver);
+        DataBase.start();
+        Vector<Message>res=DataMessage.query(sender, receiver);
+        DataBase.stop();
+
+        return res;
     }
 
     public static Vector<Message> querynew(){
@@ -86,7 +99,11 @@ public class MessageTrans {
         }catch (Exception e){
             e.printStackTrace();
         }
-        return DataMessage.querynew(sender, receiver);
+        DataBase.start();
+        Vector<Message>res=DataMessage.querynew(sender, receiver);
+        DataBase.stop();
+
+        return res;
     }
 
 }
