@@ -35,12 +35,15 @@ public class DataSelectCourse {
                 return -3;
             }//判断能否继续选择
 
-            sql="select * from selectcourse where ecardname='"+name+"'";
+            sql="select * from selectcourse where ecardname='"+e+"'";
             rs= DataBase.s.executeQuery(sql);
             int cur=0;
+            rs.next();
             while(rs.next()){
                 int a=rs.getInt("coursetime");
+                System.out.println("a="+a);
                 cur=check(a,time);
+                System.out.println("cur="+cur);
                 if(cur==1){break;}
             }
 
@@ -77,15 +80,30 @@ public class DataSelectCourse {
         }
     }
 
-    public static int delete(String eCardName,String coursename){
+    public static int delete(String eCardName,String coursename,String teacher){
         try{
             if(exist(eCardName,coursename)!=1){return 0;}
-            System.out.println("nb");
             String sql="delete from selectcourse where ecardname='"+eCardName+"' and coursename='"+coursename+"'";
-            System.out.println("nb");
+
             DataBase.s.executeUpdate(sql);
-            System.out.println("nb");
             DataBase.c.commit();
+            sql="select * from course where teacher='"+teacher+"'";
+            ResultSet rs=DataBase.s.executeQuery(sql);
+            rs.next();
+            int a=rs.getInt("remainnumber");
+            String b=rs.getString("state");
+            a+=1;
+            if(b.equals("已满")){
+                b="未满";
+                sql="update course set remainnumber="+a+",state='"+b+"'where coursename='"+coursename+"' and teacher='"+teacher+"'";
+                DataBase.s.executeUpdate(sql);
+                DataBase.c.commit();
+            }
+            else{
+                sql="update course set remainnumber="+a+",state='"+b+"'where coursename='"+coursename+"' and teacher='"+teacher+"'";
+                DataBase.s.executeUpdate(sql);
+                DataBase.c.commit();
+            }
             return 1;
         }
         catch(Exception e){
@@ -147,10 +165,11 @@ public class DataSelectCourse {
         return res;
     }
 
-
     public static void main(String args[]){
         DataBase.start();
-        int a=insert("213170003","0014","编译原理",112212,"翟玉庆",2101);
+        int a=delete("213171645","野区经济学","明凯");
+        System.out.println(a);
+
         DataBase.stop();
     }
 }

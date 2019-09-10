@@ -59,6 +59,7 @@ public class GoodInfo {
         double price;
         String url;
         String tag;
+        String info;
         try {
             idx=now.cin.readUTF();
             cnt=now.cin.readInt();
@@ -66,11 +67,12 @@ public class GoodInfo {
             price=now.cin.readDouble();
             url=now.cin.readUTF();
             tag=now.cin.readUTF();
+            info=now.cin.readUTF();
         } catch (Exception e) {
             e.printStackTrace();
             return -3;
         }
-        return DataGoods.insert(idx,cnt,goodname,price,url,tag);
+        return DataGoods.insert(idx,cnt,goodname,price,url,tag,info);
     }
 
     public static synchronized int delete() {
